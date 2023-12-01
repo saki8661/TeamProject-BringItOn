@@ -1,6 +1,6 @@
 package com.example.teamprojectbringiton.repository.interfaces;
 
-import com.example.teamprojectbringiton.dto.SignInFormDto;
+import com.example.teamprojectbringiton.dto.request.SignInFormDto;
 import com.example.teamprojectbringiton.repository.entity.User;
 import org.apache.ibatis.annotations.Mapper;
 

@@ -1,4 +1,4 @@
-package com.example.teamprojectbringiton.utils;
+package com.example.teamprojectbringiton._core.utils;
 
 public class Define {
 

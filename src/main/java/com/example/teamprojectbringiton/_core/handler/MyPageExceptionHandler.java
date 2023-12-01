@@ -1,6 +1,6 @@
-package com.example.teamprojectbringiton.handler;
+package com.example.teamprojectbringiton._core.handler;
 
-import com.example.teamprojectbringiton.handler.exception.CustomPageException;
+import com.example.teamprojectbringiton._core.handler.exception.CustomPageException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;

@@ -1,7 +1,7 @@
-package com.example.teamprojectbringiton.handler;
+package com.example.teamprojectbringiton._core.handler;
 
-import com.example.teamprojectbringiton.handler.exception.CustomRestfullException;
-import com.example.teamprojectbringiton.handler.exception.UnAuthorizedException;
+import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
+import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 

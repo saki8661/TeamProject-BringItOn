@@ -1,4 +1,4 @@
-package com.example.teamprojectbringiton.handler.exception;
+package com.example.teamprojectbringiton._core.handler.exception;
 
 import lombok.Getter;
 import org.springframework.http.HttpStatus;

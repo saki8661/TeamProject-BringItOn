@@ -1,7 +1,7 @@
-package com.example.teamprojectbringiton.config;
+package com.example.teamprojectbringiton._core.config;
 
 
-import com.example.teamprojectbringiton.handler.AuthInterceptor;
+import com.example.teamprojectbringiton._core.handler.AuthInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

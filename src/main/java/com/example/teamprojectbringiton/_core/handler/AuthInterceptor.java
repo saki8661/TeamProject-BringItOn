@@ -1,8 +1,8 @@
-package com.example.teamprojectbringiton.handler;
+package com.example.teamprojectbringiton._core.handler;
 
-import com.example.teamprojectbringiton.handler.exception.UnAuthorizedException;
+import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
+import com.example.teamprojectbringiton._core.utils.Define;
 import com.example.teamprojectbringiton.repository.entity.User;
-import com.example.teamprojectbringiton.utils.Define;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
