@@ -12,7 +12,7 @@ import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
 
 @Component // IoC대상 - 싱글톤 관리
-public class AuthIntercepter implements HandlerInterceptor{
+public class AuthInterceptor implements HandlerInterceptor{
 
 
     // 컨트롤러에 들어오기 전에 동작

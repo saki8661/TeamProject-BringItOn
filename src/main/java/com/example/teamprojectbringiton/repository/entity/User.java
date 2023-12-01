@@ -1,14 +1,10 @@
 package com.example.teamprojectbringiton.repository.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 
-@Data
-@Builder
-@NoArgsConstructor
-@AllArgsConstructor
+@EntityScan
+@Getter
 public class User {
 
     private Integer id;

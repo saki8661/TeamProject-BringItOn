@@ -1,6 +1,7 @@
 package com.example.teamprojectbringiton.config;
 
-import com.example.teamprojectbringiton.handler.AuthIntetcepter;
+
+import com.example.teamprojectbringiton.handler.AuthInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -14,12 +15,12 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 public class WebMvcConfig implements WebMvcConfigurer {
 
     @Autowired
-    private AuthIntetcepter authIntetcepter;
+    private AuthInterceptor authInterceptor;
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
 
-        registry.addInterceptor(authIntetcepter)
+        registry.addInterceptor(authInterceptor)
                 .addPathPatterns("/account/**")
                 .addPathPatterns("/auth/**"); // 추가하는 방밥
 
