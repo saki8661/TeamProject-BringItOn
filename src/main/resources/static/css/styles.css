@@ -1,4 +1,289 @@
 @charset "UTF-8";
+@import "reset.css";
+
+:root {
+    --primary_01: #19B357;
+    --primary_02: #378AD7;
+    --cancle: #EC4937;
+    --basic_03: #333;
+    --basic_05: #555;
+    --basic_07: #777;
+    --basic_09: #999;
+    --form: #D3D8DE;
+    --line: #F0F0F0;
+    --box_bg: #F5F6F7;
+    --basic_wh: #fff;
+    --basic_bl: #000;
+}
+
+html {
+    font-size: 15px
+}
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-size: small;
+}
+
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    cursor: pointer;
+    outline: inherit;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+.frame {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
+
+/* Header Navigation*/
+.nav_bar {
+    display: flex;
+    justify-content: space-around;
+}
+
+.nav_logo {
+    display: inline-block;
+    width: 150px;
+    height: auto;
+}
+
+.nav_logo img {
+    width: 100%;
+    height: auto;
+}
+
+/* nav profile icon */
+
+.nav_info {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border: none;
+    border-radius: 50px;
+    background-color: rgba(255, 0, 0, 0);
+}
+
+.nav_info img {
+    width: 100%;
+    height: auto;
+}
+
+/* nav 내 정보 드롭다운 */
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    font-weight: 400;
+    background-color: #ffffff;
+    border-radius: 15px;
+    min-width: 150px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-content a {
+    display: block;
+    text-decoration: none;
+    color: rgb(37, 37, 37);
+    font-size: 12px;
+    padding: 12px 20px;
+}
+
+.dropdown-content a:hover {
+    background-color: #ececec;
+    border-radius: 15px;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* nav 검색 */
+
+.search_form {
+    position: relative;
+    width: 100%;
+    max-width: 540px;
+    margin: 0 auto;
+}
+
+@media (min-width: 844px) {
+    .search_form {
+        width: 540px;
+    }
+}
+
+.search_form input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #19B357;
+    border-radius: 10px;
+}
+
+input::placeholder {
+    font-size: small;
+}
+
+
+.search_button {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: rgba(255, 0, 0, 0);
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+
+.search_button img {
+    width: 32px;
+    height: 32px;
+}
+
+/* nav 시설 등록 */
+
+.nav_add {
+    display: block;
+    width: 75px;
+    height: 25px;
+    border: solid thin #19B357;
+    border-radius: 15px;
+    background-color: rgba(255, 0, 0, 0);
+    white-space: nowrap;
+    text-decoration: none;
+    color: #19B357;
+    text-align: center;
+    line-height: 1.5;
+}
+
+.nav_hr {
+    color: #19B357;
+    width: 100%;
+    height: 10px;
+}
+
+/* footer */
+
+.footer_frame {
+    max-width: 1450px;
+    margin: 100px auto;
+    width: 100%;
+}
+
+.footer_content {
+    display: flex;
+    justify-content: space-between;
+}
+
+/* Main */
+
+.main_link {
+    display: flex;
+    list-style: none;
+    margin: 0 20px 20px 20px;
+}
+
+.main_link a {
+    display: flex;
+    align-items: center;
+    font-size: x-large;
+}
+
+.main_link img {
+    margin-right: 10px;
+}
+
+.main_search_filter {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.main_paging {
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.main_content_title {
+    font-size: 15px;
+    font-weight: bold;
+    color: #999999;
+}
+
+.main_content_category{
+    font-size: 12px;
+    font-weight: bold;
+}
+.main_content_location{
+    font-size: 12px;
+
+    color: #999999;
+}
+
+.main_content_price{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.main_banner {
+    width: 100%;
+    margin-bottom: 50px;
+}
+
+.inside_content img {
+    border-radius: 15px;
+    width: 287px;
+    height: 215px;
+}
+
+.main_layout {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.main_filter {
+    margin: 10px 20px 10px 10px;
+    background: #ffffff;
+    border-radius: 50px;
+    width: 35px;
+    height: 35px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.drop_btn{
+    line-height: 3.5;
+}
+
 
 .container {
  text-align: center;
