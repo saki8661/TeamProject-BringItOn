@@ -1,16 +1,67 @@
 @charset "UTF-8";
 
-.m--profile {
-    background-image: url(https://picsum.photos/id/1/350);
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 200px;
+.container {
+ text-align: center;
 }
-.banner--img {
-    background-image: url(https://picsum.photos/600);
-    background-size: cover;
-    background-position: center;
-    width: 100%;
-    height: 100%;
+.join-us-text{
+    font-weight: bold;
+    padding-top: 20px;
+    padding-bottom: 10px;
+
 }
+
+.container{
+    padding-left: 100px;
+    padding-right: 100px;
+
+}
+.address-container{
+display: flex;
+
+
+}
+
+.invalid-feedback{
+    text-align: start;
+}
+.address-button{
+    color: white;
+    background-color: green;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 20px;/* 내부 여백 조절 */
+    cursor: pointer; /* 커서 모양 변경 */
+    border-radius: 5px;
+    width: 150px;
+    height: 40px;
+
+
+}
+
+.signup-button{
+
+    color: white;
+    background-color: green;
+    border: none;
+    padding: 10px 20px; /* 내부 여백 조절 */
+    cursor: pointer; /* 커서 모양 변경 */
+    border-radius: 5px;
+    width: 180px;
+    height: 45px;
+}
+
+.checkbox-group {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.log-in-text{
+
+}
+
+.search-sign-in{
+    padding-top: 50px;
+    color: grey;
+}
+
