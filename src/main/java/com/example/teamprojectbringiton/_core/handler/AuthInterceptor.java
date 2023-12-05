@@ -2,7 +2,7 @@ package com.example.teamprojectbringiton._core.handler;
 
 import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
 import com.example.teamprojectbringiton._core.utils.Define;
-import com.example.teamprojectbringiton.repository.entity.Users;
+import com.example.teamprojectbringiton.user.Users;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
