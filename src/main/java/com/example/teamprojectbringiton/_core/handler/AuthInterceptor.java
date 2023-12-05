@@ -2,7 +2,7 @@ package com.example.teamprojectbringiton._core.handler;
 
 import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
 import com.example.teamprojectbringiton._core.utils.Define;
-import com.example.teamprojectbringiton.repository.entity.User;
+import com.example.teamprojectbringiton.user.Users;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
@@ -24,7 +24,7 @@ public class AuthInterceptor implements HandlerInterceptor{
 
         // 세션에 사용자 정보 확인
         HttpSession session = request.getSession();
-        User principal = (User)session.getAttribute(Define.PRINCIPAL);
+        Users principal = (Users)session.getAttribute(Define.PRINCIPAL);
         if(principal == null) {
             // response.sendRedirect("/user/sign-in");
             throw new UnAuthorizedException("로그인 먼저 해주세요", HttpStatus.UNAUTHORIZED);
