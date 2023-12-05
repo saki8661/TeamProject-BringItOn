@@ -18,7 +18,12 @@ public class TestController {
     }
     @GetMapping("/user-team")
     public String userTeamManagement(){
-        return "user/userTeamManagement";
+        return "user/userTeam";
+    }
+
+    @GetMapping("/user-review")
+    public String userReviewManagement(){
+        return "user/userReview";
     }
 
 

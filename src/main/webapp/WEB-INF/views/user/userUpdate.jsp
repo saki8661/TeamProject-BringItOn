@@ -4,21 +4,21 @@
 
 <div>
     <div class="frame">
-        <div class="userUpdate_frame">
+        <div class="userInfo_frame">
             <div class="row">
-                <%@include file="../layout/userUpdateInside.jsp"%>
+                <%@include file="../layout/userInfoInside.jsp"%>
                 <div class="col-md-9 box">
                     <div class="d-flex pe-3 my-3">
-                        <div class="userUpdate_title">개인정보 수정</div>
+                        <div class="userInfo_title">개인정보 수정</div>
                     </div>
                     <hr />
                     <form action="#">
                         <div>
-                            <div class="userUpdate_main">
+                            <div class="userInfo_main">
                                 <div class="userUpdate_image">
                                     <img src="/images/default_profile.jpg">
                                     <div>
-                                        <button type="button" class="userUpdate_image_update">
+                                        <button type="button">
                                             이미지 변경
                                         </button>
                                     </div>
@@ -58,8 +58,8 @@
                                        placeholder="영문, 숫자, 특수문자 2가지 이상 포함 6~15자리">
                             </div>
                             <hr>
-                            <div class="userUpdate_button_wrap">
-                            <button type="submit" class="userUpdate_button"> 수정하기</button>
+                            <div class="userUpdate_button">
+                            <button type="submit"> 수정하기</button>
                             </div>
                         </div>
                     </form>

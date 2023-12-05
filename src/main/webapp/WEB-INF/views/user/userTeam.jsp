@@ -4,31 +4,32 @@
 
 <div>
     <div class="frame">
-        <div class="userUpdate_frame">
+        <div class="userInfo_frame">
             <div class="row">
-                <%@include file="../layout/userUpdateInside.jsp"%>
+                <%@include file="../layout/userInfoInside.jsp"%>
                 <div class="col-md-9 box">
                     <div class="d-flex pe-3 my-3">
-                        <div class="userUpdate_title">팀 관리</div>
+                        <div class="userInfo_title">팀 관리</div>
                     </div>
                     <hr />
+                    <form action="#">
                         <div>
-                            <div class="userUpdate_main">
-                                <div class="userUpdate_image">
+                            <div class="userInfo_main">
+                                <div class="userTeam_image">
                                     <img src="/images/psg.jpg">
                                     <div>
-                                        <button type="button" class="userUpdate_image_update">
+                                        <button type="button">
                                             이미지 변경
                                         </button>
                                     </div>
                                 </div>
-                                <div class="userUpdate_username">파리생제르망</div>
+                                <div class="userTeam_teamname">파리생제르망</div>
                             </div>
                         </div>
                         <hr>
-                        <div class="userUpdate_main_contents">
-                            <div class="userUpdate_main_content">
-                                <div class="userUpdate_main_content_title">
+                        <div class="userTeam_main_contents">
+                            <div class="userTeam_main_content">
+                                <div class="userTeam_main_content_title">
                                     위치
                                 </div>
                                 <div>
@@ -36,8 +37,8 @@
                                 </div>
                             </div>
                             <hr>
-                            <div class="userUpdate_main_content">
-                                <div class="userUpdate_main_content_title">
+                            <div class="userTeam_main_content">
+                                <div class="userTeam_main_content_title">
                                     인원
                                 </div>
                                 <div>
@@ -45,8 +46,8 @@
                                 </div>
                             </div>
                             <hr>
-                            <div class="userUpdate_main_content">
-                                <div class="userUpdate_main_content_title">
+                            <div class="userTeam_main_content">
+                                <div class="userTeam_main_content_title">
                                     종목
                                 </div>
                                 <div>
@@ -54,8 +55,8 @@
                                 </div>
                             </div>
                             <hr>
-                            <div class="userUpdate_main_content">
-                                <div class="userUpdate_main_content_title">
+                            <div class="userTeam_main_content">
+                                <div class="userTeam_main_content_title">
                                     소개
                                 </div>
                                 <div>
@@ -63,8 +64,8 @@
                                 </div>
                             </div>
                             <hr>
-                            <div class="userUpdate_button_wrap">
-                                <button type="submit" class="userUpdate_button"> 수정하기</button>
+                            <div class="userTeam_button">
+                                <button type="submit"> 수정하기</button>
                             </div>
                         </div>
                     </form>
