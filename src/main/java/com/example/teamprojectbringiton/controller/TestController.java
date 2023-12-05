@@ -20,4 +20,15 @@ public class TestController {
     public String leagueDetail(){
         return "league/leagueDetail";
     }
+
+    @GetMapping("/user-update")
+    public String userUpdate(){
+        return "user/userUpdate";
+    }
+
+    @GetMapping("/user-team")
+    public String userTeamManagement(){
+        return "user/userTeamManagement";
+    }
+
 }

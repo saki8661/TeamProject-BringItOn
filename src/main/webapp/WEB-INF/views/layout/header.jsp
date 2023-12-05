@@ -20,7 +20,7 @@
 <div class="frame">
     <nav class="navbar navbar-expand-sm nav_bar">
         <div class="container-fluid">
-            <a class="nav_logo" href="javascript:void(0)">
+            <a class="nav_logo" href="home">
                 <img src="/images/logo.png">
             </a>
             <form class="d-flex">
@@ -38,7 +38,7 @@
                 </button>
                 <div class="dropdown-content">
                     <a href="#">My페이지</a>
-                    <a href="#">회원정보 수정</a>
+                    <a href="/user-update">회원정보 수정</a>
                     <a href="#">로그아웃</a>
                 </div>
             </div>
