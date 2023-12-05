@@ -6,31 +6,7 @@
     <div class="frame">
         <div class="userUpdate_frame">
             <div class="row">
-                <div class="col-md-3">
-                    <a class="nav-link title text-center fs-2" href="#"></a>
-                    <div class="userUpdate_aside">
-                        <div class="userUpdate_image">
-                            <img src="/images/default_profile.jpg">
-                        </div>
-                        <div class="userUpdate_charge">
-                            나의 캐시
-                            <br>
-                            99,999,999원
-                            <button type="button">충전</button>
-                        </div>
-                        <hr>
-                        <div class="userUpdate_link">
-                            <a class="nav-link userUpdate_link_text" href="#">팀 관리</a>
-                            <a class="nav-link userUpdate_link_text" href="#">북마크</a>
-                            <a class="nav-link userUpdate_link_text" href="#">예약 내역</a>
-                            <a class="nav-link userUpdate_link_text" href="#">결제 내역</a>
-                            <a class="nav-link userUpdate_link_text" href="#">후기 관리</a>
-                            <a class="nav-link userUpdate_link_text" style="font-size: 25px; color: black;" href="#">개인정보
-                                수정</a>
-                            <a class="nav-link userUpdate_link_text" href="#">리그/매칭 현황</a>
-                        </div>
-                    </div>
-                </div>
+                <%@include file="../layout/userUpdateInside.jsp"%>
                 <div class="col-md-9 box">
                     <div class="d-flex pe-3 my-3">
                         <div class="userUpdate_title">개인정보 수정</div>
