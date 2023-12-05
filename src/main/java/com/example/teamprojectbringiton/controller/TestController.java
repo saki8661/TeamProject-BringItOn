@@ -11,9 +11,11 @@ public class TestController {
         return "home";
     }
 
+
     @GetMapping("/user-update")
     public String userUpdate(){
         return "user/userUpdate";
     }
+
 
 }

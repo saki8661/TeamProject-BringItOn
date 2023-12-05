@@ -13,4 +13,8 @@ public class SignInFormDto {
 
     private String username;
     private String password;
+    private String userEmail;
+    private String userPhoneNumber;
+    private String userAddress;
+
 }
