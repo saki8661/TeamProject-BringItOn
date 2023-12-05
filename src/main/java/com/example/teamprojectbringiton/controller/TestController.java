@@ -10,4 +10,10 @@ public class TestController {
     public String test(){
         return "home";
     }
+
+    @GetMapping("/user-update")
+    public String userUpdate(){
+        return "user/userUpdate";
+    }
+
 }
