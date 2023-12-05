@@ -15,5 +15,9 @@ public class TestController {
     public String userUpdate(){
         return "user/userUpdate";
     }
+    @GetMapping("/user-team")
+    public String userTeamManagement(){
+        return "user/userTeamManagement";
+    }
 
 }

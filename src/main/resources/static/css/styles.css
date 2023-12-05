@@ -453,7 +453,7 @@ display: flex;
 .userUpdate_main_content {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: start;
     margin: 20px 30px 20px;
 
 }
@@ -463,4 +463,8 @@ display: flex;
     border-radius: 15px;
     width: 300px;
     padding: 5px;
+}
+
+.userUpdate_main_content_title{
+    width: 150px;
 }
