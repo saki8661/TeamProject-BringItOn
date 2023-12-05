@@ -11,20 +11,4 @@ public class TestController {
         return "home";
     }
 
-
-    @GetMapping("/user-update")
-    public String userUpdate(){
-        return "user/userUpdate";
-    }
-    @GetMapping("/user-team")
-    public String userTeamManagement(){
-        return "user/userTeam";
-    }
-
-    @GetMapping("/user-review")
-    public String userReviewManagement(){
-        return "user/userReview";
-    }
-
-
 }
