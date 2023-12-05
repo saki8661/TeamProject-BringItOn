@@ -1,3 +1,4 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,13 +9,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <link
-            href="../static/css/styles.css" rel="stylesheet">
+            href="/css/styles.css" rel="stylesheet">
 </head>
 <body>
 
 
 <div class="user_container">
-    <div><img src="./images/logo.png" class="logo"></div>
+    <div><img src="./images/logo.png" class="user_logo"></div>
 
 
     <form action="/action_page.php" class="was-validated">
@@ -48,10 +49,6 @@
             </div>
 
 
-            <div class="mb-3">
-                <input type="text" class="form-control" id="teamName" placeholder="팀명" name="teamName" required>
-
-            </div>
             <div class="join_check">
                 <div class="join_form_company">
                     <input class="form-check-input" type="checkbox" id="companyCheck" required>
@@ -99,3 +96,4 @@
 
 </body>
 </html>
+

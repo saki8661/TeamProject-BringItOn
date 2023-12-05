@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,15 +10,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <link
-            href="../static/css/styles.css" rel="stylesheet">
+            href="/css/styles.css" rel="stylesheet">
 </head>
 <body>
 
 
-
-
 <div class="user_container">
-    <div><img src="./images/logo.png" class="logo"></div>
+    <div><img src="./images/logo.png" class="user_logo"></div>
     <h1 class="join-us-text">Login</h1>
 
 
@@ -32,12 +32,10 @@
                 <div class="valid-feedback">사용가능한 아이디 입니다.</div>
 
             </div>
-            </div>
+        </div>
 
 
-
-
-            <button type="submit" class="signup-button">로그인</button>
+        <button type="submit" class="signup-button">로그인</button>
         <div class="search-sign-in"><a href="">
             아이디/비밀번호 찾기
         </a>
@@ -50,3 +48,4 @@
 
 </body>
 </html>
+

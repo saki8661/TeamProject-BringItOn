@@ -11,6 +11,7 @@ public class TestController {
         return "home";
     }
 
+
     @GetMapping("/user-update")
     public String userUpdate(){
         return "user/userUpdate";
@@ -19,5 +20,6 @@ public class TestController {
     public String userTeamManagement(){
         return "user/userTeamManagement";
     }
+
 
 }

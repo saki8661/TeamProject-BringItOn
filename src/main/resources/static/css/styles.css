@@ -285,35 +285,42 @@ input::placeholder {
     line-height: 3.5;
 }
 
-.join-us-text {
-    font-weight: bold;
-    padding-top: 20px;
-    padding-bottom: 10px;
 
-}
-
-.container {
-    padding-left: 100px;
-    padding-right: 100px;
-    text-align: center;
-}
-
-.address-container {
+.join_address_container {
     display: flex;
+}
 
+.join_us_text {
+    font-weight: bolder;
+    padding-top: 10px;
+    padding-bottom: 30px;
+    color: #555;
 
 }
 
-.invalid-feedback {
+.user_container {
+    padding-left: 500px;
+    padding-right: 500px;
+    text-align: center;
+
+}
+
+
+.address_container {
+    display: flex;
+}
+
+
+.invalid_feedback {
     text-align: start;
 }
 
-.address-button {
-    color: white;
-    background-color: green;
+.join_address_button {
+    color: #fff;
+    background-color: #19B357;
     border: none;
     padding-top: 10px;
-    padding-bottom: 20px; /* 내부 여백 조절 */
+    padding-bottom: 20px;
     cursor: pointer; /* 커서 모양 변경 */
     border-radius: 5px;
     width: 150px;
@@ -322,42 +329,108 @@ input::placeholder {
 
 }
 
-.signup-button {
+.join_button_con {
+    padding-top: 50px;
+}
 
-    color: white;
-    background-color: green;
+.join_button {
+    color: #fff;
+    background-color: #19B357;
     border: none;
-    padding: 10px 20px; /* 내부 여백 조절 */
-    cursor: pointer; /* 커서 모양 변경 */
+    padding: 10px 20px;
+    cursor: pointer;
     border-radius: 5px;
     width: 180px;
     height: 45px;
 }
 
-.checkbox-group {
+
+.join_check {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.log-in-text {
 
 }
 
-.search-sign-in {
-    padding-top: 50px;
-    color: grey;
+.join_form_company {
+    padding-right: 20px;
+}
+
+.kakao_login_search_sign_in {
+    padding-top: 40px;
+    color: #999;
+}
+
+
+.user_logo {
+    padding-top: 100px;
+}
+
+.kakao_login_button {
+    width: 400px;
+
+    height: 50px;
+}
+
+.common_button {
+    padding-top: 20px;
+}
+
+.kakao_login_common_button {
+    font-weight: bolder;
+    background: #fff;
+    border: 1px solid #999; /* 1픽셀 너비의 검은 실선 테두리 */
+    border-radius: 5px;
+    width: 400px;
+    height: 50px;
+}
+
+.kakao_login_or_container {
+    display: flex;
+    text-align: center;
+    padding-top: 20px;
+}
+
+.kakao_login_or_line {
+    width: 50%;
+
+}
+
+.kakao_login_or_text {
+    padding-top: 5px;
+    margin: 0 10px;
+    font-weight: bolder;
+    color: #999;
+
+}
+
+.kakao_login_txt {
+    display: flex;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
+    text-align: center;
+    padding-top: 30px;
+    font-weight: bold;
+
+
+}
+
+.kakao_login_acoount_q {
+    color: #999;
+}
+
+.sign_up_go {
+    font-weight: bolder;
+    padding-left: 10px;
 }
 
 /* userUpdate */
 
-.userUpdate_frame{
+.userUpdate_frame {
     padding-left: 100px;
     padding-right: 100px;
 }
 
 .userUpdate_aside {
-    border-right: 1px rgba(25,179,87,0.3) solid;
+    border-right: 1px rgba(25, 179, 87, 0.3) solid;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -370,7 +443,8 @@ input::placeholder {
     height: 100px;
     border-radius: 50px;
 }
-.userUpdate_image{
+
+.userUpdate_image {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -408,12 +482,12 @@ input::placeholder {
 }
 
 .userUpdate_link {
-display: flex;
+    display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-.userUpdate_link_text{
+.userUpdate_link_text {
     font-size: 20px;
     font-weight: bold;
     color: #999999;
@@ -445,7 +519,8 @@ display: flex;
     margin-bottom: 20px;
 
 }
-.userUpdate_button_wrap{
+
+.userUpdate_button_wrap {
     display: flex;
     justify-content: center;
 }
@@ -459,12 +534,13 @@ display: flex;
 }
 
 .userUpdate_pwd {
-    border:  #d9d9d9 1px solid;
+    border: #d9d9d9 1px solid;
     border-radius: 15px;
     width: 300px;
     padding: 5px;
 }
 
-.userUpdate_main_content_title{
+.userUpdate_main_content_title {
     width: 150px;
 }
+
