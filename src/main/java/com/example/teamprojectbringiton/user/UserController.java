@@ -1,14 +1,23 @@
-package com.example.teamprojectbringiton.controller;
+package com.example.teamprojectbringiton.user;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class TestController {
+public class UserController {
+    @GetMapping("/kakako-login")
+    public  String kakaoLogin(){
+        return "user/kakaoLoginPage";
+    }
 
-    @GetMapping("/home")
-    public String home(){
-        return "home";
+    @GetMapping("/join")
+    public  String join(){
+        return "/user/joinPage";
+    }
+
+    @GetMapping("/login")
+    public  String login(){
+        return "/user/loginPage";
     }
 
     @GetMapping("/league-main")
@@ -30,5 +39,4 @@ public class TestController {
     public String userTeamManagement(){
         return "user/userTeamManagement";
     }
-
 }

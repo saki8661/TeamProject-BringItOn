@@ -1,4 +1,4 @@
-package com.example.teamprojectbringiton.repository.entity;
+package com.example.teamprojectbringiton.user;
 
 import lombok.*;
 
