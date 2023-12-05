@@ -9,57 +9,62 @@
                 <%@include file="../layout/userUpdateInside.jsp"%>
                 <div class="col-md-9 box">
                     <div class="d-flex pe-3 my-3">
-                        <div class="userUpdate_title">개인정보 수정</div>
+                        <div class="userUpdate_title">팀 관리</div>
                     </div>
                     <hr />
-                    <form action="#">
                         <div>
                             <div class="userUpdate_main">
                                 <div class="userUpdate_image">
-                                    <img src="/images/default_profile.jpg">
+                                    <img src="/images/psg.jpg">
                                     <div>
                                         <button type="button" class="userUpdate_image_update">
                                             이미지 변경
                                         </button>
                                     </div>
                                 </div>
-                                <div class="userUpdate_username">김언약</div>
+                                <div class="userUpdate_username">파리생제르망</div>
                             </div>
                         </div>
                         <hr>
                         <div class="userUpdate_main_contents">
                             <div class="userUpdate_main_content">
                                 <div class="userUpdate_main_content_title">
-                                    휴대전화
+                                    위치
                                 </div>
                                 <div>
-                                    010-6295-4886
+                                    부산진구
                                 </div>
                             </div>
                             <hr>
                             <div class="userUpdate_main_content">
                                 <div class="userUpdate_main_content_title">
-                                    이메일
+                                    인원
                                 </div>
                                 <div>
-                                    0106un@naver.com
+                                    6명
                                 </div>
                             </div>
                             <hr>
                             <div class="userUpdate_main_content">
-                                <div class="userUpdate_main_content_title">새비밀번호</div>
-                                <input type="password" class="userUpdate_pwd"
-                                       placeholder="영문, 숫자, 특수문자 2가지 이상 포함 6~15자리">
+                                <div class="userUpdate_main_content_title">
+                                    종목
+                                </div>
+                                <div>
+                                    풋살
+                                </div>
                             </div>
                             <hr>
                             <div class="userUpdate_main_content">
-                                <div class="userUpdate_main_content_title">새비밀번호확인</div>
-                                <input type="password" class="userUpdate_pwd"
-                                       placeholder="영문, 숫자, 특수문자 2가지 이상 포함 6~15자리">
+                                <div class="userUpdate_main_content_title">
+                                    소개
+                                </div>
+                                <div>
+                                    부산 진구 풋살 친목 팀입니다. <br> 즐겜 위주로 하고 있습니다.
+                                </div>
                             </div>
                             <hr>
                             <div class="userUpdate_button_wrap">
-                            <button type="submit" class="userUpdate_button"> 수정하기</button>
+                                <button type="submit" class="userUpdate_button"> 수정하기</button>
                             </div>
                         </div>
                     </form>

@@ -14,12 +14,12 @@
         </div>
         <hr>
         <div class="userUpdate_link">
-            <a class="nav-link userUpdate_link_text" href="#">팀 관리</a>
+            <a class="nav-link userUpdate_link_text" href="/user-team">팀 관리</a>
             <a class="nav-link userUpdate_link_text" href="#">북마크</a>
             <a class="nav-link userUpdate_link_text" href="#">예약 내역</a>
             <a class="nav-link userUpdate_link_text" href="#">결제 내역</a>
             <a class="nav-link userUpdate_link_text" href="#">후기 관리</a>
-            <a class="nav-link userUpdate_link_text" style="font-size: 25px; color: black;" href="#">개인정보
+            <a class="nav-link userUpdate_link_text" href="/user-update">개인정보
                 수정</a>
             <a class="nav-link userUpdate_link_text" href="#">리그/매칭 현황</a>
         </div>
