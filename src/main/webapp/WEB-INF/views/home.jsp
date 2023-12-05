@@ -19,7 +19,7 @@
                 <a href="#">매칭</a>
             </li>
             <li class="main_link">
-                <a href="#">리그</a>
+                <a href="/league-main">리그</a>
             </li>
             <li class="main_link">
                 <a href="#">고객센터</a>

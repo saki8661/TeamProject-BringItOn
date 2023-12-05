@@ -56,6 +56,9 @@ input:focus {
     width: 100%;
 }
 
+.bold {
+    font-weight: bold;
+}
 
 /* Header Navigation*/
 .nav_bar {
@@ -544,3 +547,99 @@ input::placeholder {
     width: 150px;
 }
 
+
+/* LeagueMain */
+.leagueMain_sub_link1 a {
+    font-size: 20px;
+}
+
+.leagueMain_sub_link2 a {
+    font-size: 15px;
+}
+
+.leagueMain_league_content img {
+    border-radius: 15px;
+    width: 900px;
+    height: 200px;
+}
+
+.leagueMain_body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.leagueMain_league_title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.leagueMain_league_region {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.leagueMain_league_stadium {
+    font-size: 15px;
+}
+
+.leagueMain_league_status1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #19B357;
+}
+
+.leagueMain_league_status2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #378AD7;
+}
+
+.leagueMain_league_status3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #EC4937;
+}
+
+.leagueMain_dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.leagueMain_dropdown_content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    z-index: 1;
+    font-weight: 400;
+    background-color: #ffffff;
+    border-radius: 15px;
+    min-width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.leagueMain_dropdown_content a {
+    display: block;
+    text-decoration: none;
+    color: rgb(37, 37, 37);
+    font-size: 12px;
+    padding: 12px 20px;
+}
+
+.leagueMain_dropdown_content a:hover {
+    background-color: #ececec;
+    border-radius: 15px;
+}
+
+.leagueMain_dropdown:hover .leagueMain_dropdown_content {
+    display: flex;
+
+
+}
+
+.menu_bar {
+    display: flex;
+    flex-direction: revert;
+}
