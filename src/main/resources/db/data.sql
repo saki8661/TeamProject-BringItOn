@@ -420,3 +420,5 @@ values(1, '2023-11-12', '10:00:00', 9, 10, '0', '2', 10);
 insert into league_matches(league_id, league_match_date, league_match_time, home_team_id,
                            away_team_id, score_home_team, score_away_team, winner_id)
 values(1, '2023-11-12', '13:00:00', 1, 10, '3', '0', 1);
+
+--더미 완료
