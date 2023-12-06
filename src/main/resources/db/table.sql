@@ -1,3 +1,24 @@
+-- 'teams' 테이블 생성
+CREATE TABLE teams
+(
+    team_id   INT AUTO_INCREMENT PRIMARY KEY,
+    team_name VARCHAR(250) NOT NULL
+);
+
+-- 'users' 테이블 생성
+CREATE TABLE users
+(
+    user_id           INT AUTO_INCREMENT PRIMARY KEY,
+    team_id           INT,
+    username          VARCHAR(250) NOT NULL,
+    password          VARCHAR(250) NOT NULL,
+    user_email        VARCHAR(255),
+    user_address      VARCHAR(255),
+    user_phone_number VARCHAR(20)  NOT NULL,
+    host              BOOLEAN,
+    FOREIGN KEY (team_id) REFERENCES teams (team_id)
+);
+
 -- 'banks' 테이블 생성
 CREATE TABLE banks
 (
@@ -46,12 +67,6 @@ CREATE TABLE areas
     FOREIGN KEY (location_id) REFERENCES locations (location_id)
 );
 
--- 'teams' 테이블 생성
-CREATE TABLE teams
-(
-    team_id   INT AUTO_INCREMENT PRIMARY KEY,
-    team_name VARCHAR(250) NOT NULL
-);
 
 -- 'sponsors' 테이블 생성
 CREATE TABLE sponsors
@@ -71,7 +86,7 @@ CREATE TABLE leagues
     competition_start  DATE,
     competition_end    DATE,
     region_id          INT,
-    sponsor_id         VARCHAR(255),
+    sponsor_id         INT,
     recruitment        INT,
     recruitment_status VARCHAR(255),
     FOREIGN KEY (region_id) REFERENCES regions (region_id),
@@ -96,17 +111,6 @@ CREATE TABLE options
 (
     option_id   INT AUTO_INCREMENT PRIMARY KEY,
     option_name VARCHAR(255)
-);
-
--- 'selected_options' 테이블 생성
-CREATE TABLE selected_options
-(
-    selected_option_id INT AUTO_INCREMENT PRIMARY KEY,
-    option_id          INT,
-    space_id           INT,
-    FOREIGN KEY (option_id) REFERENCES options (option_id),
-    FOREIGN KEY (space_id) REFERENCES spaces (space_id)
-
 );
 
 -- 'spaces' 테이블 생성
@@ -136,18 +140,14 @@ CREATE TABLE spaces
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
 
--- 'users' 테이블 생성
-CREATE TABLE users
+-- 'selected_options' 테이블 생성
+CREATE TABLE selected_options
 (
-    user_id           INT AUTO_INCREMENT PRIMARY KEY,
-    team_id           INT,
-    username          VARCHAR(250) NOT NULL,
-    password          VARCHAR(250) NOT NULL,
-    user_email        VARCHAR(255),
-    user_address      VARCHAR(255),
-    user_phone_number VARCHAR(20)  NOT NULL,
-    host              BOOLEAN,
-    FOREIGN KEY (team_id) REFERENCES teams (team_id),
+    selected_option_id INT AUTO_INCREMENT PRIMARY KEY,
+    option_id          INT,
+    space_id           INT,
+    FOREIGN KEY (option_id) REFERENCES options (option_id),
+    FOREIGN KEY (space_id) REFERENCES spaces (space_id)
 );
 
 -- 'bookmarks' 테이블 생성
@@ -206,13 +206,13 @@ CREATE TABLE charges
 -- 'payments' 테이블 생성
 CREATE TABLE payments
 (
-    payment_id  INT AUTO_INCREMENT PRIMARY KEY,
-    charge_id   INT,
-    price       INT,
-    created_at  TIME,
-    refund      BOOLEAN,
-    refund_date DATE,
-    user_id     INT,
+    payment_id   INT AUTO_INCREMENT PRIMARY KEY,
+    charge_id    INT,
+    price        INT,
+    payment_date DATE,
+    refund       BOOLEAN,
+    refund_date  DATE,
+    user_id      INT,
     FOREIGN KEY (charge_id) REFERENCES charges (charge_id),
     FOREIGN KEY (user_id) REFERENCES users (user_id)
 );
@@ -277,6 +277,3 @@ CREATE TABLE league_matches
     FOREIGN KEY (away_team_id) REFERENCES teams (team_id),
     FOREIGN KEY (winner_id) REFERENCES teams (team_id)
 );
-
-
-
