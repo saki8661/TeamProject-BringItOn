@@ -21,7 +21,6 @@
     <h3 class="join_us_text">고객님 환영합니다! 기다리고 있었습니다.</h3>
 
 
-
     <div><img src="./images/kakao_login_medium_narrow.png" class="kakao_login_button">
     </div>
 

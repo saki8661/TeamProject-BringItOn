@@ -206,7 +206,7 @@ input::placeholder {
     justify-content: space-between;
 }
 
-.footer_tab{
+.footer_tab {
     display: flex;
     flex-wrap: wrap;
     padding-left: 0;
@@ -215,27 +215,27 @@ input::placeholder {
     margin-bottom: 20px;
 }
 
-.footer_item{
+.footer_item {
     font-size: 18px;
     font-weight: bold;
     color: #C8C8C8;
     padding: 1px;
 }
 
-.footer_info{
+.footer_info {
     font-weight: Bold;
     font-size: 13px;
     line-height: 34px;
     color: #888888;
 }
 
-.footer_info_detail{
+.footer_info_detail {
     font-size: 12px;
     line-height: 20px;
     color: #888888;
 }
 
-.footer_inquiry{
+.footer_inquiry {
     font-size: 19px;
     font-weight: bold;
     line-height: 34px;
@@ -243,20 +243,21 @@ input::placeholder {
     margin-bottom: 14px;
 }
 
-.footer_callnumber{
+.footer_callnumber {
     font-weight: Bold;
     font-size: 28px;
     line-height: 34px;
     color: #575757;
 }
 
-.footer_inquiry_time{
+.footer_inquiry_time {
     font-size: 15px;
     line-height: 34px;
     color: #8A8A8A;
     margin-bottom: 13px;
 }
-.footer_question_container{
+
+.footer_question_container {
     width: 300px;
     display: flex;
     align-items: center;
@@ -265,32 +266,33 @@ input::placeholder {
     margin-bottom: 10px;
 }
 
-.footer_question_box{
+.footer_question_box {
     background: #F3F5F7;
     width: 100%;
     border-radius: 10px;
     overflow: hidden;
 }
 
-.footer_question{
+.footer_question {
     display: flex;
     align-items: center;
     justify-content: center;
     font-size: 14px;
     line-height: 20px;
     color: #575757;
-    padding: 8px 0px;
+    padding: 8px;
     width: 100%;
 }
 
-.footer_hostcenter_container{
+.footer_hostcenter_container {
     background: #E5F1FC;
     width: 100%;
     border-radius: 10px;
     overflow: hidden;
     margin-bottom: 10px;
 }
-.footer_hostcenter_box{
+
+.footer_hostcenter_box {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -383,7 +385,6 @@ input::placeholder {
     line-height: 3.5;
 }
 
-
 .join_address_container {
     display: flex;
 }
@@ -403,11 +404,9 @@ input::placeholder {
 
 }
 
-
 .address_container {
     display: flex;
 }
-
 
 .invalid_feedback {
     text-align: start;
@@ -423,8 +422,6 @@ input::placeholder {
     border-radius: 5px;
     width: 150px;
     height: 40px;
-
-
 }
 
 .join_button_con {
@@ -445,6 +442,9 @@ input::placeholder {
 
 .join_check {
     display: flex;
+    text-align: center;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
 
 }
 
@@ -452,19 +452,40 @@ input::placeholder {
     padding-right: 20px;
 }
 
+
+.login_search_sign_in {
+    padding-top: 40px;
+    color: #999;
+    font-weight: bolder;
+}
+
+
 .kakao_login_search_sign_in {
     padding-top: 40px;
     color: #999;
 }
 
-
 .user_logo {
     padding-top: 100px;
 }
 
+.login_button {
+    color: #fff;
+    background-color: #19B357;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 180px;
+    height: 45px;
+}
+
 .kakao_login_button {
     width: 400px;
+}
 
+.kakao_login_button {
+    width: 400px;
     height: 50px;
 }
 
@@ -497,7 +518,7 @@ input::placeholder {
     margin: 0 10px;
     font-weight: bolder;
     color: #999;
-
+< < < < < < < HEAD = = = = = = = >>> >>> > dev
 }
 
 .kakao_login_txt {
@@ -507,8 +528,6 @@ input::placeholder {
     text-align: center;
     padding-top: 30px;
     font-weight: bold;
-
-
 }
 
 .kakao_login_acoount_q {
@@ -518,6 +537,32 @@ input::placeholder {
 .sign_up_go {
     font-weight: bolder;
     padding-left: 10px;
+}
+
+
+.reservation_container {
+    border-radius: 30px;
+    margin: 0 auto;
+    background: white;
+    width: 800px;
+    height: 1000px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 설정 */
+}
+
+.join_check_button {
+    color: #fff;
+    background-color: #19B357;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 180px;
+    height: 45px;
+}
+
+.join_user_id {
+    display: flex;
+    padding-bottom: 20px;
 }
 
 
@@ -659,6 +704,7 @@ input::placeholder {
 
 
 /* userTeam */
+
 .userTeam_teamname {
     font-size: 30px;
     margin: 30px;
@@ -774,7 +820,8 @@ input::placeholder {
 }
 
 /* LeagueMain */
-. leagueMain_sub_link1 a {
+
+.leagueMain_sub_link1 a {
     font-size: 20px;
 }
 
@@ -866,3 +913,22 @@ input::placeholder {
     display: flex;
     flex-direction: revert;
 }
+
+/* userBookmark*/
+
+.userBookmark_layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.userBookmark_content {
+    padding: 0;
+}
+
+.userBookmark_content img {
+    border-radius: 15px;
+    width: 232px;
+    height: auto;
+}
+

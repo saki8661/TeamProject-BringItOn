@@ -1,13 +1,13 @@
-package com.example.teamprojectbringiton.controller;
+package com.example.teamprojectbringiton;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
-public class TestController {
+public class MainController {
 
-    @GetMapping("/home")
-    public String test(){
+    @GetMapping({"/","/home"})
+    public String home(){
         return "home";
     }
 

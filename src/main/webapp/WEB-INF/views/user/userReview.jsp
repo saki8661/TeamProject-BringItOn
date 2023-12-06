@@ -18,7 +18,7 @@
                         <div class="userReview_review_box">
                             <div class="d-flex">
                                 <div class="userReview_teamname">
-                                    FC 발(욕 아님)
+                                    FC혜림
                                 </div>
                                 <div class="userReview_created_at">
                                     2023-12-05
@@ -39,7 +39,7 @@
                         <div class="userReview_review_box">
                             <div class="d-flex">
                                 <div class="userReview_teamname">
-                                    FC 발(욕 아님)
+                                    FC혜림
                                 </div>
                                 <div class="userReview_created_at">
                                     2023-12-05
