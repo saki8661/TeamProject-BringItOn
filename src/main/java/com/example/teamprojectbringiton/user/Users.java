@@ -15,4 +15,6 @@ public class Users {
     private String userAddress;
     private String userPhoneNumber;
     private Integer bookmarkId;
+
+
 }
