@@ -1,4 +1,4 @@
-package com.example.teamprojectbringiton.dto.request;
+package com.example.teamprojectbringiton.user.dto.reqDTO;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

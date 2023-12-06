@@ -56,6 +56,9 @@ input:focus {
     width: 100%;
 }
 
+.bold {
+    font-weight: bold;
+}
 
 /* Header Navigation*/
 .nav_bar {
@@ -193,7 +196,7 @@ input::placeholder {
 /* footer */
 
 .footer_frame {
-    max-width: 1450px;
+    max-width: 1200px;
     margin: 100px auto;
     width: 100%;
 }
@@ -201,6 +204,103 @@ input::placeholder {
 .footer_content {
     display: flex;
     justify-content: space-between;
+}
+
+.footer_tab {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    list-style: none;
+    gap: 40px;
+    margin-bottom: 20px;
+}
+
+.footer_item {
+    font-size: 18px;
+    font-weight: bold;
+    color: #C8C8C8;
+    padding: 1px;
+}
+
+.footer_info {
+    font-weight: Bold;
+    font-size: 13px;
+    line-height: 34px;
+    color: #888888;
+}
+
+.footer_info_detail {
+    font-size: 12px;
+    line-height: 20px;
+    color: #888888;
+}
+
+.footer_inquiry {
+    font-size: 19px;
+    font-weight: bold;
+    line-height: 34px;
+    color: #888888;
+    margin-bottom: 14px;
+}
+
+.footer_callnumber {
+    font-weight: Bold;
+    font-size: 28px;
+    line-height: 34px;
+    color: #575757;
+}
+
+.footer_inquiry_time {
+    font-size: 15px;
+    line-height: 34px;
+    color: #8A8A8A;
+    margin-bottom: 13px;
+}
+
+.footer_question_container {
+    width: 300px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.footer_question_box {
+    background: #F3F5F7;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.footer_question {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 20px;
+    color: #575757;
+    padding: 8px;
+    width: 100%;
+}
+
+.footer_hostcenter_container {
+    background: #E5F1FC;
+    width: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-bottom: 10px;
+}
+
+.footer_hostcenter_box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    line-height: 20px;
+    color: #555555;
+    padding: 8px;
+    width: 100%;
 }
 
 /* Main */
@@ -318,7 +418,6 @@ input::placeholder {
     border: none;
     padding-top: 10px;
     padding-bottom: 20px;
-
     cursor: pointer; /* 커서 모양 변경 */
     border-radius: 5px;
     width: 150px;
@@ -353,11 +452,13 @@ input::placeholder {
     padding-right: 20px;
 }
 
+
 .login_search_sign_in {
     padding-top: 40px;
     color: #999;
     font-weight: bolder;
 }
+
 
 .kakao_login_search_sign_in {
     padding-top: 40px;
@@ -377,6 +478,10 @@ input::placeholder {
     border-radius: 5px;
     width: 180px;
     height: 45px;
+}
+
+.kakao_login_button {
+    width: 400px;
 }
 
 .kakao_login_button {
@@ -413,6 +518,7 @@ input::placeholder {
     margin: 0 10px;
     font-weight: bolder;
     color: #999;
+< < < < < < < HEAD = = = = = = = >>> >>> > dev
 }
 
 .kakao_login_txt {
@@ -431,8 +537,8 @@ input::placeholder {
 .sign_up_go {
     font-weight: bolder;
     padding-left: 10px;
-
 }
+
 
 .reservation_container {
     border-radius: 30px;
@@ -457,5 +563,372 @@ input::placeholder {
 .join_user_id {
     display: flex;
     padding-bottom: 20px;
+}
+
+
+/* userInfo */
+
+.userInfo_frame {
+    padding-left: 100px;
+    padding-right: 100px;
+}
+
+.userInfo_aside {
+    border-right: rgba(25, 179, 87, 0.3) 1px solid;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+}
+
+.userInfo_main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userInfo_image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userInfo_image img {
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+
+.userInfo_charge {
+    display: flex;
+    background: #19B357;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 15px;
+    padding: 10px;
+}
+
+.userInfo_charge button {
+    background: yellow;
+    width: 40px;
+    height: 30px;
+    border-radius: 5px;
+    color: black;
+}
+
+.userInfo_link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userInfo_link_text {
+    font-size: 20px;
+    font-weight: bold;
+    color: #999999;
+    margin: 15px;
+}
+
+.userInfo_title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+/* userUpdate */
+
+.userUpdate_image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userUpdate_image img {
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+
+.userUpdate_image button {
+    border-radius: 15px;
+    border: #19B357 1px solid;
+    width: 100px;
+    height: 20px;
+    color: #19B357;
+    margin-bottom: 20px;
+}
+
+.userUpdate_username {
+    font-size: 30px;
+    margin: 30px;
+}
+
+.userUpdate_button {
+    display: flex;
+    justify-content: center;
+}
+
+.userUpdate_button button {
+    background: #19B357;
+    border-radius: 15px;
+    border: #19B357 1px solid;
+    width: 50%;
+    height: 40px;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.userUpdate_main_content {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin: 20px 30px 20px;
+}
+
+.userUpdate_main_content_title {
+    width: 150px;
+}
+
+.userUpdate_pwd {
+    border: #d9d9d9 1px solid;
+    border-radius: 15px;
+    width: 300px;
+    padding: 5px;
+}
+
+
+/* userTeam */
+
+.userTeam_teamname {
+    font-size: 30px;
+    margin: 30px;
+}
+
+.userTeam_image {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.userTeam_image img {
+    margin: 20px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50px;
+}
+
+.userTeam_image button {
+    border-radius: 15px;
+    border: #19B357 1px solid;
+    width: 100px;
+    height: 20px;
+    color: #19B357;
+    margin-bottom: 20px;
+}
+
+.userTeam_main_content {
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin: 20px 30px 20px;
+}
+
+.userTeam_main_content_title {
+    width: 150px;
+}
+
+
+.userTeam_button {
+    display: flex;
+    justify-content: center;
+}
+
+.userTeam_button button {
+    background: #19B357;
+    border-radius: 15px;
+    border: #19B357 1px solid;
+    width: 50%;
+    height: 40px;
+    color: white;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+/* userReview */
+
+.userReview_upper_box {
+    border-bottom: #d9d9d9 1px solid;
+    width: 100%;
+    height: 30px;
+
+}
+
+.userReview_review_box {
+    border-bottom: #d9d9d9 1px solid;
+    width: 100%;
+    height: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.userReview_teamname {
+    font-size: 18px;
+    font-weight: bold;
+    border-right: black 2px solid;
+    padding-right: 5px;
+    line-height: 1.3;
+}
+
+.userReview_created_at {
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+.userReview_place {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #999999;
+}
+
+.userReview_content {
+    font-size: 20px;
+    font-weight: bold;
+    color: #555555;
+}
+
+.userReview_button {
+    display: flex;
+    justify-content: flex-end
+}
+
+.userReview_button button {
+    background: #f44336;
+    height: 30px;
+    width: 100px;
+    font-weight: bold;
+    color: white;
+    border-radius: 15px;
+}
+
+/* LeagueMain */
+
+.leagueMain_sub_link1 a {
+    font-size: 20px;
+}
+
+.leagueMain_sub_link2 a {
+    font-size: 15px;
+}
+
+.leagueMain_league_content img {
+    border-radius: 15px;
+    width: 900px;
+    height: 200px;
+}
+
+.leagueMain_body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
+
+.leagueMain_league_title {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.leagueMain_league_region {
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.leagueMain_league_stadium {
+    font-size: 15px;
+}
+
+.leagueMain_league_status1 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #19B357;
+}
+
+.leagueMain_league_status2 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #378AD7;
+}
+
+.leagueMain_league_status3 {
+    font-size: 20px;
+    font-weight: bold;
+    color: #EC4937;
+}
+
+.leagueMain_dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.leagueMain_dropdown_content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    z-index: 1;
+    font-weight: 400;
+    background-color: #ffffff;
+    border-radius: 15px;
+    min-width: 300px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.leagueMain_dropdown_content a {
+    display: block;
+    text-decoration: none;
+    color: rgb(37, 37, 37);
+    font-size: 12px;
+    padding: 12px 20px;
+}
+
+.leagueMain_dropdown_content a:hover {
+    background-color: #ececec;
+    border-radius: 15px;
+}
+
+.leagueMain_dropdown:hover .leagueMain_dropdown_content {
+    display: flex;
+}
+
+.menu_bar {
+    display: flex;
+    flex-direction: revert;
+}
+
+/* userBookmark*/
+
+.userBookmark_layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.userBookmark_content {
+    padding: 0;
+}
+
+.userBookmark_content img {
+    border-radius: 15px;
+    width: 232px;
+    height: auto;
 }
 
