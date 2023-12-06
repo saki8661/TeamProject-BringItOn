@@ -37,6 +37,16 @@ public class UserController {
 
     @GetMapping("/user-team")
     public String userTeamManagement(){
-        return "user/userTeamManagement";
+        return "user/userTeam";
+    }
+
+    @GetMapping("/user-bookmark")
+    public String userBookmarkManagement(){
+        return "user/userBookmark";
+    }
+
+    @GetMapping("/user-review")
+    public String userReviewManagement(){
+        return "user/userReview";
     }
 }

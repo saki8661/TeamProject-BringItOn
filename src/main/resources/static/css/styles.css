@@ -866,3 +866,21 @@ input::placeholder {
     display: flex;
     flex-direction: revert;
 }
+
+/* userBookmark*/
+
+.userBookmark_layout{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+
+.userBookmark_content{
+    padding: 0;
+}
+
+.userBookmark_content img{
+    border-radius: 15px;
+    width: 232px;
+    height: auto;
+}

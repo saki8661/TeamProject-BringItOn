@@ -20,7 +20,7 @@
 <div class="frame">
     <nav class="navbar navbar-expand-sm nav_bar">
         <div class="container-fluid">
-            <a class="nav_logo" href="home">
+            <a class="nav_logo" href="/">
                 <img src="/images/logo.png">
             </a>
             <form class="d-flex">
