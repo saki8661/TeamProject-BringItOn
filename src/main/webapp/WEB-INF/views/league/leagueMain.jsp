@@ -126,7 +126,7 @@
                     <div class="leagueMain_league_stadium m-2">
                         서초대형체육관
                     </div>
-                    <div class="leagueMain_league_status1 m-2 mb-4">
+                    <div class="leagueMain_league_status1 m-2">
                         신청 진행전
                     </div>
                 </div>
@@ -138,229 +138,267 @@
                 </div>
                 <!-- The Modal -->
                 <div class="modal" id="leagueModal1">
-                    <div class="modal-dialog modal-lg">
+                    <div class="modal-dialog">
                         <div class="modal-content">
 
-                            <!--Modal Header-->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Modal Heading</h4>
+                            <!-- Modal Header -->
+                            <div class="leagueMain_modal_header">
+                                <h2 style="width: 100%; text-align: center; font-weight: bold; font-size: x-large;">2024년 상반기 Bring It On리그</h2>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                             </div>
 
-                            <!--Modal body-->
+                            <!-- Modal body -->
                             <div class="modal-body">
-                                <table class="table">
-                                    <thead>
-                                    <tr>
-                                        <th>Firstname</th>
-                                        <th>Lastname</th>
-                                        <th>Email</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    <tr>
-                                        <td>John</td>
-                                        <td>Doe</td>
-                                        <td>john@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td>Mary</td>
-                                        <td>Moe</td>
-                                        <td>mary@example.com</td>
-                                    </tr>
-                                    <tr>
-                                        <td>July</td>
-                                        <td>Dooley</td>
-                                        <td>july@example.com</td>
-                                    </tr>
-                                    </tbody>
-                                </table>
+                                <div class="modal_body">
+                                    <div class="leagueMain_table">
+                                        <Table>
+                                            <tr class="leagueMain_table_header">
+                                                <th>신청기간</th>
+                                                <td>2024-02-01<br>
+                                                     ~ 2024-2-28</td>
+                                                <th>대회기간</th>
+                                                <td>2024-03-01<br>
+                                                     ~ 2024-06-30</td>
+                                            </tr>
+                                            <tr>
+                                                <th>모집상태</th>
+                                                <td>모집 진행전</td>
+                                                <th>리그, 지역</th>
+                                                <td>경기, 서울</td>
+
+                                            </tr>
+                                            <tr>
+                                                <th>모집현황</th>
+                                                <td>-팀/10팀</td>
+                                                <th>주최</th>
+                                                <td>Bring It On</td>
+                                            </tr>
+                                        </Table>
+                                    </div>
+                                </div>
                             </div>
 
-                            <!--Modal footer-->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
+                            <!-- Modal footer -->
+                            <div class="leagueMain_modal_footer">
+                                <div>
+                                    <a href="#">
+                                        <button>신청하기</button>
+                                    </a>
+                                    <a href="#">
+                                        <button>취소하기</button>
+                                    </a>
+                                </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
-            </div>
         </div>
     </div>
+</div>
 
-    <div class="leagueMain_body">
-        <div class="leagueMain_league_content">
-            <img src="/images/SoccerBanner2.png">
-            <div class="d-flex justify-content-between align-items-center">
-                <div>
-                    <div class="leagueMain_league_title m-2">
-                        [경기리그]
-                    </div>
-                    <div class="leagueMain_league_region m-2">
-                        경기 성남시 분당구
-                    </div>
-                    <div class="leagueMain_league_stadium m-2">
-                        성남종합체육시설
-                    </div>
-                    <div class="leagueMain_league_status2 m-2 mb-4">
-                        신청 진행중
-                    </div>
+<div class="leagueMain_body">
+    <div class="leagueMain_league_content">
+        <img src="/images/SoccerBanner2.png">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <div class="leagueMain_league_title m-2">
+                    [경기리그]
                 </div>
-                <div>
-                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-                            data-bs-target="#leagueModal2">
-                        상세보기
-                    </button>
+                <div class="leagueMain_league_region m-2">
+                    경기 성남시 분당구
                 </div>
-                <!--The Modal-->
-                <div class="modal" id="leagueModal2">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
+                <div class="leagueMain_league_stadium m-2">
+                    성남종합체육시설
+                </div>
+                <div class="leagueMain_league_status2 m-2">
+                    신청 진행중
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                        data-bs-target="#leagueModal2">
+                    상세보기
+                </button>
+            </div>
+            <!--The Modal-->
+            <div class="modal" id="leagueModal2">
+                <div class="modal-dialog">
+                    <div class="modal-content">
 
-                            <!--Modal Header-->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Modal Heading</h4>
+                        <!-- Modal Header -->
+                        <div class="leagueMain_modal_header">
+                            <h2 style="width: 100%; text-align: center; font-weight: bold; font-size: x-large;">2024년 상반기 그린정규리그</h2>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                            </div>
+                        </div>
 
-                            <!--Modal body-->
-                            <div class="modal-body">
-                                Modal body..
-                            </div>
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                            <div class="modal_body">
+                                <div class="leagueMain_table">
+                                    <Table>
+                                        <tr class="leagueMain_table_header">
+                                            <th>신청기간</th>
+                                            <td>2023-12-01<br>
+                                                 ~ 2023-12-31</td>
+                                            <th>대회기간</th>
+                                            <td>2024-01-02<br>
+                                                 ~ 2024-05-31</td>
+                                        </tr>
+                                        <tr>
+                                            <th>모집상태</th>
+                                            <td>모집 진행중</td>
+                                            <th>리그, 지역</th>
+                                            <td>경기, 서울</td>
 
-                            <!--Modal footer-->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close
-                                </button>
+                                        </tr>
+                                        <tr>
+                                            <th>모집현황</th>
+                                            <td>4팀/10팀</td>
+                                            <th>주최</th>
+                                            <td>Green</td>
+                                        </tr>
+                                    </Table>
+                                </div>
                             </div>
+                        </div>
 
+                        <!-- Modal footer -->
+                        <div class="leagueMain_modal_footer">
+                            <div>
+                                <a href="#">
+                                    <button>신청하기</button>
+                                </a>
+                                <a href="#">
+                                    <button>취소하기</button>
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
 
-    <div class="leagueMain_body">
-        <div class="leagueMain_league_content">
-            <img src="/images/SoccerBanner3.png">
-            <div class="d-flex justify-content-between align-items-center">
-                <div>
-                    <div class="leagueMain_league_title m-2">
-                        [부산리그]
-                    </div>
-                    <div class="leagueMain_league_region m-2">
-                        부산 사하구
-                    </div>
-                    <div class="leagueMain_league_stadium m-2">
-                        태종대환경공원
-                    </div>
-                    <div class="leagueMain_league_status2 m-2 mb-4">
-                        신청 진행중
-                    </div>
+<div class="leagueMain_body">
+    <div class="leagueMain_league_content">
+        <img src="/images/SoccerBanner3.png">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <div class="leagueMain_league_title m-2">
+                    [부산리그]
                 </div>
-                <div>
-                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-                            data-bs-target="#leagueModal3">
-                        상세보기
-                    </button>
+                <div class="leagueMain_league_region m-2">
+                    부산 사하구
                 </div>
-                <!--The Modal-->
-                <div class="modal" id="leagueModal3">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
+                <div class="leagueMain_league_stadium m-2">
+                    태종대환경공원
+                </div>
+                <div class="leagueMain_league_status2 m-2">
+                    신청 진행중
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                        data-bs-target="#leagueModal3">
+                    상세보기
+                </button>
+            </div>
+            <!--The Modal-->
+            <div class="modal" id="leagueModal3">
+                <div class="modal-dialog">
+                    <div class="modal-content">
 
-                            <!--Modal Header-->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Modal Heading</h4>
-                                <button type="button" class="btn-close"
-                                        data-bs-dismiss="modal"></button>
-                            </div>
-
-                            <!--Modal body-->
-                            <div class="modal-body">
-                                Modal body..
-                            </div>
-
-                            <!--Modal footer-->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
-                                    Close
-                                </button>
-                            </div>
-
+                        <!--Modal Header-->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Modal Heading</h4>
+                            <button type="button" class="btn-close"
+                                    data-bs-dismiss="modal"></button>
                         </div>
+
+                        <!--Modal body-->
+                        <div class="modal-body">
+                            Modal body..
+                        </div>
+
+                        <!--Modal footer-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
+                                Close
+                            </button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="leagueMain_body">
+    <div class="leagueMain_league_content">
+        <img src="/images/SoccerBanner4.png">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <div class="leagueMain_league_title m-2">
+                    [대구리그]
+                </div>
+                <div class="leagueMain_league_region m-2">
+                    대구 달서구
+                </div>
+                <div class="leagueMain_league_stadium m-2">
+                    달서휘트니스종합체육관
+                </div>
+                <div class="leagueMain_league_status3 m-2">
+                    신청 마감
+                </div>
+            </div>
+            <div>
+                <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
+                        data-bs-target="#leagueModal4">
+                    상세보기
+                </button>
+            </div>
+            <!--The Modal-->
+            <div class="modal" id="leagueModal4">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+
+                        <!-- Modal Header-->
+                        <div class="modal-header">
+                            <h4 class="modal-title">Modal Heading</h4>
+                            <button type="button" class="btn-close"
+                                    data-bs-dismiss="modal"></button>
+                        </div>
+
+                        <!--Modal body-->
+                        <div class="modal-body">
+                            Modal body..
+                        </div>
+
+                        <!--Modal footer-->
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-danger"
+                                    data-bs-dismiss="modal">Close
+                            </button>
+                        </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <div class="leagueMain_body">
-        <div class="leagueMain_league_content">
-            <img src="/images/SoccerBanner4.png">
-            <div class="d-flex justify-content-between align-items-center">
-                <div>
-                    <div class="leagueMain_league_title m-2">
-                        [대구리그]
-                    </div>
-                    <div class="leagueMain_league_region m-2">
-                        대구 달서구
-                    </div>
-                    <div class="leagueMain_league_stadium m-2">
-                        달서휘트니스종합체육관
-                    </div>
-                    <div class="leagueMain_league_status3 m-2 mb-4">
-                        신청 마감
-                    </div>
-                </div>
-                <div>
-                    <button type="button" class="btn btn-outline-success" data-bs-toggle="modal"
-                            data-bs-target="#leagueModal4">
-                        상세보기
-                    </button>
-                </div>
-                <!--The Modal-->
-                <div class="modal" id="leagueModal4">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
 
-                            <!-- Modal Header-->
-                            <div class="modal-header">
-                                <h4 class="modal-title">Modal Heading</h4>
-                                <button type="button" class="btn-close"
-                                        data-bs-dismiss="modal"></button>
-                            </div>
-
-                            <!--Modal body-->
-                            <div class="modal-body">
-                                Modal body..
-                            </div>
-
-                            <!--Modal footer-->
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-danger"
-                                        data-bs-dismiss="modal">Close
-                                </button>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+    <ul class="pagination main_paging">
+        <li class="page-item"><a class="page-link" href="#"><</a></li>
+        <li class="page-item"><a class="page-link" href="#">1</a></li>
+        <li class="page-item"><a class="page-link" href="#">2</a></li>
+        <li class="page-item"><a class="page-link" href="#">3</a></li>
+        <li class="page-item"><a class="page-link" href="#">></a></li>
+    </ul>
+</div>
 
 
-        <ul class="pagination main_paging">
-            <li class="page-item"><a class="page-link" href="#"><</a></li>
-            <li class="page-item"><a class="page-link" href="#">1</a></li>
-            <li class="page-item"><a class="page-link" href="#">2</a></li>
-            <li class="page-item"><a class="page-link" href="#">3</a></li>
-            <li class="page-item"><a class="page-link" href="#">></a></li>
-        </ul>
-    </div>
-
-
-    <%@ include file="../layout/footer.jsp" %>
+<%@ include file="../layout/footer.jsp" %>
 
