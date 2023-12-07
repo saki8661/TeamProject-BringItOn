@@ -889,7 +889,7 @@ input::placeholder {
     font-weight: 400;
     background-color: #ffffff;
     border-radius: 15px;
-    min-width: 300px;
+    min-width: 295px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -913,6 +913,23 @@ input::placeholder {
 .menu_bar {
     display: flex;
     flex-direction: revert;
+}
+
+/* leagueSchedule */
+
+.leagueSchedule_table {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.leagueSchedule_region {
+    max-width: 700px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.5em;
 }
 
 /* userBookmark */
@@ -1134,7 +1151,6 @@ input::placeholder {
     color: white;
 }
 
-<<<<<<< HEAD
 /* userPayment */
 
 .userPayment_box {
@@ -1264,6 +1280,4 @@ input::placeholder {
     font-size: 18px;
     padding-bottom: 25px;
 }
-=======
 
->>>>>>> dev
