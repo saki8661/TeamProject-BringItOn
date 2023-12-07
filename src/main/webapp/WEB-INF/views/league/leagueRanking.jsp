@@ -4,20 +4,38 @@
 
 <div>
     <div class="frame">
-        <ul class="nav ">
-            <li class="main_link">
-                <a href="#">
-                    <img src="/images/basketball.png" height="32px"> 실내 스포츠
+        <ul class="nav">
+            <li class="main_link nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                    실내 스포츠
                 </a>
+                <ul class="dropdown-menu sub_navbar_style">
+                    <li><a class="dropdown-item" href="#">축구</a></li>
+                    <li><a class="dropdown-item" href="#">농구</a></li>
+                    <li><a class="dropdown-item" href="#">풋살</a></li>
+                </ul>
             </li>
-            <li class="main_link">
-                <a href="#">
-                    <img src="/images/soccer.png" height="32px"> 야외 스포츠
+
+            <li class="main_link nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                    야외 스포츠
                 </a>
+                <ul class="dropdown-menu sub_navbar_style">
+                    <li><a class="dropdown-item" href="#">축구</a></li>
+                    <li><a class="dropdown-item" href="#">농구</a></li>
+                    <li><a class="dropdown-item" href="#">풋살</a></li>
+                </ul>
             </li>
-            <li class="main_link">
-                <a href="#">매칭</a>
+
+            <li class="main_link nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">매칭</a>
+                <ul class="dropdown-menu sub_navbar_style">
+                    <li><a class="dropdown-item" href="#">축구</a></li>
+                    <li><a class="dropdown-item" href="#">농구</a></li>
+                    <li><a class="dropdown-item" href="#">풋살</a></li>
+                </ul>
             </li>
+
             <li class="main_link">
                 <a href="#">리그</a>
             </li>
@@ -130,11 +148,11 @@
     </div>
     <hr>
 
-    <div style="max-width: 600px; margin: 0 auto;">
-        <div style="max-width: 500px; margin: 20px auto; text-align: left; font-weight: bold; font-size: 1.5em;">
+    <div style="max-width: 700px; margin: 0 auto;">
+        <div class="leagueRanking_region">
             서울 리그
         </div>
-        <table class="table">
+        <table class="table leagueRanking_table">
             <thead class="table-success">
             <tr>
                 <th>순위</th>
@@ -240,7 +258,7 @@
             </tbody>
         </table>
     </div>
-
+    <hr>
 </div>
 
 <script>

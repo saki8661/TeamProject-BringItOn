@@ -362,25 +362,30 @@ insert into scores(team_id, league_id, total_points, total_wins,
                    total_losses, total_draws, goal_difference)
 values(10, 1, '3', '1', '7', '0', '-10');
 
+-- notice_categories 테이블
+insert into notice_categories(notice_category) values('정기');
+insert into notice_categories(notice_category) values('중요');
+insert into notice_categories(notice_category) values('긴급');
+
 -- notices 테이블
-insert into notices(notice_title, notice_content, created_at)
-values('공지1', '공지1의 내용입니다', '2023-10-11');
-insert into notices(notice_title, notice_content, created_at)
-values('공지2', '공지2의 내용입니다', '2023-11-01');
-insert into notices(notice_title, notice_content, created_at)
-values('공지3', '공지3의 내용입니다', '2023-11-5');
-insert into notices(notice_title, notice_content, created_at)
-values('공지4', '공지4의 내용입니다', '2023-11-12');
-insert into notices(notice_title, notice_content, created_at)
-values('공지5', '공지5의 내용입니다', '2023-11-19');
-insert into notices(notice_title, notice_content, created_at)
-values('공지6', '공지6의 내용입니다', '2023-11-26');
-insert into notices(notice_title, notice_content, created_at)
-values('공지7', '공지7의 내용입니다', '2023-11-30');
-insert into notices(notice_title, notice_content, created_at)
-values('공지8', '공지8의 내용입니다', '2023-12-01');
-insert into notices(notice_title, notice_content, created_at)
-values('공지9', '공지9의 내용입니다', '2023-12-05');
+insert into notices(notice_title, notice_content, created_at, notice_category_id)
+values('공지1', '공지1의 내용입니다', '2023-10-11', 3);
+insert into notices(notice_title, notice_content, created_at, notice_category_id)
+values('공지2', '공지2의 내용입니다', '2023-11-01', 1);
+insert into notices(notice_title, notice_content, created_at, notice_category_id)
+values('공지3', '공지3의 내용입니다', '2023-11-5', 2);
+insert into notices(notice_title, notice_content, created_at, notice_category_id)
+values('공지4', '공지4의 내용입니다', '2023-11-12', 3);
+insert into notices(notice_title, notice_content, created_at, notice_category_id)
+values('공지5', '공지5의 내용입니다', '2023-11-19', 3);
+insert into notices(notice_title, notice_content, created_at, notice_category_id)
+values('공지6', '공지6의 내용입니다', '2023-11-26', 2);
+insert into notices(notice_title, notice_content, created_at, notice_category_id)
+values('공지7', '공지7의 내용입니다', '2023-11-30', 1);
+insert into notices(notice_title, notice_content, created_at, notice_category_id)
+values('공지8', '공지8의 내용입니다', '2023-12-01', 1);
+insert into notices(notice_title, notice_content, created_at, notice_category_id)
+values('공지9', '공지9의 내용입니다', '2023-12-05', 3);
 
 -- inquires 테이블
 insert into inquires(inquire_title, inquire_content, user_id)

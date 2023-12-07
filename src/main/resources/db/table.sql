@@ -234,12 +234,21 @@ CREATE TABLE scores
 );
 
 -- 'notices' 테이블 생성
+CREATE TABLE notice_categories
+(
+    notice_category_id INT AUTO_INCREMENT PRIMARY KEY,
+    notice_category    VARCHAR(20)
+);
+
+-- 'notices' 테이블 생성
 CREATE TABLE notices
 (
-    notice_id      INT AUTO_INCREMENT PRIMARY KEY,
-    notice_title   VARCHAR(255),
-    notice_content TEXT,
-    created_at     DATE
+    notice_id          INT AUTO_INCREMENT PRIMARY KEY,
+    notice_title       VARCHAR(255),
+    notice_content     TEXT,
+    created_at         DATE,
+    notice_category_id INT,
+    FOREIGN KEY (notice_category_id) REFERENCES notice_categories (notice_category_id)
 );
 
 -- 'inquires' 테이블 생성
