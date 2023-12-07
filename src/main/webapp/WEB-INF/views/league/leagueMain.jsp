@@ -5,20 +5,38 @@
 
 <div>
     <div class="frame">
-        <ul class="nav ">
-            <li class="main_link">
-                <a href="#">
-                    <img src="/images/basketball.png" height="32px"> 실내 스포츠
+        <ul class="nav">
+            <li class="main_link nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                    실내 스포츠
                 </a>
+                <ul class="dropdown-menu sub_navbar_style">
+                    <li><a class="dropdown-item" href="#">축구</a></li>
+                    <li><a class="dropdown-item" href="#">농구</a></li>
+                    <li><a class="dropdown-item" href="#">풋살</a></li>
+                </ul>
             </li>
-            <li class="main_link">
-                <a href="#">
-                    <img src="/images/soccer.png" height="32px"> 야외 스포츠
+
+            <li class="main_link nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                    야외 스포츠
                 </a>
+                <ul class="dropdown-menu sub_navbar_style">
+                    <li><a class="dropdown-item" href="#">축구</a></li>
+                    <li><a class="dropdown-item" href="#">농구</a></li>
+                    <li><a class="dropdown-item" href="#">풋살</a></li>
+                </ul>
             </li>
-            <li class="main_link">
-                <a href="#">매칭</a>
+
+            <li class="main_link nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">매칭</a>
+                <ul class="dropdown-menu sub_navbar_style">
+                    <li><a class="dropdown-item" href="#">축구</a></li>
+                    <li><a class="dropdown-item" href="#">농구</a></li>
+                    <li><a class="dropdown-item" href="#">풋살</a></li>
+                </ul>
             </li>
+
             <li class="main_link">
                 <a href="#">리그</a>
             </li>
@@ -30,73 +48,51 @@
     <hr>
 
     <div class="frame">
-        <ul class="nav leagueMain_
-dropdown">
-            <li class="leagueMain_
-sub_
-link1">
+        <ul class="nav leagueMain_dropdown">
+            <li class="leagueMain_sub_link1">
                 <a href="#">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <img src="/images/soccerball.png" height="15px"> 축구&nbsp;&nbsp;&nbsp;
                 </a>
             </li>
-            <ul class="nav leagueMain_
-dropdown_
-content">
-                <li class="leagueMain_
-sub_
-link2">
-                    <a href="#">
+            <ul class="nav leagueMain_dropdown_content">
+                <li class="leagueMain_sub_link2">
+                    <a href="/league-main">
                         리그 신청
                     </a>
                 </li>
-                <li class="leagueMain_
-sub_
-link2">
-                    <a href="#">
+                <li class="leagueMain_sub_link2">
+                    <a href="/league-schedule">
                         일정 / 결과
                     </a>
                 </li>
-                <li class="leagueMain_
-sub_
-link2">
-                    <a href="#">
+                <li class="leagueMain_sub_link2">
+                    <a href="/league-ranking">
                         기록 / 순위
                     </a>
                 </li>
             </ul>
         </ul>
-        <ul class="nav leagueMain_
-dropdown">
-            <li class="leagueMain_
-sub_
-link1">
+        <ul class="nav leagueMain_dropdown">
+            <li class="leagueMain_sub_link1">
                 <a href="#">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <img src="/images/basketballball.png" height="15px"> 농구&nbsp;&nbsp;&nbsp;
                 </a>
             </li>
-            <ul class="nav leagueMain_
-dropdown_
-content">
+            <ul class="nav leagueMain_dropdown_content">
                 <div class="menu_bar">
-                    <li class="leagueMain_
-sub_
-link2">
+                    <li class="leagueMain_sub_link2">
                         <a href="#">
                             리그 신청
                         </a>
                     </li>
-                    <li class="leagueMain_
-sub_
-link2">
+                    <li class="leagueMain_sub_link2">
                         <a href="#">
                             일정 / 결과
                         </a>
                     </li>
-                    <li class="leagueMain_
-sub_
-link2">
+                    <li class="leagueMain_sub_link2">
                         <a href="#">
                             기록 / 순위
                         </a>
@@ -104,36 +100,25 @@ link2">
                 </div>
             </ul>
         </ul>
-        <ul class="nav leagueMain_
-dropdown">
-            <li class="leagueMain_
-sub_
-link1">
+        <ul class="nav leagueMain_dropdown">
+            <li class="leagueMain_sub_link1">
                 <a href="#">
                     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <img src="/images/Futsal.png" height="15px"> 풋살&nbsp;&nbsp;&nbsp;
                 </a>
             </li>
-            <ul class="nav leagueMain_
-dropdown_
-content">
-                <li class="leagueMain_
-sub_
-link2">
+            <ul class="nav leagueMain_dropdown_content">
+                <li class="leagueMain_sub_link2">
                     <a href="#">
                         리그 신청
                     </a>
                 </li>
-                <li class="leagueMain_
-sub_
-link2">
+                <li class="leagueMain_sub_link2">
                     <a href="#">
                         일정 / 결과
                     </a>
                 </li>
-                <li class="leagueMain_
-sub_
-link2">
+                <li class="leagueMain_sub_link2">
                     <a href="#">
                         기록 / 순위
                     </a>
@@ -145,8 +130,7 @@ link2">
     </div>
     <hr>
 
-    <div class="leagueMain_
-body">
+    <div class="leagueMain_body">
         <div class="leagueMain_league_content">
             <img src="/images/SoccerBanner1.png">
             <div class="d-flex justify-content-between align-items-center">
@@ -154,19 +138,13 @@ body">
                     <div class="leagueMain_league_title m-2">
                         [서울리그]
                     </div>
-                    <div class="leagueMain_
-league_
-region m-2">
+                    <div class="leagueMain_league_region m-2">
                         서울 서초구
                     </div>
-                    <div class="leagueMain_
-league_
-stadium m-2">
+                    <div class="leagueMain_league_stadium m-2">
                         서초대형체육관
                     </div>
-                    <div class="leagueMain_
-league_
-status1 m-2 mb-4">
+                    <div class="leagueMain_league_status1 m-2 mb-4">
                         신청 진행전
                     </div>
                 </div>
@@ -176,25 +154,19 @@ status1 m-2 mb-4">
                         상세보기
                     </button>
                 </div>
-                <!_
- The Modal _
->
+                <!-- The Modal -->
                 <div class="modal" id="leagueModal1">
                     <div class="modal-dialog modal-lg">
                         <div class="modal-content">
 
-                            <!_
- Modal Header _
->
+                            <!--Modal Header-->
                             <div class="modal-header">
                                 <h4 class="modal-title">Modal Heading</h4>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                             </div>
 
-                            <!_
- Modal body _
->
-                            <div class="modal-body" >
+                            <!--Modal body-->
+                            <div class="modal-body">
                                 <table class="table">
                                     <thead>
                                     <tr>
@@ -223,9 +195,7 @@ status1 m-2 mb-4">
                                 </table>
                             </div>
 
-                            <!_
- Modal footer _
->
+                            <!--Modal footer-->
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close</button>
                             </div>
@@ -237,32 +207,21 @@ status1 m-2 mb-4">
         </div>
     </div>
 
-    <div class="leagueMain_
-body">
-        <div class="leagueMain_
-league_
-content">
+    <div class="leagueMain_body">
+        <div class="leagueMain_league_content">
             <img src="/images/SoccerBanner2.png">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    <div class="leagueMain_
-league_
-title m-2">
+                    <div class="leagueMain_league_title m-2">
                         [경기리그]
                     </div>
-                    <div class="leagueMain_
-league_
-region m-2">
+                    <div class="leagueMain_league_region m-2">
                         경기 성남시 분당구
                     </div>
-                    <div class="leagueMain_
-league_
-stadium m-2">
+                    <div class="leagueMain_league_stadium m-2">
                         성남종합체육시설
                     </div>
-                    <div class="leagueMain_
-league_
-status2 m-2 mb-4">
+                    <div class="leagueMain_league_status2 m-2 mb-4">
                         신청 진행중
                     </div>
                 </div>
@@ -272,31 +231,23 @@ status2 m-2 mb-4">
                         상세보기
                     </button>
                 </div>
-                <!_
- The Modal _
->
+                <!--The Modal-->
                 <div class="modal" id="leagueModal2">
                     <div class="modal-dialog">
                         <div class="modal-content">
 
-                            <!_
- Modal Header _
->
+                            <!--Modal Header-->
                             <div class="modal-header">
                                 <h4 class="modal-title">Modal Heading</h4>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                             </div>
 
-                            <!_
- Modal body _
->
+                            <!--Modal body-->
                             <div class="modal-body">
                                 Modal body..
                             </div>
 
-                            <!_
- Modal footer _
->
+                            <!--Modal footer-->
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Close
                                 </button>
@@ -309,32 +260,21 @@ status2 m-2 mb-4">
         </div>
     </div>
 
-    <div class="leagueMain_
-body">
-        <div class="leagueMain_
-league_
-content">
+    <div class="leagueMain_body">
+        <div class="leagueMain_league_content">
             <img src="/images/SoccerBanner3.png">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    <div class="leagueMain_
-league_
-title m-2">
+                    <div class="leagueMain_league_title m-2">
                         [부산리그]
                     </div>
-                    <div class="leagueMain_
-league_
-region m-2">
+                    <div class="leagueMain_league_region m-2">
                         부산 사하구
                     </div>
-                    <div class="leagueMain_
-league_
-stadium m-2">
+                    <div class="leagueMain_league_stadium m-2">
                         태종대환경공원
                     </div>
-                    <div class="leagueMain_
-league_
-status2 m-2 mb-4">
+                    <div class="leagueMain_league_status2 m-2 mb-4">
                         신청 진행중
                     </div>
                 </div>
@@ -344,32 +284,24 @@ status2 m-2 mb-4">
                         상세보기
                     </button>
                 </div>
-                <!_
- The Modal _
->
+                <!--The Modal-->
                 <div class="modal" id="leagueModal3">
                     <div class="modal-dialog">
                         <div class="modal-content">
 
-                            <!_
- Modal Header _
->
+                            <!--Modal Header-->
                             <div class="modal-header">
                                 <h4 class="modal-title">Modal Heading</h4>
                                 <button type="button" class="btn-close"
                                         data-bs-dismiss="modal"></button>
                             </div>
 
-                            <!_
- Modal body _
->
+                            <!--Modal body-->
                             <div class="modal-body">
                                 Modal body..
                             </div>
 
-                            <!_
- Modal footer _
->
+                            <!--Modal footer-->
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger" data-bs-dismiss="modal">
                                     Close
@@ -383,32 +315,21 @@ status2 m-2 mb-4">
         </div>
     </div>
 
-    <div class="leagueMain_
-body">
-        <div class="leagueMain_
-league_
-content">
+    <div class="leagueMain_body">
+        <div class="leagueMain_league_content">
             <img src="/images/SoccerBanner4.png">
             <div class="d-flex justify-content-between align-items-center">
                 <div>
-                    <div class="leagueMain_
-league_
-title m-2">
+                    <div class="leagueMain_league_title m-2">
                         [대구리그]
                     </div>
-                    <div class="leagueMain_
-league_
-region m-2">
+                    <div class="leagueMain_league_region m-2">
                         대구 달서구
                     </div>
-                    <div class="leagueMain_
-league_
-stadium m-2">
+                    <div class="leagueMain_league_stadium m-2">
                         달서휘트니스종합체육관
                     </div>
-                    <div class="leagueMain_
-league_
-status3 m-2 mb-4">
+                    <div class="leagueMain_league_status3 m-2 mb-4">
                         신청 마감
                     </div>
                 </div>
@@ -418,32 +339,24 @@ status3 m-2 mb-4">
                         상세보기
                     </button>
                 </div>
-                <!_
- The Modal _
->
+                <!--The Modal-->
                 <div class="modal" id="leagueModal4">
                     <div class="modal-dialog">
                         <div class="modal-content">
 
-                            <!_
- Modal Header _
->
+                            <!-- Modal Header-->
                             <div class="modal-header">
                                 <h4 class="modal-title">Modal Heading</h4>
                                 <button type="button" class="btn-close"
                                         data-bs-dismiss="modal"></button>
                             </div>
 
-                            <!_
- Modal body _
->
+                            <!--Modal body-->
                             <div class="modal-body">
                                 Modal body..
                             </div>
 
-                            <!_
- Modal footer _
->
+                            <!--Modal footer-->
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-danger"
                                         data-bs-dismiss="modal">Close

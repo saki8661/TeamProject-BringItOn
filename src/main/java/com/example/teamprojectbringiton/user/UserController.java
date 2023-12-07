@@ -20,16 +20,6 @@ public class UserController {
         return "/user/loginPage";
     }
 
-    @GetMapping("/league-main")
-    public String leagueMain(){
-        return "league/leagueMain";
-    }
-
-    @GetMapping("/league-detail")
-    public String leagueDetail(){
-        return "league/leagueDetail";
-    }
-
     @GetMapping("/user-update")
     public String userUpdate(){
         return "user/userUpdate";
@@ -37,6 +27,26 @@ public class UserController {
 
     @GetMapping("/user-team")
     public String userTeamManagement(){
-        return "user/userTeamManagement";
+        return "user/userTeam";
+    }
+
+    @GetMapping("/user-bookmark")
+    public String userBookmarkManagement(){
+        return "user/userBookmark";
+    }
+
+    @GetMapping("/user-review")
+    public String userReviewManagement(){
+        return "user/userReview";
+    }
+
+    @GetMapping("/user-reservation")
+    public String userReservation(){
+        return "user/userReservation";
+    }
+
+    @GetMapping("/user-payment")
+    public String userPayment(){
+        return "user/userPayment";
     }
 }

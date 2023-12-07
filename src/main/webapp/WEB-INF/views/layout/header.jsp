@@ -3,7 +3,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Bootstrap Example</title>
+    <title>BringItOn</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -23,7 +23,7 @@
 <div class="mt-3 frame">
     <nav class="navbar navbar-expand-sm nav_bar">
         <div class="container-fluid">
-            <a class="nav_logo" href="home">
+            <a class="nav_logo" href="/">
                 <img src="/images/logo.png">
             </a>
             <form class="d-flex">
