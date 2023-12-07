@@ -111,6 +111,7 @@
 
     <div style="text-align: center;">
         <div id="buttonContainer">
+            <button type="button" class="btn btn-outline-success">전체</button>
             <button type="button" class="btn btn-outline-success">서울</button>
             <button type="button" class="btn btn-outline-success">경기</button>
             <button type="button" class="btn btn-outline-success">인천</button>
@@ -128,6 +129,107 @@
         </div>
     </div>
     <hr>
+    <div style="max-width: 800px; margin: 0 auto;">
+        <div class="leagueSchedule_region">
+            서울
+        </div>
+        <table class="table leagueSchedule_table" >
+            <thead class="table-success">
+            <tr>
+                <th>경기 시간</th>
+                <th>경기장</th>
+                <th>Home_Team</th>
+                <th>match_status</th>
+                <th>Away_Team</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>10:00</td>
+                <td style="color: gray;">서울 스타디움</td>
+                <td>FC세환</td>
+                <td>진행</td>
+                <td>FC언약</td>
+            </tr>
+            <tr>
+                <td>14:00</td>
+                <td style="color: gray;">서울스타디움</td>
+                <td>FC그린</td>
+                <td>예정</td>
+                <td>FC자바</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div style="max-width: 800px; margin: 0 auto;">
+        <div class="leagueSchedule_region">
+            경기
+        </div>
+        <table class="table leagueSchedule_table">
+            <thead class="table-success">
+            <tr>
+                <th>경기 시간</th>
+                <th>경기장</th>
+                <th>Home_Team</th>
+                <th>match_status</th>
+                <th>Away_Team</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>10:00</td>
+                <td style="color: gray;">경기종합체육시설</td>
+                <td>home_team</td>
+                <td>match_status</td>
+                <td>away_team</td>
+            </tr>
+            <tr>
+                <td>14:00</td>
+                <td style="color: gray;">경기종합체육시설</td>
+                <td>home_team</td>
+                <td>match_status</td>
+                <td>away_team</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+    <div style="max-width: 800px; margin: 0 auto;">
+        <div class="leagueSchedule_region">
+            인천
+        </div>
+        <table class="table leagueSchedule_table">
+            <thead class="table-success">
+            <tr>
+                <th>경기 시간</th>
+                <th>경기장</th>
+                <th>Home_Team</th>
+                <th>match_status</th>
+                <th>Away_Team</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>10:00</td>
+                <td style="color: gray;">송도휘트니스센터</td>
+                <td>home_team</td>
+                <td>match_status</td>
+                <td>away_team</td>
+            </tr>
+            <tr>
+                <td>14:00</td>
+                <td style="color: gray;">송도휘트니스센터</td>
+                <td>home_team</td>
+                <td>match_status</td>
+                <td>away_team</td>
+            </tr>
+
+            </tbody>
+        </table>
+    </div>
 
 
 </div>
@@ -153,6 +255,11 @@
                 button.style.color = '#ffffff';
             });
         });
+
+        // 최초 진입 시 "전체" 버튼을 클릭된 상태로 설정
+        var allButton = document.querySelector('#buttonContainer button:first-child');
+        allButton.classList.add('btn-success');
+        allButton.style.color = '#ffffff';
     });
 </script>
 
