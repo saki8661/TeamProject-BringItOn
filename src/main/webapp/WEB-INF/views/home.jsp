@@ -4,22 +4,34 @@
 
 <div>
     <div class="frame">
-        <ul class="nav ">
-            <li class="main_link">
-                <a href="#">
-                    <img src="/images/basketball.png" height="32px"> 실내 스포츠
+        <ul class="nav">
+            <li class="main_link nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    <img src="/images/basketball.png"> 실내 스포츠
                 </a>
+                <ul class="dropdown-menu sub_navbar_style">
+                    <li><a class="dropdown-item" href="#">축구</a></li>
+                    <li><a class="dropdown-item" href="#">농구</a></li>
+                    <li><a class="dropdown-item" href="#">풋살</a></li>
+                </ul>
             </li>
-            <li class="main_link">
-                <a href="#">
-                    <img src="/images/soccer.png" height="32px"> 야외 스포츠
+
+            <li class="main_link nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+                    <img src="/images/soccer.png"> 야외 스포츠
                 </a>
+                <ul class="dropdown-menu sub_navbar_style">
+                    <li><a class="dropdown-item" href="#">축구</a></li>
+                    <li><a class="dropdown-item" href="#">농구</a></li>
+                    <li><a class="dropdown-item" href="#">풋살</a></li>
+                </ul>
             </li>
+
             <li class="main_link">
                 <a href="#">매칭</a>
             </li>
             <li class="main_link">
-                <a href="/league-main">리그</a>
+                <a href="#">리그</a>
             </li>
             <li class="main_link">
                 <a href="#">고객센터</a>
@@ -201,5 +213,5 @@
         </div>
     </div>
 </div>
-    <%@ include file="layout/footer.jsp" %>
+<%@ include file="layout/footer.jsp" %>
 
