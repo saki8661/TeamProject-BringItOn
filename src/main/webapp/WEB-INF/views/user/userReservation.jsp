@@ -33,6 +33,7 @@
                         <table class="table userReservation_table">
                             <thead>
                             <tr>
+                                <th>예약번호</th>
                                 <th colspan="2">시설 정보</th>
                                 <th>사용 시간</th>
                                 <th>상품 금액</th>
@@ -41,6 +42,7 @@
                             </thead>
                             <tbody>
                             <tr class="userReservation_table_tr">
+                                <td>16-12369</td>
                                 <td>
                                     <div class="userReservation_pic">
                                         <img src="/images/stadium.png">
@@ -59,6 +61,7 @@
                                 <td>결제 대기</td>
                             </tr>
                             <tr class="userReservation_table_tr">
+                                <td>16-12369</td>
                                 <td><div class="userReservation_pic">
                                     <img src="/images/stadium.png">
                                 </div></td>
