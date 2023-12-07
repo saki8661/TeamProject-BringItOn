@@ -26,7 +26,9 @@
 
 
     <div class="common_button">
+        <a href="http://localhost/login">
         <button type="submit" class="kakao_login_common_button">로그인 (호스트는 일반로그인 필수)</button>
+        </a>
     </div>
 
     <div class="kakao_login_or_container">
@@ -37,11 +39,10 @@
 
     <div class="kakao_login_txt">
         <div class="kakao_login_acoount_q">계정이 없으신가요?</div>
-        <a href="" class="sign_up_go">회원가입하기</a>
+        <a href="http://localhost/join" class="sign_up_go">회원가입하기</a>
     </div>
 
 </div>
-
 
 </body>
 </html>

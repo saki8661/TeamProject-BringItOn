@@ -17,7 +17,8 @@
 </style>
 
 <body>
-<div class="frame">
+<div class="wrap">
+    <div class="frame">
     <nav class="navbar navbar-expand-sm nav_bar">
         <div class="container-fluid">
             <a class="nav_logo" href="/">
@@ -45,4 +46,5 @@
         </div>
     </nav>
 </div>
-<hr class="nav_hr"/>
+</div>
+<%--<hr class="nav_hr"/>--%>
