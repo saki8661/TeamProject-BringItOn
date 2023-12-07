@@ -164,6 +164,7 @@ CREATE TABLE bookmarks
 CREATE TABLE reservations
 (
     reservation_id   INT AUTO_INCREMENT PRIMARY KEY,
+    reserv_no        VARCHAR(20),
     space_id         INT,
     user_id          INT,
     reservation_date DATE,

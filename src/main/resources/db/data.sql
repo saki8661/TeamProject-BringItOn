@@ -260,27 +260,27 @@ insert into bookmarks(space_id, user_id) values(1, 2);
 insert into bookmarks(space_id, user_id) values(3, 2);
 
 -- reservations 테이블
-insert into reservations(space_id, user_id, reservation_date,
+insert into reservations(reserv_no, space_id, user_id, reservation_date,
                          start_time, end_time, status, matching)
-values(1, 2, '2023-12-25', '12:00:00', '14:00:00', '결제대기', false);
-insert into reservations(space_id, user_id, reservation_date,
+values('00100159', 1, 2, '2023-12-25', '12:00:00', '14:00:00', '결제대기', false);
+insert into reservations(reserv_no, space_id, user_id, reservation_date,
                          start_time, end_time, status, matching)
-values(1, 2, '2023-12-25', '14:00:00', '16:00:00', '결제완료', true);
-insert into reservations(space_id, user_id, reservation_date,
+values('00102159',1, 2, '2023-12-25', '14:00:00', '16:00:00', '결제완료', true);
+insert into reservations(reserv_no,space_id, user_id, reservation_date,
                          start_time, end_time, status, matching)
-values(2, 4, '2023-12-25', '12:00:00', '14:00:00', '결제완료', true);
-insert into reservations(space_id, user_id, reservation_date,
+values('00110159',2, 4, '2023-12-25', '12:00:00', '14:00:00', '결제완료', true);
+insert into reservations(reserv_no, space_id, user_id, reservation_date,
                          start_time, end_time, status, matching)
-values(2, 3, '2023-12-25', '10:00:00', '12:00:00', '결제완료', false);
-insert into reservations(space_id, user_id, reservation_date,
+values('00100623',2, 3, '2023-12-25', '10:00:00', '12:00:00', '결제완료', false);
+insert into reservations(reserv_no, space_id, user_id, reservation_date,
                          start_time, end_time, status, matching)
-values(2, 1, '2023-12-24', '10:00:00', '12:00:00', '결제완료', true);
-insert into reservations(space_id, user_id, reservation_date,
+values('00110351',2, 1, '2023-12-24', '10:00:00', '12:00:00', '결제완료', true);
+insert into reservations(reserv_no, space_id, user_id, reservation_date,
                          start_time, end_time, status, matching)
-values(2, 1, '2023-12-24', '12:00:00', '14:00:00', '결제완료', true);
-insert into reservations(space_id, user_id, reservation_date,
+values('00100417',2, 1, '2023-12-24', '12:00:00', '14:00:00', '결제완료', true);
+insert into reservations(reserv_no, space_id, user_id, reservation_date,
                          start_time, end_time, status, matching)
-values(2, 1, '2023-12-25', '14:00:00', '16:00:00', '결제완료', true);
+values('00200324',2, 1, '2023-12-25', '14:00:00', '16:00:00', '결제완료', true);
 
 -- reviews 테이블
 insert into reviews(reservation_id, user_id, comment) values(2, 2, '시설이 깔끔해요');
