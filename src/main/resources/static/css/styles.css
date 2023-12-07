@@ -358,6 +358,11 @@ input::placeholder {
     margin-bottom: 50px;
 }
 
+.main_banner_area{
+    width: 1920px;
+    height: 500px;
+}
+
 .inside_content img {
     border-radius: 15px;
     width: 287px;
