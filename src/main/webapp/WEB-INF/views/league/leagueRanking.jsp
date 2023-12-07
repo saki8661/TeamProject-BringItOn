@@ -111,6 +111,7 @@
 
     <div style="text-align: center;">
         <div id="buttonContainer">
+            <button type="button" class="btn btn-outline-success">전체</button>
             <button type="button" class="btn btn-outline-success">서울</button>
             <button type="button" class="btn btn-outline-success">경기</button>
             <button type="button" class="btn btn-outline-success">인천</button>
@@ -130,7 +131,7 @@
     <hr>
 
     <div style="max-width: 600px; margin: 0 auto;">
-        <div style="max-width: 600px; margin: 20px auto; text-align: left; font-weight: bold; font-size: 1.5em;">
+        <div style="max-width: 500px; margin: 20px auto; text-align: left; font-weight: bold; font-size: 1.5em;">
             서울 리그
         </div>
         <table class="table">
@@ -263,7 +264,13 @@
                 button.style.color = '#ffffff';
             });
         });
+
+        // 최초 진입 시 "전체" 버튼을 클릭된 상태로 설정
+        var allButton = document.querySelector('#buttonContainer button:first-child');
+        allButton.classList.add('btn-success');
+        allButton.style.color = '#ffffff';
     });
 </script>
+
 
 <%@ include file="../layout/footer.jsp" %>
