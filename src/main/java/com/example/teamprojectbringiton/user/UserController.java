@@ -49,4 +49,9 @@ public class UserController {
     public String userReviewManagement(){
         return "user/userReview";
     }
+
+    @GetMapping("/user-reservation")
+    public String userReservation(){
+        return "user/userReservation";
+    }
 }

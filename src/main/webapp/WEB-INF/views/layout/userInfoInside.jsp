@@ -16,7 +16,7 @@
         <div class="userInfo_link">
             <a class="nav-link userInfo_link_text" href="/user-team">팀 관리</a>
             <a class="nav-link userInfo_link_text" href="/user-bookmark">북마크</a>
-            <a class="nav-link userInfo_link_text" href="#">예약 내역</a>
+            <a class="nav-link userInfo_link_text" href="/user-reservation">예약 내역</a>
             <a class="nav-link userInfo_link_text" href="#">결제 내역</a>
             <a class="nav-link userInfo_link_text" href="/user-review">후기 관리</a>
             <a class="nav-link userInfo_link_text" href="/user-update">개인정보

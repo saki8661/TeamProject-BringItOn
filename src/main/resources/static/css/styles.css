@@ -919,7 +919,7 @@ input::placeholder {
     flex-direction: revert;
 }
 
-/* userBookmark*/
+/* userBookmark */
 
 .userBookmark_layout {
     display: grid;
@@ -935,5 +935,192 @@ input::placeholder {
     border-radius: 15px;
     width: 232px;
     height: auto;
+}
+
+/* userReservation */
+
+.userReservation_tab {
+    display: flex;
+    flex-direction: row;
+    align-self: start;
+    gap: 20px;
+}
+
+.userReservation_tabbox {
+    display: flex;
+    align-self: start;
+    margin: 10px;
+}
+
+.userReservation_search {
+    position: relative;
+    width: 100%;
+    margin: 30px;
+}
+.userReservation_search button img{
+    margin-right: 10px;
+}
+
+.userReservation_search input {
+    border: none;
+    background: #F0F0F0;
+    width: 700px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.userReservation_table {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+    justify-items: center;
+}
+
+.userReservation_table th {
+    background: #F3F5F7;
+    border-top: black 2px solid;
+}
+
+
+.userReservation_table_tr td {
+    vertical-align: middle;
+    border: #F3F5F7 1px solid;
+    height: 100px;
+}
+
+.userReservation_table_title {
+    background: #19B357;
+}
+
+.userReservation_table_column {
+
+}
+.userReservation_table_tr td:nth-child(1) {
+    width: 11%;
+}
+
+.userReservation_table_tr td:nth-child(2) {
+    width: 13%;
+}
+
+.userReservation_table_tr td:nth-child(3) {
+    width: 27%;
+}
+
+.userReservation_table_tr td:nth-child(4) {
+    width: 24%;
+    font-size: 13px;
+}
+
+.userReservation_table_tr td:nth-child(5) {
+    width: 12%;
+}
+
+.userReservation_table_tr td:nth-child(6) {
+    width: 12%;
+}
+
+.userReservation_pic img{
+    width: 100%;
+    height: 100%;
+}
+
+
+.userReservation_button{
+display: flex;
+    align-self: end;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.userReservation_detail{
+    padding: 10px;
+
+}
+.userReservation_payment{
+    background: #378AD7;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    justify-self: end;
+}
+
+.modal {
+    text-align: center;
+}
+
+.modal-dialog.modal-fullsize {
+}
+
+
+@media screen {
+    .modal:before {
+        display: inline-block;
+        vertical-align: middle;
+        content: " ";
+        height: 100%;
+    }
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.userReservation_modal_header{
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+    border-bottom: #dee2e6 1px solid;
+
+}
+
+.userReservation_modal_body{
+
+}
+
+.userReservation_modal_body_detail{
+    display: flex;
+    flex-direction: row;
+}
+
+.userReservation_modal_body_detail_text{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.userReservation_modal_body_detail img{
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.userReservation_modal_footer{
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: #dee2e6 1px solid;
+    margin: 10px;
+    padding-top: 10px;
+    height: 50px;
+}
+
+.userReservation_modal_footer a:nth-child(1) {
+    background: #19B357;
+    padding: 10px 30px;
+    border-radius: 12.5px;
+    color: white;
+}
+
+.userReservation_modal_footer a:nth-child(2){
+    background: #f44336;
+    padding: 10px 30px;
+    border-radius: 12.5px;
+    color: white;
 }
 
