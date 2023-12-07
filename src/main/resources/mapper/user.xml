@@ -6,8 +6,8 @@
         namespace="com.example.teamprojectbringiton.user.UserRepository">
 
     <insert id="insert">
-        insert into user_tb(username, password, fullname, origin_file_name, upload_file_name, created_at)
-        values(#{username}, #{password}, #{fullname}, #{originFileName}, #{uploadFileName}, now());
+        insert into users_tb(username, password, user_email, user_phone_number, user_address)
+        values(#{username}, #{password}, #{userEmail}, #{userPhoneNumber}, #{userAddress});
     </insert>
 
     <update id="updateById">
@@ -42,6 +42,6 @@
     <!-- username 으로 사용자 검색 -->
     <select id="findByUsername"
             resultType="com.example.teamprojectbringiton.user.Users">
-        select * from user_tb where username = #{username}
+        select * from users_tb where username = #{username}
     </select>
 </mapper>

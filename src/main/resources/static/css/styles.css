@@ -16,6 +16,11 @@
     --basic_bl: #000;
 }
 
+.wrap {
+    border-bottom: 1px solid var(--primary_01);
+
+}
+
 html {
     font-size: 15px;
     font-family: 'Noto Sans KR', sans-serif;
@@ -1255,8 +1260,7 @@ input::placeholder {
 }
 
 
-
-    /* leagueSchedule */
+/* leagueSchedule */
 .leagueSchedule_table {
     text-align: center;
     margin-bottom: 30px;
@@ -1288,6 +1292,294 @@ input::placeholder {
     border-radius: 15px;
     width: 232px;
     height: auto;
+}
+
+/* reservation*/
+
+.reservation_background {
+    background-color: #F3F5F7;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    height: 100%;
+}
+
+.reservation_container {
+    background-color: #fff;
+    width: 800px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    padding-left: 10%;
+    padding-right: 10%;
+    padding-bottom: 180px;
+}
+
+.re_choice_place_letter_name {
+    font-weight: bolder;
+    color: #8A8A8A;
+    padding-bottom: 10px;
+}
+
+.re_choice_place_letter_field {
+    font-weight: bolder;
+    padding-bottom: 10px;
+}
+
+.re_choice_place_letter_time {
+    padding-bottom: 10px;
+}
+
+.reservation_line {
+    width: 100%;
+    height: 1px;
+    color: #8A8A8A;
+}
+
+.re_acception {
+    display: flex;
+    margin-top: 50px;
+    font-weight: bolder;
+    flex-direction: column;
+
+}
+
+.re_acception_letter {
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-bottom: 30px;
+    font-size: 30px;
+}
+
+.re_choice_place {
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 30px;
+}
+
+.re_choice_place_detail {
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+}
+
+
+.re_place_image {
+    width: 120px;
+    height: 100px;
+
+}
+
+.re_place_image img {
+    width: 100%; /* 이미지가 부모 요소의 100%를 차지하도록 설정 */
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10%; /* 이미지의 비율을 유지하면서 부모 요소에 맞추기 */
+}
+
+.re_choice_place_letter {
+    display: flex;
+    flex-direction: column;
+    padding-left: 50px;
+
+}
+
+.re_calendar {
+    display: flex;
+    flex-direction: column;
+    padding-top: 80px;
+}
+
+.re_calendar_letter {
+    font-weight: bolder;
+
+}
+
+.re_calendar_detail {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+td {
+    padding: 5px;
+    width: 50px;
+    height: 50px;
+}
+
+.re_calendar_real {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.Calendar > thead > tr:first-child > td {
+    font-weight: bold;
+}
+
+.Calendar > thead > tr:last-child > td {
+    background-color: grey;
+    color: white;
+}
+
+.pastDay {
+    background-color: lightgray;
+}
+
+.today {
+    background-color: #FFCA64;
+    cursor: pointer;
+}
+
+.futureDay {
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+
+.futureDay.choiceDay, .today.choiceDay {
+    background-color: #3E85EF;
+    color: #fff;
+    cursor: pointer;
+}
+
+.re_time_choice {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.re_choice_letter {
+    font-weight: bolder;
+}
+
+.re_time_choice_caution {
+    display: flex;
+    flex-direction: row;
+}
+
+.re_time_choice_caution_red {
+    font-weight: bolder;
+    color: #FE1F33;
+    padding-left: 10px;
+    padding-bottom: 10px;
+}
+
+.re_time_choice_radio {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 50px;
+    padding-top: 20px;
+    font-weight: bolder;
+}
+
+.re_person_choice {
+    display: flex;
+    flex-direction: column;
+}
+
+.re_person_caution {
+    font-weight: bolder;
+    color: #555;
+    text-align: center;
+
+}
+
+.re_person_count {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    padding-top: 30px;
+    padding-bottom: 50px;
+}
+
+.re_person_count input[type="button"] {
+    border: none; /* 원하는 테두리 스타일과 색상으로 변경 */
+    padding: 5px 10px; /* 버튼의 내부 여백 설정 */
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+
+}
+
+.re_person_count input[type="button"]:hover {
+    background-color: #333; /* 버튼에 마우스를 올렸을 때의 배경색 */
+    color: #fff; /* 버튼에 마우스를 올렸을 때의 텍스트 색상 */
+}
+
+.re_count_number {
+    font-size: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 20px;
+    justify-content: center;
+
+}
+
+.re_person_auto_count {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 500px;
+    height: 20px;
+    padding-bottom: 30px;
+}
+
+.re_host_send {
+    display: flex;
+    flex-direction: column;
+}
+
+.re_host_title {
+    display: flex;
+    flex-direction: row;
+}
+
+.re_choice_letter_blue {
+    padding-left: 20px;
+    font-weight: bolder;
+    color: rgba(66, 132, 236, 1);
+}
+
+.re_host_send_container {
+    border: 1px solid #D4DBE2; /* 테두리 스타일 및 색상 설정 */
+    padding: 10px; /* 내부 여백 설정 */
+    margin: 10px; /* 외부 여백 설정 */
+    background-color: #FFFFFF;
+    height: 100px;
+}
+
+.re_host_send_container_txt {
+    width: 100%;
+    height: 100%;
+    color: #FFFFFF;
+}
+
+.re_matching_check {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    font-weight: bolder;
+}
+
+
+.re_matching_check label {
+    padding: 20px;
+}
+
+.reservation_button {
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+}
+
+.reservation_button_detail {
+    border-radius: 20px;
+    width: 200px;
+    height: 60px;
+    background-color: #19B357;
+    color: #FFFFFF;
+    font-weight: bolder;
 }
 
 /* userReservation */
@@ -1782,7 +2074,7 @@ input::placeholder {
     border-bottom: #F5F6F7 1px solid;
 }
 
-.inquire_write_list{
+.inquire_write_list {
     border-bottom: #F5F6F7 1px solid;
     display: flex;
     flex-direction: column;
@@ -1807,14 +2099,14 @@ input::placeholder {
     font-size: 18px;
 }
 
-.inquire_write_date{
+.inquire_write_date {
     align-self: center;
     padding-right: 25px;
     font-size: 12px;
     color: #929392;
 }
 
-.inquire_write_content{
+.inquire_write_content {
     width: 100%;
     height: 100%;
     margin-top: 50px;
@@ -1825,13 +2117,13 @@ input::placeholder {
     white-space: pre-line;
 }
 
-.inquire_write_layout{
+.inquire_write_layout {
     display: flex;
     align-items: center;
     justify-content: space-between;
 }
 
-.inquire_write button{
+.inquire_write button {
     background: #F3F3F7;
     width: 100px;
     height: 40px;
@@ -1852,19 +2144,19 @@ input::placeholder {
     height: 50px;
 }
 
-.inquire_write_modal_footer button{
+.inquire_write_modal_footer button {
     background: #19B357;
     padding: 10px 30px;
     border-radius: 12.5px;
     color: white;
 }
 
-.inquire_write_form{
+.inquire_write_form {
     display: flex;
     flex-direction: column;
 }
 
-.inquire_write_form div{
+.inquire_write_form div {
     font-size: 20px;
     font-weight: bold;
     margin: 20px auto 10px auto;
@@ -1875,4 +2167,5 @@ input::placeholder {
     width: 100%;
     height: 200px;
 }
+
 

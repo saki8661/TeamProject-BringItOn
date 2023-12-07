@@ -29,32 +29,35 @@
 </style>
 
 <body>
-<div class="mt-3 frame">
-    <nav class="navbar navbar-expand-sm nav_bar">
-        <div class="container-fluid">
-            <a class="nav_logo" href="/">
-                <img src="/images/logo.png">
-            </a>
-            <form class="d-flex">
-                <div class="search_form">
-                    <input class="form-control" type="text" placeholder="뭐를 검색해보세요.">
-                    <button type="submit" class="search_button">
-                        <img src="/images/search.png">
+
+<div class="wrap">
+    <div class="frame">
+        <nav class="navbar navbar-expand-sm nav_bar">
+            <div class="container-fluid">
+                <a class="nav_logo" href="/">
+                    <img src="/images/logo.png">
+                </a>
+                <form class="d-flex">
+                    <div class="search_form">
+                        <input class="form-control" type="text" placeholder="뭐를 검색해보세요.">
+                        <button type="submit" class="search_button">
+                            <img src="/images/search.png">
+                        </button>
+                    </div>
+                </form>
+                <a class="nav_add" href="javascript:void(0)">시설등록</a>
+                <div class="dropdown">
+                    <button class="dropbtn">
+                        <img src="/images/info.png">
                     </button>
-                </div>
-            </form>
-            <a class="nav_add" href="javascript:void(0)">시설등록</a>
-            <div class="dropdown">
-                <button class="dropbtn">
-                    <img src="/images/info.png">
-                </button>
-                <div class="dropdown-content">
-                    <a href="#">My페이지</a>
-                    <a href="/user-update">회원정보 수정</a>
-                    <a href="#">로그아웃</a>
+                    <div class="dropdown-content">
+                        <a href="#">My페이지</a>
+                        <a href="/user-update">회원정보 수정</a>
+                        <a href="#">로그아웃</a>
+                    </div>
                 </div>
             </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
 </div>
-<hr class="nav_hr"/>
+<%--<hr class="nav_hr"/>--%>

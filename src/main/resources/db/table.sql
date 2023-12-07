@@ -1,3 +1,4 @@
+
 -- 'teams' 테이블 생성
 CREATE TABLE teams
 (
