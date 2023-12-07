@@ -302,7 +302,7 @@
     </div>
     <div class="frame">
         <ul class="manual">
-            <li class="manual_box manual_active">
+            <li class="manual_box ">
                 <div>
                     <ul class="nav">
                         <li class="matching_sorting nav-item dropdown">
@@ -393,7 +393,7 @@
     </div>
     <div class="frame">
         <ul class="manual">
-            <li class="manual_box manual_active">
+            <li class="manual_box ">
                 <div>
                     <ul class="nav">
                         <li class="matching_sorting nav-item dropdown">
