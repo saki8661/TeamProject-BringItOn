@@ -20,16 +20,6 @@ public class UserController {
         return "/user/loginPage";
     }
 
-    @GetMapping("/league-main")
-    public String leagueMain(){
-        return "league/leagueMain";
-    }
-
-    @GetMapping("/league-detail")
-    public String leagueDetail(){
-        return "league/leagueDetail";
-    }
-
     @GetMapping("/user-update")
     public String userUpdate(){
         return "user/userUpdate";
