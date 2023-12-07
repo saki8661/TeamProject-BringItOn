@@ -18,10 +18,10 @@
         <div class="">
             <ul class="inquire_tab">
                 <li class="inquire_tab_item">
-                    <a class="nav-link" href="#">공지사항</a>
+                    <a class="nav-link" href="/inquire-main">공지사항</a>
                 </li>
                 <li class="inquire_tab_item">
-                    <a class="nav-link" href="#">문의하기</a>
+                    <a class="nav-link" href="/inquire-write">문의하기</a>
                 </li>
                 <li class="inquire_tab_item">
                     <a class="nav-link"
