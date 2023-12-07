@@ -54,4 +54,9 @@ public class UserController {
     public String userReservation(){
         return "user/userReservation";
     }
+
+    @GetMapping("/user-payment")
+    public String userPayment(){
+        return "user/userPayment";
+    }
 }
