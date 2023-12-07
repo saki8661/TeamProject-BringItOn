@@ -36,85 +36,89 @@
     <div class="inquire_notice">
         공지사항
     </div>
+
     <div class="inquire_notice_list">
-        <div class="inquire_notice_content">
-            <div>
-                중요공지
+        <button type="button" class="more_button">
+            <div class="inquire_layout">
+                <div class="inquire_notice_item">
+                    <div>
+                        중요공지
+                    </div>
+                    <div>
+                        서버 점검 안내 (12/05)
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <div class="inquire_notice_date">
+                        2023-12-01
+                    </div>
+                    <div>
+                        <img src="/images/more.png" class="inquire_toggle_image">
+                    </div>
+                </div>
             </div>
-            <div>
-                서버 점검 안내 (12/05)
+            <div class="inquire_notice_content cs_detail" style="display: none">
+                <div class="d-flex justify-content-between px-3 pt-3 m-3">
+                    <div>안녕하세요, 브링잇온입니다.
+                        서버 점검으로 인해 아래의 시간 동안 서비스가 일시중지 됩니다.
+                        서버 점검 시간 : 2023년 12월 07일(월) 00:00 ~ 23:59
+                        이용에 불편을 드려 죄송합니다. 더욱 신뢰받는 서비스로 보답하겠습니다.
+                        감사합니다.
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="d-flex">
-            <div class="inquire_notice_date">
-                2023-12-01
-            </div>
-            <div>
-                <button type="button">
-                    <img src="/images/more.png" alt="">
-                </button>
-            </div>
-        </div>
+        </button>
     </div>
     <div class="inquire_notice_list">
-        <div class="inquire_notice_content">
-            <div>
-                중요공지
+        <button type="button" class="more_button">
+            <div class="inquire_layout">
+                <div class="inquire_notice_item">
+                    <div>
+                        중요공지
+                    </div>
+                    <div>
+                        서버 점검 안내 (12/05)
+                    </div>
+                </div>
+                <div class="d-flex">
+                    <div class="inquire_notice_date">
+                        2023-12-01
+                    </div>
+                    <div>
+                        <img src="/images/more.png" class="inquire_toggle_image">
+                    </div>
+                </div>
             </div>
-            <div>
-                서버 점검 안내 (12/05)
+            <div class="inquire_notice_content cs_detail" style="display: none">
+                <div class="d-flex justify-content-between px-3 pt-3 m-3">
+                    <div>안녕하세요, 브링잇온입니다.
+                        서버 점검으로 인해 아래의 시간 동안 서비스가 일시중지 됩니다.
+                        서버 점검 시간 : 2023년 12월 07일(월) 00:00 ~ 23:59
+                        이용에 불편을 드려 죄송합니다. 더욱 신뢰받는 서비스로 보답하겠습니다.
+                        감사합니다.
+                    </div>
+                </div>
             </div>
-        </div>
-        <div class="d-flex">
-            <div class="inquire_notice_date">
-                2023-12-01
-            </div>
-            <div>
-                <button type="button">
-                    <img src="/images/more.png" alt="">
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="inquire_notice_list">
-        <div class="inquire_notice_content">
-            <div>
-                중요공지
-            </div>
-            <div>
-                서버 점검 안내 (12/05)
-            </div>
-        </div>
-        <div class="d-flex">
-            <div class="inquire_notice_date">
-                2023-12-01
-            </div>
-            <div>
-                <button type="button">
-                    <img src="/images/more.png" alt="">
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="inquire_notice_list">
-        <div class="inquire_notice_content">
-            <div>
-                중요공지
-            </div>
-            <div>
-                서버 점검 안내 (12/05)
-            </div>
-        </div>
-        <div class="d-flex">
-            <div class="inquire_notice_date">
-                2023-12-01
-            </div>
-            <button type="button">
-                <img src="/images/more.png" alt="">
-            </button>
-        </div>
+        </button>
     </div>
 </div>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var moreButtons = document.querySelectorAll(".more_button");
+
+        moreButtons.forEach(function (button) {
+            button.addEventListener("click", function () {
+                var csDetail = this.closest(".inquire_notice_list").querySelector(".cs_detail");
+                csDetail.style.display = (csDetail.style.display === "none") ? "block" : "none";
+
+                var toggleImage = this.querySelector(".inquire_toggle_image");
+                toggleImage.src = (csDetail.style.display === "none") ? "/images/more.png" : "/images/minus.png";
+            });
+        });
+    });
+</script>
 
 
 <%@ include file="../layout/footer.jsp" %>
