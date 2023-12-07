@@ -1134,6 +1134,7 @@ input::placeholder {
     color: white;
 }
 
+<<<<<<< HEAD
 /* userPayment */
 
 .userPayment_box {
@@ -1263,3 +1264,6 @@ input::placeholder {
     font-size: 18px;
     padding-bottom: 25px;
 }
+=======
+
+>>>>>>> dev
