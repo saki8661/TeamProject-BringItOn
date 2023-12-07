@@ -56,7 +56,7 @@
             </li>
             <ul class="nav leagueMain_dropdown_content">
                 <li class="leagueMain_sub_link2">
-                    <a href="#">
+                    <a href="/league-main">
                         리그 신청
                     </a>
                 </li>
@@ -147,6 +147,15 @@
         </div>
     </div>
     <hr>
+
+    <div id="calendar-container" style="max-width: 400px; margin: 0 auto;">
+        <!-- FullCalendar 컨테이너 -->
+        <div id="calendar"></div>
+    </div>
+
+
+
+
     <div style="max-width: 800px; margin: 0 auto;">
         <div class="leagueSchedule_region">
             서울
@@ -279,6 +288,26 @@
         allButton.classList.add('btn-success');
         allButton.style.color = '#ffffff';
     });
+    // 페이지 로드 후 실행할 스크립트
+    document.addEventListener('DOMContentLoaded', function () {
+        // FullCalendar 설정
+        $('#calendar').fullCalendar({
+            // 달력 이벤트 데이터 설정 (여기서는 더미 데이터를 사용하였습니다)
+            events: [
+                {
+                    title: '이벤트 1',
+                    start: '2023-12-10'
+                },
+                {
+                    title: '이벤트 2',
+                    start: '2023-12-15'
+                },
+                // 추가적인 이벤트들...
+            ]
+        });
+    });
 </script>
+
+
 
 <%@ include file="../layout/footer.jsp" %>
