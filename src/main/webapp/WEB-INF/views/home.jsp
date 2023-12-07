@@ -4,25 +4,43 @@
 
 <div>
     <div class="frame">
-        <ul class="nav ">
-            <li class="main_link">
-                <a href="#">
-                    <img src="/images/basketball.png" height="32px"> 실내 스포츠
+        <ul class="nav">
+            <li class="main_link nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                    실내 스포츠
                 </a>
+                <ul class="dropdown-menu sub_navbar_style">
+                    <li><a class="dropdown-item" href="#">축구</a></li>
+                    <li><a class="dropdown-item" href="#">농구</a></li>
+                    <li><a class="dropdown-item" href="#">풋살</a></li>
+                </ul>
             </li>
-            <li class="main_link">
-                <a href="#">
-                    <img src="/images/soccer.png" height="32px"> 야외 스포츠
+
+            <li class="main_link nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                    야외 스포츠
                 </a>
+                <ul class="dropdown-menu sub_navbar_style">
+                    <li><a class="dropdown-item" href="#">축구</a></li>
+                    <li><a class="dropdown-item" href="#">농구</a></li>
+                    <li><a class="dropdown-item" href="#">풋살</a></li>
+                </ul>
+            </li>
+
+            <li class="main_link nav-item dropdown">
+                <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">매칭</a>
+                <ul class="dropdown-menu sub_navbar_style">
+                    <li><a class="dropdown-item" href="#">축구</a></li>
+                    <li><a class="dropdown-item" href="#">농구</a></li>
+                    <li><a class="dropdown-item" href="#">풋살</a></li>
+                </ul>
+            </li>
+
+            <li class="main_link">
+                <a href="#">리그</a>
             </li>
             <li class="main_link">
-                <a href="#">매칭</a>
-            </li>
-            <li class="main_link">
-                <a href="/league-main">리그</a>
-            </li>
-            <li class="main_link">
-                <a href="/inquire-main">고객센터</a>
+                <a href="#">고객센터</a>
             </li>
         </ul>
     </div>
@@ -30,40 +48,40 @@
     <%--    <div class="main_banner">--%>
     <%--        <img src="/images/banner.png" style="width: 100%">--%>
     <%--    </div>--%>
-<%--    <div class="main_banner_area">--%>
-        <!-- Carousel -->
-        <div id="MainBanner" class="carousel slide" data-bs-ride="carousel">
+    <%--    <div class="main_banner_area">--%>
+    <!-- Carousel -->
+    <div id="MainBanner" class="carousel slide" data-bs-ride="carousel">
 
-            <!-- Indicators/dots -->
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#MainBanner" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#MainBanner" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#MainBanner" data-bs-slide-to="2"></button>
-            </div>
-
-            <!-- The slideshow/carousel -->
-
-            <div class="carousel-inner">
-                <div class="carousel-item active">
-                    <img src="/images/BasketballMainBanner2.png" class="d-block" style="width:100%">
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/SoccerMainBanner2.png" class="d-block" style="width:100%">
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/FutsalMainBanner2.png" class="d-block" style="width:100%">
-                </div>
-            </div>
-
-            <!-- Left and right controls/icons -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#MainBanner" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#MainBanner" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
+        <!-- Indicators/dots -->
+        <div class="carousel-indicators">
+            <button type="button" data-bs-target="#MainBanner" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#MainBanner" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#MainBanner" data-bs-slide-to="2"></button>
         </div>
-<%--    </div>--%>
+
+        <!-- The slideshow/carousel -->
+
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+                <img src="/images/BasketballMainBanner2.png" class="d-block" style="width:100%">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/SoccerMainBanner2.png" class="d-block" style="width:100%">
+            </div>
+            <div class="carousel-item">
+                <img src="/images/FutsalMainBanner2.png" class="d-block" style="width:100%">
+            </div>
+        </div>
+
+        <!-- Left and right controls/icons -->
+        <button class="carousel-control-prev" type="button" data-bs-target="#MainBanner" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#MainBanner" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+        </button>
+    </div>
+    <%--    </div>--%>
     <div class="frame">
         <div>
             <div class="main_search_filter">
