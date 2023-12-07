@@ -16,6 +16,7 @@ public class Users {
     private boolean isAdmin;
     private Integer bookmarkId;
 
+
     @Builder
     public Users(Integer userId, Integer teamId, String username, String password, String userEmail, String userAddress, String userPhoneNumber,boolean isAdmin, Integer bookmarkId) {
         this.userId = userId;
@@ -28,4 +29,5 @@ public class Users {
         this.isAdmin = isAdmin;
         this.bookmarkId = bookmarkId;
     }
+
 }

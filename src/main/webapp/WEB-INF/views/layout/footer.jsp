@@ -53,7 +53,7 @@
                     </a>
                 </div>
                 <div class="footer_question_box">
-                    <a href="#">
+                    <a href="https://economic-asparagus-2ef.notion.site/Bring-It-On-FAQ-ed8867dc381145929c4840072b51e436?pvs=4" target="_blank">
                         <div class="footer_question">자주묻는 질문</div>
                     </a>
                 </div>
@@ -80,4 +80,6 @@
 </div>
 
 </body>
+
+<script type="text/javascript" src = "../static/js/script.js" ></script>
 </html>

@@ -22,7 +22,8 @@
 }
 
 html {
-    font-size: 15px
+    font-size: 15px;
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
 *,
@@ -32,6 +33,7 @@ html {
     padding: 0;
     box-sizing: border-box;
     font-size: small;
+
 }
 
 button {
@@ -60,6 +62,12 @@ input:focus {
     margin: 0 auto;
     width: 100%;
 }
+
+.matchingPage_frame {
+    background-color: #f2f5f7;
+
+}
+
 
 .bold {
     font-weight: bold;
@@ -195,8 +203,20 @@ input::placeholder {
 .nav_hr {
     color: #19B357;
     width: 100%;
-    height: 10px;
+    height: 5px;
+    margin: 0px;
+    padding: 0px;
 }
+
+.nav_hr_below {
+    border: none; /* 테두리 제거 */
+    height: 1px; /* 높이 설정 */
+    background-color: #19B357; /* 원하는 배경색 설정 */
+    margin: 0; /* 마진 초기화 */
+    padding: 0; /* 패딩 초기화 */
+    width: 100%;
+}
+
 
 /* footer */
 
@@ -314,16 +334,19 @@ input::placeholder {
     display: flex;
     list-style: none;
     margin: 0 20px 20px 20px;
+
 }
 
 .main_link a {
     display: flex;
     align-items: center;
-    font-size: x-large;
+    font-size: 20px;
+    color: black;
 }
 
 .main_link img {
     margin-right: 10px;
+    height: 25px;
 }
 
 .main_search_filter {
@@ -361,6 +384,21 @@ input::placeholder {
 .main_banner {
     width: 100%;
     margin-bottom: 50px;
+}
+
+.matchingPage_banner {
+    width: 100%;
+    max-width: 1200px;
+    padding: 24px;
+}
+
+.matchingPage_banner img {
+    border-radius: 15px;
+}
+
+.main_banner_area {
+    width: 1920px;
+    height: 500px;
 }
 
 .inside_content img {
@@ -572,11 +610,6 @@ input::placeholder {
 
 /* userInfo */
 
-.userInfo_frame {
-    padding-left: 100px;
-    padding-right: 100px;
-}
-
 .userInfo_aside {
     border-right: rgba(25, 179, 87, 0.3) 1px solid;
     display: flex;
@@ -770,7 +803,6 @@ input::placeholder {
     border-bottom: #d9d9d9 1px solid;
     width: 100%;
     height: 30px;
-
 }
 
 .userReview_review_box {
@@ -823,10 +855,16 @@ input::placeholder {
     border-radius: 15px;
 }
 
+
 /* LeagueMain */
 
+.leagueMain_modal {
+    text-align: center;
+}
+
 .leagueMain_sub_link1 a {
-    font-size: 20px;
+    font-size: 15px;
+    margin-left: 30px;
 }
 
 .leagueMain_sub_link2 a {
@@ -844,7 +882,7 @@ input::placeholder {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 100px;
+    margin-top: 60px;
 }
 
 .leagueMain_league_title {
@@ -892,7 +930,7 @@ input::placeholder {
     font-weight: 400;
     background-color: #ffffff;
     border-radius: 15px;
-    min-width: 300px;
+    min-width: 295px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -913,12 +951,332 @@ input::placeholder {
     display: flex;
 }
 
+
 .menu_bar {
     display: flex;
     flex-direction: revert;
 }
 
-/* userBookmark*/
+.sub_navbar_style {
+    margin-top: 10px !important;
+    margin-left: 15px !important;
+    position: relative;
+    left: 10px; /* 원하는 값으로 조절 */
+    background-color: #ffffff;
+    border: 1px solid #009A5C;
+}
+
+.sub_navbar_style a {
+    line-height: 1.5; /* 적절한 값으로 조절 */
+
+}
+
+
+.nav {
+    margin-top: 12px;
+    display: flex; /* 수평 배치를 위한 flex 컨테이너 설정 */
+    list-style: none;
+    padding: 0; /* 기본 리스트 스타일 제거 */
+    align-items: center; /* 수직 가운데 정렬 */
+}
+
+.dropdown-menu {
+    text-align: center;
+}
+
+/* 드롭다운 메뉴의 아이템 스타일 초기화 */
+
+.dropdown-item {
+    display: flex;
+    justify-content: center;
+}
+
+
+.swiper-slide {
+    flex-shrink: 0;
+    width: 10%;
+    position: relative;
+    transition-property: transform;
+}
+
+.slider_wrap {
+    position: relative;
+}
+
+.swiper-button-prev, .swiper-rtl .swiper-button-next {
+    left: -40px;
+
+}
+
+.swiper-button-next, .swiper-rtl .swiper-button-prev {
+    right: -43px;
+}
+
+.swiper-button-next:after, .swiper-rtl .swiper-button-prev:after {
+    content: '';
+}
+
+.swiper-button-prev:after, .swiper-rtl .swiper-button-next:after {
+    content: '';
+}
+
+.slider_arrow > img {
+    width: 100%;
+}
+
+.manual {
+    padding: 0;
+}
+
+.manual > li {
+    display: none;
+}
+
+.manual > li.manual_active {
+    display: block;
+}
+
+.manual_box {
+    border-top: 0px solid;
+}
+
+.manual_label {
+    display: flex;
+    align-items: center;
+    padding-bottom: 4px;
+}
+
+.manual_img {
+    padding: 24px 0;
+}
+
+.manual_img > img {
+    border-radius: 5px;
+
+}
+
+.manual_num {
+    margin-top: 10px;
+    height: 24px;
+    border-radius: 3px;
+    margin-left: 5px;
+    font-size: 18px;
+    line-height: 1.3;
+}
+
+.manual_strong {
+
+    font-weight: 300;
+    font-size: 18px;
+}
+
+.manual_card {
+    padding-bottom: 20px;
+}
+
+.manual_card:last-child {
+    border-bottom: 0;
+    padding-bottom: 0;
+}
+
+.manual_tit {
+    font-size: 20px;
+    font-weight: 500;
+    margin-right: 10px;
+}
+
+.manual_cont {
+    padding: 12px;
+    border-radius: 5px;
+    margin-bottom: 4px;
+}
+
+.manual_txt p {
+    font-size: 18px;
+    line-height: 26px;
+    font-weight: 300;
+}
+
+.manual_tit strong {
+    font-weight: 700;
+    color: inherit;
+}
+
+.manual_txt strong {
+    font-weight: 400;
+    color: inherit;
+}
+
+.manual_tab .manual_category {
+    display: flex;
+    padding: 12px 20px 12px;
+    flex-wrap: nowrap;
+    background-color: white;
+    width: 100%;
+}
+
+.manual_tab::-webkit-scrollbar {
+    display: none;
+}
+
+.manual_tab .manual_category li {
+
+}
+
+.manual_tab .manual_category a {
+    border-radius: 35px;
+    color: black;
+    border: 1px solid white;
+    display: inline-block;
+    width: 100px;
+    padding: 18px 0px;
+    text-align: center;
+}
+
+.manual_tab .manual_category a.manual_active {
+    background-color: #19B357;
+    color: white;
+
+    border: none;
+}
+
+.manual_tab .manual_category a:hover,
+.manual_tab .manual_category a:hover {
+    background-color: #19B357;
+
+}
+
+.matching_team {
+}
+
+.matching_detail {
+    display: flex;
+    align-items: center;
+    padding: 20px;
+    margin-right: 35px;
+    margin-left: 25px;
+}
+
+.matching_list {
+    display: flex;
+    justify-content: space-between;
+}
+
+.leagueMain_modal_header {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+    border-bottom: #dee2e6 1px solid;
+    height: 80px;
+
+}
+
+.leagueMain_modal_footer {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: #dee2e6 1px solid;
+    margin: 10px;
+    padding-top: 10px;
+    height: 50px;
+}
+
+.leagueMain_modal_footer a:nth-child(1) {
+    background: #19B357;
+    padding: 10px 30px;
+    border-radius: 12.5px;
+    color: white;
+    margin-left: 10px;
+}
+
+.leagueMain_modal_footer a:nth-child(2) {
+    background: #EC4937;
+    padding: 10px 30px;
+    border-radius: 12.5px;
+    color: white;
+    margin-left: 10px;
+}
+
+.leagueMain_table {
+    display: flex;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+    justify-items: center;
+    justify-content: center;
+}
+
+.leagueMain_table table {
+    width: 100%;
+    height: 100%;
+
+}
+
+.leagueMain_table th {
+    font-size: 18px;
+    font-weight: bold;
+    border-right: #F3F5F7 1px solid;
+    padding-top: 25px;
+}
+
+.leagueMain_table td {
+    font-size: 18px;
+    padding-bottom: 25px;
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.userReservation_modal_header {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+    border-bottom: #dee2e6 1px solid;
+
+}
+
+/* leagueRanking */
+.leagueRanking_region {
+    max-width: 700px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+.leagueRanking_table {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+
+/* leagueSchedule */
+.leagueSchedule_table {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.leagueSchedule_region {
+    max-width: 700px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    text-align: left;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+
+/* userBookmark */
 
 .userBookmark_layout {
     display: grid;
@@ -1223,4 +1581,591 @@ td {
     color: #FFFFFF;
     font-weight: bolder;
 }
+
+/* userReservation */
+
+.userReservation_tab {
+    display: flex;
+    flex-direction: row;
+    align-self: start;
+    gap: 20px;
+}
+
+.userReservation_tabbox {
+    display: flex;
+    align-self: start;
+    margin: 10px;
+}
+
+.userReservation_search {
+    position: relative;
+    width: 100%;
+    margin: 30px;
+}
+
+.userReservation_search button img {
+    margin-right: 10px;
+}
+
+.userReservation_search input {
+    border: none;
+    background: #F0F0F0;
+    width: 700px;
+    padding: 10px;
+    border-radius: 10px;
+    margin: 10px;
+}
+
+.userReservation_table {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+    justify-items: center;
+}
+
+.userReservation_table th {
+    background: #F3F5F7;
+    border-top: black 2px solid;
+}
+
+
+.userReservation_table_tr td {
+    vertical-align: middle;
+    border: #F3F5F7 1px solid;
+    height: 100px;
+}
+
+.userReservation_table_title {
+    background: #19B357;
+}
+
+.userReservation_table_column {
+
+}
+
+.userReservation_table_tr td:nth-child(1) {
+    width: 11%;
+}
+
+.userReservation_table_tr td:nth-child(2) {
+    width: 13%;
+}
+
+.userReservation_table_tr td:nth-child(3) {
+    width: 27%;
+}
+
+.userReservation_table_tr td:nth-child(4) {
+    width: 24%;
+    font-size: 13px;
+}
+
+.userReservation_table_tr td:nth-child(5) {
+    width: 12%;
+}
+
+.userReservation_table_tr td:nth-child(6) {
+    width: 12%;
+}
+
+.userReservation_pic img {
+    width: 100%;
+    height: 100%;
+}
+
+
+.userReservation_button {
+    display: flex;
+    align-self: end;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.userReservation_detail {
+    padding: 10px;
+
+}
+
+.userReservation_payment {
+    background: #378AD7;
+    color: white;
+    border-radius: 5px;
+    padding: 10px;
+    justify-self: end;
+}
+
+.modal {
+    text-align: center;
+}
+
+.modal-dialog.modal-fullsize {
+}
+
+
+@media screen {
+    .modal:before {
+        display: inline-block;
+        vertical-align: middle;
+        content: " ";
+        height: 100%;
+    }
+}
+
+@media (min-width: 576px) {
+    .modal-dialog {
+        width: 700px;
+        max-width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
+
+}
+
+.modal-dialog {
+    display: inline-block;
+    text-align: left;
+    vertical-align: middle;
+}
+
+.userReservation_modal_header {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+    border-bottom: #dee2e6 1px solid;
+
+}
+
+.userReservation_modal_body {
+
+}
+
+.userReservation_modal_body_detail {
+    display: flex;
+    flex-direction: row;
+}
+
+.userReservation_modal_body_detail_text {
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+
+.userReservation_modal_body_detail img {
+    margin: 20px;
+    border-radius: 10px;
+}
+
+.userReservation_modal_footer {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: #dee2e6 1px solid;
+    margin: 10px;
+    padding-top: 10px;
+    height: 50px;
+}
+
+.userReservation_modal_footer a:nth-child(1) {
+    background: #19B357;
+    padding: 10px 30px;
+    border-radius: 12.5px;
+    color: white;
+}
+
+.userReservation_modal_footer a:nth-child(2) {
+    background: #f44336;
+    padding: 10px 30px;
+    border-radius: 12.5px;
+    color: white;
+}
+
+/* userPayment */
+
+.userPayment_box {
+    display: flex;
+    flex-direction: column;
+    background: #f5f5f5;
+    width: 90%;
+    padding: 10px;
+    border-radius: 15px;
+    margin: 10px;
+}
+
+.userPayment_title {
+    display: flex;
+    align-self: start;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    padding: 10px;
+}
+
+.userPayment_status {
+    margin-right: 5px;
+    padding-right: 5px;
+    border-right: 2px black solid;
+}
+
+.userPayment_body {
+    display: flex;
+    justify-content: space-between;
+    align-items: end;
+}
+
+.userPayment_body_desc img {
+    width: 160px;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.userPayment_detail {
+    display: flex;
+    justify-content: space-between;
+}
+
+.matching_button {
+    background-color: #19B357;
+    color: white;
+}
+
+
+.matching_btn_style {
+    margin-top: 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    height: 40px;
+    width: 120px;
+    font-size: 20px;
+    text-align: center;
+}
+
+.matchingPage_team {
+    display: flex;
+}
+
+.matchingPage_team_box {
+    margin-left: 40px;
+
+}
+
+.matchingPage_manual_box {
+    margin: 0; /* 마진 초기화 */
+    padding: 0; /* 패딩 초기화 */
+    border-top: 1px solid;
+}
+
+.matching_sorting {
+    margin-top: 10px;
+    margin-left: 10px;
+    border-radius: 25px;
+    height: 40px;
+    width: 100px;
+    font-size: 20px;
+    background-color: white;
+    color: #19B357;
+    border: 1px solid #19B357;
+
+    /* 수평 가운데 정렬을 위해 추가된 스타일 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.userPayment_body button {
+    padding: 10px;
+    background: #19B357;
+    width: 100px;
+    color: #F3F5F7;
+    border-radius: 15px;
+    margin-bottom: 10px;
+}
+
+.userPayment_text {
+    display: flex;
+    flex-direction: column;
+}
+
+.userPayment_text div:nth-child(1) {
+    font-size: 20px;
+    font-weight: bold;
+    padding: 3px;
+}
+
+.userPayment_text div:nth-child(2) {
+    font-size: 15px;
+    color: #9b8100;
+    padding: 3px;
+}
+
+.userPayment_text div:nth-child(3) {
+    font-size: 20px;
+    padding: 3px;
+}
+
+.userPayment_text div:nth-child(4) {
+    font-size: 20px;
+    padding: 3px;
+}
+
+.userPayment_body_desc {
+    display: flex;
+    align-items: center;
+}
+
+.userPayment_modal_footer {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: #dee2e6 1px solid;
+    margin: 10px;
+    padding-top: 10px;
+    height: 50px;
+}
+
+.userPayment_modal_footer a {
+    background: #19B357;
+    padding: 10px 30px;
+    border-radius: 12.5px;
+    color: white;
+}
+
+.userPayment_table {
+    display: flex;
+    text-align: center;
+    width: 100%;
+    margin-bottom: 10px;
+    justify-items: center;
+    justify-content: center;
+}
+
+.userPayment_table table {
+    width: 100%;
+    height: 100%;
+
+}
+
+.userPayment_table th {
+    font-size: 18px;
+    font-weight: bold;
+    border-right: #F3F5F7 1px solid;
+    padding-top: 25px;
+}
+
+.userPayment_table td {
+    font-size: 18px;
+    padding-bottom: 25px;
+}
+
+/* inquireMain */
+
+.inquire_frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+    background: #BFC4D2;
+    color: white;
+}
+
+.inquire_frame div:nth-child(1) {
+    font-size: 30px;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+
+.inquire_frame div:nth-child(2) {
+    font-size: 18px;
+    padding-top: 10px;
+}
+
+.inquire_tab_frame {
+    display: flex;
+    align-items: center;
+    background: #F3F3F7;
+    width: 100%;
+    height: 80px;
+}
+
+.inquire_tab {
+    display: flex;
+
+}
+
+.inquire_tab_item a {
+    font-size: 20px;
+    padding-right: 20px;
+    color: #7A7E98;
+    font-weight: 400;
+}
+
+.inquire_notice {
+    margin-top: 100px;
+    padding-bottom: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: #F5F6F7 1px solid;
+}
+
+.inquire_notice_list {
+    border-bottom: #F5F6F7 1px solid;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.inquire_notice_item {
+    display: flex;
+    height: 75px;
+    align-items: center;
+    border-collapse: collapse;
+}
+
+.inquire_notice_item div:nth-child(1) {
+    padding-right: 25px;
+    font-size: 18px;
+    color: #9A9FB8;
+}
+
+.inquire_notice_item div:nth-child(2) {
+    padding-right: 25px;
+    font-size: 18px;
+}
+
+.inquire_notice_date {
+    align-self: center;
+    padding-right: 25px;
+    font-size: 12px;
+    color: #929392;
+}
+
+.inquire_notice_content {
+    width: 100%;
+    height: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: start;
+    font-size: 20px;
+    font-weight: bold;
+    white-space: pre-line;
+}
+
+.inquire_layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* inquireWrite */
+
+.inquire_write {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 100px;
+    padding-bottom: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    border-bottom: #F5F6F7 1px solid;
+}
+
+.inquire_write_list {
+    border-bottom: #F5F6F7 1px solid;
+    display: flex;
+    flex-direction: column;
+
+}
+
+.inquire_write_item {
+    display: flex;
+    height: 75px;
+    align-items: center;
+    border-collapse: collapse;
+}
+
+.inquire_write_item div:nth-child(1) {
+    padding-right: 25px;
+    font-size: 18px;
+    color: #9A9FB8;
+}
+
+.inquire_write_item div:nth-child(2) {
+    padding-right: 25px;
+    font-size: 18px;
+}
+
+.inquire_write_date {
+    align-self: center;
+    padding-right: 25px;
+    font-size: 12px;
+    color: #929392;
+}
+
+.inquire_write_content {
+    width: 100%;
+    height: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    text-align: start;
+    font-size: 20px;
+    font-weight: bold;
+    white-space: pre-line;
+}
+
+.inquire_write_layout {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.inquire_write button {
+    background: #F3F3F7;
+    width: 100px;
+    height: 40px;
+    border-radius: 12.5px;
+    text-align: center;
+    line-height: 2.75;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.inquire_write_modal_footer {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: flex-end;
+    margin: 10px;
+    padding-top: 10px;
+    height: 50px;
+}
+
+.inquire_write_modal_footer button {
+    background: #19B357;
+    padding: 10px 30px;
+    border-radius: 12.5px;
+    color: white;
+}
+
+.inquire_write_form {
+    display: flex;
+    flex-direction: column;
+}
+
+.inquire_write_form div {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 20px auto 10px auto;
+
+}
+
+.home_main_banner {
+    width: 100%;
+    height: 200px;
+}
+
 
