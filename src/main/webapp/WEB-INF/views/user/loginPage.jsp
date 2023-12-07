@@ -17,10 +17,9 @@
 
 <div class="user_container">
     <div><img src="./images/logo.png" class="user_logo"></div>
-    <h1 class="join-us-text">Login</h1>
 
 
-    <form action="/action_page.php" class="was-validated">
+    <form action="/login" class="was-validated" method="post">
         <div style="padding-left: 200px; padding-right: 200px;">
             <div class="mb-3">
                 <input type="text" class="form-control" id="uname" placeholder="아이디" name="uname" required>
@@ -35,8 +34,8 @@
         </div>
 
 
-        <button type="submit" class="signup-button">로그인</button>
-        <div class="search-sign-in"><a href="">
+        <button type="submit" class="login_button">로그인</button>
+        <div class="login_search_sign_in"><a href="">
             아이디/비밀번호 찾기
         </a>
         </div>

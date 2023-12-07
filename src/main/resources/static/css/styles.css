@@ -280,7 +280,7 @@ input::placeholder {
     font-size: 14px;
     line-height: 20px;
     color: #575757;
-    padding: 8px 0px;
+    padding: 8px;
     width: 100%;
 }
 
@@ -358,6 +358,11 @@ input::placeholder {
     margin-bottom: 50px;
 }
 
+.main_banner_area{
+    width: 1920px;
+    height: 500px;
+}
+
 .inside_content img {
     border-radius: 15px;
     width: 287px;
@@ -385,7 +390,6 @@ input::placeholder {
     line-height: 3.5;
 }
 
-
 .join_address_container {
     display: flex;
 }
@@ -405,11 +409,9 @@ input::placeholder {
 
 }
 
-
 .address_container {
     display: flex;
 }
-
 
 .invalid_feedback {
     text-align: start;
@@ -425,8 +427,6 @@ input::placeholder {
     border-radius: 5px;
     width: 150px;
     height: 40px;
-
-
 }
 
 .join_button_con {
@@ -447,6 +447,9 @@ input::placeholder {
 
 .join_check {
     display: flex;
+    text-align: center;
+    justify-content: center; /* 수평 가운데 정렬 */
+    align-items: center; /* 수직 가운데 정렬 */
 
 }
 
@@ -454,19 +457,40 @@ input::placeholder {
     padding-right: 20px;
 }
 
+
+.login_search_sign_in {
+    padding-top: 40px;
+    color: #999;
+    font-weight: bolder;
+}
+
+
 .kakao_login_search_sign_in {
     padding-top: 40px;
     color: #999;
 }
 
-
 .user_logo {
     padding-top: 100px;
 }
 
+.login_button {
+    color: #fff;
+    background-color: #19B357;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 180px;
+    height: 45px;
+}
+
 .kakao_login_button {
     width: 400px;
+}
 
+.kakao_login_button {
+    width: 400px;
     height: 50px;
 }
 
@@ -499,7 +523,7 @@ input::placeholder {
     margin: 0 10px;
     font-weight: bolder;
     color: #999;
-
+< < < < < < < HEAD = = = = = = = >>> >>> > dev
 }
 
 .kakao_login_txt {
@@ -509,8 +533,6 @@ input::placeholder {
     text-align: center;
     padding-top: 30px;
     font-weight: bold;
-
-
 }
 
 .kakao_login_acoount_q {
@@ -520,6 +542,32 @@ input::placeholder {
 .sign_up_go {
     font-weight: bolder;
     padding-left: 10px;
+}
+
+
+.reservation_container {
+    border-radius: 30px;
+    margin: 0 auto;
+    background: white;
+    width: 800px;
+    height: 1000px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* 그림자 설정 */
+}
+
+.join_check_button {
+    color: #fff;
+    background-color: #19B357;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 180px;
+    height: 45px;
+}
+
+.join_user_id {
+    display: flex;
+    padding-bottom: 20px;
 }
 
 
@@ -661,6 +709,7 @@ input::placeholder {
 
 
 /* userTeam */
+
 .userTeam_teamname {
     font-size: 30px;
     margin: 30px;
@@ -776,7 +825,8 @@ input::placeholder {
 }
 
 /* LeagueMain */
-. leagueMain_sub_link1 a {
+
+.leagueMain_sub_link1 a {
     font-size: 20px;
 }
 
@@ -1073,3 +1123,4 @@ display: flex;
     border-radius: 12.5px;
     color: white;
 }
+
