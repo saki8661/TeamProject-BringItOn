@@ -1,13 +1,18 @@
 package com.example.teamprojectbringiton.notice.noticeCategory;
 
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 public class NoticeCategory {
-    private Integer noticeCategoryId;
+    private Integer id;
     private String noticeCategory;
+
+    @Builder
+    public NoticeCategory(Integer id, String noticeCategory) {
+        this.id = id;
+        this.noticeCategory = noticeCategory;
+    }
 }

@@ -37,7 +37,7 @@ public class UserController {
 
     @PostMapping("/join")
     public String joinProc(JoinFormDto dto) {
-       userService.userSave(dto);
+        userService.userSave(dto);
         return "redirect:/kakako-login";
     }
 
@@ -45,7 +45,7 @@ public class UserController {
     @PostMapping ("/check")
     public ResponseEntity<String> check(String username) {
         System.out.println("++++++++++++++++++유저네임");
-        int user = userService.usernameChek(username);
+        int user = userService.usernameCheck(username);
         System.out.println("??????????" + user);
         return new ResponseEntity<String>("유저네임을 사용할 수 있습니다", HttpStatus.OK);
     }
