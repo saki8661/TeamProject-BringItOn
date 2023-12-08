@@ -55,8 +55,10 @@ public class UserController {
         return "/user/loginPage";
     }
 
-    @GetMapping("/user-update")
-    public String userUpdate(){
+    @GetMapping("/user-update/{id}")
+    public String userUpdate(@PathVariable Integer id){
+        Users user = userService.findById(id);
+        System.out.println("보여줘 너의 이름: " + user.getUsername());
         return "user/userUpdate";
     }
 

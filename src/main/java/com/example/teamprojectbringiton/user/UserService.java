@@ -17,10 +17,6 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-
-
-
-
     @Transactional
     public int usernameChek(String username) {
         int user = userRepository.findByUsername(username);
@@ -49,6 +45,10 @@ public class UserService {
        return resultRowCount;
     }
 
+    public Users findById(Integer id){
+      Users user = userRepository.findById(1);
+        return user;
+    }
 
 
 }
