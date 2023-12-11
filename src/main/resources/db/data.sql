@@ -95,20 +95,6 @@ VALUES ('2024-01-01', '10:00:00', '12:00:00', '예약진행중', true, CURRENT_T
        ('2024-01-01', '19:00:00', '21:00:00', '예약진행중', false, CURRENT_TIMESTAMP, 8, 8);
 
 
--- 팀 더미 데이터
-INSERT INTO team_tb (team_name, team_capacity, team_pic_url, team_introduce, level, region_id, sport_id)
-VALUES ('축구Team 1', '10', 'psg.jpg', '즐거운 축구팀', '상', 1, 1),
-       ('축구Team 2', '10', 'coin.jpg', '행복한 축구팀', '중', 2, 1),
-       ('축구Team 3', '10', 'coin.jpg', '밝은 축구팀', '상', 1, 1),
-       ('축구Team 4', '10', 'coin.jpg', '기운넘치는 축구팀', '하', 1, 1),
-       ('축구Team 5', '10', 'coin.jpg', '폼미친 축구팀', '중', 2, 1),
-       ('축구Team 6', '10', 'coin.jpg', '예능 축구팀', '증', 3, 1),
-       ('축구Team 7', '10', 'coin.jpg', '초보자 축구팀', '하', 1, 1),
-       ('축구Team 8', '10', 'coin.jpg', '초보탈출 축구팀', '하', 1, 1),
-       ('축구Team 9', '10', 'coin.jpg', '세모발 축구팀', '하', 1, 1),
-       ('축구Team 10', '10', 'coin.jpg', '능력자 축구팀', '상', 2, 1);
-
-
 -- 한줄리뷰 더미 데이터
 INSERT INTO review_tb (rating, comment, space_id, user_id)
 VALUES (4, '좋아요!', 1, 2),
