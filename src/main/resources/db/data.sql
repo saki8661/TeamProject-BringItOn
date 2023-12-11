@@ -1,3 +1,4 @@
+
 -- user_tb
 INSERT INTO user_tb (username, nickname, password, user_email, user_address, user_phone_number, user_pic_url,
                      user_division, company_name, account_number, account_name, created_at, bank_id, team_id)
@@ -93,9 +94,6 @@ VALUES ('2024-01-01', '10:00:00', '12:00:00', '예약진행중', true, CURRENT_T
        ('2024-01-02', '18:00:00', '20:00:00', '예약진행중', false, CURRENT_TIMESTAMP, 7, 7),
        ('2024-01-01', '19:00:00', '21:00:00', '예약진행중', false, CURRENT_TIMESTAMP, 8, 8);
 
-
-
-
 -- 한줄리뷰 더미 데이터
 INSERT INTO review_tb (rating, comment, space_id, user_id)
 VALUES (4, '좋아요!', 1, 2),
@@ -116,8 +114,6 @@ VALUES (1, 1, '매칭대기'),
        (5, 5, '매칭완료'),
        (6, 6, '매칭취소');
 
-
--- 선택 옵션 더미 데이터
 INSERT INTO space_option_tb (option_id, space_id)
 VALUES (1, 1),
        (2, 1),

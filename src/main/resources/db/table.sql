@@ -1,4 +1,3 @@
--- 유저 테이블
 CREATE TABLE user_tb
 (
     id                INT AUTO_INCREMENT PRIMARY KEY,
@@ -30,7 +29,6 @@ CREATE TABLE team_tb
     region_id      INT,
     sport_id       INT
 );
-
 
 -- 공간 테이블
 CREATE TABLE space_tb
@@ -128,7 +126,8 @@ CREATE TABLE bookmark_tb
     user_id  INT
 );
 
--- 은행 이름 테이블 (코드 테이블) - 결재 하면서 새로 구상
+-- 은행 이름 테
+-- 이블 (코드 테이블) - 결재 하면서 새로 구상
 CREATE TABLE bank_tb
 (
     id        INT AUTO_INCREMENT PRIMARY KEY,
@@ -166,6 +165,7 @@ CREATE TABLE point_history_tb
     user_id      INT
 );
 
+
 CREATE TABLE notice_category_tb
 (
     id              INT AUTO_INCREMENT PRIMARY KEY,
@@ -191,7 +191,6 @@ CREATE TABLE inquire_tb
     created_at      TIMESTAMP,
     user_id         INT
 );
-
 -- 답변 테이블
 CREATE TABLE answer_tb
 (

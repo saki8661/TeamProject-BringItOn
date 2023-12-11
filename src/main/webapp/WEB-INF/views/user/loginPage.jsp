@@ -22,12 +22,12 @@
     <form action="/login" class="was-validated" method="post">
         <div style="padding-left: 200px; padding-right: 200px;">
             <div class="mb-3">
-                <input type="text" class="form-control" id="uname" placeholder="아이디" name="uname" required>
+                <input type="text" class="form-control" id="uname" placeholder="아이디" name="username" required value="user1">
                 <div class="valid-feedback">사용가능한 아이디 입니다.</div>
 
             </div>
             <div class="mb-3">
-                <input type="password" class="form-control" id="pwd" placeholder="비밀번호" name="pswd" required>
+                <input type="password" class="form-control" id="pwd" placeholder="비밀번호" name="password" required value="password1">
                 <div class="valid-feedback">사용가능한 아이디 입니다.</div>
 
             </div>
