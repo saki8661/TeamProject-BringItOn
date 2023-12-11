@@ -6,40 +6,22 @@
     <ul class="nav">
         <li class="main_link nav-item dropdown">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-                실내 스포츠
+                공간 대여
             </a>
             <ul class="dropdown-menu sub_navbar_style">
-                <li><a class="dropdown-item" href="#">축구</a></li>
-                <li><a class="dropdown-item" href="#">농구</a></li>
-                <li><a class="dropdown-item" href="#">풋살</a></li>
+                <li><a class="dropdown-item" href="#">실내 스포츠</a></li>
+                <li><a class="dropdown-item" href="#">야외 스포츠</a></li>
             </ul>
         </li>
-
-        <li class="main_link nav-item dropdown">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-                야외 스포츠
-            </a>
-            <ul class="dropdown-menu sub_navbar_style">
-                <li><a class="dropdown-item" href="#">축구</a></li>
-                <li><a class="dropdown-item" href="#">농구</a></li>
-                <li><a class="dropdown-item" href="#">풋살</a></li>
-            </ul>
-        </li>
-
-        <li class="main_link nav-item dropdown">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">매칭</a>
-            <ul class="dropdown-menu sub_navbar_style">
-                <li><a class="dropdown-item" href="#">축구</a></li>
-                <li><a class="dropdown-item" href="#">농구</a></li>
-                <li><a class="dropdown-item" href="#">풋살</a></li>
-            </ul>
+        <li class="main_link">
+            <a href="/matching-page">매칭</a>
         </li>
 
         <li class="main_link">
-            <a href="#">리그</a>
+            <a href="/league-main">리그</a>
         </li>
         <li class="main_link">
-            <a href="#">고객센터</a>
+            <a href="/inquire-main">고객센터</a>
         </li>
     </ul>
 </div>
