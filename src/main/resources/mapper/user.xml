@@ -11,7 +11,7 @@
     </insert>
 
     <update id="updateById">
-        update users
+        update user_tb
         set username = #{username},
             password = #{password},
             fullname = #{fullname}
@@ -20,7 +20,7 @@
 
     <delete id="deleteById">
         delete
-        from users
+        from user_tb
         where id = #{id}
     </delete>
 

@@ -236,15 +236,15 @@ VALUES (1, 'inside1.png'),
        (26, 'inside2.png'),
        (27, 'inside1.png'),
 
-       (28, 'outide2.png'),
-       (29, 'outide3.png'),
-       (30, 'outide4.png'),
-       (31, 'outide1.png'),
-       (32, 'outide5.png'),
-       (33, 'outide4.png'),
-       (34, 'outide2.png'),
-       (35, 'outide3.png'),
-       (36, 'outide1.png'),
+       (28, 'outside2.png'),
+       (29, 'outside3.png'),
+       (30, 'outside4.png'),
+       (31, 'outside1.png'),
+       (32, 'outside5.png'),
+       (33, 'outside4.png'),
+       (34, 'outside2.png'),
+       (35, 'outside3.png'),
+       (36, 'outside1.png'),
 
        (37, 'inside2.png'),
        (38, 'inside3.png'),
@@ -256,15 +256,15 @@ VALUES (1, 'inside1.png'),
        (44, 'inside3.png'),
        (45, 'inside1.png'),
 
-       (46, 'outide4.png'),
-       (47, 'outide5.png'),
-       (48, 'outide1.png'),
-       (49, 'outide3.png'),
-       (50, 'outide2.png'),
-       (51, 'outide5.png'),
-       (52, 'outide3.png'),
-       (53, 'outide1.png'),
-       (54, 'outide2.png');
+       (46, 'outside4.png'),
+       (47, 'outside5.png'),
+       (48, 'outside1.png'),
+       (49, 'outside3.png'),
+       (50, 'outside2.png'),
+       (51, 'outside5.png'),
+       (52, 'outside3.png'),
+       (53, 'outside1.png'),
+       (54, 'outside2.png');
 
 -- 시설 공간 예약 더미 데이터
 INSERT INTO reservation_tb (reservation_date, start_time, end_time, status, matching, created_at, user_id, space_id)
@@ -274,20 +274,6 @@ VALUES ('2024-01-01', '10:00:00', '12:00:00', '예약진행중', true, CURRENT_T
        ('2024-01-02', '10:00:00', '12:00:00', '예약진행중', true, CURRENT_TIMESTAMP, 6, 6),
        ('2024-01-02', '18:00:00', '20:00:00', '예약진행중', false, CURRENT_TIMESTAMP, 7, 7),
        ('2024-01-01', '19:00:00', '21:00:00', '예약진행중', false, CURRENT_TIMESTAMP, 8, 8);
-
-
--- 팀 더미 데이터
-INSERT INTO team_tb (team_name, team_capacity, team_pic_url, team_introduce, level, region_id, sport_id)
-VALUES ('축구Team 1', '10', 'psg.jpg', '즐거운 축구팀', '상', 1, 1),
-       ('축구Team 2', '10', 'coin.jpg', '행복한 축구팀', '중', 2, 1),
-       ('축구Team 3', '10', 'coin.jpg', '밝은 축구팀', '상', 1, 1),
-       ('축구Team 4', '10', 'coin.jpg', '기운넘치는 축구팀', '하', 1, 1),
-       ('축구Team 5', '10', 'coin.jpg', '폼미친 축구팀', '중', 2, 1),
-       ('축구Team 6', '10', 'coin.jpg', '예능 축구팀', '증', 3, 1),
-       ('축구Team 7', '10', 'coin.jpg', '초보자 축구팀', '하', 1, 1),
-       ('축구Team 8', '10', 'coin.jpg', '초보탈출 축구팀', '하', 1, 1),
-       ('축구Team 9', '10', 'coin.jpg', '세모발 축구팀', '하', 1, 1),
-       ('축구Team 10', '10', 'coin.jpg', '능력자 축구팀', '상', 2, 1);
 
 
 -- 한줄리뷰 더미 데이터

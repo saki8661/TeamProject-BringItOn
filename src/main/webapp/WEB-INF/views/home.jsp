@@ -2,6 +2,7 @@
 
 <%@ include file="layout/header.jsp" %>
 
+
 <div>
     <div class="frame">
         <ul class="nav">
@@ -26,45 +27,40 @@
             </li>
         </ul>
     </div>
-    <!-- 메인 배너자리 -->
-    <%--    <div class="main_banner">--%>
-    <%--        <img src="/images/banner.png" style="width: 100%">--%>
-    <%--    </div>--%>
-    <%--    <div class="main_banner_area">--%>
-    <!-- Carousel -->
-    <div id="MainBanner" class="carousel slide" data-bs-ride="carousel">
-
-        <!-- Indicators/dots -->
-        <div class="carousel-indicators">
-            <button type="button" data-bs-target="#MainBanner" data-bs-slide-to="0" class="active"></button>
-            <button type="button" data-bs-target="#MainBanner" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#MainBanner" data-bs-slide-to="2"></button>
-        </div>
-
-        <!-- The slideshow/carousel -->
-
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="/images/BasketballMainBanner2.png" class="d-block" style="width:100%">
-            </div>
-            <div class="carousel-item">
-                <img src="/images/SoccerMainBanner2.png" class="d-block" style="width:100%">
-            </div>
-            <div class="carousel-item">
-                <img src="/images/FutsalMainBanner2.png" class="d-block" style="width:100%">
-            </div>
-        </div>
-
-        <!-- Left and right controls/icons -->
-        <button class="carousel-control-prev" type="button" data-bs-target="#MainBanner" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#MainBanner" data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-        </button>
-    </div>
-    <%--    </div>--%>
     <div class="frame">
+
+        <!-- Carousel -->
+        <div id="demo" class="carousel slide" data-bs-ride="carousel">
+
+            <!-- Indicators/dots -->
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+            </div>
+
+            <!-- The slideshow/carousel -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="/images/BasketballMainBanner2.png"  alt="Los Angeles" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/SoccerMainBanner2.png"  alt="Chicago" class="d-block w-100">
+                </div>
+                <div class="carousel-item">
+                    <img src="/images/FutsalMainBanner2.png"  alt="New York" class="d-block w-100">
+                </div>
+            </div>
+
+            <!-- Left and right controls/icons -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon"></span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
+                <span class="carousel-control-next-icon"></span>
+            </button>
+        </div>
+
         <div>
             <div class="main_search_filter">
                 <div class="dropdown">
@@ -85,154 +81,51 @@
             </div>
             <div class="container-fluid">
                 <div class="main_layout">
-                    <div>
-                        <div class="inside_content">
-                            <img src="/images/inside1.png">
+
+                    <c:forEach var="item" items="${spaces}">
+                        <div>
+                            <div class="inside_content">
+                                <img src="/images/${item.spacePic}">
+
+                            </div>
+
+                            <div class="main_content_title m-2">
+                                    ${item.spaceName}
+                            </div>
+                            <div class="main_content_category m-2">
+                                [${item.sector}/${item.sportName}]
+                                <c:choose>
+                                    <c:when test="${item.isInside()}">
+                                        실내 체육관
+                                    </c:when>
+                                    <c:otherwise>
+                                        실외 체육관
+                                    </c:otherwise>
+                                </c:choose>
+                            </div>
+                            <div class="main_content_location m-2">
+                                    ${item.regionName}
+                            </div>
+                            <div class="main_content_price m-2 mb-4">
+                                    ${item.pricePerHour}원 ~
+                            </div>
                         </div>
-                        <div class="main_content_title m-2">
-                            토모짐 (TOMO GYM)
-                        </div>
-                        <div class="main_content_category m-2">
-                            [배구/농구] 실내 체육관
-                        </div>
-                        <div class="main_content_location m-2">
-                            서울 동대문구
-                        </div>
-                        <div class="main_content_price m-2 mb-4">
-                            68,000원 ~
-                        </div>
-                    </div>
-                    <div>
-                        <div class="inside_content">
-                            <img src="/images/inside2.png">
-                        </div>
-                        <div class="main_content_title m-2">
-                            <div>빅토리스포츠아카데미</div>
-                        </div>
-                        <div class="main_content_category m-2">
-                            [농구/배드민턴] 실내체육관
-                        </div>
-                        <div class="main_content_location m-2">
-                            서울 영등포구
-                        </div>
-                        <div class="main_content_price m-2 mb-4">
-                            68,000원 ~
-                        </div>
-                    </div>
-                    <div>
-                        <div class="inside_content">
-                            <img src="/images/inside3.png">
-                        </div>
-                        <div class="main_content_title m-2">
-                            아이스포츠상암
-                        </div>
-                        <div class="main_content_category m-2">
-                            [농구/배구/배드민턴]
-                        </div>
-                        <div class="main_content_location m-2">
-                            경기 고양시
-                        </div>
-                        <div class="main_content_price m-2 mb-4">
-                            68,000원 ~
-                        </div>
-                    </div>
-                    <div>
-                        <div class="inside_content">
-                            <img src="/images/inside4.png">
-                        </div>
-                        <div class="main_content_title m-2">
-                            팀리얼 컴퍼니
-                        </div>
-                        <div class="main_content_category m-2">
-                            [강동/하남]실내농구장
-                        </div>
-                        <div class="main_content_location m-2">
-                            경기 남양주시
-                        </div>
-                        <div class="main_content_price m-2 mb-4">
-                            68,000원 ~
-                        </div>
-                    </div>
-                    <div>
-                        <div class="inside_content">
-                            <img src="/images/inside5.png">
-                        </div>
-                        <div class="main_content_title m-2">
-                            플레이존 스포츠센터
-                        </div>
-                        <div class="main_content_category m-2">
-                            [강남/농구] 하프코트 대관
-                        </div>
-                        <div class="main_content_location m-2">
-                            서울 강남구
-                        </div>
-                        <div class="main_content_price m-2 mb-4">
-                            68,000원 ~
-                        </div>
-                    </div>
-                    <div>
-                        <div class="inside_content">
-                            <img src="/images/inside1.png">
-                        </div>
-                        <div class="main_content_title m-2">
-                            코리아 바스켓볼 아카데미
-                        </div>
-                        <div class="main_content_category m-2">
-                            [하남/농구] 실내체육관
-                        </div>
-                        <div class="main_content_location m-2">
-                            경기 남양주시
-                        </div>
-                        <div class="main_content_price m-2 mb-4">
-                            68,000원 ~
-                        </div>
-                    </div>
-                    <div>
-                        <div class="inside_content">
-                            <img src="/images/inside1.png">
-                        </div>
-                        <div class="main_content_title m-2">
-                            맥스체대입시
-                        </div>
-                        <div class="main_content_category m-2">
-                            [서초/스포츠] 중대형체육관
-                        </div>
-                        <div class="main_content_location m-2">
-                            서울 서초구
-                        </div>
-                        <div class="main_content_price m-2 mb-4">
-                            68,000원 ~
-                        </div>
-                    </div>
-                    <div>
-                        <div class="inside_content">
-                            <img src="/images/inside1.png">
-                        </div>
-                        <div class="main_content_title m-2">
-                            플레이존 스포츠센터
-                        </div>
-                        <div class="main_content_category m-2">
-                            [강남/농구] 풀코트 대관
-                        </div>
-                        <div class="main_content_location m-2">
-                            서울시 강남구
-                        </div>
-                        <div class="main_content_price m-2 mb-4">
-                            68,000원 ~
-                        </div>
-                    </div>
+                    </c:forEach>
+
                 </div>
                 <ul class="pagination main_paging">
-                    <li class="page-item"><a class="page-link" href="#"><</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">></a></li>
+                    <li class="page-item ${first ? 'disabled' : ''}">
+                        <a class="page-link" href="?page=${prevPage}"><</a>
+                    </li>
+                    <li class="page-item ${last ? 'disabled' : ''}">
+                        <a class="page-link" href="?page=${nextPage}">></a>
+                    </li>
                 </ul>
 
             </div>
         </div>
     </div>
 </div>
+
 <%@ include file="layout/footer.jsp" %>
 
