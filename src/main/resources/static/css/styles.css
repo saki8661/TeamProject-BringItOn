@@ -882,7 +882,12 @@ input::placeholder {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-top: 60px;
+    margin-top: 50px;
+}
+
+.leagueMain_body img {
+    border: 1px solid black;
+    padding: 5px;
 }
 
 .leagueMain_league_title {
@@ -958,13 +963,13 @@ input::placeholder {
 }
 
 .sub_navbar_style {
-    margin-top: 10px !important;
-    margin-left: 15px !important;
+    margin-top: 5px !important;
     position: relative;
     left: 10px; /* 원하는 값으로 조절 */
     background-color: #ffffff;
-    border: 1px solid #009A5C;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
+
 
 .sub_navbar_style a {
     line-height: 1.5; /* 적절한 값으로 조절 */
@@ -978,6 +983,7 @@ input::placeholder {
     list-style: none;
     padding: 0; /* 기본 리스트 스타일 제거 */
     align-items: center; /* 수직 가운데 정렬 */
+    position: relative;
 }
 
 .dropdown-menu {
@@ -1001,6 +1007,11 @@ input::placeholder {
 
 .slider_wrap {
     position: relative;
+}
+
+.league_slider_wrap {
+    position: relative;
+    margin-top: 20px;
 }
 
 .swiper-button-prev, .swiper-rtl .swiper-button-next {
@@ -2169,9 +2180,110 @@ td {
     height: 200px;
 }
 
+/*종목 카테고리*/
+.wrapper {
+    background-color: #F8ECD1;
+    position: relative;
+}
+
+.menu_nav {
+    width: 100%;
+    margin-top: 0;
+    display: flex; /* 수평 배치를 위한 flex 컨테이너 설정 */
+    list-style: none;
+    padding: 0; /* 기본 리스트 스타일 제거 */
+    align-items: center; /* 수직 가운데 정렬 */
+    justify-content: center;
+    position: relative;
+}
+
+.menu_nav_area {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    width: 100%;
+}
+
+.menu__list {
+    display: table;
+    list-style-type: none;
+    width: 100%;
+    text-align: center;
+}
+
+.menu__menu {
+    display: table-cell;
+    vertical-align: middle;
+    height: 50px;
+    cursor: pointer;
+    border: 1px solid #19B357;
+}
+
+.menu__menu:hover {
+    background-color: #19B357;
+    color: white;
+}
+
+.menu__menu:hover .subwrapper {
+    display: block;
+    color: black;
+    border: 1px solid #19B357;
+}
+
+.menu__menu:hover .submenu__list {
+    display: table;
+}
+
+.subwrapper {
+    display: none;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    left: 0;
+}
+
+/*.subnav {*/
+/*    width: 80%;*/
+/*    max-width: 1024px;*/
+/*    margin: 0 auto;*/
+/*}*/
+
+.submenu__list {
+    display: none;
+    list-style-type: none;
+    width: 100%;
+    text-align: center;
+}
+
+.submenu__list > li {
+    width: 33.333%;
+}
+
+.submenu__menu {
+    display: table-cell;
+    vertical-align: middle;
+    height: 50px;
+    cursor: pointer;
+}
+
+.submenu__menu:hover {
+    background-color: #19B357;
+    color: white;
+}
+
+.leaguePage-area-sorting {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.div_box {
+    height: 30px;
+}
+
 /*placeResistration*/
 
-.place_resistration_letter {
+. place_resistration_letter {
     display: flex;
     flex-direction: column;
 
@@ -2328,5 +2440,4 @@ td {
     width: 200px;
     height: auto;
     margin-top: 10px;
-
 }
