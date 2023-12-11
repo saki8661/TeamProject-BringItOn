@@ -83,7 +83,7 @@
 
                                 <!-- Modal Header -->
                                 <div class="userReservation_modal_header">
-                                    <h2 style="width: 100%; text-align: center">결제 내역</h2>
+                                    <h2>결제 내역</h2>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                 </div>
 
@@ -109,18 +109,20 @@
                                         </div>
                                         <div class="userPayment_table">
                                             <Table>
-                                                <tr class="userPayment_table_header">
-                                                    <th>진행상태</th>
-                                                    <td>결제완료</td>
-                                                    <th>결제일</th>
-                                                    <td>2023-12-01</td>
-                                                </tr>
-                                                <tr>
-                                                    <th>인원수</th>
-                                                    <td>6명</td>
-                                                    <th>가격</th>
-                                                    <td>120,000원</td>
-                                                </tr>
+                                                <div class="userPayment_detail_style">
+                                                    <tr class="userPayment_table_header">
+                                                        <th>진행상태</th>
+                                                        <td>결제완료</td>
+                                                        <th>결제일</th>
+                                                        <td>2023-12-01</td>
+                                                    </tr>
+                                                    <tr class="userPayment_table_header">
+                                                        <th>인원수</th>
+                                                        <td>6명</td>
+                                                        <th>가격</th>
+                                                        <td>120,000원</td>
+                                                    </tr>
+                                                </div>
                                             </Table>
                                         </div>
                                     </div>
@@ -129,6 +131,7 @@
                                 <!-- Modal footer -->
                                 <div class="userPayment_modal_footer">
                                     <div>
+                                        <div style="height: 10px"></div>
                                         <a href="#">
                                             <button>환불 요청</button>
                                         </a>
