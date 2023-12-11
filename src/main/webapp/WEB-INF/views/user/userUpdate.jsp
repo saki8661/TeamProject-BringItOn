@@ -14,17 +14,24 @@
                 <form action="#">
                     <div>
                         <div class="userInfo_main">
-                            <div class="userUpdate_image">
-                                <img src="/images/default_profile.jpg">
-                                <div>
-                                    <button type="button">
-                                        이미지 변경
-                                    </button>
+                            <form action="">
+                                <div class="userUpdate_image">
+                                    <div>
+                                        <button type="button" onclick="">
+                                            <img src="/images/default_profile.jpg">
+                                        </button>
+                                    </div>
+                                    <div>
+                                        <button type="submit" class="userUpdate_image_button">
+                                            이미지 변경
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="userUpdate_username">김언약</div>
+                            </form>
+                            <div class="userUpdate_username">${user.nickName}</div>
                         </div>
                     </div>
+
                     <hr>
                     <div class="userUpdate_main_contents">
                         <div class="userUpdate_main_content">
@@ -32,7 +39,7 @@
                                 휴대전화
                             </div>
                             <div>
-                                010-6295-4886
+                                ${user.userPhoneNumber}
                             </div>
                         </div>
                         <hr>
@@ -41,7 +48,7 @@
                                 이메일
                             </div>
                             <div>
-                                0106un@naver.com
+                                ${user.userEmail}
                             </div>
                         </div>
                         <hr>

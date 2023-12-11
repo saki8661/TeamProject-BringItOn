@@ -691,7 +691,7 @@ input::placeholder {
     border-radius: 50px;
 }
 
-.userUpdate_image button {
+.userUpdate_image_button {
     border-radius: 15px;
     border: #19B357 1px solid;
     width: 100px;
@@ -702,7 +702,7 @@ input::placeholder {
 
 .userUpdate_username {
     font-size: 30px;
-    margin: 30px;
+    margin: 15px;
 }
 
 .userUpdate_button {
@@ -2208,6 +2208,11 @@ td {
     height: 200px;
 }
 
+<<<<<<< HEAD
+/*placeResistration*/
+
+.place_resistration_letter {
+=======
 /*종목 카테고리*/
 .wrapper {
     background-color: #F8ECD1;
@@ -2316,6 +2321,7 @@ td {
 /*placeResistration*/
 
 . place_resistration_letter {
+>>>>>>> dev
     display: flex;
     flex-direction: column;
 
@@ -2472,4 +2478,9 @@ td {
     width: 200px;
     height: auto;
     margin-top: 10px;
+<<<<<<< HEAD
+
 }
+=======
+}
+>>>>>>> dev

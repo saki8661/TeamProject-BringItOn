@@ -1,6 +1,6 @@
 package com.example.teamprojectbringiton.user;
 
-import com.example.teamprojectbringiton.user.dto.reqDTO.SignInFormDto;
+import com.example.teamprojectbringiton.user.dto.reqDTO.LoginDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -15,7 +15,8 @@ public interface UserRepository {
     public List<User> findAll();       // 사용자 전체 조회
 
     // 사용자의 이름과 비번으로 조회
-    public User findByUsernameAndPassword(SignInFormDto dto);
+    public User findByUsernameAndPassword(LoginDto loginDto);
+
     // 사용자의 이름만 조회
     public int findByUsername(String username);
 }
