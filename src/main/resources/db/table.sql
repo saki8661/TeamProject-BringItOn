@@ -176,7 +176,7 @@ CREATE TABLE notice_category_tb
 CREATE TABLE notice_tb
 (
     id              INT AUTO_INCREMENT PRIMARY KEY,
-    notice_category VARCHAR(255),
+    notice_category_id INT,
     notice_title    VARCHAR(255),
     notice_content  TEXT,
     created_at      TIMESTAMP
