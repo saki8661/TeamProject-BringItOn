@@ -37,8 +37,10 @@
         from space_tb space
         join sport_tb sport
         on space.sport_id = sport.id
-        join region_tb r
-        on space.region_id = r.id
+            join region_tb r
+            on space.region_id = r.id
+            join space_pic_tb pic
+            on space.id = pic.space_id
     </select>
 
 </mapper>

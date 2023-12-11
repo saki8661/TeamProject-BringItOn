@@ -85,7 +85,7 @@
                     <c:forEach var="item" items="${spaces}">
                         <div>
                             <div class="inside_content">
-                                <img src="/images/inside1.png">
+                                <img src="/images/${item.spacePic}">
 
                             </div>
 
@@ -114,11 +114,12 @@
 
                 </div>
                 <ul class="pagination main_paging">
-                    <li class="page-item"><a class="page-link" href="#"><</a></li>
-                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                    <li class="page-item"><a class="page-link" href="#">></a></li>
+                    <li class="page-item ${first ? 'disabled' : ''}">
+                        <a class="page-link" href="?page=${prevPage}"><</a>
+                    </li>
+                    <li class="page-item ${last ? 'disabled' : ''}">
+                        <a class="page-link" href="?page=${nextPage}">></a>
+                    </li>
                 </ul>
 
             </div>

@@ -15,5 +15,7 @@ public class SpaceDto {
     private String regionName;
     private Integer sportId;
     private String sportName;
+    private Integer spacePicId;
+    private String spacePic;
 
 }

@@ -11,9 +11,11 @@ public class SpaceService {
 
     @Autowired
     private SpaceRepository spaceRepository;
+
     public List<SpaceDto> findAll() {
         List<SpaceDto> spaces = spaceRepository.findAllJoinSportAndRegion();
         System.out.println(spaces.get(1).isInside());
+
         return spaces;
     }
 }
