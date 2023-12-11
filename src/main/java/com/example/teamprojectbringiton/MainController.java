@@ -1,13 +1,21 @@
 package com.example.teamprojectbringiton;
 
+import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 @Controller
 public class MainController {
 
-    @GetMapping("/home")
-    public String test() {
+    @Autowired
+    private HttpSession session;
+
+    @GetMapping({"/","/home"})
+    public String mainPage(Model model) {
+        model.addAttribute("session", session);
+        System.out.println("session : "+ session);
         return "home";
     }
 
@@ -20,5 +28,5 @@ public class MainController {
     public String matchingPageTest() {
         return "matching/matchingPageTest";
     }
-    
+
 }
