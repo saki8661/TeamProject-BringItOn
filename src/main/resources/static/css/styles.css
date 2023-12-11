@@ -1733,6 +1733,7 @@ td {
 
 }
 
+
 .modal-dialog {
     display: inline-block;
     text-align: left;
@@ -1746,7 +1747,17 @@ td {
     justify-content: space-between;
     padding: 10px 10px;
     border-bottom: #dee2e6 1px solid;
+    background-color: #19B357;
+    color: white;
+}
 
+.modal-body {
+    padding-bottom: 0;
+}
+
+.userReservation_modal_header h2 {
+    width: 100%;
+    text-align: center;
 }
 
 .userReservation_modal_body {
@@ -1935,9 +1946,10 @@ td {
     justify-content: flex-end;
     border-top: #dee2e6 1px solid;
     margin: 10px;
-    padding-top: 10px;
     height: 50px;
+    margin-top: 0px;
 }
+
 
 .userPayment_modal_footer a {
     background: #19B357;
@@ -1947,13 +1959,29 @@ td {
 }
 
 .userPayment_table {
+    border-top: #dee2e6 1px solid;
+    margin-top: 12px;
     display: flex;
-    text-align: center;
-    width: 100%;
-    margin-bottom: 10px;
     justify-items: center;
     justify-content: center;
 }
+
+.userPayment_table_header {
+    margin-left: 3px;
+}
+
+.userPayment_table_header th {
+    text-align: center;
+    width: 100px;
+}
+
+.userPayment_table_header td {
+    width: auto;
+    display: flex;
+    justify-content: center;
+    justify-items: center;
+}
+
 
 .userPayment_table table {
     width: 100%;
@@ -2275,6 +2303,10 @@ td {
 .leaguePage-area-sorting {
     text-align: center;
     margin-top: 20px;
+}
+
+.userPayment_detail_style {
+    margin-top: 10px;
 }
 
 .div_box {
