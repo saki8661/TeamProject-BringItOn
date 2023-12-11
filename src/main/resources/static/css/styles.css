@@ -1241,7 +1241,7 @@ input::placeholder {
 .modal-dialog {
     display: inline-block;
     text-align: left;
-    vertical-align: middle;
+    vertical-align: center;
 }
 
 .userReservation_modal_header {
