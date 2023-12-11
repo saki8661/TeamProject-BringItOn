@@ -30,6 +30,9 @@ CREATE TABLE team_tb
     sport_id       INT
 );
 
+
+
+
 -- 공간 테이블
 CREATE TABLE space_tb
 (
@@ -47,6 +50,14 @@ CREATE TABLE space_tb
     space_option_id INT,
     user_id         INT,
     sport_id        INT
+);
+
+-- 공간 사진
+CREATE TABLE space_pic_tb
+(
+    id        INT AUTO_INCREMENT PRIMARY KEY,
+    space_pic VARCHAR(255),
+    space_id  INT
 );
 
 -- 시설 공간 예약 테이블
@@ -175,11 +186,11 @@ CREATE TABLE notice_category_tb
 -- 공지사항 테이블
 CREATE TABLE notice_tb
 (
-    id              INT AUTO_INCREMENT PRIMARY KEY,
+    id                 INT AUTO_INCREMENT PRIMARY KEY,
     notice_category_id INT,
-    notice_title    VARCHAR(255),
-    notice_content  TEXT,
-    created_at      TIMESTAMP
+    notice_title       VARCHAR(255),
+    notice_content     TEXT,
+    created_at         TIMESTAMP
 );
 
 -- 문의 테이블
