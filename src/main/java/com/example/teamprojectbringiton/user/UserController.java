@@ -4,6 +4,7 @@ import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedExce
 import com.example.teamprojectbringiton.user.dto.reqDTO.JoinDto;
 import com.example.teamprojectbringiton.user.dto.reqDTO.LoginDto;
 import com.example.teamprojectbringiton.user.dto.reqDTO.PwdUpdateDto;
+import com.example.teamprojectbringiton.user.dto.respDTO.UserTeamInfoDto;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -20,9 +21,6 @@ public class UserController {
 
     @Autowired
     private UserService userService;
-
-    @Autowired
-    private  UserRepository userRepository;
 
     @Autowired
     private HttpSession session;
@@ -101,8 +99,13 @@ public class UserController {
         return "redirect: /kakao-login";
     }
 
-    @GetMapping("/user-team")
-    public String userTeamManagementPage(){
+    @GetMapping("/user-team/{id}")
+    public String userTeamManagementPage(@PathVariable Integer id, Model model){
+
+        UserTeamInfoDto teamInfo = userService.findByIdWithTeam(id);
+
+        model.addAttribute("teamInfo", teamInfo);
+
         return "user/userTeam";
     }
 

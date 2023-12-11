@@ -1,8 +1,8 @@
-
 -- user_tb
 INSERT INTO user_tb (username, nickname, password, user_email, user_address, user_phone_number, user_pic_url,
                      user_division, company_name, account_number, account_name, created_at, bank_id, team_id)
-VALUES ('ssar', '대욱', 'password', 'ssar@nate.com', '서울시 강남구', '010-1111-1111', 'default_profile.jpg', '호스트',
+
+VALUES ('ssar', '대욱', 'password1', 'ssar@nate.com', '서울시 강남구', '010-1111-1111', 'default_profile.jpg', '호스트',
         'Company 1', '123456789', '나의 계좌1', NOW(), 1, 1),
        ('cos', '세환', 'password', 'cos@nate.com', '서울시 마포구', '010-2222-2222', 'default_profile.jpg', '게스트',
         'Company 2', '234567891', '나의 계좌2', NOW(), 2, 2),
@@ -25,16 +25,16 @@ VALUES ('ssar', '대욱', 'password', 'ssar@nate.com', '서울시 강남구', '0
 
 -- 팀 더미 데이터
 INSERT INTO team_tb (team_name, team_capacity, team_pic_url, team_introduce, level, region_id, sport_id)
-VALUES ('축구Team 1', '10', 'coin.jpg', '즐거운 축구팀', '상', 1, 1),
-       ('축구Team 2', '10', 'coin.jpg', '행복한 축구팀', '중', 2, 1),
-       ('축구Team 3', '10', 'coin.jpg', '밝은 축구팀', '상', 1, 1),
-       ('축구Team 4', '10', 'coin.jpg', '기운넘치는 축구팀', '하', 1, 1),
-       ('축구Team 5', '10', 'coin.jpg', '폼미친 축구팀', '중', 2, 1),
-       ('축구Team 6', '10', 'coin.jpg', '예능 축구팀', '증', 3, 1),
-       ('축구Team 7', '10', 'coin.jpg', '초보자 축구팀', '하', 1, 1),
-       ('축구Team 8', '10', 'coin.jpg', '초보탈출 축구팀', '하', 1, 1),
-       ('축구Team 9', '10', 'coin.jpg', '세모발 축구팀', '하', 1, 1),
-       ('축구Team 10', '10', 'coin.jpg', '능력자 축구팀', '상', 2, 1);
+VALUES ('축구Team 1', '10', 'psg.jpg', '즐거운 축구팀', '상', 1, 1),
+       ('축구Team 2', '10', 'psg.jpg', '행복한 축구팀', '중', 2, 1),
+       ('축구Team 3', '10', 'psg.jpg', '밝은 축구팀', '상', 1, 1),
+       ('축구Team 4', '10', 'psg.jpg', '기운넘치는 축구팀', '하', 1, 1),
+       ('축구Team 5', '10', 'psg.jpg', '폼미친 축구팀', '중', 2, 1),
+       ('축구Team 6', '10', 'psg.jpg', '예능 축구팀', '증', 3, 1),
+       ('축구Team 7', '10', 'psg.jpg', '초보자 축구팀', '하', 1, 1),
+       ('축구Team 8', '10', 'psg.jpg', '초보탈출 축구팀', '하', 1, 1),
+       ('축구Team 9', '10', 'psg.jpg', '세모발 축구팀', '하', 1, 1),
+       ('축구Team 10', '10', 'psg.jpg', '능력자 축구팀', '상', 2, 1);
 
 -- 지역 더미 데이터
 INSERT INTO region_tb (region_name)
@@ -93,6 +93,21 @@ VALUES ('2024-01-01', '10:00:00', '12:00:00', '예약진행중', true, CURRENT_T
        ('2024-01-02', '10:00:00', '12:00:00', '예약진행중', true, CURRENT_TIMESTAMP, 6, 6),
        ('2024-01-02', '18:00:00', '20:00:00', '예약진행중', false, CURRENT_TIMESTAMP, 7, 7),
        ('2024-01-01', '19:00:00', '21:00:00', '예약진행중', false, CURRENT_TIMESTAMP, 8, 8);
+
+
+-- 팀 더미 데이터
+INSERT INTO team_tb (team_name, team_capacity, team_pic_url, team_introduce, level, region_id, sport_id)
+VALUES ('축구Team 1', '10', 'psg.jpg', '즐거운 축구팀', '상', 1, 1),
+       ('축구Team 2', '10', 'coin.jpg', '행복한 축구팀', '중', 2, 1),
+       ('축구Team 3', '10', 'coin.jpg', '밝은 축구팀', '상', 1, 1),
+       ('축구Team 4', '10', 'coin.jpg', '기운넘치는 축구팀', '하', 1, 1),
+       ('축구Team 5', '10', 'coin.jpg', '폼미친 축구팀', '중', 2, 1),
+       ('축구Team 6', '10', 'coin.jpg', '예능 축구팀', '증', 3, 1),
+       ('축구Team 7', '10', 'coin.jpg', '초보자 축구팀', '하', 1, 1),
+       ('축구Team 8', '10', 'coin.jpg', '초보탈출 축구팀', '하', 1, 1),
+       ('축구Team 9', '10', 'coin.jpg', '세모발 축구팀', '하', 1, 1),
+       ('축구Team 10', '10', 'coin.jpg', '능력자 축구팀', '상', 2, 1);
+
 
 -- 한줄리뷰 더미 데이터
 INSERT INTO review_tb (rating, comment, space_id, user_id)
@@ -169,7 +184,7 @@ values ('정기'),
        ('긴급');
 
 -- 공지사항 더미 데이터
-INSERT INTO notice_tb (notice_category ,notice_title, notice_content, created_at)
+INSERT INTO notice_tb (notice_category, notice_title, notice_content, created_at)
 VALUES (1, '공지1', '공지1 입니다', NOW()),
        (2, '공지2', '공지2 입니다', NOW()),
        (3, '공지3', '공지3 입니다', NOW()),

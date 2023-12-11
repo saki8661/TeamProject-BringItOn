@@ -22,7 +22,7 @@
     <form action="/login" class="was-validated" method="post">
         <div style="padding-left: 200px; padding-right: 200px;">
             <div class="mb-3">
-                <input type="text" class="form-control" id="uname" placeholder="아이디" name="username" required value="user1">
+                <input type="text" class="form-control" id="uname" placeholder="아이디" name="username" required value="ssar">
                 <div class="valid-feedback">사용가능한 아이디 입니다.</div>
 
             </div>
