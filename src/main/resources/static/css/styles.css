@@ -1330,6 +1330,7 @@ input::placeholder {
     font-weight: bolder;
     color: #8A8A8A;
     padding-bottom: 10px;
+
 }
 
 .re_choice_place_letter_field {
@@ -2278,4 +2279,165 @@ td {
 
 .div_box {
     height: 30px;
+}
+
+/*placeResistration*/
+
+. place_resistration_letter {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.place_resistration_title {
+    display: flex;
+    flex-direction: row;
+}
+
+.place_resistration_txt {
+    width: 100%;
+    height: 100%;
+    color: black;
+}
+
+.place_resistration_name {
+    width: 200px;
+
+}
+
+.place_resistration_txt {
+    width: 100%;
+}
+
+.place_resistration_thumbnail {
+    padding-top: 30px;
+}
+
+.place_resistration_thumbnail_caution {
+    font-weight: bolder;
+    color: #555;
+    text-align: start;
+    padding-bottom: 20px;
+}
+
+.place_resistration_thumbnail_caution_logo {
+    padding-bottom: 10px;
+}
+
+.place_resistration_thumbnail_caution_size {
+    padding-bottom: 10px;
+}
+
+.place_resistration_thumbnail_caution_logo {
+    padding-bottom: 10px;
+}
+
+.place_resistration_thumbnail_caution_default {
+    padding-bottom: 10px;
+}
+
+.place_resistration_thumbnail_container {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+.place_resistration_thumbnail_label {
+    background-color: #3498db; /* 배경색 설정 */
+    color: #fff; /* 글자색 설정 */
+    padding: 8px 15px; /* 내부 여백 설정 */
+    border-radius: 5px; /* 둥근 테두리 설정 */
+    cursor: pointer; /* 마우스 포인터를 손가락으로 변경 */
+    display: inline-block; /* 블록 요소로 설정하여 여백이 적용되도록 함 */
+}
+
+.place_resistration_tel_container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.place_resistration_tel_number_container {
+    width: 200px;
+}
+
+.place_resistration_tel_number {
+    width: 100%;
+}
+
+.place_resistration_address_container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 20px;
+}
+
+.place_resistration_address_search {
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+.place_resistration_rent_time_container {
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+
+}
+
+.place_resistration_rent_time_check {
+    display: flex;
+    flex-direction: row;
+    font-weight: bolder;
+    padding-bottom: 20px;
+}
+
+.input[type="rent_time_checkBox1"] {
+    margin-right: 5px;
+
+}
+
+.place_resistration_rent_time_menu {
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+
+.place_resistration_rent_time_menu_letter {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+.place_resistration_rent_time_caution {
+    padding-top: 20px;
+    font-weight: bolder;
+    color: #8A8A8A;
+}
+
+#place_resistration_rent_time_dropdown1 {
+    padding: 8px;
+    font-size: 16px;
+    font-weight: bolder;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    background-color: #ecf0f1;
+    outline: none; /* 선택 상자 외곽선 제거 */
+}
+
+#place_resistration_rent_time_dropdown2 {
+    padding: 8px;
+    font-size: 16px;
+    font-weight: bolder;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    background-color: #ecf0f1;
+    outline: none; /* 선택 상자 외곽선 제거 */
+}
+
+#preview img {
+    width: 200px;
+    height: auto;
+    margin-top: 10px;
 }
