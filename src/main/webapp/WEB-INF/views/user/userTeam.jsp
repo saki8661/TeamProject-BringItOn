@@ -15,14 +15,14 @@
                     <div>
                         <div class="userInfo_main">
                             <div class="userTeam_image">
-                                <img src="/images/psg.jpg">
+                                <img src="/images/${teamInfo.teamPicUrl}">
                                 <div>
                                     <button type="button">
                                         이미지 변경
                                     </button>
                                 </div>
                             </div>
-                            <div class="userTeam_teamname">파리생제르망</div>
+                            <div class="userTeam_teamname">${teamInfo.teamName}</div>
                         </div>
                     </div>
                     <hr>
@@ -32,7 +32,7 @@
                                 위치
                             </div>
                             <div>
-                                부산진구
+                                ${teamInfo.regionName}
                             </div>
                         </div>
                         <hr>
@@ -41,7 +41,7 @@
                                 인원
                             </div>
                             <div>
-                                6명
+                                ${teamInfo.teamCapacity}
                             </div>
                         </div>
                         <hr>
@@ -50,7 +50,7 @@
                                 종목
                             </div>
                             <div>
-                                풋살
+                                ${teamInfo.sportName}
                             </div>
                         </div>
                         <hr>
@@ -59,7 +59,7 @@
                                 소개
                             </div>
                             <div>
-                                부산 진구 풋살 친목 팀입니다. <br> 즐겜 위주로 하고 있습니다.
+                                ${teamInfo.teamIntroduce}
                             </div>
                         </div>
                         <hr>

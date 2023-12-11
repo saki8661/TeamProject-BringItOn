@@ -13,7 +13,8 @@ CREATE TABLE user_tb
     account_number    VARCHAR,
     account_name      VARCHAR,
     created_at        TIMESTAMP,
-    bank_id           INT
+    bank_id           INT,
+    team_id           INT
 );
 -- 공간 테이블
 CREATE TABLE space_tb
@@ -47,16 +48,17 @@ CREATE TABLE reservation_tb
     space_id         INT
 );
 -- 팀 테이블
+-- 팀 테이블
 CREATE TABLE team_tb
 (
-    id            INT AUTO_INCREMENT PRIMARY KEY,
-    team_name     VARCHAR(250) NOT NULL,
-    team_capacity VARCHAR,
-    team_pic_url  VARCHAR,
-    level         VARCHAR,
-    region_id     INT,
-    sport_id      INT,
-    user_id       INT
+    id             INT AUTO_INCREMENT PRIMARY KEY,
+    team_name      VARCHAR(250) NOT NULL,
+    team_capacity  VARCHAR,
+    team_pic_url   VARCHAR,
+    team_introduce VARCHAR(250),
+    level          VARCHAR,
+    region_id      INT,
+    sport_id       INT
 );
 -- 지역 테이블 (코드)
 CREATE TABLE region_tb

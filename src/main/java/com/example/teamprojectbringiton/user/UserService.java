@@ -4,6 +4,8 @@ import com.example.teamprojectbringiton._core.handler.exception.CustomPageExcept
 import com.example.teamprojectbringiton.user.dto.reqDTO.JoinDto;
 import com.example.teamprojectbringiton.user.dto.reqDTO.LoginDto;
 import com.example.teamprojectbringiton.user.dto.reqDTO.PwdUpdateDto;
+import com.example.teamprojectbringiton.user.dto.respDTO.UserTeamDto;
+import com.example.teamprojectbringiton.user.models.TeamInfo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -60,4 +62,9 @@ public class UserService {
     public void userPwdUpdate(Integer id, PwdUpdateDto pwdUpdateDto) {
     }
 
+    public TeamInfo findByIdWithTeam(Integer id) {
+        TeamInfo teamInfo = userRepository.findByIdJoinTeam(id);
+        System.out.println("디비 조회 끝");
+        return teamInfo;
+    }
 }

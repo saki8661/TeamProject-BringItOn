@@ -2,27 +2,27 @@
 
 -- user_tb
 INSERT INTO user_tb (username, nickname, password, user_email, user_address, user_phone_number, user_pic_url,
-                     user_division, company_name, account_number, account_name, created_at, bank_id)
+                     user_division, company_name, account_number, account_name, created_at, bank_id, team_id)
 VALUES ('ssar', '대욱', 'password1', 'ssar@nate.com', '서울시 강남구', '010-1111-1111', 'default_profile.jpg', '호스트',
-        'Company 1', '123456789', '나의 계좌1', NOW(), 1),
-       ('cos', '세환', '1234', 'cos@nate.com', '서울시 마포구', '010-2222-2222', 'default_profile.jpg', '게스트',
-        'Company 2', '234567891', '나의 계좌2', NOW(), 2),
-       ('love', '언약', '1234', 'love@nate.com', '서울시 남구', '010-3333-3333', 'default_profile.jpg', '게스트',
-        'Company 3', '345678912', '나의 계좌3', NOW(), 1),
-       ('peace', '채빈', '1234', 'peace@nate.com', '서울시 강남구', '010-4444-4444', 'default_profile.jpg', '호스트',
-        'Company 4', '456789123', '나의 계좌4', NOW(), 3),
-       ('ssar1', '길동', '1234', 'ssar1@nate.com', '서울시 강남구', '010-5555-5555', 'default_profile.jpg', '게스트',
-        'Company 5', '567891234', '나의 계좌5', NOW(), 1),
-       ('ssar2', '보고', '1234', 'ssar2@nate.com', '서울시 강남구', '010-6666-6666', 'default_profile.jpg', '게스트',
-        'Company 6', '67891234', '나의 계좌6', NOW(), 1),
-       ('ssar3', '대욱', '1234', 'ssar3@nate.com', '서울시 강남구', '010-7777-7777', 'default_profile.jpg', '게스트',
-        'Company 7', '789123456', '나의 계좌7', NOW(), 1),
-       ('ssar', '대욱', '1234', 'ssar@nate.com', '서울시 강남구', '010-8888-8888', 'default_profile.jpg', '게스트',
-        'Company 8', '891234567', '나의 계좌8', NOW(), 1),
-       ('ssar', '대욱', '1234', 'ssar@nate.com', '서울시 강남구', '010-9999-9999', 'default_profile.jpg', '게스트',
-        'Company 9', '912345678', '나의 계좌9', NOW(), 1),
-       ('ssar', '대욱', '1234', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', '게스트',
-        'Company 10', '109876543', '나의 계좌10', NOW(), 1);
+        'Company 1', '123456789', '나의 계좌1', NOW(), 1, 1),
+       ('cos', '세환', 'password', 'cos@nate.com', '서울시 마포구', '010-2222-2222', 'default_profile.jpg', '게스트',
+        'Company 2', '234567891', '나의 계좌2', NOW(), 2, 2),
+       ('love', '언약', 'password', 'love@nate.com', '서울시 남구', '010-3333-3333', 'default_profile.jpg', '게스트',
+        'Company 3', '345678912', '나의 계좌3', NOW(), 1, 3),
+       ('peace', '채빈', 'password', 'peace@nate.com', '서울시 강남구', '010-4444-4444', 'default_profile.jpg', '호스트',
+        'Company 4', '456789123', '나의 계좌4', NOW(), 3, 4),
+       ('ssar1', '길동', 'password', 'ssar1@nate.com', '서울시 강남구', '010-5555-5555', 'default_profile.jpg', '게스트',
+        'Company 5', '567891234', '나의 계좌5', NOW(), 1, 5),
+       ('ssar2', '보고', 'password', 'ssar2@nate.com', '서울시 강남구', '010-6666-6666', 'default_profile.jpg', '게스트',
+        'Company 6', '67891234', '나의 계좌6', NOW(), 1, 6),
+       ('ssar3', '꺽정', 'password', 'ssar3@nate.com', '서울시 강남구', '010-7777-7777', 'default_profile.jpg', '게스트',
+        'Company 7', '789123456', '나의 계좌7', NOW(), 1, 7),
+       ('ssar4', '허준', 'password', 'ssar@nate.com', '서울시 강남구', '010-8888-8888', 'default_profile.jpg', '게스트',
+        'Company 8', '891234567', '나의 계좌8', NOW(), 1, 8),
+       ('ssa5', '민수', 'password', 'ssar@nate.com', '서울시 강남구', '010-9999-9999', 'default_profile.jpg', '게스트',
+        'Company 9', '912345678', '나의 계좌9', NOW(), 1, 9),
+       ('ssar6', '영희', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', '게스트',
+        'Company 10', '109876543', '나의 계좌10', NOW(), 1, 10);
 
 -- 지역 더미 데이터
 INSERT INTO region_tb (region_name)
@@ -83,17 +83,17 @@ VALUES ('2024-01-01', '10:00:00', '12:00:00', '예약진행중', true, CURRENT_T
        ('2024-01-01', '19:00:00', '21:00:00', '예약진행중', false, CURRENT_TIMESTAMP, 8, 8);
 
 -- 팀 더미 데이터
-INSERT INTO team_tb (team_name, team_capacity, team_pic_url, level, region_id, sport_id, user_id)
-VALUES ('축구Team 1', '10', 'coin.jpg', '상', 1, 1, 1),
-       ('축구Team 2', '10', 'coin.jpg', '중', 2, 1, 2),
-       ('축구Team 3', '10', 'coin.jpg', '상', 1, 1, 3),
-       ('축구Team 4', '10', 'coin.jpg', '하', 1, 1, 4),
-       ('축구Team 5', '10', 'coin.jpg', '중', 2, 1, 5),
-       ('축구Team 6', '10', 'coin.jpg', '증', 3, 1, 6),
-       ('축구Team 7', '10', 'coin.jpg', '하', 1, 1, 7),
-       ('축구Team 8', '10', 'coin.jpg', '하', 1, 1, 8),
-       ('축구Team 9', '10', 'coin.jpg', '하', 1, 1, 9),
-       ('축구Team 10', '10', 'coin.jpg', '상', 2, 1, 10);
+INSERT INTO team_tb (team_name, team_capacity, team_pic_url, team_introduce, level, region_id, sport_id)
+VALUES ('축구Team 1', '10', 'psg.jpg', '즐거운 축구팀', '상', 1, 1),
+       ('축구Team 2', '10', 'coin.jpg', '행복한 축구팀', '중', 2, 1),
+       ('축구Team 3', '10', 'coin.jpg', '밝은 축구팀', '상', 1, 1),
+       ('축구Team 4', '10', 'coin.jpg', '기운넘치는 축구팀', '하', 1, 1),
+       ('축구Team 5', '10', 'coin.jpg', '폼미친 축구팀', '중', 2, 1),
+       ('축구Team 6', '10', 'coin.jpg', '예능 축구팀', '증', 3, 1),
+       ('축구Team 7', '10', 'coin.jpg', '초보자 축구팀', '하', 1, 1),
+       ('축구Team 8', '10', 'coin.jpg', '초보탈출 축구팀', '하', 1, 1),
+       ('축구Team 9', '10', 'coin.jpg', '세모발 축구팀', '하', 1, 1),
+       ('축구Team 10', '10', 'coin.jpg', '능력자 축구팀', '상', 2, 1);
 
 
 -- 한줄리뷰 더미 데이터

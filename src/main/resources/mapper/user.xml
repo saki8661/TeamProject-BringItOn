@@ -55,4 +55,18 @@
         from user_tb
         where username = #{username}
     </select>
+
+
+    <select id="findByIdJoinTeam"
+            resultType="com.example.teamprojectbringiton.user.models.TeamInfo">
+        select *
+        from user_tb u
+                 join team_tb t
+                      on u.team_id = t.id
+                 join region_tb r
+                      on t.region_id = r.id
+                 join sport_tb s
+                      on t.sport_id = s.id
+        where u.id = #{id}
+    </select>
 </mapper>
