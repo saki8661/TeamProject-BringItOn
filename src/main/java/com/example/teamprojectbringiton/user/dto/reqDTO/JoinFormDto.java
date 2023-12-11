@@ -1,7 +1,6 @@
 package com.example.teamprojectbringiton.user.dto.reqDTO;
 
 import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -15,6 +14,6 @@ public class JoinFormDto {
     private String userEmail;
     private String userPhoneNumber;
     private String userAddress;
-    private boolean isAdmin;
+    private String userDivision;
 
 }

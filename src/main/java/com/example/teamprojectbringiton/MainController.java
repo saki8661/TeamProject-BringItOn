@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class MainController {
 
     @GetMapping({"/","/home"})
-    public String test() {
+    public String mainPage() {
         return "home";
     }
 
@@ -20,5 +20,5 @@ public class MainController {
     public String matchingPageTest() {
         return "matching/matchingPageTest";
     }
-    
+
 }

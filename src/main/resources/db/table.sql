@@ -1,280 +1,215 @@
-
--- 'teams' 테이블 생성
-CREATE TABLE teams
+-- 유저 테이블
+CREATE TABLE user_tb
 (
-    team_id   INT AUTO_INCREMENT PRIMARY KEY,
-    team_name VARCHAR(250) NOT NULL
-);
-
--- 'users' 테이블 생성
-CREATE TABLE users
-(
-    user_id           INT AUTO_INCREMENT PRIMARY KEY,
-    team_id           INT,
+    id                INT PRIMARY KEY,
     username          VARCHAR(250) NOT NULL,
+    nickname          VARCHAR(250),
     password          VARCHAR(250) NOT NULL,
     user_email        VARCHAR(255),
     user_address      VARCHAR(255),
     user_phone_number VARCHAR(20)  NOT NULL,
-    host              BOOLEAN,
-    FOREIGN KEY (team_id) REFERENCES teams (team_id)
+    user_pic_url      VARCHAR,
+    user_division     VARCHAR,
+    company_name      VARCHAR,
+    account_number    VARCHAR,
+    account_name      VARCHAR,
+    created_at        TIMESTAMP,
+    bank_id           INT
 );
 
--- 'banks' 테이블 생성
-CREATE TABLE banks
+-- 공간 테이블
+CREATE TABLE space_tb
 (
-    bank_id   INT AUTO_INCREMENT PRIMARY KEY,
-    bank_name VARCHAR(255)
+    id              INT PRIMARY KEY,
+    space_name      VARCHAR(255),
+    description     TEXT,
+    capacity        INT,
+    price_per_hour  INT,
+    available_hours VARCHAR(255),
+    sector          VARCHAR,
+    is_inside       BOOLEAN,
+    region_name     VARCHAR,
+    created_at      TIMESTAMP,
+    option_id       INT,
+    user_id         INT,
+    sport_id        INT
 );
 
--- 'in_out' 테이블 생성
-CREATE TABLE in_out
+-- 시설 공간 예약 테이블
+CREATE TABLE reservation_tb
 (
-    in_out_id   INT AUTO_INCREMENT PRIMARY KEY,
-    in_out_name VARCHAR(50)
-);
-
--- 'sports' 테이블 생성
-CREATE TABLE sports
-(
-    sport_id   INT AUTO_INCREMENT PRIMARY KEY,
-    sport_name VARCHAR(50),
-    in_out_id  INT,
-    FOREIGN KEY (in_out_id) REFERENCES in_out (in_out_id)
-);
-
--- 'regions' 테이블 생성
-CREATE TABLE regions
-(
-    region_id   INT AUTO_INCREMENT PRIMARY KEY,
-    region_name VARCHAR(250) NOT NULL
-);
-
--- 'locations' 테이블 생성
-CREATE TABLE locations
-(
-    location_id   INT AUTO_INCREMENT PRIMARY KEY,
-    region_id     INT,
-    location_name VARCHAR(250) NOT NULL,
-    FOREIGN KEY (region_id) REFERENCES regions (region_id)
-);
-
--- 'areas' 테이블 생성
-CREATE TABLE areas
-(
-    area_id     INT AUTO_INCREMENT PRIMARY KEY,
-    location_id INT,
-    area_name   VARCHAR(250) NOT NULL,
-    FOREIGN KEY (location_id) REFERENCES locations (location_id)
-);
-
-
--- 'sponsors' 테이블 생성
-CREATE TABLE sponsors
-(
-    sponsor_id   INT AUTO_INCREMENT PRIMARY KEY,
-    sponsor_name VARCHAR(250) NOT NULL
-);
-
--- 'leagues' 테이블 생성
-CREATE TABLE leagues
-(
-    league_id          INT AUTO_INCREMENT PRIMARY KEY,
-    league_name        VARCHAR(255) NOT NULL,
-    league_pic         VARCHAR(255),
-    apply_start        DATE,
-    apply_end          DATE,
-    competition_start  DATE,
-    competition_end    DATE,
-    region_id          INT,
-    sponsor_id         INT,
-    recruitment        INT,
-    recruitment_status VARCHAR(255),
-    FOREIGN KEY (region_id) REFERENCES regions (region_id),
-    FOREIGN KEY (sponsor_id) REFERENCES sponsors (sponsor_id)
-);
-
--- 'standings' 테이블 생성
-CREATE TABLE standings
-(
-    standing_id     INT AUTO_INCREMENT PRIMARY KEY,
-    team_id         INT,
-    league_id       INT,
-    rank            INT NOT NULL,
-    points          INT NOT NULL,
-    goal_difference INT NOT NULL,
-    FOREIGN KEY (team_id) REFERENCES teams (team_id),
-    FOREIGN KEY (league_id) REFERENCES leagues (league_id)
-);
-
--- 'options' 테이블 생성
-CREATE TABLE options
-(
-    option_id   INT AUTO_INCREMENT PRIMARY KEY,
-    option_name VARCHAR(255)
-);
-
--- 'spaces' 테이블 생성
-CREATE TABLE spaces
-(
-    space_id       INT AUTO_INCREMENT PRIMARY KEY,
-    user_id        INT,
-    spaces_name    VARCHAR(255),
-    region_id      INT,
-    location_id    INT,
-    area_id        INT,
-    description    TEXT,
-    space_pic      VARCHAR(255),
-    biz_start_time TIME,
-    biz_end_time   TIME,
-    bank_id        INT,
-    account_number VARCHAR(50),
-    account_holder VARCHAR(50),
-    capacity       INT,
-    in_out_id      INT,
-    price_per_hour INT,
-    FOREIGN KEY (region_id) REFERENCES regions (region_id),
-    FOREIGN KEY (location_id) REFERENCES locations (location_id),
-    FOREIGN KEY (area_id) REFERENCES areas (area_id),
-    FOREIGN KEY (in_out_id) REFERENCES in_out (in_out_id),
-    FOREIGN KEY (bank_id) REFERENCES banks (bank_id),
-    FOREIGN KEY (user_id) REFERENCES users (user_id)
-);
-
--- 'selected_options' 테이블 생성
-CREATE TABLE selected_options
-(
-    selected_option_id INT AUTO_INCREMENT PRIMARY KEY,
-    option_id          INT,
-    space_id           INT,
-    FOREIGN KEY (option_id) REFERENCES options (option_id),
-    FOREIGN KEY (space_id) REFERENCES spaces (space_id)
-);
-
--- 'bookmarks' 테이블 생성
-CREATE TABLE bookmarks
-(
-    bookmark_id INT AUTO_INCREMENT PRIMARY KEY,
-    space_id    INT,
-    user_id     INT,
-    FOREIGN KEY (space_id) REFERENCES spaces (space_id),
-    FOREIGN KEY (user_id) REFERENCES users (user_id)
-);
-
--- 'reservations' 테이블 생성
-CREATE TABLE reservations
-(
-    reservation_id   INT AUTO_INCREMENT PRIMARY KEY,
-    reserv_no        VARCHAR(20),
-    space_id         INT,
-    user_id          INT,
+    id               INT PRIMARY KEY,
     reservation_date DATE,
     start_time       TIME,
     end_time         TIME,
     status           VARCHAR(50),
     matching         BOOLEAN,
-    FOREIGN KEY (space_id) REFERENCES spaces (space_id),
-    FOREIGN KEY (user_id) REFERENCES users (user_id)
+    created_at       TIMESTAMP,
+    user_id          INT,
+    space_id         INT
 );
 
--- 'reviews' 테이블 생성
-CREATE TABLE reviews
+-- 팀 테이블
+CREATE TABLE team_tb
 (
-    review_id      INT AUTO_INCREMENT PRIMARY KEY,
-    reservation_id INT,
-    user_id        INT,
-    comment        TEXT,
-    FOREIGN KEY (reservation_id) REFERENCES reservations (reservation_id),
-    FOREIGN KEY (user_id) REFERENCES users (user_id)
+    id            INT PRIMARY KEY,
+    team_name     VARCHAR(250) NOT NULL,
+    team_capacity VARCHAR,
+    team_pic_url  VARCHAR,
+    level         VARCHAR,
+    region_name   VARCHAR,
+    sport_id      INT,
+    user_id       INT
 );
 
--- 'matchings' 테이블 생성
-CREATE TABLE matchings
+-- 지역 테이블 (코드)
+CREATE TABLE location_tb
 (
-    matching_id     INT AUTO_INCREMENT PRIMARY KEY,
+    id            INT PRIMARY KEY,
+    location_name VARCHAR
+);
+
+-- 운동 종목 테이블 (코드)
+CREATE TABLE sport_tb
+(
+    id         INT PRIMARY KEY,
+    sport_name VARCHAR(50)
+);
+
+-- 한줄리뷰 내역
+CREATE TABLE review_tb
+(
+    id       INT PRIMARY KEY,
+    rating   INT,
+    comment  TEXT,
+    space_id INT,
+    user_id  INT
+);
+
+-- 매칭 테이블
+CREATE TABLE matching_tb
+(
+    id              INT PRIMARY KEY,
     reservation_id  INT,
     match_user_id   INT,
-    matching_status VARCHAR(255),
-    FOREIGN KEY (reservation_id) REFERENCES reservations (reservation_id)
+    matching_status VARCHAR
 );
 
--- 'charges' 테이블 생성
-CREATE TABLE charges
+-- 옵션 테이블 (해야함)
+CREATE TABLE option_tb
 (
-    charge_id     INT AUTO_INCREMENT PRIMARY KEY,
-    charge_amount INT
+    id          INT PRIMARY KEY,
+    option_name VARCHAR(255)
 );
 
--- 'payments' 테이블 생성
-CREATE TABLE payments
+-- 선택 옵션 테이블 (해야함)
+CREATE TABLE space_option_tb
 (
-    payment_id   INT AUTO_INCREMENT PRIMARY KEY,
-    charge_id    INT,
-    price        INT,
-    payment_date DATE,
-    refund       BOOLEAN,
-    refund_date  DATE,
-    user_id      INT,
-    FOREIGN KEY (charge_id) REFERENCES charges (charge_id),
-    FOREIGN KEY (user_id) REFERENCES users (user_id)
+    id        INT PRIMARY KEY,
+    option_id INT,
+    space_id  INT
 );
 
--- 'scores' 테이블 생성
-CREATE TABLE scores
+-- 주최 테이블 (보류)
+CREATE TABLE sponsor_tb
 (
-    score_id        INT AUTO_INCREMENT PRIMARY KEY,
-    team_id         INT,
-    league_id       INT,
-    total_points    INT,
-    total_wins      INT,
-    total_losses    INT,
-    total_draws     INT,
-    goal_difference varchar(20),
-    FOREIGN KEY (team_id) REFERENCES teams (team_id),
-    FOREIGN KEY (league_id) REFERENCES leagues (league_id)
+    id           INT PRIMARY KEY,
+    sponsor_name VARCHAR(250) NOT NULL
 );
 
--- 'notices' 테이블 생성
-CREATE TABLE notice_categories
+-- 북마크 기능 테이블
+CREATE TABLE bookmark_tb
 (
-    notice_category_id INT AUTO_INCREMENT PRIMARY KEY,
-    notice_category    VARCHAR(20)
+    id       INT PRIMARY KEY,
+    space_id INT,
+    user_id  INT
 );
 
--- 'notices' 테이블 생성
-CREATE TABLE notices
+-- 은행 이름 테이블 (코드 테이블) - 결재 하면서 새로 구상
+CREATE TABLE bank_tb
 (
-    notice_id          INT AUTO_INCREMENT PRIMARY KEY,
-    notice_title       VARCHAR(255),
-    notice_content     TEXT,
-    created_at         DATE,
-    notice_category_id INT,
-    FOREIGN KEY (notice_category_id) REFERENCES notice_categories (notice_category_id)
+    id        INT PRIMARY KEY,
+    bank_name VARCHAR(255)
 );
 
--- 'inquires' 테이블 생성
-CREATE TABLE inquires
+-- 결제내역 테이블
+CREATE TABLE payment_tb
 (
-    inquire_id      INT AUTO_INCREMENT PRIMARY KEY,
+    id         INT PRIMARY KEY,
+    price      INT,
+    created_at TIMESTAMP,
+    user_id    INT
+);
+
+-- 포인트 충전 테이블
+CREATE TABLE point_charge_tb
+(
+    id            INT PRIMARY KEY,
+    payment_point INT,
+    present_point INT,
+    refund        BOOLEAN,
+    refund_date   DATE,
+    created_at    TIMESTAMP,
+    user_id       INT
+);
+
+-- 포인트 사용내역
+CREATE TABLE point_use_tb
+(
+    id         INT PRIMARY KEY,
+    payment_id INT,
+    user_id    INT
+);
+
+-- 포인트 얼마 충전할건지 지정하는 코드 테이블 생각하기
+
+-- 공지사항 테이블
+CREATE TABLE notice_tb
+(
+    id             INT PRIMARY KEY,
+    notice_title   VARCHAR(255),
+    notice_content TEXT,
+    created_at     TIMESTAMP
+);
+
+-- 문의 테이블
+CREATE TABLE inquire_tb
+(
+    id              INT PRIMARY KEY,
     inquire_title   VARCHAR(255),
-    inquire_content TEXT,
-    user_id         INT,
-    FOREIGN KEY (user_id) REFERENCES users (user_id)
+    inquire_content VARCHAR,
+    created_at      TIMESTAMP,
+    user_id         INT
 );
 
--- 'answers' 테이블 생성
-CREATE TABLE answers
+-- 답변 테이블
+CREATE TABLE answer_tb
 (
-    answer_id      INT AUTO_INCREMENT PRIMARY KEY,
+    id             INT PRIMARY KEY,
     inquire_id     INT,
     answer_content VARCHAR(255),
-    FOREIGN KEY (inquire_id) REFERENCES inquires (inquire_id)
+    created_at     TIMESTAMP
 );
 
--- 'league_matches' 테이블 생성
-CREATE TABLE league_matches
+-- 결과 테이블
+CREATE TABLE result_tb
 (
-    league_match_id   INT AUTO_INCREMENT PRIMARY KEY,
+    id         INT PRIMARY KEY,
+    resultname VARCHAR
+);
+
+-- 결과 관계 테이블
+CREATE TABLE has_result_tb
+(
+    id        INT PRIMARY KEY,
+    result_id INT,
+    league_id INT
+);
+
+-- 리그 일정 테이블 (3차 기능)
+CREATE TABLE league_match_tb
+(
+    id                INT PRIMARY KEY,
     league_id         INT,
     league_match_date DATE,
     league_match_time TIME,
@@ -282,9 +217,42 @@ CREATE TABLE league_matches
     away_team_id      INT,
     score_home_team   INT,
     score_away_team   INT,
-    winner_id         INT,
-    FOREIGN KEY (league_id) REFERENCES leagues (league_id),
-    FOREIGN KEY (home_team_id) REFERENCES teams (team_id),
-    FOREIGN KEY (away_team_id) REFERENCES teams (team_id),
-    FOREIGN KEY (winner_id) REFERENCES teams (team_id)
+    winner_id         INT
+);
+
+-- 경기 기록 - 3차
+CREATE TABLE record_tb
+(
+    id              INT PRIMARY KEY,
+    team_id         INT,
+    league_id       INT,
+    rank            INT NOT NULL,
+    get_goal        INT NOT NULL,
+    lose_goal       INT,
+    goal_difference INT NOT NULL
+);
+
+-- 리그 테이블 (관리자 등록한 리그 정보 관리) - 3차
+CREATE TABLE league_tb
+(
+    id                 INT PRIMARY KEY,
+    league_name        VARCHAR(255) NOT NULL,
+    apply_start        DATE,
+    apply_end          DATE,
+    competition_start  DATE,
+    competition_end    DATE,
+    location_id        INT,
+    sponsor_id         VARCHAR(255),
+    recruitment        INT,
+    recruitment_status VARCHAR(255)
+);
+
+-- 리그 등록
+CREATE TABLE campaign_tb
+(
+    id               INT PRIMARY KEY,
+    campaign_pic     VARCHAR(255),
+    campaign_name    VARCHAR(255),
+    campaign_period  DATE,
+    campaign_address VARCHAR(255)
 );
