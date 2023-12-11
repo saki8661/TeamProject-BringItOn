@@ -21,8 +21,8 @@
 -- insert into teams(team_name) values('아크로바틱');
 --
 -- -- users 테이블
-insert into user_tb(id, username, password, user_email, user_address, user_phone_number)
-values(1, 'ssar', '1234','ssar@nate.com', '서울 강남', '010-1111-1111');
+-- insert into user_tb(id, username, password, user_email, user_address, user_phone_number)
+-- values (1, 'ssar', '1234', 'ssar@nate.com', '서울 강남', '010-1111-1111');
 -- insert into users(team_id, username, password, user_email, user_address, user_phone_number, host)
 -- values(1, 'cos', '1234','cos@nate.com', '서울 강남', '010-2222-2222', false);
 -- insert into users(team_id, username, password, user_email, user_address, user_phone_number, host)
@@ -427,3 +427,130 @@ values(1, 'ssar', '1234','ssar@nate.com', '서울 강남', '010-1111-1111');
 -- values(1, '2023-11-12', '13:00:00', 1, 10, '3', '0', 1);
 --
 -- --더미 완료
+
+
+-- 유저 더미 데이터
+INSERT INTO user_tb (id, username, nickname, password, user_email, user_address, user_phone_number, user_pic_url,
+                     user_division, company_name, account_number, account_name, created_at, bank_id)
+VALUES (1, 'user1', 'User One', 'password1', 'user1@email.com', 'Address 1', '1234567890', 'url1', 'Division 1',
+        'Company 1', '123456789', 'Account 1', CURRENT_TIMESTAMP, 1),
+       (2, 'user2', 'User Two', 'password2', 'user2@email.com', 'Address 2', '9876543210', 'url2', 'Division 2',
+        'Company 2', '987654321', 'Account 2', CURRENT_TIMESTAMP, 2);
+
+-- 공간 더미 데이터
+INSERT INTO space_tb (id, space_name, description, capacity, price_per_hour, available_hours, sector, is_inside,
+                      region_name, created_at, option_id, user_id, sport_id)
+VALUES (1, 'Space 1', 'Description 1', 10, 50, '9AM-5PM', 'Sector 1', true, 'Region 1', CURRENT_TIMESTAMP, 1, 1, 1),
+       (2, 'Space 2', 'Description 2', 20, 75, '1PM-9PM', 'Sector 2', false, 'Region 2', CURRENT_TIMESTAMP, 2, 2, 2);
+
+-- 시설 공간 예약 더미 데이터
+INSERT INTO reservation_tb (id, reservation_date, start_time, end_time, status, matching, created_at, user_id, space_id)
+VALUES (1, '2023-01-01', '10:00:00', '12:00:00', 'Reserved', true, CURRENT_TIMESTAMP, 1, 1),
+       (2, '2023-01-02', '14:00:00', '16:00:00', 'Pending', false, CURRENT_TIMESTAMP, 2, 2);
+
+-- 팀 더미 데이터
+INSERT INTO team_tb (id, team_name, team_capacity, team_pic_url, level, region_name, sport_id, user_id)
+VALUES (1, 'Team 1', '10', 'team1.jpg', 'Intermediate', 'Region 1', 1, 1),
+       (2, 'Team 2', '15', 'team2.jpg', 'Beginner', 'Region 2', 2, 2);
+
+-- 지역 더미 데이터
+INSERT INTO location_tb (id, location_name)
+VALUES (1, 'Location 1'),
+       (2, 'Location 2');
+
+-- 운동 종목 더미 데이터
+INSERT INTO sport_tb (id, sport_name)
+VALUES (1, 'Soccer'),
+       (2, 'Basketball');
+
+-- 한줄리뷰 더미 데이터
+INSERT INTO review_tb (id, rating, comment, space_id, user_id)
+VALUES (1, 4, 'Nice space!', 1, 1),
+       (2, 5, 'Great facilities!', 2, 2);
+
+-- 매칭 더미 데이터
+INSERT INTO matching_tb (id, reservation_id, match_user_id, matching_status)
+VALUES (1, 1, 2, 'Matching'),
+       (2, 2, 1, 'Cancelled');
+
+-- 옵션 더미 데이터
+INSERT INTO option_tb (id, option_name)
+VALUES (1, 'Option 1'),
+       (2, 'Option 2');
+
+-- 선택 옵션 더미 데이터
+INSERT INTO space_option_tb (id, option_id, space_id)
+VALUES (1, 1, 1),
+       (2, 2, 2);
+
+-- 북마크 더미 데이터
+INSERT INTO bookmark_tb (id, space_id, user_id)
+VALUES (1, 1, 1),
+       (2, 2, 2);
+
+-- 은행 이름 더미 데이터
+INSERT INTO bank_tb (id, bank_name)
+VALUES (1, 'Bank 1'),
+       (2, 'Bank 2');
+
+-- 결제내역 더미 데이터
+INSERT INTO payment_tb (id, price, created_at, user_id)
+VALUES (1, 100, CURRENT_TIMESTAMP, 1),
+       (2, 150, CURRENT_TIMESTAMP, 2);
+
+-- 포인트 충전 더미 데이터
+INSERT INTO point_charge_tb (id, payment_point, present_point, refund, refund_date, created_at, user_id)
+VALUES (1, 50, 150, false, NULL, CURRENT_TIMESTAMP, 1),
+       (2, 100, 250, true, '2023-01-03', CURRENT_TIMESTAMP, 2);
+
+-- 포인트 사용내역 더미 데이터
+INSERT INTO point_use_tb (id, payment_id, user_id)
+VALUES (1, 1, 1),
+       (2, 2, 2);
+
+-- 공지사항 더미 데이터
+INSERT INTO notice_tb (id, notice_title, notice_content, created_at)
+VALUES (1, 'Important Notice', 'This is an important notice.', CURRENT_TIMESTAMP),
+       (2, 'Event Announcement', 'Exciting event coming soon!', CURRENT_TIMESTAMP);
+
+-- 문의 더미 데이터
+INSERT INTO inquire_tb (id, inquire_title, inquire_content, created_at, user_id)
+VALUES (1, 'Question 1', 'Can you provide more information?', CURRENT_TIMESTAMP, 1),
+       (2, 'Feedback', 'Great service!', CURRENT_TIMESTAMP, 2);
+
+-- 답변 더미 데이터
+INSERT INTO answer_tb (id, inquire_id, answer_content, created_at)
+VALUES (1, 1, 'Certainly! Here is additional information.', CURRENT_TIMESTAMP),
+       (2, 2, 'Thank you for your feedback!', CURRENT_TIMESTAMP);
+
+-- 결과 더미 데이터
+INSERT INTO result_tb (id, resultname)
+VALUES (1, 'Result 1'),
+       (2, 'Result 2');
+
+-- 결과 관계 더미 데이터
+INSERT INTO has_result_tb (id, result_id, league_id)
+VALUES (1, 1, 1),
+       (2, 2, 2);
+
+-- 리그 일정 더미 데이터
+INSERT INTO league_match_tb (id, league_id, league_match_date, league_match_time, home_team_id, away_team_id,
+                             score_home_team, score_away_team, winner_id)
+VALUES (1, 1, '2023-02-01', '15:00:00', 1, 2, 2, 1, 2),
+       (2, 2, '2023-02-02', '14:30:00', 2, 1, 1, 3, NULL);
+
+-- 경기 기록 더미 데이터
+INSERT INTO record_tb (id, team_id, league_id, rank, get_goal, lose_goal, goal_difference)
+VALUES (1, 1, 1, 1, 20, 10, 10),
+       (2, 2, 2, 2, 15, 8, 7);
+
+-- 리그 더미 데이터
+INSERT INTO league_tb (id, league_name, apply_start, apply_end, competition_start, competition_end, location_id,
+                       sponsor_id, recruitment, recruitment_status)
+VALUES (1, 'League 1', '2023-01-10', '2023-01-20', '2023-02-01', '2023-03-01', 1, 'Sponsor 1', 10, 'Recruiting'),
+       (2, 'League 2', '2023-01-15', '2023-01-25', '2023-02-10', '2023-03-10', 2, 'Sponsor 2', 12, 'Closed');
+
+-- 캠페인 더미 데이터
+INSERT INTO campaign_tb (id, campaign_pic, campaign_name, campaign_period, campaign_address)
+VALUES (1, 'pic1.jpg', 'Campaign 1', '2023-04-01', 'Address 1'),
+       (2, 'pic2.jpg', 'Campaign 2', '2023-04-15', 'Address 2');
