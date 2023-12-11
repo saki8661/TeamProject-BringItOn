@@ -4,8 +4,7 @@ import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedExce
 import com.example.teamprojectbringiton.user.dto.reqDTO.JoinDto;
 import com.example.teamprojectbringiton.user.dto.reqDTO.LoginDto;
 import com.example.teamprojectbringiton.user.dto.reqDTO.PwdUpdateDto;
-import com.example.teamprojectbringiton.user.dto.respDTO.UserTeamDto;
-import com.example.teamprojectbringiton.user.models.TeamInfo;
+import com.example.teamprojectbringiton.user.dto.respDTO.UserTeamInfoDto;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -102,8 +101,8 @@ public class UserController {
 
     @GetMapping("/user-team/{id}")
     public String userTeamManagementPage(@PathVariable Integer id, Model model){
-        TeamInfo teamInfo = userService.findByIdWithTeam(id);
-        System.out.println("이거 뭐댜 : "+teamInfo.getTeamName());
+
+        UserTeamInfoDto teamInfo = userService.findByIdWithTeam(id);
 
         model.addAttribute("teamInfo", teamInfo);
 
