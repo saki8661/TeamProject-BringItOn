@@ -10,13 +10,15 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class Notice {
     private Integer id;
+    private Integer noticeCategoryId;
     private String noticeTitle;
     private String noticeContent;
     private Timestamp createdAt;
 
     @Builder
-    public Notice(Integer id, String noticeTitle, String noticeContent, Timestamp createdAt) {
+    public Notice(Integer id, Integer noticeCategoryId,String noticeTitle, String noticeContent, Timestamp createdAt) {
         this.id = id;
+        this.noticeCategoryId = noticeCategoryId;
         this.noticeTitle = noticeTitle;
         this.noticeContent = noticeContent;
         this.createdAt = createdAt;
