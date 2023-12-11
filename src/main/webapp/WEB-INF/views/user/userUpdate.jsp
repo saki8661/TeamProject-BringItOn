@@ -28,7 +28,7 @@
                                     </div>
                                 </div>
                             </form>
-                            <div class="userUpdate_username">${user.username}</div>
+                            <div class="userUpdate_username">${user.nickName}</div>
                         </div>
                     </div>
 

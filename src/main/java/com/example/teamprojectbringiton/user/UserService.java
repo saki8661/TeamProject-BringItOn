@@ -19,13 +19,13 @@ public class UserService {
     public int usernameCheck(String username) {
         int user = userRepository.findByUsername(username);
         if (user != 1) {
-            throw  new CustomPageException("유저네임이 중복 되었습니다", HttpStatus.BAD_REQUEST);
+            throw new CustomPageException("유저네임이 중복 되었습니다", HttpStatus.BAD_REQUEST);
         }
         return user;
     }
 
     @Transactional
-    public int userSave(JoinDto dto){
+    public int userSave(JoinDto dto) {
         System.out.println("서비스 진입");
         //회원가입 db에 insert
         User user = User.builder()
@@ -38,24 +38,26 @@ public class UserService {
                 .build();
         int resultRowCount = userRepository.insert(user);
 
-        if(resultRowCount != 1) {throw new CustomPageException("회원 가입 실패", HttpStatus.INTERNAL_SERVER_ERROR);}
+        if (resultRowCount != 1) {
+            throw new CustomPageException("회원 가입 실패", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
 
         return resultRowCount;
     }
 
-    public User findById(Integer id){
-      User user = userRepository.findById(id);
+    public User findById(Integer id) {
+        User user = userRepository.findById(id);
         return user;
     }
 
 
     public User login(LoginDto loginDto) {
-      User user = userRepository.findByUsernameAndPassword(loginDto);
+        User user = userRepository.findByUsernameAndPassword(loginDto);
         return user;
     }
 
-    public void userPwdUpdate(Integer id, PwdUpdateDto pwdUpdateDto){
 
-
+    public void userPwdUpdate(Integer id, PwdUpdateDto pwdUpdateDto) {
     }
+
 }

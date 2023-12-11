@@ -6,40 +6,32 @@
     <ul class="nav">
         <li class="main_link nav-item dropdown">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-                실내 스포츠
+                공간 대여
             </a>
             <ul class="dropdown-menu sub_navbar_style">
-                <li><a class="dropdown-item" href="#">축구</a></li>
-                <li><a class="dropdown-item" href="#">농구</a></li>
-                <li><a class="dropdown-item" href="#">풋살</a></li>
+                <li><a class="dropdown-item" href="#">실내 스포츠</a></li>
+                <li><a class="dropdown-item" href="#">야외 스포츠</a></li>
             </ul>
         </li>
-
         <li class="main_link nav-item dropdown">
             <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-                야외 스포츠
+                팀
             </a>
             <ul class="dropdown-menu sub_navbar_style">
-                <li><a class="dropdown-item" href="#">축구</a></li>
-                <li><a class="dropdown-item" href="#">농구</a></li>
-                <li><a class="dropdown-item" href="#">풋살</a></li>
+                <li><a class="dropdown-item" href="#">팀 등록</a></li>
+                <li><a class="dropdown-item" href="#">팀 목록</a></li>
             </ul>
         </li>
-
-        <li class="main_link nav-item dropdown">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">매칭</a>
-            <ul class="dropdown-menu sub_navbar_style">
-                <li><a class="dropdown-item" href="#">축구</a></li>
-                <li><a class="dropdown-item" href="#">농구</a></li>
-                <li><a class="dropdown-item" href="#">풋살</a></li>
-            </ul>
+        <li class="main_link">
+            <a href="/matching-page">매칭</a>
         </li>
 
         <li class="main_link">
-            <a href="#">리그</a>
+            <a href="/league-main">리그</a>
         </li>
+
         <li class="main_link">
-            <a href="#">고객센터</a>
+            <a href="/inquire-main">고객센터</a>
         </li>
     </ul>
 </div>
@@ -252,7 +244,11 @@
                                 <div class="manual_num">부산 준타스 풋살 아레나 화이트</div>
                             </div>
                         </div>
-                        <button class="btn matching_button matching_btn_style" type="button">매칭하기</button>
+                        <button class="btn matching_button matching_btn_style" type="button" data-bs-toggle="modal"
+                                data-bs-target="#myModal">매칭하기
+                        </button>
+
+
                     </div>
                     <hr class="matchingPage_manual_box">
                     <div class="matching_list">
@@ -272,7 +268,11 @@
                                 <div class="manual_num">부산 준타스 풋살 아레나 화이트</div>
                             </div>
                         </div>
-                        <button class="btn matching_button matching_btn_style" type="button">매칭하기</button>
+                        <button class="btn matching_button matching_btn_style" type="button" data-bs-toggle="modal"
+                                data-bs-target="#myModal">매칭하기
+                        </button>
+
+
                     </div>
                     <hr class="matchingPage_manual_box">
                     <div class="matching_list">
@@ -292,196 +292,84 @@
                                 <div class="manual_num">부산 준타스 풋살 아레나 화이트</div>
                             </div>
                         </div>
-                        <button class="btn matching_button matching_btn_style" type="button">매칭하기</button>
+                        <button class="btn matching_button matching_btn_style" type="button" data-bs-toggle="modal"
+                                data-bs-target="#myModal">매칭하기
+                        </button>
+
+                        <%--======================================MODAL================================================================--%>
+
+                        <div class="modal" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
+
+                                    <!-- Modal Header -->
+                                    <div class="userReservation_modal_header">
+                                        <h2>매칭 상세</h2>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
+
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <div class="modal_body">
+                                            <div class="userPayment_body_desc">
+                                                <img src="images/stadium.png" alt="">
+                                                <div class="userPayment_text">
+                                                    <div>
+                                                        부산 준타스 풋볼 아레나
+                                                    </div>
+                                                    <div>
+                                                        부산 진구
+                                                    </div>
+                                                    <div>
+                                                        시작: 2023-12-07 13시
+                                                    </div>
+                                                    <div>
+                                                        종료: 2023-12-07 15시
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="userPayment_table">
+                                                <Table>
+                                                    <div class="userPayment_detail_style">
+                                                        <tr class="userPayment_table_header">
+                                                            <th>팀명</th>
+                                                            <td>FC 대욱</td>
+                                                            <th>진행상태</th>
+                                                            <td>진행중</td>
+                                                        </tr>
+                                                        <tr class="userPayment_table_header">
+                                                            <th>인원수</th>
+                                                            <td>6명</td>
+                                                            <th>가격</th>
+                                                            <td>120,000원</td>
+                                                        </tr>
+                                                    </div>
+                                                </Table>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <!-- Modal footer -->
+                                    <div class="userPayment_modal_footer">
+                                        <div>
+                                            <div style="height: 10px"></div>
+                                            <a href="#">
+                                                <button>매칭 신청</button>
+                                            </a>
+                                        </div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <%--====================================MODAL==================================================================--%>
                     </div>
                     <hr class="matchingPage_manual_box">
                 </div>
             </li>
         </ul>
-
     </div>
-    <div class="frame">
-        <ul class="manual">
-            <li class="manual_box ">
-                <div>
-                    <ul class="nav">
-                        <li class="matching_sorting nav-item dropdown">
-                            <a role="button" data-bs-toggle="dropdown" href="#">내 지역
-                                <ul class="dropdown-menu sub_navbar_style">
-                                    <li><a href="#">서울</a></li>
-                                    <li><a href="#">경기</a></li>
-                                    <li><a href="#">인천</a></li>
-                                    <li><a href="#">강원</a></li>
-                                    <li><a href="#">대전</a></li>
-                                    <li><a href="#">충남/세종</a></li>
-                                    <li><a href="#">충북</a></li>
-                                    <li><a href="#">대구</a></li>
-                                    <li><a href="#">경북</a></li>
-                                    <li><a href="#">부산</a></li>
-                                    <li><a href="#">울산</a></li>
-                                    <li><a href="#">경남</a></li>
-                                </ul>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="manual_card">
-                    <div class="matching_list">
-                        <div class="matching_detail">
-                            <div class="manual_tit">
-                                09:00
-                            </div>
-                            <div class="matchingPage_team_box">
-                                <div class="matchingPage_team">
-                                    <div>
-                                        <span class="manual_tit"> < FC 대욱 > </span>
-                                    </div>
-                                    <div>
-                                        <span class="manual_tit">6 vs 6 경기</span>
-                                    </div>
-                                </div>
-                                <div class="manual_num">부산 준타스 풋살 아레나 화이트</div>
-                            </div>
-                        </div>
-                        <button class="btn matching_button matching_btn_style" type="button">매칭하기</button>
-                    </div>
-                    <hr class="matchingPage_manual_box">
-                    <div class="matching_list">
-                        <div class="matching_detail">
-                            <div class="manual_tit">
-                                09:00
-                            </div>
-                            <div class="matchingPage_team_box">
-                                <div class="matchingPage_team">
-                                    <div>
-                                        <span class="manual_tit"> < FC 대욱 > </span>
-                                    </div>
-                                    <div>
-                                        <span class="manual_tit">6 vs 6 경기</span>
-                                    </div>
-                                </div>
-                                <div class="manual_num">부산 준타스 풋살 아레나 화이트</div>
-                            </div>
-                        </div>
-                        <button class="btn matching_button matching_btn_style" type="button">매칭하기</button>
-                    </div>
-                    <hr class="matchingPage_manual_box">
-                    <div class="matching_list">
-                        <div class="matching_detail">
-                            <div class="manual_tit">
-                                09:00
-                            </div>
-                            <div class="matchingPage_team_box">
-                                <div class="matchingPage_team">
-                                    <div>
-                                        <span class="manual_tit"> < FC 대욱 > </span>
-                                    </div>
-                                    <div>
-                                        <span class="manual_tit">6 vs 6 경기</span>
-                                    </div>
-                                </div>
-                                <div class="manual_num">부산 준타스 풋살 아레나 화이트</div>
-                            </div>
-                        </div>
-                        <button class="btn matching_button matching_btn_style" type="button">매칭하기</button>
-                    </div>
-                    <hr class="matchingPage_manual_box">
-                </div>
-            </li>
-        </ul>
 
-    </div>
-    <div class="frame">
-        <ul class="manual">
-            <li class="manual_box ">
-                <div>
-                    <ul class="nav">
-                        <li class="matching_sorting nav-item dropdown">
-                            <a role="button" data-bs-toggle="dropdown" href="#">내 지역
-                                <ul class="dropdown-menu sub_navbar_style">
-                                    <li><a href="#">서울</a></li>
-                                    <li><a href="#">경기</a></li>
-                                    <li><a href="#">인천</a></li>
-                                    <li><a href="#">강원</a></li>
-                                    <li><a href="#">대전</a></li>
-                                    <li><a href="#">충남/세종</a></li>
-                                    <li><a href="#">충북</a></li>
-                                    <li><a href="#">대구</a></li>
-                                    <li><a href="#">경북</a></li>
-                                    <li><a href="#">부산</a></li>
-                                    <li><a href="#">울산</a></li>
-                                    <li><a href="#">경남</a></li>
-                                </ul>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="manual_card">
-                    <div class="matching_list">
-                        <div class="matching_detail">
-                            <div class="manual_tit">
-                                09:00
-                            </div>
-                            <div class="matchingPage_team_box">
-                                <div class="matchingPage_team">
-                                    <div>
-                                        <span class="manual_tit"> < FC 대욱 > </span>
-                                    </div>
-                                    <div>
-                                        <span class="manual_tit">6 vs 6 경기</span>
-                                    </div>
-                                </div>
-                                <div class="manual_num">부산 준타스 풋살 아레나 화이트</div>
-                            </div>
-                        </div>
-                        <button class="btn matching_button matching_btn_style" type="button">매칭하기</button>
-                    </div>
-                    <hr class="matchingPage_manual_box">
-                    <div class="matching_list">
-                        <div class="matching_detail">
-                            <div class="manual_tit">
-                                09:00
-                            </div>
-                            <div class="matchingPage_team_box">
-                                <div class="matchingPage_team">
-                                    <div>
-                                        <span class="manual_tit"> < FC 대욱 > </span>
-                                    </div>
-                                    <div>
-                                        <span class="manual_tit">6 vs 6 경기</span>
-                                    </div>
-                                </div>
-                                <div class="manual_num">부산 준타스 풋살 아레나 화이트</div>
-                            </div>
-                        </div>
-                        <button class="btn matching_button matching_btn_style" type="button">매칭하기</button>
-                    </div>
-                    <hr class="matchingPage_manual_box">
-                    <div class="matching_list">
-                        <div class="matching_detail">
-                            <div class="manual_tit">
-                                09:00
-                            </div>
-                            <div class="matchingPage_team_box">
-                                <div class="matchingPage_team">
-                                    <div>
-                                        <span class="manual_tit"> < FC 대욱 > </span>
-                                    </div>
-                                    <div>
-                                        <span class="manual_tit">6 vs 6 경기</span>
-                                    </div>
-                                </div>
-                                <div class="manual_num">부산 준타스 풋살 아레나 화이트</div>
-                            </div>
-                        </div>
-                        <button class="btn matching_button matching_btn_style" type="button">매칭하기</button>
-                    </div>
-                    <hr class="matchingPage_manual_box">
-                </div>
-            </li>
-        </ul>
-
-    </div>
 
 </div>
 
