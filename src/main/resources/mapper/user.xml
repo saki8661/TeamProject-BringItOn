@@ -6,42 +6,67 @@
         namespace="com.example.teamprojectbringiton.user.UserRepository">
 
     <insert id="insert">
-        insert into users_tb(username, password, user_email, user_phone_number, user_address)
-        values(#{username}, #{password}, #{userEmail}, #{userPhoneNumber}, #{userAddress});
+        insert into user_tb(username, password, user_email, user_phone_number, user_address)
+        values (#{username}, #{password}, #{userEmail}, #{userPhoneNumber}, #{userAddress});
     </insert>
 
     <update id="updateById">
-        update user_tb set username = #{username},
-                           password = #{password}, fullname = #{fullname}
+        update user_tb
+        set username = #{username},
+            password = #{password},
+            fullname = #{fullname}
         where id = #{id}
     </update>
 
     <delete id="deleteById">
-        delete from user_tb where id = #{id}
+        delete
+        from user_tb
+        where id = #{id}
     </delete>
 
 
     <select id="findByUsernameAndPassword"
-            resultType="com.example.teamprojectbringiton.user.Users">
-        select * from user_tb where username = #{username} and password = #{password}
+            resultType="com.example.teamprojectbringiton.user.User">
+
+        select *
+        from user_tb
+        where username = #{username}
+          and password = #{password}
     </select>
 
     <!-- 사용자 1명 -->
-    <select id="findById"
-            resultType="com.example.teamprojectbringiton.user.Users">
-        select * from user_tb where id = #{id}
+    <select id="findById" resultType="com.example.teamprojectbringiton.user.User">
+        select *
+        from user_tb
+        where id = #{id}
     </select>
 
     <!-- 사용자 전체 조회 -->
-    <select id="findAll"
-            resultType="com.example.teamprojectbringiton.user.Users">
-        select * from user_tb
+    <select id="findAll" resultType="com.example.teamprojectbringiton.user.User">
+        select *
+        from user_tb
     </select>
 
 
     <!-- username 으로 사용자 검색 -->
     <select id="findByUsername"
-            resultType="com.example.teamprojectbringiton.user.Users">
-        select * from users_tb where username = #{username}
+            resultType="com.example.teamprojectbringiton.user.User">
+        select *
+        from user_tb
+        where username = #{username}
+    </select>
+
+
+    <select id="findByIdJoinTeam"
+            resultType="com.example.teamprojectbringiton.user.dto.respDTO.UserTeamInfoDto">
+        select *
+        from user_tb u
+                 join team_tb t
+                      on u.team_id = t.id
+                 join region_tb r
+                      on t.region_id = r.id
+                 join sport_tb s
+                      on t.sport_id = s.id
+        where u.id = #{id}
     </select>
 </mapper>
