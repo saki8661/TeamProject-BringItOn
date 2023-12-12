@@ -7,8 +7,9 @@
 
     <insert id="insert">
         insert into notice_tb(notice_category_id, notice_title, notice_content, created_at)
-        values (#{noticeCategoryId}, #{notice_title}, now());
+        values (#{noticeCategoryId}, #{notice_title}, #{notice_content}, now());
     </insert>
+
 
     <update id="updateById">
         update notice_tb
@@ -27,7 +28,14 @@
 
     <select id="findAll"
             resultType="com.example.teamprojectbringiton.notice.Notice">
-        select * from notice_tb where id = #{id}
+        select * from notice_tb
+    </select>
+
+    <select id="findAllJoinCategory"
+            resultType="com.example.teamprojectbringiton.notice.dto.respDto.NoticeListDto">
+        select * from notice_tb n
+        join notice_category_tb nc
+        on n.notice_category_id = nc.id
     </select>
 
 

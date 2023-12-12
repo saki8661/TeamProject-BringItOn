@@ -216,7 +216,7 @@ CREATE TABLE answer_tb
 CREATE TABLE result_tb
 (
     id         INT AUTO_INCREMENT PRIMARY KEY,
-    resultname VARCHAR
+    result_name VARCHAR
 );
 
 -- 결과 관계 테이블

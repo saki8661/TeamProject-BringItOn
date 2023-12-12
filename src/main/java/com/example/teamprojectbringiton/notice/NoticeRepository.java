@@ -1,5 +1,7 @@
 package com.example.teamprojectbringiton.notice;
 
+import com.example.teamprojectbringiton.notice.dto.reqDto.NoticeWriteDto;
+import com.example.teamprojectbringiton.notice.dto.respDto.NoticeListDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -14,6 +16,10 @@ public interface NoticeRepository {
     public int deleteById(Integer id);
 
     public List<Notice> findAll();
+
+    public List<NoticeListDto> findAllJoinCategory();
+
+    public int insertJoinCategory(NoticeWriteDto noticeWriteDto);
 
     public Notice findByNoticeCategoryId(String number);
 }
