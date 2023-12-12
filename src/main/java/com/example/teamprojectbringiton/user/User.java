@@ -5,6 +5,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.sql.Timestamp;
+
 @Getter
 @NoArgsConstructor
 public class User {
@@ -18,13 +20,14 @@ public class User {
     private String userPicUrl;
     private String userDivision;
     private String companyName;
-    private String AccountNumber;
-    private String AccountName;
+    private String accountNumber;
+    private String accountName;
+    private Timestamp createdAt;
     private Integer teamId;
-    private Integer bookmarkId;
+    private Integer bankId;
 
     @Builder
-    public User(Integer id, String username, String nickName, String password, String userEmail, String userAddress, String userPhoneNumber, String userPicUrl, String userDivision, String companyName, String accountNumber, String accountName, Integer teamId, Integer bookmarkId) {
+    public User(Integer id, String username, String nickName, String password, String userEmail, String userAddress, String userPhoneNumber, String userPicUrl, String userDivision, String companyName, String accountNumber, String accountName, Timestamp createdAt, Integer teamId, Integer bankId) {
         this.id = id;
         this.username = username;
         this.nickName = nickName;
@@ -35,9 +38,10 @@ public class User {
         this.userPicUrl = userPicUrl;
         this.userDivision = userDivision;
         this.companyName = companyName;
-        this.AccountNumber = accountNumber;
-        this.AccountName = accountName;
+        this.accountNumber = accountNumber;
+        this.accountName = accountName;
+        this.createdAt = createdAt;
         this.teamId = teamId;
-        this.bookmarkId = bookmarkId;
+        this.bankId = bankId;
     }
 }
