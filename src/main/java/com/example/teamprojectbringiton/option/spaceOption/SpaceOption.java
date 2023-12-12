@@ -1,4 +1,4 @@
-package com.example.teamprojectbringiton.spaceOption;
+package com.example.teamprojectbringiton.option.spaceOption;
 
 import lombok.Builder;
 import lombok.Getter;

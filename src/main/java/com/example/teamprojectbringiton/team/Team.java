@@ -11,20 +11,20 @@ public class Team {
     private String teamName;
     private String teamCapacity;
     private String teamPicUrl;
-    private String teamLevel;
-    private String regionName;
+    private String teamIntroduce;
+    private String level;
+    private Integer regionId;
     private Integer sportId;
-    private Integer userId;
 
     @Builder
-    public Team(Integer id, String teamName, String teamCapacity, String teamPicUrl, String teamLevel, String regionName, Integer sportId, Integer userId) {
+    public Team(Integer id, String teamName,String teamCapacity, String teamPicUrl, String teamIntroduce, String level, Integer regionId, Integer sportId) {
         this.id = id;
         this.teamName = teamName;
         this.teamCapacity = teamCapacity;
         this.teamPicUrl = teamPicUrl;
-        this.teamLevel = teamLevel;
-        this.regionName = regionName;
+        this.teamIntroduce = teamIntroduce;
+        this.level = level;
+        this.regionId = regionId;
         this.sportId = sportId;
-        this.userId = userId;
     }
 }
