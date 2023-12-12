@@ -1,5 +1,6 @@
 package com.example.teamprojectbringiton.notice;
 
+import com.example.teamprojectbringiton.notice.dto.reqDto.NoticeUpdateDto;
 import com.example.teamprojectbringiton.notice.dto.reqDto.NoticeWriteDto;
 import com.example.teamprojectbringiton.notice.dto.respDto.NoticeListDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,6 +31,13 @@ public class NoticeController {
     public String noticeWrite(NoticeWriteDto dto){
         noticeService.noticeWrite(dto);
         return "redirect:/notice-main";
+    }
+
+    @PostMapping("/notice-update")
+    public String noticeUpdate(NoticeUpdateDto dto) {
+        noticeService.noticeUpdate(dto);
+        return "redirect:/notice-main";
+
     }
 
     @GetMapping("/notice-delete/{id}")

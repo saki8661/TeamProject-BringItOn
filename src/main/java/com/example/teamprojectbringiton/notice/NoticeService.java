@@ -1,6 +1,7 @@
 package com.example.teamprojectbringiton.notice;
 
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
+import com.example.teamprojectbringiton.notice.dto.reqDto.NoticeUpdateDto;
 import com.example.teamprojectbringiton.notice.dto.reqDto.NoticeWriteDto;
 import com.example.teamprojectbringiton.notice.dto.respDto.NoticeListDto;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,6 +35,27 @@ public class NoticeService {
         return noticeWrite;
     }
 
+    public int noticeUpdate(NoticeUpdateDto dto) {
+        Notice notice = Notice.builder()
+                .id(dto.getId())
+                .noticeTitle(dto.getNoticeTitle())
+                .noticeContent(dto.getNoticeContent())
+                .noticeCategoryId(dto.getNoticeCategoryId())
+                .build();
+//        Notice notice = noticeRepository.findByNoticeId(dto.getId());
+//        notice.setNoticeTitle(dto.getNoticeTitle());
+//        notice.setNoticeContent(dto.getNoticeContent());
+//        notice.setNoticeCategoryId(dto.getNoticeCategoryId());
+
+
+        int noticeUpdate = noticeRepository.updateById(notice);
+        if(noticeUpdate != 1){
+            throw new CustomRestfullException("공지 수정 실패", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return noticeUpdate;
+    }
+
+
     public int deleteById(Integer id){
 
         int noticeDelete = noticeRepository.deleteById(id);
@@ -42,4 +64,6 @@ public class NoticeService {
         }
         return  noticeDelete;
     }
+
+
 }
