@@ -1,11 +1,13 @@
 package com.example.teamprojectbringiton.inquire;
 
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
-import com.example.teamprojectbringiton.inquire.dto.reqDto.WriteInquireDto;
+import com.example.teamprojectbringiton.inquire.dto.reqDto.InquireWriteDto;
+import com.example.teamprojectbringiton.inquire.dto.respDto.InquireListDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 @Service
 public class InquireService {
@@ -13,9 +15,12 @@ public class InquireService {
     @Autowired
     private InquireRepository inquireRepository;
 
+    // 공지 목록 보기 기능
+    public List<InquireListDto> inquireList() {
+        return inquireRepository.findAllJoinCategory();
+    }
 
-    @Transactional
-    public void inquireWrite(WriteInquireDto dto, Integer principalId) {
+    public void inquireWrite(InquireWriteDto dto, Integer principalId) {
 
         // 문의 등록
         Inquire inquire = Inquire.builder()

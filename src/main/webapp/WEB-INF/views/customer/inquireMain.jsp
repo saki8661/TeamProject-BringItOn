@@ -62,7 +62,7 @@
                             <input type="text" class="form-control" placeholder="제목을 입력하세요">
                             <div>내용</div>
                             <textarea class="form-control" style="height: 300px" id="content" placeholder="문의 내용을 입력하세요"
-                                                                   name="content"></textarea>
+                                      name="content"></textarea>
                             <div class="inquire_write_modal_footer">
                                 <button type="submit">
                                     등록
@@ -74,36 +74,38 @@
             </div>
         </div>
     </div>
-    <div class="inquire_write_list">
-        <button type="button" class="more_button">
-            <div class="inquire_write_layout">
-                <div class="inquire_write_item">
-                    <div>
-                        이용문의
+
+    <c:forEach var="inquire" items="${inquires}">
+        <div class="inquire_write_list">
+            <button type="button" class="more_button">
+                <div class="inquire_write_layout">
+                    <div class="inquire_write_item">
+                        <div>
+                                ${inquire.inquireCategory}
+                        </div>
+                        <div>
+                                ${inquire.inquireTitle}
+                        </div>
                     </div>
-                    <div>
-                        예약일을 변경하고 싶습니다.
-                    </div>
-                </div>
-                <div class="d-flex">
-                    <div class="inquire_write_date">
-                        2023-12-01
-                    </div>
-                    <div>
-                        <img src="/images/more.png" class="inquire_write_toggle_image">
-                    </div>
-                </div>
-            </div>
-            <div class="inquire_write_content write_detail" style="display: none">
-                <div class="d-flex justify-content-between px-3 pt-3 m-3">
-                    <div>안녕하세요 예약을 했는데 예약일을 변경하고 싶어서 문의를 남깁니다.
-                        12월 7일에 바빠서 다음주로 변경하고 싶은데 어디서해야하는지 모르겠어요
-                        알려주시면 감사하겠습니다.
+                    <div class="d-flex">
+                        <div class="inquire_write_date">
+                                ${inquire.createdAt}
+                        </div>
+                        <div>
+                            <img src="/images/more.png" class="inquire_write_toggle_image">
+                        </div>
                     </div>
                 </div>
-            </div>
-        </button>
-    </div>
+                <div class="inquire_write_content write_detail" style="display: none">
+                    <div class="d-flex justify-content-between px-3 pt-3 m-3">
+                        <div>
+                                ${inquire.inquireContent}
+                        </div>
+                    </div>
+                </div>
+            </button>
+        </div>
+    </c:forEach>
 </div>
 
 <script>

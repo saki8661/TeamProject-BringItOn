@@ -15,9 +15,4 @@ public class NoticeListDto {
     private Timestamp createdAt;
     private Integer noticeCategoryId;
     private String noticeCategory;
-
-    public String formatCreatedAt() {
-
-        return TimeStampUtil.timestampToString(createdAt);
-    }
 }

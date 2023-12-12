@@ -194,6 +194,12 @@ CREATE TABLE notice_tb
     created_at         TIMESTAMP
 );
 
+CREATE TABLE inquire_category_tb
+(
+    id              INT AUTO_INCREMENT PRIMARY KEY,
+    inquire_category VARCHAR(255)
+);
+
 -- 문의 테이블
 CREATE TABLE inquire_tb
 (
@@ -201,6 +207,7 @@ CREATE TABLE inquire_tb
     inquire_title   VARCHAR(255),
     inquire_content VARCHAR,
     created_at      TIMESTAMP,
+    inquire_category_id INT,
     user_id         INT
 );
 -- 답변 테이블

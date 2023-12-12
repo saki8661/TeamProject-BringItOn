@@ -35,4 +35,11 @@
         select * from inquire_tb where id = #{id}
     </select>
 
+    <select id="findAllJoinCategory"
+            resultType="com.example.teamprojectbringiton.inquire.dto.respDto.InquireListDto">
+        select * from inquire_tb i
+                          join inquire_category_tb ic
+                               on i.inquire_category_id = ic.id
+    </select>
+
 </mapper>

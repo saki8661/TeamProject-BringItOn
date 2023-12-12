@@ -424,13 +424,19 @@ VALUES (1, '공지1', '공지1 입니다', NOW()),
        (1, '공지4', '공지4 입니다', NOW()),
        (2, '공지5', '공지5 입니다', NOW());
 
+-- inquire_category_tb 테이블
+insert into inquire_category_tb (inquire_category)
+values ('이용문의'),
+       ('환불문의'),
+       ('대관문의');
+
 -- 문의 더미 데이터
-INSERT INTO inquire_tb (inquire_title, inquire_content, created_at, user_id)
-VALUES ('문의 1', '문의1 내용입니다', NOW(), 1),
-       ('문의 2', '문의2 내용입니다', NOW(), 1),
-       ('문의 3', '문의3 내용입니다', NOW(), 2),
-       ('문의 4', '문의4 내용입니다', NOW(), 2),
-       ('문의 5', '문의5 내용입니다', NOW(), 1);
+INSERT INTO inquire_tb (inquire_title, inquire_content, created_at, user_id, inquire_category_id)
+VALUES ('이용문의 1', '이용문의1 내용입니다', NOW(), 1, 1),
+       ('환불문의 2', '환불문의2 내용입니다', NOW(), 1, 2),
+       ('대관문의 3', '대관문의3 내용입니다', NOW(), 2, 3),
+       ('이용문의 4', '이용문의4 내용입니다', NOW(), 2, 1),
+       ('환불문의 5', '환불문의5 내용입니다', NOW(), 1, 2);
 
 -- 답변 더미 데이터
 INSERT INTO answer_tb (inquire_id, answer_content, created_at)
