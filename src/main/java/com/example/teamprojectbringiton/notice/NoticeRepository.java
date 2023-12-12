@@ -22,4 +22,6 @@ public interface NoticeRepository {
     public int insertJoinCategory(NoticeWriteDto noticeWriteDto);
 
     public Notice findByNoticeCategoryId(String number);
+
+    public Notice findByNoticeId(Integer id);
 }

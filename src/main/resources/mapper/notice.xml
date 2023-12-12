@@ -11,11 +11,15 @@
     </insert>
 
 
+    <select id="findByNoticeId" resultType="com.example.teamprojectbringiton.notice.Notice">
+        select * from notice_tb where id = #{id}
+    </select>
     <update id="updateById">
         update notice_tb
         set notice_category_id = #{noticeCategoryId},
-            notice_title = #{noticetitle},
-            notice_content = #{noticeContent}
+            notice_title = #{noticeTitle},
+            notice_content = #{noticeContent},
+            created_at = now()
         where id = #{id}
     </update>
 
