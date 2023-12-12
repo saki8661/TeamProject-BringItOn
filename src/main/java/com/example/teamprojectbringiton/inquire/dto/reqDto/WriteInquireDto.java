@@ -6,14 +6,14 @@ import java.sql.Timestamp;
 
 @Getter
 @NoArgsConstructor
-public class SaveInquireDto {
+public class WriteInquireDto {
     private String inquireTitle;
     private String inquireContent;
     private Timestamp createdAt;
     private Integer userId;
 
     @Builder
-    public SaveInquireDto(String inquireTitle, String inquireContent, Timestamp createdAt, Integer userId) {
+    public WriteInquireDto(String inquireTitle, String inquireContent, Timestamp createdAt, Integer userId) {
         this.inquireTitle = inquireTitle;
         this.inquireContent = inquireContent;
         this.createdAt = createdAt;

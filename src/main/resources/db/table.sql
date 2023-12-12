@@ -95,7 +95,8 @@ CREATE TABLE review_tb
     rating   INT,
     comment  TEXT,
     space_id INT,
-    user_id  INT
+    user_id  INT,
+    created_at TIMESTAMP
 );
 
 -- 매칭 테이블

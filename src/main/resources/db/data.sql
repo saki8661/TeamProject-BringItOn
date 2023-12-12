@@ -277,15 +277,15 @@ VALUES ('2024-01-01', '10:00:00', '12:00:00', '예약진행중', true, CURRENT_T
 
 
 -- 한줄리뷰 더미 데이터
-INSERT INTO review_tb (rating, comment, space_id, user_id)
-VALUES (4, '좋아요!', 1, 2),
-       (5, '편해요!', 1, 3),
-       (4, '다음에도 이용할래요!', 1, 4),
-       (5, 'Nice space!', 1, 5),
-       (5, '상태가 좋아요!', 2, 1),
-       (4, '축구해요!', 2, 2),
-       (4, '잔디좋아!', 2, 3),
-       (5, '다음에 또 올래요!', 2, 5);
+INSERT INTO review_tb (rating, comment, space_id, user_id, created_at)
+VALUES (4, '좋아요!', 1, 2, CURRENT_TIMESTAMP),
+       (5, '편해요!', 1, 3, CURRENT_TIMESTAMP),
+       (4, '다음에도 이용할래요!', 1, 4, CURRENT_TIMESTAMP),
+       (5, 'Nice space!', 1, 5, CURRENT_TIMESTAMP),
+       (5, '상태가 좋아요!', 2, 1, CURRENT_TIMESTAMP),
+       (4, '축구해요!', 2, 2, CURRENT_TIMESTAMP),
+       (4, '잔디좋아!', 2, 3, CURRENT_TIMESTAMP),
+       (5, '다음에 또 올래요!', 2, 5, CURRENT_TIMESTAMP);
 
 -- 매칭 더미 데이터
 INSERT INTO matching_tb (reservation_id, match_user_id, matching_status)
