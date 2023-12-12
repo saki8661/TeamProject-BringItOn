@@ -1,10 +1,10 @@
 package com.example.teamprojectbringiton.user;
 
 import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
-import com.example.teamprojectbringiton.user.dto.reqDTO.JoinDto;
-import com.example.teamprojectbringiton.user.dto.reqDTO.LoginDto;
-import com.example.teamprojectbringiton.user.dto.reqDTO.PwdUpdateDto;
-import com.example.teamprojectbringiton.user.dto.respDTO.UserTeamInfoDto;
+import com.example.teamprojectbringiton.user.dto.reqDto.JoinDto;
+import com.example.teamprojectbringiton.user.dto.reqDto.LoginDto;
+import com.example.teamprojectbringiton.user.dto.reqDto.PwdUpdateDto;
+import com.example.teamprojectbringiton.user.dto.respDto.UserTeamInfoDto;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

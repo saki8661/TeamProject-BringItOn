@@ -30,7 +30,7 @@ public class InquireController {
     }
 
     @PostMapping("/inquire-write")
-    public String saveProc(WriteInquireDto dto) {
+    public String inquireWriteProc(WriteInquireDto dto) {
 
         // 1. 인증검사
         User principal = (User) session.getAttribute(Define.PRINCIPAL);

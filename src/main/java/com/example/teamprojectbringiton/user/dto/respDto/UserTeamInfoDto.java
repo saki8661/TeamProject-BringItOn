@@ -1,10 +1,5 @@
-package com.example.teamprojectbringiton.user.dto.respDTO;
+package com.example.teamprojectbringiton.user.dto.respDto;
 
-import com.example.teamprojectbringiton.region.Region;
-import com.example.teamprojectbringiton.sport.Sport;
-import com.example.teamprojectbringiton.team.Team;
-import com.example.teamprojectbringiton.user.User;
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 

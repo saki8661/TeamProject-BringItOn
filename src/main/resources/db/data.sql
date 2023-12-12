@@ -376,7 +376,7 @@ VALUES (1, '답변1 입니다', NOW()),
        (5, '답변5 입니다', NOW());
 
 -- 결과 더미 데이터
-INSERT INTO result_tb (resultname)
+INSERT INTO result_tb (result_name)
 VALUES ('승'),
        ('무'),
        ('패');

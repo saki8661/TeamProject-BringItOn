@@ -1,7 +1,7 @@
 package com.example.teamprojectbringiton.user;
 
-import com.example.teamprojectbringiton.user.dto.reqDTO.LoginDto;
-import com.example.teamprojectbringiton.user.dto.respDTO.UserTeamInfoDto;
+import com.example.teamprojectbringiton.user.dto.reqDto.LoginDto;
+import com.example.teamprojectbringiton.user.dto.respDto.UserTeamInfoDto;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
