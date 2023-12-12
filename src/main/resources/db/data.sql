@@ -74,9 +74,6 @@ VALUES ('국민'),
        ('토스');
 
 
-
-
-
 -- 공간 더미 데이터
 INSERT INTO space_tb (space_name, description, capacity, price_per_hour, biz_start_time, biz_end_time, sector,
                       is_inside, region_id, created_at, user_id, sport_id)
@@ -153,7 +150,6 @@ VALUES ('실내축구공간1', '실내축구공간1 이용해보세요', '10', '
 
        ('경기실외농구공간1', '경기실외농구공간1 이용해보세요', '10', '10000', '09:00', '23:00', 'b1', false, 2, CURRENT_TIMESTAMP, 4, 2),
        ('경기실외농구공간2', '경기실외농구공간2 이용해보세요', '12', '12000', '09:00', '23:00', 'b2', false, 2, CURRENT_TIMESTAMP, 4, 2),
-       ('경기실외농구공간2', '경기실외농구공간2 이용해보세요', '12', '12000', '09:00', '23:00', 'b2', false, 2, CURRENT_TIMESTAMP, 4, 2),
        ('경기실외농구공간3', '경기실외농구공간3 이용해보세요', '14', '14000', '09:00', '23:00', 'b3', false, 2, CURRENT_TIMESTAMP, 4, 2),
        ('경기실외농구공간4', '경기실외농구공간4 이용해보세요', '20', '20000', '09:00', '23:00', 'b4', false, 2, CURRENT_TIMESTAMP, 4, 2),
        ('경기실외농구공간5', '경기실외농구공간5 이용해보세요', '16', '16000', '09:00', '23:00', 'b5', false, 2, CURRENT_TIMESTAMP, 4, 2),
@@ -193,15 +189,24 @@ VALUES ('실내축구공간1', '실내축구공간1 이용해보세요', '10', '
        ('경기실내Futsal8', '실내Futsal8 이용해보세요', '16', '16000', '09:00', '23:00', 'Free8', true, 2, CURRENT_TIMESTAMP, 4, 3),
        ('경기실내Futsal9', '실내Futsal9 이용해보세요', '16', '16000', '09:00', '23:00', 'Free9', true, 2, CURRENT_TIMESTAMP, 4, 3),
 
-       ('경기실외Futsal1', '경기실외Futsal1 이용해보세요', '10', '10000', '09:00', '23:00', 'NoLimit1', false, 2, CURRENT_TIMESTAMP, 4, 3),
-       ('경기실외Futsal2', '경기실외Futsal2 이용해보세요', '12', '12000', '09:00', '23:00', 'NoLimit2', false, 2, CURRENT_TIMESTAMP, 4, 3),
-       ('경기실외Futsal3', '경기실외Futsal3 이용해보세요', '14', '14000', '09:00', '23:00', 'NoLimit3', false, 2, CURRENT_TIMESTAMP, 4, 3),
-       ('경기실외Futsal4', '경기실외Futsal4 이용해보세요', '20', '20000', '09:00', '23:00', 'NoLimit4', false, 2, CURRENT_TIMESTAMP, 4, 3),
-       ('경기실외Futsal5', '경기실외Futsal5 이용해보세요', '16', '16000', '09:00', '23:00', 'NoLimit5', false, 2, CURRENT_TIMESTAMP, 4, 3),
-       ('경기실외Futsal6', '경기실외Futsal6 이용해보세요', '16', '16000', '09:00', '23:00', 'NoLimit6', false, 2, CURRENT_TIMESTAMP, 4, 3),
-       ('경기실외Futsal7', '경기실외Futsal7 이용해보세요', '16', '16000', '09:00', '23:00', 'NoLimit7', false, 2, CURRENT_TIMESTAMP, 4, 3),
-       ('경기실외Futsal8', '경기실외Futsal8 이용해보세요', '16', '16000', '09:00', '23:00', 'NoLimit8', false, 2, CURRENT_TIMESTAMP, 4, 3),
-       ('경기실외Futsal9', '경기실외Futsal9 이용해보세요', '16', '16000', '09:00', '23:00', 'NoLimit9', false, 2, CURRENT_TIMESTAMP, 4, 3);
+       ('경기실외Futsal1', '경기실외Futsal1 이용해보세요', '10', '10000', '09:00', '23:00', 'NoLimit1', false, 2, CURRENT_TIMESTAMP,
+        4, 3),
+       ('경기실외Futsal2', '경기실외Futsal2 이용해보세요', '12', '12000', '09:00', '23:00', 'NoLimit2', false, 2, CURRENT_TIMESTAMP,
+        4, 3),
+       ('경기실외Futsal3', '경기실외Futsal3 이용해보세요', '14', '14000', '09:00', '23:00', 'NoLimit3', false, 2, CURRENT_TIMESTAMP,
+        4, 3),
+       ('경기실외Futsal4', '경기실외Futsal4 이용해보세요', '20', '20000', '09:00', '23:00', 'NoLimit4', false, 2, CURRENT_TIMESTAMP,
+        4, 3),
+       ('경기실외Futsal5', '경기실외Futsal5 이용해보세요', '16', '16000', '09:00', '23:00', 'NoLimit5', false, 2, CURRENT_TIMESTAMP,
+        4, 3),
+       ('경기실외Futsal6', '경기실외Futsal6 이용해보세요', '16', '16000', '09:00', '23:00', 'NoLimit6', false, 2, CURRENT_TIMESTAMP,
+        4, 3),
+       ('경기실외Futsal7', '경기실외Futsal7 이용해보세요', '16', '16000', '09:00', '23:00', 'NoLimit7', false, 2, CURRENT_TIMESTAMP,
+        4, 3),
+       ('경기실외Futsal8', '경기실외Futsal8 이용해보세요', '16', '16000', '09:00', '23:00', 'NoLimit8', false, 2, CURRENT_TIMESTAMP,
+        4, 3),
+       ('경기실외Futsal9', '경기실외Futsal9 이용해보세요', '16', '16000', '09:00', '23:00', 'NoLimit9', false, 2, CURRENT_TIMESTAMP,
+        4, 3);
 
 
 -- 공간 사진
@@ -264,7 +269,67 @@ VALUES (1, 'inside1.png'),
        (51, 'outside5.png'),
        (52, 'outside3.png'),
        (53, 'outside1.png'),
-       (54, 'outside2.png');
+       (54, 'outside2.png'),
+
+       (55, 'inside1.png'),
+       (56, 'inside2.png'),
+       (57, 'inside3.png'),
+       (58, 'inside4.png'),
+       (59, 'inside5.png'),
+       (60, 'inside4.png'),
+       (61, 'inside3.png'),
+       (62, 'inside2.png'),
+       (63, 'inside1.png'),
+
+       (64, 'outside5.png'),
+       (65, 'outside4.png'),
+       (66, 'outside3.png'),
+       (67, 'outside2.png'),
+       (68, 'outside1.png'),
+       (69, 'outside2.png'),
+       (70, 'outside3.png'),
+       (71, 'outside4.png'),
+       (72, 'outside5.png'),
+
+       (73, 'inside1.png'),
+       (74, 'inside2.png'),
+       (75, 'inside3.png'),
+       (76, 'inside4.png'),
+       (77, 'inside5.png'),
+       (78, 'inside4.png'),
+       (79, 'inside3.png'),
+       (80, 'inside2.png'),
+       (81, 'inside1.png'),
+
+       (82, 'outside2.png'),
+       (83, 'outside3.png'),
+       (84, 'outside4.png'),
+       (85, 'outside1.png'),
+       (86, 'outside5.png'),
+       (87, 'outside4.png'),
+       (88, 'outside2.png'),
+       (89, 'outside3.png'),
+       (90, 'outside1.png'),
+
+       (91, 'inside2.png'),
+       (92, 'inside3.png'),
+       (93, 'inside4.png'),
+       (94, 'inside1.png'),
+       (95, 'inside5.png'),
+       (96, 'inside4.png'),
+       (97, 'inside2.png'),
+       (98, 'inside3.png'),
+       (99, 'inside1.png'),
+
+       (100, 'outside4.png'),
+       (101, 'outside5.png'),
+       (102, 'outside1.png'),
+       (103, 'outside3.png'),
+       (104, 'outside2.png'),
+       (105, 'outside5.png'),
+       (106, 'outside3.png'),
+       (107, 'outside1.png'),
+       (108, 'outside2.png');
 
 -- 시설 공간 예약 더미 데이터
 INSERT INTO reservation_tb (reservation_date, start_time, end_time, status, matching, created_at, user_id, space_id)
@@ -352,7 +417,7 @@ values ('정기'),
 
 -- 공지사항 더미 데이터
 
-INSERT INTO notice_tb (notice_category_id ,notice_title, notice_content, created_at)
+INSERT INTO notice_tb (notice_category_id, notice_title, notice_content, created_at)
 VALUES (1, '공지1', '공지1 입니다', NOW()),
        (2, '공지2', '공지2 입니다', NOW()),
        (3, '공지3', '공지3 입니다', NOW()),
