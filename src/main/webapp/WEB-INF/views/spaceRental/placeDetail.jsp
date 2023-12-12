@@ -29,6 +29,7 @@
                         서울 성북구 삼선교로16길 116
                     </div>
                     <div class="place_detail_photo_star_container">
+                        <i class="fas fa-star text-warning"></i>
                         <div class="place_detail_photo_star_num">
                             4.9
                         </div>
@@ -40,7 +41,8 @@
                 </div>
                 <div class="place_detail_tab_bar_container">
                     <ul class="place_detail_list">
-                        <li class="place_detail_li"><a href="#scroll1_place_detail_info" class="scroll_move">공간정보</a>
+                        <li class="place_detail_li" style="padding-left: 50px"><a href="#scroll1_place_detail_info"
+                                                                                  class="scroll_move">공간정보</a>
                         <li>
                         <li class="place_detail_li"><a href="#scroll2_place_detail_caution" class="scroll_move">주의사항</a>
                         <li>
@@ -56,7 +58,8 @@
 
                 <div class="place_detail_listbox">
                     <div class="scroll1_place_detail_info" id="scroll1_place_detail_info">
-                        공간 정보
+                        ++++++++ 공간 정보++++++
+                        호스트에 받을 내용들
                     </div>
                     <div class="scroll2_place_detail_caution" id="scroll2_place_detail_caution">
                         <div class="scroll2_place_detail_caution_title">
@@ -124,6 +127,16 @@
                                     지**
                                 </div>
                             </div>
+                            <div class="scroll4_place_detail_qna_list_pagination">
+                                <ul class="pagination">
+                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                                </ul>
+                            </div>
+
                         </div>
                         <div class="scroll5_return_rule" id="scroll5_return_rule">
                             <h1 style="font-size: 20px; font-weight: bolder; padding-top: 20px; padding-bottom: 20px">환불
@@ -132,6 +145,12 @@
                             <h1 style="font-size: 15px; font-weight: bolder; padding-bottom: 20px">회원</h1>
                             <h1 style="padding-bottom: 20px">- 공간 이용일 기준 8일전 : 100%환불</h1>
                             <h1 style="padding-bottom: 20px">- 공간 이용일 기준 7일전 : 환불 불가</h1>
+
+                            <h1 style="font-size: 15px; font-weight: bolder; padding-top: 20px; padding-bottom: 20px">
+                                천재지변 및 불가항력</h1>
+                            <h1 style="font-size: 15px;  padding-bottom: 20px">- 공간 이용일 기준 당일 취소 시 : 100% 환불</h1>
+
+
                         </div>
                     </div>
                 </div>
@@ -139,23 +158,34 @@
 
             <div id="container" class="place_detail_stick_area">
                 <div class="place_detail_stick_area_menu">
-                    <h1>60,000원 ~</h1>
-                    <h2>패키지 [2시간]</h2>
+                    <div class="place_detail_stick_area_menu_date">
+                        12월 4일
+                    </div>
+                    <div class="place_detail_stick_area_menu_place">
+                        <h2>한성 대학교</h2>
+                    </div>
+                    <div class="place_detail_stick_area_menu_location">
+                        서울 성북구 삼선교로16길 116
+                    </div>
+                    <div class="place_detail_stick_area_menu_location_copy">
+                        <a href="" style="padding-right: 20px; text-decoration: underline; color: #8A8A8A">주소 복사</a>
+                        <a href="" style="text-decoration: underline;color: #8A8A8A">지도 보기</a>
+                    </div>
+                    <div class="place_detail_stick_area_menu_location_cost">
+                        60000 원
+                    </div>
                 </div>
-                <div class="place_detail_stick_area_menu_container">
-                    <label class="place_detail_stick_area_menu_radio">
-                        <input type="radio" name="package" value="option1"> 생활 체육
-                    </label>
-                    <label>60,000원~/패키지 [2시간]</label>
-                </div>
+
                 <div class="place_detail_stick_area_menu_bottom">
-                    <i class="fas fa-heart heart-icon fa-2x" onclick="toggleHeartColor()"></i>
-                    <button class="place_detail_stick_area_menu_button">예약하기</button>
+                    <div class="place_detail_stick_area_menu_bottom">
+                        <i class="fas fa-heart fa-2x" id="heartIcon" style="padding-right: 10px"
+                           onclick="toggleHeartColor()"></i>
+                        <button class="place_detail_stick_area_menu_button">예약하기</button>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 </div>
 
 
@@ -170,8 +200,10 @@
     });
 
     function toggleHeartColor() {
-        const heartIcon = document.querySelector('.heart-icon');
-        heartIcon.classList.toggle('active');
+        var heartIcon = document.getElementById('heartIcon');
+
+        // 색상 클래스를 토글합니다.
+        heartIcon.classList.toggle('heart-filled');
     }
 
     document.addEventListener("DOMContentLoaded", function () {
