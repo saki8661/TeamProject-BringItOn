@@ -18,20 +18,20 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    private  UserRepository userRepository;
+    private UserRepository userRepository;
 
     @Autowired
     private HttpSession session;
 
 
     @GetMapping("/kakako-login")
-    public  String kakaoLogin(){
+    public String kakaoLogin() {
         System.out.println("카카오로그인 겟");
         return "user/kakaoLoginPage";
     }
 
     @GetMapping("/join")
-    public  String join(){
+    public String join() {
         return "/user/joinPage";
     }
 
@@ -42,7 +42,7 @@ public class UserController {
     }
 
     @ResponseBody
-    @PostMapping ("/check")
+    @PostMapping("/check")
     public ResponseEntity<String> check(String username) {
         System.out.println("++++++++++++++++++유저네임");
         int user = userService.usernameCheck(username);
@@ -51,37 +51,44 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public  String login(){
+    public String login() {
         return "/user/loginPage";
     }
 
     @GetMapping("/user-update")
-    public String userUpdate(){
+    public String userUpdate() {
         return "user/userUpdate";
     }
 
     @GetMapping("/user-team")
-    public String userTeamManagement(){
+    public String userTeamManagement() {
         return "user/userTeam";
     }
 
+
     @GetMapping("/user-bookmark")
-    public String userBookmarkManagement(){
+    public String userBookmarkManagement() {
         return "user/userBookmark";
     }
 
     @GetMapping("/user-review")
-    public String userReviewManagement(){
+    public String userReviewManagement() {
         return "user/userReview";
     }
 
     @GetMapping("/user-reservation")
-    public String userReservation(){
+    public String userReservation() {
         return "user/userReservation";
     }
 
     @GetMapping("/user-payment")
-    public String userPayment(){
+    public String userPayment() {
         return "user/userPayment";
+    }
+
+    // 리그/매칭 현황 페이지 구현 완료
+    @GetMapping("/league-matching-page")
+    public String leagueMatchingPage() {
+        return "user/leagueMatchingPage";
     }
 }

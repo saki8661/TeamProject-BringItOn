@@ -12,14 +12,10 @@ public class MainController {
         return "home";
     }
 
-    @GetMapping("/matching-page")
-    public String matchingPage() {
-        return "matching/matchingPage";
+    @GetMapping("/checkbox-test")
+    public String checkboxTest() {
+        return "checkboxtest";
     }
 
-    @GetMapping("/matching-page-test")
-    public String matchingPageTest() {
-        return "matching/matchingPageTest";
-    }
 
 }

@@ -20,7 +20,7 @@
             <a class="nav-link userInfo_link_text" href="/user-review">후기 관리</a>
             <a class="nav-link userInfo_link_text" href="/user-update">개인정보
                 수정</a>
-            <a class="nav-link userInfo_link_text" href="#">리그/매칭 현황</a>
+            <a class="nav-link userInfo_link_text" href="/league-matching-page">리그/매칭 현황</a>
         </div>
     </div>
 </div>

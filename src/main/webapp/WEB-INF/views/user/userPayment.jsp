@@ -79,7 +79,7 @@
 
                     <div class="modal" id="myModal">
                         <div class="modal-dialog">
-                            <div class="modal-content">
+                            <div class="league_matching_modal modal-content">
 
                                 <!-- Modal Header -->
                                 <div class="userReservation_modal_header">
