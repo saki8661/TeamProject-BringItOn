@@ -42,13 +42,13 @@
             <!-- The slideshow/carousel -->
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="/images/BasketballMainBanner2.png"  alt="Los Angeles" class="d-block w-100">
+                    <img src="/images/BasketballMainBanner2.png" alt="Los Angeles" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
-                    <img src="/images/SoccerMainBanner2.png"  alt="Chicago" class="d-block w-100">
+                    <img src="/images/SoccerMainBanner2.png" alt="Chicago" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
-                    <img src="/images/FutsalMainBanner2.png"  alt="New York" class="d-block w-100">
+                    <img src="/images/FutsalMainBanner2.png" alt="New York" class="d-block w-100">
                 </div>
             </div>
 
@@ -86,7 +86,6 @@
                         <div>
                             <div class="inside_content">
                                 <img src="/images/${item.spacePic}">
-
                             </div>
 
                             <div class="main_content_title m-2">
@@ -113,12 +112,59 @@
                     </c:forEach>
 
                 </div>
+
                 <ul class="pagination main_paging">
-                    <li class="page-item ${first ? 'disabled' : ''}">
-                        <a class="page-link" href="?page=${prevPage}"><</a>
+                    <li class="page-item${pageVO.currentPage eq pageVO.firstPage ? ' disabled' : ''}">
+                        <a class="page-link" href="?currentPage=${pageVO.firstPage}&itemsPerPage=${pageVO.countPerPage}">
+                            <<
+                        </a>
                     </li>
-                    <li class="page-item ${last ? 'disabled' : ''}">
-                        <a class="page-link" href="?page=${nextPage}">></a>
+                    <li class="page-item${pageVO.currentPage eq pageVO.firstPage ? ' disabled' : ''}">
+                        <a class="page-link" href="?currentPage=${pageVO.currentPage - 1}&itemsPerPage=${pageVO.countPerPage}">
+                            <
+                        </a>
+                    </li>
+                    <c:choose>
+                        <c:when test="${pageVO.lastPage <= 5}">
+                            <!-- 페이지가 5개 이하일 경우 -->
+                            <c:forEach begin="1" end="${pageVO.lastPage}" var="pageNumber">
+                                <li class="page-item ${pageVO.currentPage eq pageNumber ? 'active' : ''}">
+                                    <a class="page-link" href="?currentPage=${pageNumber}&itemsPerPage=${pageVO.countPerPage}">
+                                            ${pageNumber}
+                                    </a>
+                                </li>
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <!-- 페이지가 5개 초과일 경우 -->
+                            <c:set var="startPage" value="${pageVO.currentPage - 2}" />
+                            <c:choose>
+                                <c:when test="${startPage lt 1}">
+                                    <c:set var="startPage" value="1" />
+                                </c:when>
+                                <c:when test="${startPage gt pageVO.lastPage - 4}">
+                                    <c:set var="startPage" value="${pageVO.lastPage - 4}" />
+                                </c:when>
+                            </c:choose>
+
+                            <c:forEach begin="${startPage}" end="${startPage + 4}" var="pageNumber">
+                                <li class="page-item ${pageVO.currentPage eq pageNumber ? 'active' : ''}">
+                                    <a class="page-link" href="?currentPage=${pageNumber}&itemsPerPage=${pageVO.countPerPage}">
+                                            ${pageNumber}
+                                    </a>
+                                </li>
+                            </c:forEach>
+                        </c:otherwise>
+                    </c:choose>
+                    <li class="page-item${pageVO.currentPage eq pageVO.lastPage ? ' disabled' : ''}">
+                        <a class="page-link" href="?currentPage=${pageVO.currentPage + 1}&itemsPerPage=${pageVO.countPerPage}">
+                            >
+                        </a>
+                    </li>
+                    <li class="page-item${pageVO.currentPage eq pageVO.lastPage ? ' disabled' : ''}">
+                        <a class="page-link" href="?currentPage=${pageVO.lastPage}&itemsPerPage=${pageVO.countPerPage}">
+                            >>
+                        </a>
                     </li>
                 </ul>
 

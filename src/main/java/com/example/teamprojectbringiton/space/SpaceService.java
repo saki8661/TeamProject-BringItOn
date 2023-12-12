@@ -12,10 +12,14 @@ public class SpaceService {
     @Autowired
     private SpaceRepository spaceRepository;
 
-    public List<SpaceDto> findAll() {
-        List<SpaceDto> spaces = spaceRepository.findAllJoinSportAndRegion();
-        System.out.println(spaces.get(1).isInside());
+    public List<SpaceDto> findAllPaged(int pageSize, int currentPage) {
+        System.out.println("페이징 서비스 진입 : " + pageSize);
+        System.out.println("페이징 서비스 진입 : " + currentPage);
+        int offset = currentPage * pageSize - pageSize;
+        return spaceRepository.findAllJoinSportAndRegion(pageSize, offset);
+    }
 
-        return spaces;
+    public int getTotalItemCount() {
+        return spaceRepository.findAllCount();
     }
 }
