@@ -2226,7 +2226,7 @@ td {
     height: 50px;
 }
 
-.inquireMain_update_delete_btn a:nth-child(1) {
+.inquireMain_update_btn{
     background: #19B357;
     padding: 10px 30px;
     border-radius: 12.5px;
@@ -2234,17 +2234,13 @@ td {
     margin-left: 10px;
 }
 
-.inquireMain_update_delete_btn a:nth-child(2) {
+.inquireMain_delete_btn{
     background: #EC4937;
     padding: 10px 30px;
     border-radius: 12.5px;
     color: white;
     margin-left: 10px;
 }
-
-/*.inquireMain_dropdown_btn :focus-visible{*/
-/*    outline-color: darkgray;*/
-/*}*/
 
 /* inquireWrite */
 

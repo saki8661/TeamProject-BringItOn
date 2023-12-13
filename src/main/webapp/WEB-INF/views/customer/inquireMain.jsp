@@ -32,6 +32,7 @@
         </div>
     </div>
 </div>
+
 <div class="frame">
     <div class="inquire_write">
         <div>문의하기</div>
@@ -117,18 +118,16 @@
                 </div>
             </button>
             <div class="inquireMain_update_delete_btn">
-                <a href="#">
-                    <button>수정하기</button>
-                </a>
-                <a href="#">
-                    <button>삭제하기</button>
-                </a>
+                <form action="/inquire-update", method="post">
+                    <button class="inquireMain_update_btn">수정하기</button>
+                </form>
+                <form action="/inquire-delete/${inquire.id}", method="get">
+                    <button class="inquireMain_delete_btn">삭제하기</button>
+                </form>
             </div>
 
         </div>
     </c:forEach>
-
-
 </div>
 
 <script>

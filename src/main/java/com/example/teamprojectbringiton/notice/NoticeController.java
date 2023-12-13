@@ -41,8 +41,9 @@ public class NoticeController {
     }
 
     @GetMapping("/notice-delete/{id}")
-    public String noticedelete(@PathVariable Integer id){
+    public String noticeDelete(@PathVariable Integer id){
         noticeService.deleteById(id);
+        System.out.println("@@@@@@@@@@@@@컨트롤러 호출됨");
         return "redirect:/notice-main";
     }
 

@@ -14,7 +14,7 @@ public interface InquireRepository {
 
     public int updateById(Inquire inquire);
 
-    public int deleteById(Inquire id);
+    public int deleteById(Integer id);
 
 
     public List<InquireListDto> findAllJoinCategory();
