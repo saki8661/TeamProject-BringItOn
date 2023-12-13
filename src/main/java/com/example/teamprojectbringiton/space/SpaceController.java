@@ -16,7 +16,7 @@ public class SpaceController {
     @Autowired
     private SpaceService spaceService;
 
-    @GetMapping({"/space-main","/"})
+    @GetMapping({"/space-main", "/", "/home"})
     public String spaceMainPage(@RequestParam(name = "currentPage", defaultValue = "1") int currentPage,
                                 @RequestParam(name = "pageSize", defaultValue = "8") int pageSize,
                                 Model model) {
