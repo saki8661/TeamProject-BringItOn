@@ -43,26 +43,38 @@
         </div>
     </div>
 
-    <!-- The Modal -->
     <div class="modal" id="myModal">
         <div class="modal-dialog">
             <div class="modal-content">
-
                 <!-- Modal Header -->
                 <div class="userReservation_modal_header">
-                    <h2 style="width: 100%; text-align: center">문의등록</h2>
+                    <h2 style="width: 100%; text-align: center; font-weight: bold; font-size: x-large;">문의등록</h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
-
                 <!-- Modal body -->
                 <div class="modal-body">
                     <div class="inquire_write_form">
-                        <form action="/inquire-write">
+                        <form action="/inquire-write" method="post">
+                            <div id="selectedItem">${selectedItem}</div>
+                            <div class="dropdown">
+                                <select class="inquireMain_dropdown_btn" name="inquireCategoryId" id="dropdown">
+                                    <div class="inquireMain_dropdown_menu">
+                                        <c:forEach var="category" items="${inquireCategories}">
+                                            <option value="${category.id}">
+                                                <div class="inquireMain_dropdown_item">
+                                                        ${category.inquireCategory}
+                                                </div>
+                                            </option>
+                                        </c:forEach>
+                                    </div>
+                                </select>
+                                <input type="hidden" value="selectedValue">
+                            </div>
                             <div>제목</div>
-                            <input type="text" class="form-control" placeholder="제목을 입력하세요">
+                            <input type="text" class="form-control" placeholder="제목을 입력하세요" name="inquireTitle">
                             <div>내용</div>
-                            <textarea class="form-control" style="height: 300px" id="content" placeholder="문의 내용을 입력하세요"
-                                      name="content"></textarea>
+                            <textarea class="form-control" style="height: 300px" id="content"
+                                      placeholder="문의 내용을 입력하세요" name="inquireContent"></textarea>
                             <div class="inquire_write_modal_footer">
                                 <button type="submit">
                                     등록
@@ -104,8 +116,19 @@
                     </div>
                 </div>
             </button>
+            <div class="inquireMain_update_delete_btn">
+                <a href="#">
+                    <button>수정하기</button>
+                </a>
+                <a href="#">
+                    <button>삭제하기</button>
+                </a>
+            </div>
+
         </div>
     </c:forEach>
+
+
 </div>
 
 <script>
@@ -121,6 +144,28 @@
                 var toggleImage = this.querySelector(".inquire_write_toggle_image");
                 toggleImage.src = (csDetail.style.display === "none") ? "/images/more.png" : "/images/minus.png";
             });
+        });
+    });
+
+    $(document).ready(function () {
+        // 드롭다운 메뉴에서 항목을 선택할 때의 이벤트 핸들러를 추가합니다.
+        $('.dropdown-menu a').on('click', function () {
+            // 선택한 항목의 텍스트를 가져와서 표시하는 부분을 업데이트합니다.
+            $('#selectedItem').text($(this).text());
+        });
+    });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        var dropdown = document.getElementById("dropdown");
+        var selectedValueInput = document.getElementById("selectedValue");
+
+        // 페이지 로드시 초기 선택값 설정
+        selectedValueInput.value = dropdown.value;
+
+        // 드롭다운 메뉴에서 항목을 선택할 때의 이벤트 핸들러를 추가합니다.
+        dropdown.addEventListener("change", function () {
+            // 선택한 항목의 값을 가져와서 input 태그의 value에 설정합니다.
+            selectedValueInput.value = dropdown.value;
         });
     });
 </script>

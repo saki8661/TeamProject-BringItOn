@@ -16,7 +16,6 @@ public interface InquireRepository {
 
     public int deleteById(Inquire id);
 
-    public List<Inquire> findAll();
 
     public List<InquireListDto> findAllJoinCategory();
 

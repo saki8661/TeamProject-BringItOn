@@ -6,9 +6,10 @@
         namespace="com.example.teamprojectbringiton.inquire.InquireRepository">
 
     <insert id="insert">
-        insert into inquire_tb(inquire_title, inquire_content, created_at, user_id
-        values (#{inquireTitle}, #{inquireContent}, now(), #{userId});
+        insert into inquire_tb(inquire_title, inquire_content, created_at, user_id, inquire_category_id)
+        values (#{inquireTitle}, #{inquireContent}, now(), #{userId}, #{inquireCategoryId});
     </insert>
+
 
     <update id="updateByUserId">
         update inquire_tb
@@ -30,10 +31,6 @@
         select * from inquire_tb where id = #{id}
     </select>
 
-    <select id="findAll"
-            resultType="com.example.teamprojectbringiton.inquire.Inquire">
-        select * from inquire_tb where id = #{id}
-    </select>
 
     <select id="findAllJoinCategory"
             resultType="com.example.teamprojectbringiton.inquire.dto.respDto.InquireListDto">

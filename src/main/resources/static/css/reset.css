@@ -58,3 +58,7 @@ table {
 .form-check-input {
     margin-left: 0px;
 }
+
+:focus-visible{
+    outline: none !important;
+}
