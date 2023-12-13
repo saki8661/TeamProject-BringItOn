@@ -678,6 +678,7 @@ input::placeholder {
 }
 
 .userInfo_title {
+    padding: 20px;
     font-size: 20px;
     font-weight: bold;
 }
@@ -779,10 +780,11 @@ input::placeholder {
     display: flex;
     align-items: center;
     justify-content: start;
-    margin: 20px 30px 20px;
+    margin: 20px 30px 0px;
 }
 
 .userTeam_main_content_title {
+    font-weight: bold;
     width: 150px;
 }
 
@@ -1187,7 +1189,6 @@ input::placeholder {
     padding: 10px 10px;
     border-bottom: #dee2e6 1px solid;
     height: 80px;
-
 }
 
 .leagueMain_modal_footer {
@@ -1288,6 +1289,19 @@ input::placeholder {
     vertical-align: middle;
 }
 
+<<<<<<< HEAD
+=======
+.userReservation_modal_header {
+
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+    border-bottom: #dee2e6 1px solid;
+
+}
+>>>>>>> dev
 
 /* leagueRanking */
 .leagueRanking_region {
@@ -1775,7 +1789,15 @@ td {
         margin-right: auto;
         margin-left: auto;
     }
+}
 
+@media (min-width: 576px) {
+    .league_modal-dialog {
+        width: 700px;
+        max-width: 100%;
+        margin-right: auto;
+        margin-left: auto;
+    }
 }
 
 
@@ -1911,6 +1933,31 @@ td {
     text-align: center;
 }
 
+.league_matching_btn_style {
+    margin-top: 10px;
+    margin-right: 0;
+    border-radius: 5px;
+    height: 35px;
+    width: 85px;
+    font-size: 16px;
+    text-align: center;
+}
+
+.league_matching_button {
+    display: flex;
+    justify-content: end;
+}
+
+.league_matching_modal {
+    width: 900px;
+    height: 500px;
+}
+
+.modal_test {
+    width: 900px;
+    height: 800px;
+}
+
 .matchingPage_team {
     display: flex;
 }
@@ -2012,6 +2059,7 @@ td {
     justify-content: center;
 }
 
+
 .userPayment_table_header {
     margin-left: 3px;
 }
@@ -2038,7 +2086,6 @@ td {
 .userPayment_table th {
     font-size: 18px;
     font-weight: bold;
-    border-right: #F3F5F7 1px solid;
     padding-top: 25px;
 }
 
@@ -2276,6 +2323,17 @@ td {
     position: relative;
 }
 
+.league_matching_menu_nav {
+    width: 100%;
+    margin-top: 0;
+    display: flex; /* 수평 배치를 위한 flex 컨테이너 설정 */
+    list-style: none;
+    padding: 0; /* 기본 리스트 스타일 제거 */
+    align-items: start; /* 수직 가운데 정렬 */
+    justify-content: start;
+    position: relative;
+}
+
 .menu_nav_area {
     display: flex;
     align-items: center;
@@ -2291,12 +2349,34 @@ td {
     text-align: center;
 }
 
+.league_matching_menu_list {
+    display: table;
+    list-style-type: none;
+    width: 30%;
+    text-align: center;
+    font-size: 14px;
+}
+
 .menu__menu {
     display: table-cell;
     vertical-align: middle;
     height: 50px;
     cursor: pointer;
     border: 1px solid #19B357;
+}
+
+.league_matching_menu_menu {
+    display: table-cell;
+    vertical-align: middle;
+    height: 40px;
+    width: 30%;
+    cursor: pointer;
+    border: 1px solid #19B357;
+}
+
+.league_matching_menu_menu:hover {
+    background-color: #19B357;
+    color: white;
 }
 
 .menu__menu:hover {
@@ -2313,6 +2393,7 @@ td {
 .menu__menu:hover .submenu__list {
     display: table;
 }
+
 
 .subwrapper {
     display: none;
@@ -2524,6 +2605,119 @@ td {
     height: auto;
     margin-top: 10px;
 
+}
+
+.myPage_head_line {
+    margin-bottom: 20px;
+}
+
+.league_matching_table_title {
+    height: 30px;
+    width: 100%;
+    background-color: #19B357;
+    color: white;
+    text-align: center; /* 텍스트를 수평 가운데 정렬합니다. */
+    line-height: 27px;
+    align-content: center;
+}
+
+.league_matching_table_sub_title {
+    display: flex;
+    justify-content: space-around;
+    height: 20px;
+    width: 100%;
+    background-color: #F3F5F7;
+    color: black;
+    border: 1px solid #F3F5F7;
+    font-weight: bold;
+}
+
+.league_matching_table_content {
+    display: flex;
+    justify-content: space-around;
+    height: 40px;
+    width: 100%;
+    background-color: white;
+    color: white;
+    align-items: center; /* 세로 중앙 정렬 */
+    border: 1px solid #F3F5F7;
+}
+
+.league_matching_checkbox {
+    vertical-align: middle;
+    border: 0;
+}
+
+.league_matching_check_box_icon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    background-color: #19B357;
+    border: 2px solid black;
+    position: relative;
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+.league_matching_title {
+    width: 100px;
+    text-align: center;
+}
+
+.league_matching_content {
+    width: 120px;
+    text-align: center;
+    color: black;
+}
+
+.league_matching_content_team_name {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 세로 중앙 정렬을 위한 스타일 추가 */
+    width: 120px;
+    text-align: center;
+    color: black;
+}
+
+.league_matching_content_team_name img {
+    height: 30px;
+    width: 30px;
+}
+
+
+.league_matching_content-date {
+    width: 115px;
+    text-align: center;
+    color: black;
+}
+
+.matching_box {
+    margin-top: 20px;
+    border: 2px solid black;
+}
+
+.matching_my_score {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    width: 55%;
+}
+
+.matching_my_score_box {
+    height: 30px;
+}
+
+.card {
+    width: 150px;
+    border: 1px solid #19B357;
+}
+
+.card-contain {
+    display: grid;
+    place-items: center; /* 센터 정렬 */
+}
+
+.matching_my_score_title {
 }
 
 /*placeDetail*/

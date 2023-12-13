@@ -13,15 +13,6 @@
                 <li><a class="dropdown-item" href="#">야외 스포츠</a></li>
             </ul>
         </li>
-        <li class="main_link nav-item dropdown">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-                팀
-            </a>
-            <ul class="dropdown-menu sub_navbar_style">
-                <li><a class="dropdown-item" href="#">팀 등록</a></li>
-                <li><a class="dropdown-item" href="#">팀 목록</a></li>
-            </ul>
-        </li>
         <li class="main_link">
             <a href="/matching-page">매칭</a>
         </li>
@@ -244,7 +235,7 @@
                                 <div class="manual_num">부산 준타스 풋살 아레나 화이트</div>
                             </div>
                         </div>
-                        <button class="btn matching_button matching_btn_style" type="button" data-bs-toggle="modal"
+                        <button class="matching_button matching_btn_style" type="button" data-bs-toggle="modal"
                                 data-bs-target="#myModal">매칭하기
                         </button>
 
@@ -268,7 +259,7 @@
                                 <div class="manual_num">부산 준타스 풋살 아레나 화이트</div>
                             </div>
                         </div>
-                        <button class="btn matching_button matching_btn_style" type="button" data-bs-toggle="modal"
+                        <button class="matching_button matching_btn_style" type="button" data-bs-toggle="modal"
                                 data-bs-target="#myModal">매칭하기
                         </button>
 
@@ -292,7 +283,7 @@
                                 <div class="manual_num">부산 준타스 풋살 아레나 화이트</div>
                             </div>
                         </div>
-                        <button class="btn matching_button matching_btn_style" type="button" data-bs-toggle="modal"
+                        <button class="matching_button matching_btn_style" type="button" data-bs-toggle="modal"
                                 data-bs-target="#myModal">매칭하기
                         </button>
 
@@ -300,7 +291,7 @@
 
                         <div class="modal" id="myModal">
                             <div class="modal-dialog">
-                                <div class="modal-content">
+                                <div class="league_matching_modal modal-content">
 
                                     <!-- Modal Header -->
                                     <div class="userReservation_modal_header">
