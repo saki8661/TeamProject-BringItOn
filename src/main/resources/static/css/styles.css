@@ -2303,7 +2303,10 @@ td {
     width: 30%;
     text-align: center;
     font-size: 14px;
+    justify-content: center;
+    justify-items: center;
 }
+
 
 .menu__menu {
     display: table-cell;
@@ -2317,14 +2320,28 @@ td {
     display: table-cell;
     vertical-align: middle;
     height: 40px;
-    width: 30%;
+    width: 50px;
     cursor: pointer;
-    border: 1px solid #19B357;
 }
 
-.league_matching_menu_menu:hover {
+
+.league_matching_menu_menu img {
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+}
+
+.league_matching_menu_menu a {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+
+.league_matching_menu_menu a:hover {
     background-color: #19B357;
     color: white;
+    border-radius: 5px;
 }
 
 .menu__menu:hover {
@@ -2567,6 +2584,8 @@ td {
     text-align: center; /* 텍스트를 수평 가운데 정렬합니다. */
     line-height: 27px;
     align-content: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .league_matching_table_sub_title {
@@ -2641,7 +2660,7 @@ td {
 
 .matching_box {
     margin-top: 20px;
-    border: 2px solid black;
+
 }
 
 .matching_my_score {

@@ -1,20 +1,23 @@
 package com.example.teamprojectbringiton.user;
 
 import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
+import com.example.teamprojectbringiton._core.utils.Define;
 import com.example.teamprojectbringiton.user.dto.reqDto.JoinDto;
 import com.example.teamprojectbringiton.user.dto.reqDto.LoginDto;
 import com.example.teamprojectbringiton.user.dto.reqDto.PwdUpdateDto;
+import com.example.teamprojectbringiton.user.dto.respDto.KakaoProfile;
+import com.example.teamprojectbringiton.user.dto.respDto.OAuthToken;
 import com.example.teamprojectbringiton.user.dto.respDto.UserTeamInfoDto;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.web.client.RestTemplate;
 
 @Controller
 public class UserController {
@@ -40,15 +43,13 @@ public class UserController {
     @PostMapping("/join")
     public String joinProc(JoinDto dto) {
         userService.userSave(dto);
-        return "redirect:/kakako-login";
+        return "redirect:/login";
     }
 
     @ResponseBody
     @PostMapping("/check")
     public ResponseEntity<String> check(String username) {
-        System.out.println("++++++++++++++++++유저네임");
-        int user = userService.usernameCheck(username);
-        System.out.println("??????????" + user);
+        userService.usernameCheck(username);
         return new ResponseEntity<String>("유저네임을 사용할 수 있습니다", HttpStatus.OK);
     }
 
@@ -64,10 +65,26 @@ public class UserController {
         model.addAttribute("sessionUser", user);
         User sessionUser = (User) session.getAttribute("sessionUser");
         User sessionUser2 = (User) model.getAttribute("sessionUser");
+        return "redirect:/home";
+    }
 
-        System.out.println("로그인 후 user : " + user.getUsername());
-        System.out.println("로그인 후 session : " + sessionUser.getUsername());
-        System.out.println("로그인 후 model : " + sessionUser2.getPassword());
+    // 카카오 로그인
+    @GetMapping("/kakao-callback")
+    public String kakaoCallBack(@RequestParam String code) {
+        System.out.println("카카오 컨트롤러 진입 : " + code);
+
+        // 토큰 요청 서비스 호출
+        KakaoProfile kakaoProfile = userService.tokenRequest(code);
+        System.out.println("컨트롤러 나왔는대 값은 잘 있지? " + kakaoProfile.getProperties().getNickname());
+        // 토큰 확인 후 회원가입 로직 호출
+        userService.kakaoUserSave(kakaoProfile);
+        // 로그인 로직 처리를 위해 유저정보 조회
+        User user = userService.findByUsername(kakaoProfile.getId());
+
+        // 공통된 패스워드 노출 안되게 하기 위해 null
+        user.updatePassword("");
+        session.setAttribute("sessionUser", user);
+
         return "redirect:/home";
     }
 

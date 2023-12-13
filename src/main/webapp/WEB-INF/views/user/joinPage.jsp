@@ -64,17 +64,17 @@
 
             <div class="join_check">
                 <div class="join_form_company">
-                    <input class="form-check-input" type="radio" name="isAdmin" value="true" id="companyCheck"
+                    <input class="form-check-input" type="radio" name="userDivision" value="호스트" id="companyCheck"
                            required>
-                    <label class="form-check-label" for="companyCheck">기업 회원</label>
-                    <div class="valid-feedback">기업으로 로그인 합니다.</div>
+                    <label class="form-check-label" for="companyCheck">호스트로 가입</label>
+                    <div class="valid-feedback">호스트로 로그인 합니다.</div>
                     <div class="invalid-feedback"></div>
                 </div>
                 <div class="join_form_personal">
-                    <input class="form-check-input" type="radio" name="isAdmin" value="false" id="personalCheck"
+                    <input class="form-check-input" type="radio" name="userDivision" value="게스트" id="personalCheck"
                            required>
-                    <label class="form-check-label" for="personalCheck">개인 회원</label>
-                    <div class="valid-feedback">회원으로 로그인 합니다.</div>
+                    <label class="form-check-label" for="personalCheck">유저로 가입</label>
+                    <div class="valid-feedback">유저으로 로그인 합니다.</div>
                     <div class="invalid-feedback"></div>
                 </div>
             </div>
@@ -131,22 +131,22 @@
             });
         });
     }
-    $(document).ready(function(){
-        $('#userCheck').on('click', function(){
+
+    $(document).ready(function () {
+        $('#userCheck').on('click', function () {
             console.log('userCheck clicked');
             $.ajax({
                 type: 'POST',
                 url: '/check',
                 data: {
-                    "id" : $('#id').val()
+                    "id": $('#id').val()
                 },
 
-                success: function(data){
-                    if($.trim(data) == 0){
+                success: function (data) {
+                    if ($.trim(data) == 0) {
                         alert("사용 가능한 아이디 입니다.");
 
-                    }
-                    else{
+                    } else {
                         alert("사용 불가능한 아이디 입니다.");
                     }
                 }

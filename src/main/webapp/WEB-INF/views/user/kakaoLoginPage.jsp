@@ -20,14 +20,15 @@
 
     <h3 class="join_us_text">고객님 환영합니다! 기다리고 있었습니다.</h3>
 
-
-    <div><img src="./images/kakao_login_medium_narrow.png" class="kakao_login_button">
-    </div>
+    <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=34c1c00d8709bac5b82f2488a3a86d65&redirect_uri=http://localhost:80/kakao-callback">
+        <div><img src="./images/kakao_login_button.png" class="kakao_login_button">
+        </div>
+    </a>
 
 
     <div class="common_button">
         <a href="http://localhost/login">
-        <button type="submit" class="kakao_login_common_button">로그인 (호스트는 일반로그인 필수)</button>
+            <button type="submit" class="kakao_login_common_button">로그인 (호스트는 일반로그인 필수)</button>
         </a>
     </div>
 

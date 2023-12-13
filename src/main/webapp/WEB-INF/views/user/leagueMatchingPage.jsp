@@ -15,9 +15,20 @@
                 <div class="menu_nav_area">
                     <nav class="league_matching_menu_nav">
                         <ul id="menu__list" class="league_matching_menu_list">
-                            <li class="league_matching_menu_menu"><a href="#">축구</a></li>
-                            <li class="league_matching_menu_menu"><a href="#">농구</a></li>
-                            <li class="league_matching_menu_menu"><a href="#">풋살</a></li>
+                            <li class="league_matching_menu_menu"><a href="#" style="border-right: 1px solid #19B357">
+                                <img src="/images/soccerball.png">
+                                <div class="dividing_line">축구</div>
+                            </a>
+                            </li>
+                            <li class="league_matching_menu_menu"><a href="#" style="border-right: 1px solid #19B357">
+                                <img src="/images/basketballball.png">
+                                <div>농구</div>
+                            </a>
+                            </li>
+                            <li class="league_matching_menu_menu"><a href="#"><img src="/images/Futsal.png">
+                                <div>풋살</div>
+                            </a>
+                            </li>
                         </ul>
                     </nav>
                 </div>
