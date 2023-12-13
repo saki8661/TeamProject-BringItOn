@@ -22,7 +22,7 @@
         </li>
 
         <li class="main_link">
-            <a href="/inquire-main">고객센터</a>
+            <a href="/notice-main">고객센터</a>
         </li>
     </ul>
 </div>

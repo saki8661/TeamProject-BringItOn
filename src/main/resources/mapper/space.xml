@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.teamprojectbringiton.space.SpaceRepository">
+
+    <insert id="insert">
+        insert into space_tb()
+        values ();
+    </insert>
+
+    <update id="updateById">
+        update space_tb
+        set
+        where id = #{id}
+    </update>
+
+    <delete id="deleteById">
+        delete
+        from space_tb
+        where id = #{id}
+    </delete>
+
+    <select id="findById" resultType="com.example.teamprojectbringiton.space.Space">
+        select *
+        from space_tb
+        where id = #{id}
+    </select>
+
+    <select id="findAll" resultType="com.example.teamprojectbringiton.space.Space">
+        select *
+        from space_tb
+    </select>
+
+        <select id="findAllJoinSportAndRegion" resultType="com.example.teamprojectbringiton.space.dto.respDTO.SpaceDto">
+            select *
+            from space_tb space
+            left join sport_tb sport
+            on space.sport_id = sport.id
+                left join region_tb r
+                on space.region_id = r.id
+                left join space_pic_tb pic
+                on space.id = pic.space_id
+            order by space.id desc
+            limit #{pageSize} offset #{offset}
+        </select>
+
+    <select id="findAllCount" resultType="int">
+        select count(*)
+        from space_tb;
+    </select>
+</mapper>

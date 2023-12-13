@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -20,13 +21,15 @@
     <!-- FullCalendar Script -->
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.js"></script>
 
+
     <link rel="stylesheet" href="/css/styles.css">
     <script src="script.js" defer></script>
+    <!--별점 아이콘 라이브러리-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!--하트 아이콘 라이브러리-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-<style>
 
-
-</style>
 
 <body>
 
@@ -39,7 +42,7 @@
                 </a>
                 <form class="d-flex">
                     <div class="search_form">
-                        <input class="form-control" type="text" placeholder="뭐를 검색해보세요.">
+                        <input class="form-control" type="text" placeholder="무엇이든 검색해보세요.">
                         <button type="submit" class="search_button">
                             <img src="/images/search.png">
                         </button>
@@ -51,9 +54,16 @@
                         <img src="/images/info.png">
                     </button>
                     <div class="dropdown-content">
-                        <a href="#">My페이지</a>
-                        <a href="/user-update">회원정보 수정</a>
-                        <a href="#">로그아웃</a>
+                        <c:choose>
+                            <c:when test="${empty sessionUser}">
+                                <a href="/kakao-login">로그인</a>
+                            </c:when>
+                            <c:otherwise>
+                                <a href="#">My페이지</a>
+                                <a href="/user-update/${sessionUser.id}">회원정보 수정</a>
+                                <a href="/logout">로그아웃</a>
+                            </c:otherwise>
+                        </c:choose>
                     </div>
                 </div>
             </div>

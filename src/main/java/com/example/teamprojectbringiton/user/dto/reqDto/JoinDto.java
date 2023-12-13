@@ -1,4 +1,4 @@
-package com.example.teamprojectbringiton.user.dto.reqDTO;
+package com.example.teamprojectbringiton.user.dto.reqDto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -7,7 +7,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class JoinFormDto {
+public class JoinDto {
 
     private String username;
     private String password;

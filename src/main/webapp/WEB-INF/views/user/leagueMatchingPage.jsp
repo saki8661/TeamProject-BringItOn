@@ -11,7 +11,7 @@
                 <div class="d-flex pe-3 my-3">
                     <div class="userInfo_title">리그 / 매칭 현황</div>
                 </div>
-                <hr class="myPage-head-line">
+                <hr class="myPage_head_line">
                 <div class="menu_nav_area">
                     <nav class="league_matching_menu_nav">
                         <ul id="menu__list" class="league_matching_menu_list">

@@ -14,29 +14,31 @@ public class Space {
     private String description;
     private Integer capacity;
     private Integer pricePerHour;
-    private String availableHours;
+    private String bizStartTime;
+    private String bizEndTime;
     private String sector;
     private boolean isInside;
-    private String regionName;
+    private Integer regionId;
     private Timestamp createdAt;
+    private Integer spaceOptionId;
     private Integer userId;
-    private Integer optionId;
     private Integer sportId;
 
     @Builder
-    public Space(Integer id, String spaceName, String description, Integer capacity, Integer pricePerHour, String availableHours, String sector, boolean isInside, String regionName, Timestamp createdAt, Integer userId, Integer optionId, Integer sportId) {
+    public Space(Integer id, String spaceName, String description, Integer capacity, Integer pricePerHour, String bizStartTime, String bizEndTime, String sector, boolean isInside, Integer regionId, Timestamp createdAt, Integer spaceOptionId, Integer userId, Integer sportId) {
         this.id = id;
         this.spaceName = spaceName;
         this.description = description;
         this.capacity = capacity;
         this.pricePerHour = pricePerHour;
-        this.availableHours = availableHours;
+        this.bizStartTime = bizStartTime;
+        this.bizEndTime = bizEndTime;
         this.sector = sector;
         this.isInside = isInside;
-        this.regionName = regionName;
+        this.regionId = regionId;
         this.createdAt = createdAt;
         this.userId = userId;
-        this.optionId = optionId;
+        this.spaceOptionId = spaceOptionId;
         this.sportId = sportId;
     }
 }

@@ -1,7 +1,6 @@
--- 유저 테이블
 CREATE TABLE user_tb
 (
-    id                INT PRIMARY KEY,
+    id                INT AUTO_INCREMENT PRIMARY KEY,
     username          VARCHAR(250) NOT NULL,
     nickname          VARCHAR(250),
     password          VARCHAR(250) NOT NULL,
@@ -14,31 +13,57 @@ CREATE TABLE user_tb
     account_number    VARCHAR,
     account_name      VARCHAR,
     created_at        TIMESTAMP,
-    bank_id           INT
+    bank_id           INT,
+    team_id           INT
 );
+
+-- 팀 테이블
+CREATE TABLE team_tb
+(
+    id             INT AUTO_INCREMENT PRIMARY KEY,
+    team_name      VARCHAR(250) NOT NULL,
+    team_capacity  VARCHAR,
+    team_pic_url   VARCHAR,
+    team_introduce VARCHAR(250),
+    level          VARCHAR,
+    region_id      INT,
+    sport_id       INT
+);
+
+
+
 
 -- 공간 테이블
 CREATE TABLE space_tb
 (
-    id              INT PRIMARY KEY,
+    id              INT AUTO_INCREMENT PRIMARY KEY,
     space_name      VARCHAR(255),
     description     TEXT,
     capacity        INT,
     price_per_hour  INT,
-    available_hours VARCHAR(255),
+    biz_start_time  VARCHAR(255),
+    biz_end_time    VARCHAR(255),
     sector          VARCHAR,
     is_inside       BOOLEAN,
-    region_name     VARCHAR,
+    region_id       INT,
     created_at      TIMESTAMP,
-    option_id       INT,
+    space_option_id INT,
     user_id         INT,
     sport_id        INT
+);
+
+-- 공간 사진
+CREATE TABLE space_pic_tb
+(
+    id        INT AUTO_INCREMENT PRIMARY KEY,
+    space_pic VARCHAR(255),
+    space_id  INT
 );
 
 -- 시설 공간 예약 테이블
 CREATE TABLE reservation_tb
 (
-    id               INT PRIMARY KEY,
+    id               INT AUTO_INCREMENT PRIMARY KEY,
     reservation_date DATE,
     start_time       TIME,
     end_time         TIME,
@@ -49,47 +74,35 @@ CREATE TABLE reservation_tb
     space_id         INT
 );
 
--- 팀 테이블
-CREATE TABLE team_tb
-(
-    id            INT PRIMARY KEY,
-    team_name     VARCHAR(250) NOT NULL,
-    team_capacity VARCHAR,
-    team_pic_url  VARCHAR,
-    level         VARCHAR,
-    region_name   VARCHAR,
-    sport_id      INT,
-    user_id       INT
-);
-
 -- 지역 테이블 (코드)
-CREATE TABLE location_tb
+CREATE TABLE region_tb
 (
-    id            INT PRIMARY KEY,
-    location_name VARCHAR
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    region_name VARCHAR
 );
 
 -- 운동 종목 테이블 (코드)
 CREATE TABLE sport_tb
 (
-    id         INT PRIMARY KEY,
+    id         INT AUTO_INCREMENT PRIMARY KEY,
     sport_name VARCHAR(50)
 );
 
 -- 한줄리뷰 내역
 CREATE TABLE review_tb
 (
-    id       INT PRIMARY KEY,
+    id       INT AUTO_INCREMENT PRIMARY KEY,
     rating   INT,
     comment  TEXT,
     space_id INT,
-    user_id  INT
+    user_id  INT,
+    created_at TIMESTAMP
 );
 
 -- 매칭 테이블
 CREATE TABLE matching_tb
 (
-    id              INT PRIMARY KEY,
+    id              INT AUTO_INCREMENT PRIMARY KEY,
     reservation_id  INT,
     match_user_id   INT,
     matching_status VARCHAR
@@ -98,14 +111,14 @@ CREATE TABLE matching_tb
 -- 옵션 테이블 (해야함)
 CREATE TABLE option_tb
 (
-    id          INT PRIMARY KEY,
+    id          INT AUTO_INCREMENT PRIMARY KEY,
     option_name VARCHAR(255)
 );
 
 -- 선택 옵션 테이블 (해야함)
 CREATE TABLE space_option_tb
 (
-    id        INT PRIMARY KEY,
+    id        INT AUTO_INCREMENT PRIMARY KEY,
     option_id INT,
     space_id  INT
 );
@@ -113,79 +126,87 @@ CREATE TABLE space_option_tb
 -- 주최 테이블 (보류)
 CREATE TABLE sponsor_tb
 (
-    id           INT PRIMARY KEY,
+    id           INT AUTO_INCREMENT PRIMARY KEY,
     sponsor_name VARCHAR(250) NOT NULL
 );
 
 -- 북마크 기능 테이블
 CREATE TABLE bookmark_tb
 (
-    id       INT PRIMARY KEY,
+    id       INT AUTO_INCREMENT PRIMARY KEY,
     space_id INT,
     user_id  INT
 );
 
--- 은행 이름 테이블 (코드 테이블) - 결재 하면서 새로 구상
+-- 은행 이름 테
+-- 이블 (코드 테이블) - 결재 하면서 새로 구상
 CREATE TABLE bank_tb
 (
-    id        INT PRIMARY KEY,
+    id        INT AUTO_INCREMENT PRIMARY KEY,
     bank_name VARCHAR(255)
 );
 
 -- 결제내역 테이블
 CREATE TABLE payment_tb
 (
-    id         INT PRIMARY KEY,
+    id         INT AUTO_INCREMENT PRIMARY KEY,
     price      INT,
-    created_at TIMESTAMP,
+    created_at DATE,
     user_id    INT
 );
 
--- 포인트 충전 테이블
-CREATE TABLE point_charge_tb
+-- 포인트 내역
+CREATE TABLE point_tb
 (
-    id            INT PRIMARY KEY,
-    payment_point INT,
-    present_point INT,
-    refund        BOOLEAN,
-    refund_date   DATE,
-    created_at    TIMESTAMP,
-    user_id       INT
-);
-
--- 포인트 사용내역
-CREATE TABLE point_use_tb
-(
-    id         INT PRIMARY KEY,
-    payment_id INT,
+    id         INT AUTO_INCREMENT PRIMARY KEY,
+    my_point   INT,
+    created_at Timestamp,
     user_id    INT
 );
 
--- 포인트 얼마 충전할건지 지정하는 코드 테이블 생각하기
+-- 포인트 내역 테이블
+CREATE TABLE point_history_tb
+(
+    id           INT AUTO_INCREMENT PRIMARY KEY,
+    point_amount INT,
+    charge_point INT,
+    use_point    INT,
+    refund       BOOLEAN,
+    refund_date  DATE,
+    created_at   DATE,
+    user_id      INT
+);
+
+
+CREATE TABLE notice_category_tb
+(
+    id              INT AUTO_INCREMENT PRIMARY KEY,
+    notice_category VARCHAR(255)
+);
 
 -- 공지사항 테이블
 CREATE TABLE notice_tb
 (
-    id             INT PRIMARY KEY,
-    notice_title   VARCHAR(255),
-    notice_content TEXT,
-    created_at     TIMESTAMP
+    id                 INT AUTO_INCREMENT PRIMARY KEY,
+    notice_category_id INT,
+    notice_title       VARCHAR(255),
+    notice_content     TEXT,
+    created_at         TIMESTAMP
 );
 
 -- 문의 테이블
 CREATE TABLE inquire_tb
 (
-    id              INT PRIMARY KEY,
+    id              INT AUTO_INCREMENT PRIMARY KEY,
     inquire_title   VARCHAR(255),
     inquire_content VARCHAR,
     created_at      TIMESTAMP,
     user_id         INT
 );
-
 -- 답변 테이블
 CREATE TABLE answer_tb
 (
-    id             INT PRIMARY KEY,
+    id             INT AUTO_INCREMENT PRIMARY KEY,
     inquire_id     INT,
     answer_content VARCHAR(255),
     created_at     TIMESTAMP
@@ -194,14 +215,14 @@ CREATE TABLE answer_tb
 -- 결과 테이블
 CREATE TABLE result_tb
 (
-    id         INT PRIMARY KEY,
-    resultname VARCHAR
+    id         INT AUTO_INCREMENT PRIMARY KEY,
+    result_name VARCHAR
 );
 
 -- 결과 관계 테이블
 CREATE TABLE has_result_tb
 (
-    id        INT PRIMARY KEY,
+    id        INT AUTO_INCREMENT PRIMARY KEY,
     result_id INT,
     league_id INT
 );
@@ -209,7 +230,7 @@ CREATE TABLE has_result_tb
 -- 리그 일정 테이블 (3차 기능)
 CREATE TABLE league_match_tb
 (
-    id                INT PRIMARY KEY,
+    id                INT AUTO_INCREMENT PRIMARY KEY,
     league_id         INT,
     league_match_date DATE,
     league_match_time TIME,
@@ -223,7 +244,7 @@ CREATE TABLE league_match_tb
 -- 경기 기록 - 3차
 CREATE TABLE record_tb
 (
-    id              INT PRIMARY KEY,
+    id              INT AUTO_INCREMENT PRIMARY KEY,
     team_id         INT,
     league_id       INT,
     rank            INT NOT NULL,
@@ -235,7 +256,7 @@ CREATE TABLE record_tb
 -- 리그 테이블 (관리자 등록한 리그 정보 관리) - 3차
 CREATE TABLE league_tb
 (
-    id                 INT PRIMARY KEY,
+    id                 INT AUTO_INCREMENT PRIMARY KEY,
     league_name        VARCHAR(255) NOT NULL,
     apply_start        DATE,
     apply_end          DATE,
@@ -250,9 +271,10 @@ CREATE TABLE league_tb
 -- 리그 등록
 CREATE TABLE campaign_tb
 (
-    id               INT PRIMARY KEY,
-    campaign_pic     VARCHAR(255),
-    campaign_name    VARCHAR(255),
-    campaign_period  DATE,
-    campaign_address VARCHAR(255)
+    id             INT AUTO_INCREMENT PRIMARY KEY,
+    campaign_pic   VARCHAR(255),
+    campaign_name  VARCHAR(255),
+    campaign_start DATE,
+    campaign_end   DATE,
+    region_id      INT
 );
