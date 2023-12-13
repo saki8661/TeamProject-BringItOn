@@ -19,8 +19,6 @@ public interface NoticeRepository {
 
     public List<NoticeListDto> findAllJoinCategory();
 
-    public int insertJoinCategory(NoticeWriteDto noticeWriteDto);
-
     public Notice findByNoticeCategoryId(String number);
 
     public Notice findByNoticeId(Integer id);
