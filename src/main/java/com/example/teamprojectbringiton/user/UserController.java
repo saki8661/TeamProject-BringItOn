@@ -1,15 +1,20 @@
 package com.example.teamprojectbringiton.user;
 
-import com.example.teamprojectbringiton._core.handler.MyPageExceptionHandler;
-import com.example.teamprojectbringiton.user.dto.reqDTO.JoinFormDto;
-import jakarta.servlet.http.HttpServletRequest;
+import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
+import com.example.teamprojectbringiton.user.dto.reqDTO.JoinDto;
+import com.example.teamprojectbringiton.user.dto.reqDTO.LoginDto;
+import com.example.teamprojectbringiton.user.dto.reqDTO.PwdUpdateDto;
+import com.example.teamprojectbringiton.user.dto.respDTO.UserTeamInfoDto;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller
 public class UserController {
@@ -18,13 +23,10 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    private  UserRepository userRepository;
-
-    @Autowired
     private HttpSession session;
 
 
-    @GetMapping("/kakako-login")
+    @GetMapping("/kakao-login")
     public  String kakaoLogin(){
         System.out.println("카카오로그인 겟");
         return "user/kakaoLoginPage";
@@ -36,8 +38,8 @@ public class UserController {
     }
 
     @PostMapping("/join")
-    public String joinProc(JoinFormDto dto) {
-       userService.userSave(dto);
+    public String joinProc(JoinDto dto) {
+        userService.userSave(dto);
         return "redirect:/kakako-login";
     }
 
@@ -45,43 +47,85 @@ public class UserController {
     @PostMapping ("/check")
     public ResponseEntity<String> check(String username) {
         System.out.println("++++++++++++++++++유저네임");
-        int user = userService.usernameChek(username);
+        int user = userService.usernameCheck(username);
         System.out.println("??????????" + user);
         return new ResponseEntity<String>("유저네임을 사용할 수 있습니다", HttpStatus.OK);
     }
 
     @GetMapping("/login")
-    public  String login(){
+    public String loginPage(){
         return "/user/loginPage";
     }
 
-    @GetMapping("/user-update")
-    public String userUpdate(){
+    @PostMapping("/login")
+    public String login(LoginDto loginDto, Model model){
+        User user = userService.login(loginDto);
+        session.setAttribute("sessionUser", user);
+        model.addAttribute("sessionUser", user);
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        User sessionUser2 = (User) model.getAttribute("sessionUser");
+
+        System.out.println("로그인 후 user : " + user.getUsername());
+        System.out.println("로그인 후 session : " + sessionUser.getUsername());
+        System.out.println("로그인 후 model : " + sessionUser2.getPassword());
+        return "redirect:/home";
+    }
+
+    @GetMapping("/logout")
+    public String logout(){
+        session.invalidate();
+        return "redirect:/home";
+    }
+
+    @GetMapping("/user-update/{id}")
+    public String userUpdatePage(@PathVariable Integer id, Model model){
+        // 인증 검사 (로그인 유무)
+        User principal = (User) session.getAttribute("sessionUser");
+        if (principal == null) {
+            throw new UnAuthorizedException("로그인을 먼저 해주세요.", HttpStatus.UNAUTHORIZED);
+        }
+
+        User user = userService.findById(id);
+        model.addAttribute("user", user);
+
         return "user/userUpdate";
     }
 
-    @GetMapping("/user-team")
-    public String userTeamManagement(){
+    @PostMapping("/passwordUpdate/{id}")
+    public String passwordUpdate(@PathVariable Integer id, PwdUpdateDto dto){
+
+        userService.userPwdUpdate(id, dto);
+
+        return "redirect: /kakao-login";
+    }
+
+    @GetMapping("/user-team/{id}")
+    public String userTeamManagementPage(@PathVariable Integer id, Model model){
+
+        UserTeamInfoDto teamInfo = userService.findByIdWithTeam(id);
+
+        model.addAttribute("teamInfo", teamInfo);
+
         return "user/userTeam";
     }
 
     @GetMapping("/user-bookmark")
-    public String userBookmarkManagement(){
+    public String userBookmarkManagementPage(){
         return "user/userBookmark";
     }
 
     @GetMapping("/user-review")
-    public String userReviewManagement(){
+    public String userReviewManagementPage(){
         return "user/userReview";
     }
 
     @GetMapping("/user-reservation")
-    public String userReservation(){
+    public String userReservationPage(){
         return "user/userReservation";
     }
 
     @GetMapping("/user-payment")
-    public String userPayment(){
+    public String userPaymentPage(){
         return "user/userPayment";
     }
 }
