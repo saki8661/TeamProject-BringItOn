@@ -1,6 +1,6 @@
 package com.example.teamprojectbringiton.notice;
 
-import com.example.teamprojectbringiton.notice.dto.reqDto.NoticeWriteDto;
+
 import com.example.teamprojectbringiton.notice.dto.respDto.NoticeListDto;
 import org.apache.ibatis.annotations.Mapper;
 

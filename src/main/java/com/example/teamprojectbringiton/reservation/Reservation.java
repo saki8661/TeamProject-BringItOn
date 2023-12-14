@@ -24,6 +24,7 @@ public class Reservation {
 
     @Builder
     public Reservation(Integer id, Date reservationDate, Time startTime, Time endTime, String toHost, String status, boolean matching, Timestamp createdAt, Integer userId, Integer spaceId) {
+
         this.id = id;
         this.reservationDate = reservationDate;
         this.startTime = startTime;

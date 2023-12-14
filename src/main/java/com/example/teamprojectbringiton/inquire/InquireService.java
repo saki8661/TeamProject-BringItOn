@@ -12,11 +12,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
 public class InquireService {
 
     @Autowired
     private InquireRepository inquireRepository;
+
 
     @Autowired
     private InquireCategoryRepository inquireCategoryRepository;
@@ -42,12 +44,13 @@ public class InquireService {
                 .build();
 
         int inquireWrite = inquireRepository.insert(inquire);
-        System.out.println("inquire@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+ dto.getInquireTitle());
-        System.out.println("inquire@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+ dto.getInquireContent());
-        System.out.println("inquire@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+ dto.getInquireCategoryId());
-        System.out.println("inquire@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+ principalId);
-        if(inquireWrite != 1){
+        System.out.println("inquire@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" + dto.getInquireTitle());
+        System.out.println("inquire@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" + dto.getInquireContent());
+        System.out.println("inquire@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" + dto.getInquireCategoryId());
+        System.out.println("inquire@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" + principalId);
+        if (inquireWrite != 1) {
             throw new CustomRestfullException("공지 등록 실패", HttpStatus.INTERNAL_SERVER_ERROR);
+
         }
     }
 

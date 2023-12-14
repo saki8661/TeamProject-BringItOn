@@ -1288,7 +1288,7 @@ input::placeholder {
 .modal-dialog {
     display: inline-block;
     text-align: left;
-    vertical-align: middle;
+    vertical-align: center;
 }
 
 .userReservation_modal_header {
@@ -1792,6 +1792,8 @@ td {
     }
 }
 
+<<<<<<< HEAD
+=======
 @media (min-width: 576px) {
     .league_modal-dialog {
         width: 700px;
@@ -1801,6 +1803,7 @@ td {
     }
 }
 
+>>>>>>> dev
 
 .modal-dialog {
     display: inline-block;
@@ -1821,7 +1824,10 @@ td {
 
 .modal-body {
     padding-bottom: 0;
+<<<<<<< HEAD
+=======
     width: 100%;
+>>>>>>> dev
 }
 
 .userReservation_modal_header h2 {
@@ -2060,7 +2066,10 @@ td {
     justify-content: center;
 }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> dev
 .userPayment_table_header {
     margin-left: 3px;
 }
@@ -2375,6 +2384,8 @@ td {
     position: relative;
 }
 
+<<<<<<< HEAD
+=======
 .league_matching_menu_nav {
     width: 100%;
     margin-top: 0;
@@ -2386,6 +2397,7 @@ td {
     position: relative;
 }
 
+>>>>>>> dev
 .menu_nav_area {
     display: flex;
     align-items: center;
@@ -2401,6 +2413,8 @@ td {
     text-align: center;
 }
 
+<<<<<<< HEAD
+=======
 .league_matching_menu_list {
     display: table;
     list-style-type: none;
@@ -2409,6 +2423,7 @@ td {
     font-size: 14px;
 }
 
+>>>>>>> dev
 .menu__menu {
     display: table-cell;
     vertical-align: middle;
@@ -2417,6 +2432,8 @@ td {
     border: 1px solid #19B357;
 }
 
+<<<<<<< HEAD
+=======
 .league_matching_menu_menu {
     display: table-cell;
     vertical-align: middle;
@@ -2431,6 +2448,7 @@ td {
     color: white;
 }
 
+>>>>>>> dev
 .menu__menu:hover {
     background-color: #19B357;
     color: white;
@@ -2446,7 +2464,10 @@ td {
     display: table;
 }
 
+<<<<<<< HEAD
+=======
 
+>>>>>>> dev
 .subwrapper {
     display: none;
     width: 100%;
@@ -2500,7 +2521,11 @@ td {
 /*placeResistration*/
 
 . place_resistration_letter {
+<<<<<<< HEAD
+>>> >>> > dev display: flex;
+=======
     display: flex;
+>>>>>>> dev
     flex-direction: column;
 
 }
@@ -2656,6 +2681,7 @@ td {
     width: 200px;
     height: auto;
     margin-top: 10px;
+< < < < < < < HEAD
 
 }
 
@@ -2790,6 +2816,7 @@ td {
 
 .place_detail_description {
     flex-direction: column;
+    width: 60%;
 }
 
 .place_detail_photo_container {
@@ -2876,7 +2903,7 @@ a {
 
 .place_detail_li {
     display: inline-block;
-    padding-right: 50px;
+    width: 20%;
     font-weight: bolder;
     color: #8A8A8A;
 
@@ -2924,9 +2951,9 @@ body {
 .place_detail_stick_area {
     position: sticky;
     top: 20px;
-    width: 100%;
+    width: 40%;
     height: 100%;
-    margin-left: 20px;
+    margin-left: 50px;
     margin-top: 20px;
     background-color: #ffffff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
@@ -3084,7 +3111,7 @@ body {
     text-align: start;
     padding-top: 20px;
     border-top: 1px solid #F0F0F0;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     font-weight: bold;
 
 
@@ -3108,12 +3135,18 @@ body {
     height: 100%;
 }
 
+.scroll3_place_detail_review_title {
+    font-size: 20px;
+    font-weight: bolder;
+    padding-right: 20px;
+}
+
 .scroll3_place_detail_review_write {
     display: flex;
-    justify-content: flex-end; /* 오른쪽 정렬 */
+    flex-direction: row; /* 오른쪽 정렬 */
     padding-bottom: 10px;
     border-top: 1px solid #F0F0F0;
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 .scroll3_place_detail_review_write_button {
@@ -3125,12 +3158,23 @@ body {
     color: #19B357;
 }
 
+.scroll3_place_detail_review_textarea_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .scroll3_place_detail_review_textarea {
-    width: 100%;
-    height: 100px;
+    width: 350px;
+    height: 35px;
     border: 1px solid #999;
     resize: none;
     color: black;
+}
+
+.scroll3_place_detail_review_rating_star {
+    padding-left: 10px;
+
 }
 
 .scroll3_place_detail_review_star {
@@ -3235,6 +3279,10 @@ body {
 .place_detail_stick_area_menu_location_copy {
     display: flex;
     flex-direction: row;
-
 }
 
+<<<<<<< HEAD
+=======
+}
+
+>>>>>>> dev

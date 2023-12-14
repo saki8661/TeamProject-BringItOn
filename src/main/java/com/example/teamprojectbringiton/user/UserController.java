@@ -2,10 +2,12 @@ package com.example.teamprojectbringiton.user;
 
 import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
 
+
 import com.example.teamprojectbringiton.user.dto.reqDto.JoinDto;
 import com.example.teamprojectbringiton.user.dto.reqDto.LoginDto;
 import com.example.teamprojectbringiton.user.dto.reqDto.PwdUpdateDto;
 import com.example.teamprojectbringiton.user.dto.respDto.UserTeamInfoDto;
+
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -28,6 +30,7 @@ public class UserController {
 
 
     @GetMapping("/kakao-login")
+
     public String kakaoLogin() {
         System.out.println("카카오로그인 겟");
         return "user/kakaoLoginPage";
@@ -54,11 +57,13 @@ public class UserController {
     }
 
     @GetMapping("/login")
+
     public String loginPage() {
         return "/user/loginPage";
     }
 
     @PostMapping("/login")
+
     public String login(LoginDto loginDto, Model model) {
         User user = userService.login(loginDto);
         session.setAttribute("sessionUser", user);
@@ -74,12 +79,14 @@ public class UserController {
 
     @GetMapping("/logout")
     public String logout() {
+
         session.invalidate();
         return "redirect:/home";
     }
 
     @GetMapping("/user-update/{id}")
     public String userUpdatePage(@PathVariable Integer id, Model model) {
+
         // 인증 검사 (로그인 유무)
         User principal = (User) session.getAttribute("sessionUser");
         if (principal == null) {
@@ -94,6 +101,7 @@ public class UserController {
 
     @PostMapping("/passwordUpdate/{id}")
     public String passwordUpdate(@PathVariable Integer id, PwdUpdateDto dto) {
+
 
         userService.userPwdUpdate(id, dto);
 
@@ -110,6 +118,7 @@ public class UserController {
 
 
     @GetMapping("/user-bookmark")
+
     public String userBookmarkManagementPage() {
         return "user/userBookmark";
     }
@@ -134,4 +143,5 @@ public class UserController {
     public String leagueMatchingPage() {
         return "user/leagueMatchingPage";
     }
+
 }

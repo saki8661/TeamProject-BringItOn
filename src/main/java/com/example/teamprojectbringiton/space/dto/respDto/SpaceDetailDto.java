@@ -1,13 +1,13 @@
-package com.example.teamprojectbringiton.space.dto.respDTO;
+package com.example.teamprojectbringiton.space.dto.respDto;
 
-import lombok.Getter;
-import lombok.Setter;
 
-@Getter
-@Setter
-public class SpaceDto {
+import lombok.Data;
+
+@Data
+public class SpaceDetailDto {
     private Integer id;
     private String spaceName;
+    private String description;
     private String sector;
     private boolean isInside;
     private String pricePerHour;
@@ -15,7 +15,6 @@ public class SpaceDto {
     private String regionName;
     private Integer sportId;
     private String sportName;
-    private Integer spacePicId;
     private String spacePic;
 
 }

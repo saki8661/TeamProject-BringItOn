@@ -24,4 +24,5 @@ public interface UserRepository {
     // 사용자의 아이디로 팀 조회
     public UserTeamInfoDto findByIdJoinTeam(Integer id);
 
+
 }
