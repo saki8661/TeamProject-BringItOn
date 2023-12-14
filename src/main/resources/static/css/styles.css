@@ -2316,6 +2316,21 @@ td {
     border: 1px solid #19B357;
 }
 
+.menu__menu img {
+    height: 20px;
+    width: 20px;
+}
+
+.menu__menu__menu {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+.menu__menu__menu img {
+    margin-right: 5px;
+}
+
 .league_matching_menu_menu {
     display: table-cell;
     vertical-align: middle;
@@ -3150,6 +3165,12 @@ body {
 .place_detail_stick_area_menu_location_copy {
     display: flex;
     flex-direction: row;
-
 }
 
+.loginPage_box {
+    height: 15px;
+}
+
+.joinPage_box {
+    width: 5px;
+}

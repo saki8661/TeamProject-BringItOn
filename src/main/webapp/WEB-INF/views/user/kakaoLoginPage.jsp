@@ -20,7 +20,7 @@
 
     <h3 class="join_us_text">고객님 환영합니다! 기다리고 있었습니다.</h3>
 
-    <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=34c1c00d8709bac5b82f2488a3a86d65&redirect_uri=http://localhost:80/kakao-callback">
+    <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=&redirect_uri=http://localhost:80/kakao-callback&prompt=login">
         <div><img src="./images/kakao_login_button.png" class="kakao_login_button">
         </div>
     </a>

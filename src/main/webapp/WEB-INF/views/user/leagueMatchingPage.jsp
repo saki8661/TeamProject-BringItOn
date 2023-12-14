@@ -17,7 +17,7 @@
                         <ul id="menu__list" class="league_matching_menu_list">
                             <li class="league_matching_menu_menu"><a href="#" style="border-right: 1px solid #19B357">
                                 <img src="/images/soccerball.png">
-                                <div class="dividing_line">축구</div>
+                                <div>축구</div>
                             </a>
                             </li>
                             <li class="league_matching_menu_menu"><a href="#" style="border-right: 1px solid #19B357">
@@ -25,7 +25,8 @@
                                 <div>농구</div>
                             </a>
                             </li>
-                            <li class="league_matching_menu_menu"><a href="#"><img src="/images/Futsal.png">
+                            <li class="league_matching_menu_menu"><a href="#">
+                                <img src="/images/Futsal.png">
                                 <div>풋살</div>
                             </a>
                             </li>

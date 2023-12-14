@@ -25,6 +25,7 @@
             <div class="join_user_id">
                 <input type="text" class="form-control" id="username" placeholder="아이디" name="username" maxlength="20"
                        required>
+                <div class="joinPage_box"></div>
                 <button type="button" name="dbCheckId" class="join_check_button" id="userCheck">
                     중복확인
                 </button>
@@ -53,12 +54,12 @@
 
             </div>
             <div class="join_address_container mb-3">
-
-                <input type="text" class="form-control" id="userAddress" placeholder="주소" name="userAddress" required>
-
-
-                <button type="button" class="join_address_button" id="addressSearch" onclick="findAddr()">주소 검색</button>
-
+                <input type="text" class="form-control" id="userAddress" placeholder="주소" name="userAddress" required
+                       disabled>
+                <div class="joinPage_box"></div>
+                <button type="button" class="join_address_button" id="addressSearch" onclick="findAddr()">주소
+                    검색
+                </button>
             </div>
 
 
@@ -83,6 +84,10 @@
         <div class="join_button_con">
             <button type="submit" class="join_button">회원가입</button>
         </div>
+        <div class="loginPage_box"></div>
+        <a href="/kakao-login">
+            로그인 페이지
+        </a>
     </form>
 </div>
 

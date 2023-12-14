@@ -33,7 +33,12 @@
         <div class="menu_nav_area">
             <nav class="menu_nav">
                 <ul id="menu__list" class="menu__list">
-                    <li class="menu__menu">축구
+                    <li class="menu__menu">
+                        <div class="menu__menu__menu">
+                            <img src="/images/soccerball.png">
+                            <div class="dividing_line">축구</div>
+                        </div>
+
                         <div class="subwrapper">
                             <nav class="subnav">
                                 <ul class="submenu__list">
@@ -44,7 +49,11 @@
                             </nav>
                         </div>
                     </li>
-                    <li class="menu__menu">농구
+                    <li class="menu__menu">
+                        <div class="menu__menu__menu">
+                            <img src="/images/basketballball.png">
+                            <div>농구</div>
+                        </div>
                         <div class="subwrapper">
                             <nav class="subnav">
                                 <ul class="submenu__list">
@@ -55,7 +64,11 @@
                             </nav>
                         </div>
                     </li>
-                    <li class="menu__menu">풋살
+                    <li class="menu__menu">
+                        <div class="menu__menu__menu">
+                            <img src="/images/Futsal.png">
+                            <div>풋살</div>
+                        </div>
                         <div class="subwrapper">
                             <nav class="subnav">
                                 <ul class="submenu__list">
