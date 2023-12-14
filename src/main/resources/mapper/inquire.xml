@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+        namespace="com.example.teamprojectbringiton.inquire.InquireRepository">
+
+    <insert id="insert">
+        insert into inquire_tb(inquire_title, inquire_content, created_at, user_id, inquire_category_id)
+        values (#{inquireTitle}, #{inquireContent}, now(), #{userId}, #{inquireCategoryId});
+    </insert>
+
+
+    <update id="updateByUserId">
+        update inquire_tb
+        set inquire_title = #{inquireTitle},
+            inquire_content = #{inquireContent},
+            created_at = now(),
+            user_id = #{userId}
+        where user_id = #{userId}
+    </update>
+
+    <delete id="deleteById">
+        delete
+        from inquire_tb
+        where id = #{id}
+    </delete>
+
+    <select id="findById"
+            resultType="com.example.teamprojectbringiton.inquire.Inquire">
+        select * from inquire_tb where id = #{id}
+    </select>
+
+
+    <select id="findAllJoinCategory"
+            resultType="com.example.teamprojectbringiton.inquire.dto.respDto.InquireListDto">
+        select * from inquire_tb i
+                          join inquire_category_tb ic
+                               on i.inquire_category_id = ic.id
+    </select>
+
+</mapper>

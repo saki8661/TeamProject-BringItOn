@@ -31,27 +31,23 @@ CREATE TABLE team_tb
 );
 
 
-
-
 -- 공간 테이블
 CREATE TABLE space_tb
 (
-    id              INT AUTO_INCREMENT PRIMARY KEY,
-    space_name      VARCHAR(255),
-    description     TEXT,
-    capacity        INT,
-    price_per_hour  INT,
-    biz_start_time  VARCHAR(255),
-    biz_end_time    VARCHAR(255),
-    sector          VARCHAR,
-    is_inside       BOOLEAN,
-    region_id       INT,
-    created_at      TIMESTAMP,
-    space_option_id INT,
-    user_id         INT,
-    sport_id        INT,
-    location_address VARCHAR(255)
-
+    id             INT AUTO_INCREMENT PRIMARY KEY,
+    space_name     VARCHAR(255),
+    description    TEXT,
+    capacity       INT,
+    price_per_hour INT,
+    biz_start_time VARCHAR(255),
+    biz_end_time   VARCHAR(255),
+    space_location VARCHAR(255),
+    sector         VARCHAR,
+    is_inside      BOOLEAN,
+    region_id      INT,
+    created_at     TIMESTAMP,
+    user_id        INT,
+    sport_id       INT
 );
 
 -- 공간 사진
@@ -70,6 +66,7 @@ CREATE TABLE reservation_tb
     start_time       TIME,
     end_time         TIME,
     status           VARCHAR(50),
+    to_host          VARCHAR(255),
     matching         BOOLEAN,
     created_at       TIMESTAMP,
     user_id          INT,
@@ -93,11 +90,11 @@ CREATE TABLE sport_tb
 -- 한줄리뷰 내역
 CREATE TABLE review_tb
 (
-    id       INT AUTO_INCREMENT PRIMARY KEY,
-    rating   INT,
-    comment  TEXT,
-    space_id INT,
-    user_id  INT,
+    id         INT AUTO_INCREMENT PRIMARY KEY,
+    rating     INT,
+    comment    TEXT,
+    space_id   INT,
+    user_id    INT,
     created_at TIMESTAMP
 );
 
@@ -196,14 +193,21 @@ CREATE TABLE notice_tb
     created_at         TIMESTAMP
 );
 
+CREATE TABLE inquire_category_tb
+(
+    id               INT AUTO_INCREMENT PRIMARY KEY,
+    inquire_category VARCHAR(255)
+);
+
 -- 문의 테이블
 CREATE TABLE inquire_tb
 (
-    id              INT AUTO_INCREMENT PRIMARY KEY,
-    inquire_title   VARCHAR(255),
-    inquire_content VARCHAR,
-    created_at      TIMESTAMP,
-    user_id         INT
+    id                  INT AUTO_INCREMENT PRIMARY KEY,
+    inquire_title       VARCHAR(255),
+    inquire_content     VARCHAR,
+    created_at          TIMESTAMP,
+    inquire_category_id INT,
+    user_id             INT
 );
 -- 답변 테이블
 CREATE TABLE answer_tb
@@ -217,7 +221,7 @@ CREATE TABLE answer_tb
 -- 결과 테이블
 CREATE TABLE result_tb
 (
-    id         INT AUTO_INCREMENT PRIMARY KEY,
+    id          INT AUTO_INCREMENT PRIMARY KEY,
     result_name VARCHAR
 );
 

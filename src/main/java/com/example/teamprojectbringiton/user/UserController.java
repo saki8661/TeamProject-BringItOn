@@ -1,10 +1,13 @@
 package com.example.teamprojectbringiton.user;
 
 import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
-import com.example.teamprojectbringiton.user.dto.reqDTO.JoinDto;
-import com.example.teamprojectbringiton.user.dto.reqDTO.LoginDto;
-import com.example.teamprojectbringiton.user.dto.reqDTO.PwdUpdateDto;
-import com.example.teamprojectbringiton.user.dto.respDTO.UserTeamInfoDto;
+
+
+import com.example.teamprojectbringiton.user.dto.reqDto.JoinDto;
+import com.example.teamprojectbringiton.user.dto.reqDto.LoginDto;
+import com.example.teamprojectbringiton.user.dto.reqDto.PwdUpdateDto;
+import com.example.teamprojectbringiton.user.dto.respDto.UserTeamInfoDto;
+
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -27,13 +30,14 @@ public class UserController {
 
 
     @GetMapping("/kakao-login")
-    public  String kakaoLogin(){
+
+    public String kakaoLogin() {
         System.out.println("카카오로그인 겟");
         return "user/kakaoLoginPage";
     }
 
     @GetMapping("/join")
-    public  String join(){
+    public String join() {
         return "/user/joinPage";
     }
 
@@ -44,7 +48,7 @@ public class UserController {
     }
 
     @ResponseBody
-    @PostMapping ("/check")
+    @PostMapping("/check")
     public ResponseEntity<String> check(String username) {
         System.out.println("++++++++++++++++++유저네임");
         int user = userService.usernameCheck(username);
@@ -53,12 +57,14 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public String loginPage(){
+
+    public String loginPage() {
         return "/user/loginPage";
     }
 
     @PostMapping("/login")
-    public String login(LoginDto loginDto, Model model){
+
+    public String login(LoginDto loginDto, Model model) {
         User user = userService.login(loginDto);
         session.setAttribute("sessionUser", user);
         model.addAttribute("sessionUser", user);
@@ -72,13 +78,15 @@ public class UserController {
     }
 
     @GetMapping("/logout")
-    public String logout(){
+    public String logout() {
+
         session.invalidate();
         return "redirect:/home";
     }
 
     @GetMapping("/user-update/{id}")
-    public String userUpdatePage(@PathVariable Integer id, Model model){
+    public String userUpdatePage(@PathVariable Integer id, Model model) {
+
         // 인증 검사 (로그인 유무)
         User principal = (User) session.getAttribute("sessionUser");
         if (principal == null) {
@@ -92,7 +100,8 @@ public class UserController {
     }
 
     @PostMapping("/passwordUpdate/{id}")
-    public String passwordUpdate(@PathVariable Integer id, PwdUpdateDto dto){
+    public String passwordUpdate(@PathVariable Integer id, PwdUpdateDto dto) {
+
 
         userService.userPwdUpdate(id, dto);
 
@@ -100,32 +109,39 @@ public class UserController {
     }
 
     @GetMapping("/user-team/{id}")
-    public String userTeamManagementPage(@PathVariable Integer id, Model model){
-
+    public String userTeamManagementPage(@PathVariable Integer id, Model model) {
         UserTeamInfoDto teamInfo = userService.findByIdWithTeam(id);
-
         model.addAttribute("teamInfo", teamInfo);
 
         return "user/userTeam";
     }
 
+
     @GetMapping("/user-bookmark")
-    public String userBookmarkManagementPage(){
+
+    public String userBookmarkManagementPage() {
         return "user/userBookmark";
     }
 
     @GetMapping("/user-review")
-    public String userReviewManagementPage(){
+    public String userReviewManagementPage() {
         return "user/userReview";
     }
 
     @GetMapping("/user-reservation")
-    public String userReservationPage(){
+    public String userReservationPage() {
         return "user/userReservation";
     }
 
     @GetMapping("/user-payment")
-    public String userPaymentPage(){
+    public String userPaymentPage() {
         return "user/userPayment";
     }
+
+    // 리그/매칭 현황 페이지 구현 완료
+    @GetMapping("/league-matching-page")
+    public String leagueMatchingPage() {
+        return "user/leagueMatchingPage";
+    }
+
 }

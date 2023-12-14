@@ -31,19 +31,8 @@
         from space_tb
     </select>
 
-    <select id="findAllJoinSportAndRegion" resultType="com.example.teamprojectbringiton.space.dto.respDTO.SpaceListDto">
-        select *
-        from space_tb space
-        join sport_tb sport
-        on space.sport_id = sport.id
-            join region_tb r
-            on space.region_id = r.id
-            join space_pic_tb pic
-            on space.id = pic.space_id
-    </select>
-
     <select id="findByIdJoinSpaceAndSpacePic"
-            resultType="com.example.teamprojectbringiton.space.dto.respDTO.SpaceDetailDto">
+            resultType="com.example.teamprojectbringiton.space.dto.respDto.SpaceDetailDto">
         select *
         from space_tb as space
              join space_pic_tb as pic
@@ -51,15 +40,31 @@
         where space.id = #{id}
     </select>
 
-    <select id="findByIdSpaceReview" resultType="com.example.teamprojectbringiton.review.reqDTO.SpaceReviewDto">
-        select ut.username, rt.rating, rt.comment ,rt.created_at
+    <select id="findByIdSpaceReview" resultType="com.example.teamprojectbringiton.space.dto.respDto.SpaceReviewDto">
+        select ut.username, rt.rating, rt.comment, rt.created_at
         from review_tb rt
                  join user_tb ut on rt.user_id = ut.id
         where rt.space_id = #{id}
-       order by rt.created_at desc;
-
+        order by rt.created_at desc;
     </select>
 
+    <select id="findAllJoinSportAndRegion" resultType="com.example.teamprojectbringiton.space.dto.respDto.SpaceDto">
+        select *
+        from space_tb space
+            left join sport_tb sport
+        on space.sport_id = sport.id
+            left join region_tb r
+            on space.region_id = r.id
+            left join space_pic_tb pic
+            on space.id = pic.space_id
+        order by space.id desc
+            limit #{pageSize}
+        offset #{offset}
+    </select>
 
+    <select id="findAllCount" resultType="int">
+        select count(*)
+        from space_tb;
+    </select>
 
 </mapper>

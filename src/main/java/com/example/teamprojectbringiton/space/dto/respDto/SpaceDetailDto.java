@@ -1,4 +1,5 @@
-package com.example.teamprojectbringiton.space.dto.respDTO;
+package com.example.teamprojectbringiton.space.dto.respDto;
+
 
 import lombok.Data;
 
@@ -15,4 +16,5 @@ public class SpaceDetailDto {
     private Integer sportId;
     private String sportName;
     private String spacePic;
+
 }

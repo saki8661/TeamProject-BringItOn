@@ -1,10 +1,10 @@
 package com.example.teamprojectbringiton.space;
 
-import com.example.teamprojectbringiton.review.Review;
-import com.example.teamprojectbringiton.space.dto.reqDTO.SpaceRatingReviewDto;
-import com.example.teamprojectbringiton.space.dto.respDTO.SpaceDetailDto;
-import com.example.teamprojectbringiton.space.dto.respDTO.SpaceListDto;
-import com.example.teamprojectbringiton.review.reqDTO.SpaceReviewDto;
+
+import com.example.teamprojectbringiton.space.dto.respDto.SpaceDetailDto;
+import com.example.teamprojectbringiton.space.dto.respDto.SpaceDto;
+import com.example.teamprojectbringiton.space.dto.respDto.SpaceListDto;
+import com.example.teamprojectbringiton.space.dto.respDto.SpaceReviewDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -37,6 +37,15 @@ public class SpaceService {
 
     }
 
+    public List<SpaceDto> findAllPaged(int pageSize, int currentPage) {
+        System.out.println("페이징 서비스 진입 : " + pageSize);
+        System.out.println("페이징 서비스 진입 : " + currentPage);
+        int offset = currentPage * pageSize - pageSize;
+        return spaceRepository.findAllJoinSportAndRegion(pageSize, offset);
+    }
 
+    public int getTotalItemCount() {
+        return spaceRepository.findAllCount();
+    }
 
 }
