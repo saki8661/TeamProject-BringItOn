@@ -89,8 +89,11 @@
                         </div>
 
                         <div class="scroll3_place_detail_review" id="scroll3_place_detail_review">
-                            <form method="post" action="/space-detail">
+                            <form method="post" action="/space-review">
+
+
                                 <div class="scroll3_place_detail_review_write">
+                                    <div class="scroll3_place_detail_review_title">공간후기</div>
                                     <i class="fas fa-star text-warning"></i>
                                     <div class="scroll3_place_detail_review_rating_star">
                                         <label for="rating">별점주기:</label>
@@ -108,12 +111,13 @@
                                 <textarea class="scroll3_place_detail_review_textarea" id="comment" name="comment"
                                           placeholder="후기를 작성해주세요"></textarea>
                                     </div>
-                                    <button class="scroll3_place_detail_review_write_button">
+                                    <input type="hidden" name="spaceId" value="${spaceDetail.id}">
+
+                                    <button class="scroll3_place_detail_review_write_button" type="submit">
                                         후기쓰기
                                     </button>
                                 </div>
                             </form>
-
 
                             <c:forEach var="spaceReview" items="${spaceReviewList}">
                                 <div class="scroll3_place_detail_review_star">
@@ -170,11 +174,9 @@
                                 천재지변 및 불가항력</h1>
                             <h1 style="font-size: 15px;  padding-bottom: 20px">- 공간 이용일 기준 당일 취소 시 : 100% 환불</h1>
 
-
                         </div>
                     </div>
                 </div>
-
             </div>
 
             <div id="container" class="place_detail_stick_area">

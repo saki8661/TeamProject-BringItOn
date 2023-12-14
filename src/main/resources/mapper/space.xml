@@ -56,6 +56,8 @@
         from review_tb rt
                  join user_tb ut on rt.user_id = ut.id
         where rt.space_id = #{id}
+       order by rt.created_at desc;
+
     </select>
 
 

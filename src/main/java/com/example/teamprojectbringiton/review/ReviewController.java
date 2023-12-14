@@ -1,5 +1,6 @@
 package com.example.teamprojectbringiton.review;
 
+import com.example.teamprojectbringiton.review.reqDTO.SpaceReviewDto;
 import com.example.teamprojectbringiton.space.dto.reqDTO.SpaceRatingReviewDto;
 import com.example.teamprojectbringiton.user.UserService;
 import jakarta.servlet.http.HttpSession;
@@ -17,10 +18,10 @@ public class ReviewController {
     @Autowired
     private HttpSession session;
     @PostMapping("/space-review")
-    public String placeReviewProc(SpaceRatingReviewDto dto) {
-        System.out.println("+++리뷰컨트롤러 진입");
-        //spaceService.reviewSave(dto);
+    public String placeReviewProc(SpaceReviewDto dto) {
+        System.out.println("+++리뷰컨트롤러 진입" +  dto.getSpaceId());
+        reviewService.reviewSave(dto);
         System.out.println("+++dto잘담김"+dto);
-        return "redirect:/space-detail/";
+        return "redirect:/space-detail/"+dto.getSpaceId();
     }
 }

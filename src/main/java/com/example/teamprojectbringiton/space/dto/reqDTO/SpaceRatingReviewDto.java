@@ -10,7 +10,6 @@ import lombok.NoArgsConstructor;
 public class SpaceRatingReviewDto {
     private Integer rating;
     private String comment;
-    private Integer spaceId;
-    private Integer userId;
+
 
 }
