@@ -1,10 +1,10 @@
 package com.example.teamprojectbringiton.user;
 
 import com.example.teamprojectbringiton._core.handler.exception.CustomPageException;
-import com.example.teamprojectbringiton.user.dto.reqDto.JoinDto;
-import com.example.teamprojectbringiton.user.dto.reqDto.LoginDto;
-import com.example.teamprojectbringiton.user.dto.reqDto.PwdUpdateDto;
-import com.example.teamprojectbringiton.user.dto.respDto.UserTeamInfoDto;
+import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
+import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
+import com.example.teamprojectbringiton.user.dto.request.PwdUpdateDTO;
+import com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -26,7 +26,7 @@ public class UserService {
     }
 
     @Transactional
-    public int userSave(JoinDto dto) {
+    public int userSave(JoinDTO dto) {
         System.out.println("서비스 진입");
         //회원가입 db에 insert
         User user = User.builder()
@@ -52,16 +52,16 @@ public class UserService {
     }
 
 
-    public User login(LoginDto loginDto) {
+    public User login(LoginDTO loginDto) {
         User user = userRepository.findByUsernameAndPassword(loginDto);
         return user;
     }
 
 
-    public void userPwdUpdate(Integer id, PwdUpdateDto pwdUpdateDto) {
+    public void userPwdUpdate(Integer id, PwdUpdateDTO pwdUpdateDto) {
     }
 
-    public UserTeamInfoDto findByIdWithTeam(Integer id) {
+    public UserTeamInfoDTO findByIdWithTeam(Integer id) {
         return userRepository.findByIdJoinTeam(id);
     }
 }

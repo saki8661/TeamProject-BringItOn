@@ -3,11 +3,11 @@ package com.example.teamprojectbringiton.user;
 import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
 
 
-import com.example.teamprojectbringiton.user.dto.reqDto.JoinDto;
-import com.example.teamprojectbringiton.user.dto.reqDto.LoginDto;
-import com.example.teamprojectbringiton.user.dto.reqDto.PwdUpdateDto;
-import com.example.teamprojectbringiton.user.dto.respDto.UserTeamInfoDto;
+import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
+import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
+import com.example.teamprojectbringiton.user.dto.request.PwdUpdateDTO;
 
+import com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -42,7 +42,7 @@ public class UserController {
     }
 
     @PostMapping("/join")
-    public String joinProc(JoinDto dto) {
+    public String joinProc(JoinDTO dto) {
         userService.userSave(dto);
         return "redirect:/kakako-login";
     }
@@ -64,7 +64,7 @@ public class UserController {
 
     @PostMapping("/login")
 
-    public String login(LoginDto loginDto, Model model) {
+    public String login(LoginDTO loginDto, Model model) {
         User user = userService.login(loginDto);
         session.setAttribute("sessionUser", user);
         model.addAttribute("sessionUser", user);
@@ -100,7 +100,7 @@ public class UserController {
     }
 
     @PostMapping("/passwordUpdate/{id}")
-    public String passwordUpdate(@PathVariable Integer id, PwdUpdateDto dto) {
+    public String passwordUpdate(@PathVariable Integer id, PwdUpdateDTO dto) {
 
 
         userService.userPwdUpdate(id, dto);
@@ -110,7 +110,7 @@ public class UserController {
 
     @GetMapping("/user-team/{id}")
     public String userTeamManagementPage(@PathVariable Integer id, Model model) {
-        UserTeamInfoDto teamInfo = userService.findByIdWithTeam(id);
+        UserTeamInfoDTO teamInfo = userService.findByIdWithTeam(id);
         model.addAttribute("teamInfo", teamInfo);
 
         return "user/userTeam";
