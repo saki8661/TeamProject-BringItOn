@@ -20,6 +20,15 @@
         where user_id = #{userId}
     </update>
 
+    <update id="updateById">
+        update inquire_tb
+        set inquire_category_id = #{inquireCategoryId},
+            inquire_title = #{inquireTitle},
+            inquire_content = #{inquireContent},
+            created_at = now()
+        where id = #{id}
+    </update>
+
     <delete id="deleteById">
         delete
         from inquire_tb
@@ -33,6 +42,9 @@
         where id = #{id}
     </select>
 
+    <select id="findByInquireId" resultType="com.example.teamprojectbringiton.inquire.Inquire">
+        select * from inquire_tb where id = #{id}
+    </select>
 
     <select id="findAllJoinCategory"
             resultType="com.example.teamprojectbringiton.inquire.dto.response.InquireListDTO">
@@ -40,6 +52,12 @@
         from inquire_tb i
                  join inquire_category_tb ic
                       on i.inquire_category_id = ic.id
+    </select>
+
+    <select id="findByInquireCategoryId" resultType="com.example.teamprojectbringiton.inquire.Inquire">
+        select *
+        from inquire_tb
+        where inquire_category_id = #{inquireCategoryId}
     </select>
 
 </mapper>

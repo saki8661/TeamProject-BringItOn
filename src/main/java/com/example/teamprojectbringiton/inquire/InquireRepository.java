@@ -13,7 +13,11 @@ public interface InquireRepository {
 
     public int updateById(Inquire inquire);
 
-    public int deleteById(Inquire id);
+    public int deleteById(Integer id);
+
+    public Inquire findByInquireId(Integer id);
+
+    public Inquire findByInquireCategoryId(String number);
 
 
     public List<Inquire> findAll();

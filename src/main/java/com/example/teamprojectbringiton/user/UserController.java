@@ -1,6 +1,8 @@
 package com.example.teamprojectbringiton.user;
 
 import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
+
+
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
 import com.example.teamprojectbringiton.user.dto.request.PwdUpdateDTO;
@@ -64,7 +66,6 @@ public class UserController {
     }
 
     @PostMapping("/login")
-
     public String login(LoginDTO loginDto, Model model) {
         User user = userService.login(loginDto);
         session.setAttribute("sessionUser", user);
@@ -118,8 +119,6 @@ public class UserController {
 
     @PostMapping("/passwordUpdate/{id}")
     public String passwordUpdate(@PathVariable Integer id, PwdUpdateDTO dto) {
-
-
         userService.userPwdUpdate(id, dto);
 
         return "redirect: /kakao-login";

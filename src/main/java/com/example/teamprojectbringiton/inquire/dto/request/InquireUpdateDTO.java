@@ -1,24 +1,17 @@
 package com.example.teamprojectbringiton.inquire.dto.request;
 
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
 
-import java.sql.Timestamp;
+import lombok.Getter;
+import lombok.Setter;
 
 @Getter
-@NoArgsConstructor
+@Setter
 public class InquireUpdateDTO {
+    private Integer id;
     private String inquireTitle;
     private String inquireContent;
-    private Timestamp createdAt;
+    private Integer inquireCategoryId;
     private Integer userId;
 
-    @Builder
-    public InquireUpdateDTO(String inquireTitle, String inquireContent, Timestamp createdAt, Integer userId) {
-        this.inquireTitle = inquireTitle;
-        this.inquireContent = inquireContent;
-        this.createdAt = createdAt;
-        this.userId = userId;
-    }
+
 }

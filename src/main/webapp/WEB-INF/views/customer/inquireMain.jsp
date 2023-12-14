@@ -32,6 +32,7 @@
         </div>
     </div>
 </div>
+
 <div class="frame">
     <div class="inquire_write">
         <div>문의하기</div>
@@ -117,18 +118,79 @@
                     </div>
                 </div>
             </button>
-            <div class="inquireMain_update_delete_btn">
-                <a href="#">
-                    <button>수정하기</button>
-                </a>
-                <a href="#">
-                    <button>삭제하기</button>
-                </a>
+
+
+            <div class="inquire_write_list">
+                <div class="inquireMain_update_delete_btn">
+
+                    <button type="button" class="inquireMain_update_btn" data-bs-toggle="modal"
+                            data-bs-target="#updateModal${inquire.id}">
+                        수정하기
+                    </button>
+
+                    <!-- 수정된 부분: 모달 ID를 고유하게 만들어 주세요 -->
+                    <div class="modal" id="updateModal${inquire.id}">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <!-- Modal Header -->
+                                <div class="userReservation_modal_header">
+                                    <h2 style="width: 100%; text-align: center; font-weight: bold; font-size: x-large;">
+                                        수정하기</h2>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <div class="inquire_write_form">
+                                        <form action="/inquire-update/${inquire.id}" method="post">
+                                            <input type="hidden" name="inquireId" value="${inquire.id}">
+                                            <div class="dropdown">
+                                                <select class="inquireMain_dropdown_btn" name="inquireCategoryId"
+                                                        id="dropdown">
+                                                    <div class="inquireMain_dropdown_menu">
+                                                        <c:forEach var="category" items="${inquireCategories}">
+                                                            <option value="${category.id}">
+                                                                <div class="inquireMain_dropdown_item">
+                                                                        ${category.inquireCategory}
+                                                                </div>
+                                                            </option>
+                                                        </c:forEach>
+                                                    </div>
+                                                </select>
+                                                <input type="hidden" value="selectedValue">
+                                            </div>
+                                            <div>제목</div>
+                                            <input type="text" class="form-control" placeholder="제목을 입력하세요"
+                                                   name="inquireTitle" value="${inquire.inquireTitle}">
+                                            <div>내용</div>
+                                            <textarea class="form-control" style="height: 300px" id="content"
+                                                      placeholder="문의 내용을 입력하세요"
+                                                      name="inquireContent">${inquire.inquireContent}</textarea>
+                                            <div class="inquire_write_modal_footer">
+                                                <button type="submit">
+                                                    수정
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form action="/inquire-delete/${inquire.id}" , method="get">
+                        <button class="inquireMain_delete_btn">삭제하기</button>
+                    </form>
+                </div>
+
             </div>
+
 
         </div>
     </c:forEach>
+<<<<<<< HEAD
+=======
 
+>>>>>>> dev
 </div>
 
 <script>
