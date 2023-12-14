@@ -656,12 +656,76 @@ input::placeholder {
     padding: 10px;
 }
 
-.userInfo_charge button {
+.userInfo_charge_button {
     background: yellow;
     width: 40px;
     height: 30px;
     border-radius: 5px;
     color: black;
+}
+
+.modal_charge_body{
+    margin-left: 50px;
+    margin-right: 50px;
+    height: 400px;
+}
+
+.modal_charge_button {
+    background: #19B357;
+    border-radius: 15px;
+    width: 100%;
+    height: 50px;
+}
+
+.modal_price_button {
+    display: grid;
+    grid-template-rows: repeat(3, 50px);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.modal_price_button button {
+    cursor: pointer;
+    border-radius: 10px;
+    background: #F3F5F7;
+    color: #B1BAC0;
+}
+
+.modal_price_button_item.active {
+    background-color: #19B357;
+    color: white;
+}
+
+.modal_charge_point{
+    color: #378AD7;
+    text-align: end;
+    margin-top: 10px;
+}
+
+.modal_charge_method{
+    height: 200px;
+}
+
+.modal_charge_icon{
+    display: flex;
+    gap: 15px;
+}
+
+.modal_charge_body_title{
+    color: black;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.modal_charge_checkbox{
+    color: black;
+    padding-bottom: 10px;
+}
+
+.modal_charge_checkbox_label {
+    display: flex;
+    line-height: 1.2;
 }
 
 .userInfo_link {
@@ -867,6 +931,7 @@ input::placeholder {
 /* LeagueMain */
 
 .leagueMain_table_main{}
+
 
 .leagueMain_modal {
     text-align: center;
@@ -2044,7 +2109,7 @@ td {
 }
 
 
-.userPayment_modal_footer a {
+.userPayment_modal_footer button {
     background: #19B357;
     padding: 10px 30px;
     border-radius: 12.5px;
