@@ -57,6 +57,7 @@
                         <c:choose>
                             <c:when test="${empty sessionUser}">
                                 <a href="/kakao-login">로그인</a>
+                                <a href="/join">회원가입</a>
                             </c:when>
                             <c:otherwise>
                                 <a href="#">My페이지</a>

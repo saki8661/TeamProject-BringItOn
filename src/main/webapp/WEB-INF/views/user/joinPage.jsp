@@ -17,7 +17,7 @@
 
 
 <div class="user_container">
-    <div><img src="./images/logo.png" class="user_logo"></div>
+    <div><a href="/home"><img src="./images/logo.png" class="user_logo"></a></div>
 
 
     <form action="/join" method="post">
@@ -144,15 +144,13 @@
                 type: 'POST',
                 url: '/check',
                 data: {
-                    "id": $('#id').val()
+                    "username": $('#username').val()
                 },
-
                 success: function (data) {
-                    if ($.trim(data) == 0) {
-                        alert("사용 가능한 아이디 입니다.");
-
-                    } else {
-                        alert("사용 불가능한 아이디 입니다.");
+                    if (data === 1) {
+                        alert("사용 가능한 아이디입니다.");
+                    } else if (data === 0) {
+                        alert("유저 아이디가 중복되었습니다.");
                     }
                 }
             });    //end ajax

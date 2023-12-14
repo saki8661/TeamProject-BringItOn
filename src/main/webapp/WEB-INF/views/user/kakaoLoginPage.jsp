@@ -16,11 +16,12 @@
 
 
 <div class="user_container">
-    <div><img src="./images/logo.png" class="user_logo"></div>
+    <div><a href="/home"><img src="./images/logo.png" class="user_logo"></a></div>
+
 
     <h3 class="join_us_text">고객님 환영합니다! 기다리고 있었습니다.</h3>
 
-    <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=&redirect_uri=http://localhost:80/kakao-callback&prompt=login">
+    <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${key}&redirect_uri=http://localhost:80/kakao-callback&prompt=login">
         <div><img src="./images/kakao_login_button.png" class="kakao_login_button">
         </div>
     </a>

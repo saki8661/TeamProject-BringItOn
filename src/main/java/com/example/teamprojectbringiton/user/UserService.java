@@ -22,16 +22,16 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    @Value("${tenco.key}")
+    @Value("${TENCO_KEY}")
     private String tencoKey;
 
+    @Value("${LOGIN_REST_API_KEY}")
+    private String key;
+
     @Transactional
-    public void usernameCheck(String username) {
+    public User usernameCheck(String username) {
         User user = userRepository.findByUsername(username);
-        System.out.println("유효성 체크 : " + user);
-        if (user != null) {
-            throw new CustomPageException("유저네임이 중복 되었습니다", HttpStatus.BAD_REQUEST);
-        }
+        return user;
     }
 
     @Transactional
@@ -111,7 +111,7 @@ public class UserService {
         // body 구성
         MultiValueMap<String, String> params1 = new LinkedMultiValueMap<>();
         params1.add("grant_type", "authorization_code");
-        params1.add("client_id", "34c1c00d8709bac5b82f2488a3a86d65");
+        params1.add("client_id", key);
         params1.add("redirect_uri", "http://localhost:80/kakao-callback");
         params1.add("code", code);
 

@@ -12,8 +12,8 @@ spring:
       suffix: .jsp
   servlet:
     multipart:
-      max-file-size:  20MB #최대 20MB
-      max-request-size:  20MB
+      max-file-size: 20MB #최대 20MB
+      max-request-size: 20MB
   datasource:
     url: jdbc:mysql://localhost:3306/bringiton?serverTimeZone=Asia/Seoul
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -44,6 +44,3 @@ logging:
   level:
     org.mybatis: DEBUG
 
-#초기 파라미터 설정
-  # tenco:
-  # key:  915672AEF5ACD1F1EED0CC56FD1256ABE488B6DA2A21A42E2BAFF25DF5D25198

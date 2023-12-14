@@ -1,11 +1,7 @@
 package com.example.teamprojectbringiton.user;
 
 import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
-<<<<<<< HEAD
 import com.example.teamprojectbringiton._core.utils.Define;
-=======
-
->>>>>>> dev
 import com.example.teamprojectbringiton.user.dto.reqDto.JoinDto;
 import com.example.teamprojectbringiton.user.dto.reqDto.LoginDto;
 import com.example.teamprojectbringiton.user.dto.reqDto.PwdUpdateDto;
@@ -32,10 +28,14 @@ public class UserController {
     @Autowired
     private HttpSession session;
 
+    @Value("${LOGIN_REST_API_KEY}")
+    private String key;
+
 
     @GetMapping("/kakao-login")
-    public String kakaoLogin() {
+    public String kakaoLogin(Model model) {
         System.out.println("카카오로그인 겟");
+        model.addAttribute("key", key);
         return "user/kakaoLoginPage";
     }
 
@@ -52,9 +52,13 @@ public class UserController {
 
     @ResponseBody
     @PostMapping("/check")
-    public ResponseEntity<String> check(String username) {
-        userService.usernameCheck(username);
-        return new ResponseEntity<String>("유저네임을 사용할 수 있습니다", HttpStatus.OK);
+    public int check(String username) {
+        System.out.println("중복 체크 컨트로러 진입 : " + username);
+        User user = userService.usernameCheck(username);
+        if (user != null) {
+            return 0;
+        }
+        return 1;
     }
 
     @GetMapping("/login")

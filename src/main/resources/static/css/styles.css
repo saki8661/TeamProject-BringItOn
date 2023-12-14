@@ -867,7 +867,6 @@ input::placeholder {
 /* LeagueMain */
 
 
-
 .leagueMain_modal {
     text-align: center;
 }
@@ -2751,7 +2750,7 @@ td {
 }
 
 .league_matching_content {
-    width: 120px;
+    width: 125px;
     text-align: center;
     color: black;
 }
