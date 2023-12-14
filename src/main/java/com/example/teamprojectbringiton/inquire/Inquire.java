@@ -8,7 +8,6 @@ import java.sql.Timestamp;
 
 @Getter
 @NoArgsConstructor
-
 public class Inquire {
     private Integer id;
     private String inquireTitle;

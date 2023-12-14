@@ -32,7 +32,7 @@
     </select>
 
     <select id="findByIdJoinSpaceAndSpacePic"
-            resultType="com.example.teamprojectbringiton.space.dto.respDto.SpaceDetailDto">
+            resultType="com.example.teamprojectbringiton.space.dto.response.SpaceDetailDTO">
         select *
         from space_tb as space
              join space_pic_tb as pic
@@ -40,7 +40,7 @@
         where space.id = #{id}
     </select>
 
-    <select id="findByIdSpaceReview" resultType="com.example.teamprojectbringiton.space.dto.respDto.SpaceReviewDto">
+    <select id="findByIdSpaceReview" resultType="com.example.teamprojectbringiton.space.dto.response.SpaceReviewDTO">
         select ut.username, rt.rating, rt.comment, rt.created_at
         from review_tb rt
                  join user_tb ut on rt.user_id = ut.id
@@ -48,7 +48,7 @@
         order by rt.created_at desc;
     </select>
 
-    <select id="findAllJoinSportAndRegion" resultType="com.example.teamprojectbringiton.space.dto.respDto.SpaceDto">
+    <select id="findAllJoinSportAndRegion" resultType="com.example.teamprojectbringiton.space.dto.response.SpaceDTO">
         select *
         from space_tb space
             left join sport_tb sport

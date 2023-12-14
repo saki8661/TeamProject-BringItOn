@@ -1,8 +1,8 @@
 package com.example.teamprojectbringiton.inquire;
 
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
-import com.example.teamprojectbringiton.inquire.dto.reqDto.InquireWriteDto;
-import com.example.teamprojectbringiton.inquire.dto.respDto.InquireListDto;
+import com.example.teamprojectbringiton.inquire.dto.request.InquireWriteDTO;
+import com.example.teamprojectbringiton.inquire.dto.response.InquireListDTO;
 import com.example.teamprojectbringiton.inquire.inquireCategory.InquireCategory;
 import com.example.teamprojectbringiton.inquire.inquireCategory.InquireCategoryRepository;
 import jakarta.servlet.http.HttpSession;
@@ -27,7 +27,7 @@ public class InquireService {
     private HttpSession session;
 
     // 공지 목록 보기 기능
-    public List<InquireListDto> inquireList() {
+    public List<InquireListDTO> inquireList() {
         return inquireRepository.findAllJoinCategory();
     }
 
@@ -35,7 +35,7 @@ public class InquireService {
         return inquireCategoryRepository.findAll();
     }
 
-    public void inquireWrite(InquireWriteDto dto, Integer principalId) {
+    public void inquireWrite(InquireWriteDTO dto, Integer principalId) {
         Inquire inquire = Inquire.builder()
                 .inquireTitle(dto.getInquireTitle())
                 .inquireContent(dto.getInquireContent())

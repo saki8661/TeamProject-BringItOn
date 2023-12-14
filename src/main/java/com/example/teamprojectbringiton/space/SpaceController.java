@@ -2,9 +2,11 @@ package com.example.teamprojectbringiton.space;
 
 
 import com.example.teamprojectbringiton._core.utils.PageVO;
-import com.example.teamprojectbringiton.space.dto.respDto.SpaceDetailDto;
-import com.example.teamprojectbringiton.space.dto.respDto.SpaceDto;
-import com.example.teamprojectbringiton.space.dto.respDto.SpaceReviewDto;
+import com.example.teamprojectbringiton.space.dto.response.SpaceDTO;
+import com.example.teamprojectbringiton.space.dto.response.SpaceDetailDTO;
+import com.example.teamprojectbringiton.space.dto.response.SpaceReviewDTO;
+import com.example.teamprojectbringiton.user.User;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -20,15 +22,20 @@ public class SpaceController {
     @Autowired
     private SpaceService spaceService;
 
+    @Autowired
+    private HttpSession session;
 
 
     @GetMapping("/space-detail/{id}")
     public String placeDetailPage(@PathVariable Integer id, Model model) {
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        System.out.println("세션에는 값이 머가 있을까 ? : " + sessionUser.getUsername());
         System.out.println("컨트롤러 진입" + id);
-        SpaceDetailDto spaceDetail = spaceService.spaceFindById(id);
+        SpaceDetailDTO spaceDetail = spaceService.spaceFindById(id);
         model.addAttribute("spaceDetail", spaceDetail);
-        List<SpaceReviewDto> spaceReviewList = spaceService.spaceReviewFindById(id);
+        List<SpaceReviewDTO> spaceReviewList = spaceService.spaceReviewFindById(id);
         model.addAttribute("spaceReviewList", spaceReviewList);
+        model.addAttribute("sessionUser", sessionUser);
         System.out.println("모델에 담겼나마루치아라치");
         return "/spaceRental/placeDetail";
     }
@@ -38,7 +45,7 @@ public class SpaceController {
                                 @RequestParam(name = "pageSize", defaultValue = "8") int pageSize,
                                 Model model) {
 
-        List<SpaceDto> spaces = spaceService.findAllPaged(pageSize, currentPage);
+        List<SpaceDTO> spaces = spaceService.findAllPaged(pageSize, currentPage);
         int totalItems = spaceService.getTotalItemCount();
 
         // 추가: 페이징 정보 설정

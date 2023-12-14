@@ -17,7 +17,7 @@
 
 
 <div class="user_container">
-    <div><img src="./images/logo.png" class="user_logo"></div>
+    <div><a href="/home"><img src="./images/logo.png" class="user_logo"></a></div>
 
 
     <form action="/join" method="post">
@@ -25,6 +25,7 @@
             <div class="join_user_id">
                 <input type="text" class="form-control" id="username" placeholder="아이디" name="username" maxlength="20"
                        required>
+                <div class="joinPage_box"></div>
                 <button type="button" name="dbCheckId" class="join_check_button" id="userCheck">
                     중복확인
                 </button>
@@ -53,28 +54,28 @@
 
             </div>
             <div class="join_address_container mb-3">
-
-                <input type="text" class="form-control" id="userAddress" placeholder="주소" name="userAddress" required>
-
-
-                <button type="button" class="join_address_button" id="addressSearch" onclick="findAddr()">주소 검색</button>
-
+                <input type="text" class="form-control" id="userAddress" placeholder="주소" name="userAddress" required
+                       disabled>
+                <div class="joinPage_box"></div>
+                <button type="button" class="join_address_button" id="addressSearch" onclick="findAddr()">주소
+                    검색
+                </button>
             </div>
 
 
             <div class="join_check">
                 <div class="join_form_company">
-                    <input class="form-check-input" type="radio" name="isAdmin" value="true" id="companyCheck"
+                    <input class="form-check-input" type="radio" name="userDivision" value="호스트" id="companyCheck"
                            required>
-                    <label class="form-check-label" for="companyCheck">기업 회원</label>
-                    <div class="valid-feedback">기업으로 로그인 합니다.</div>
+                    <label class="form-check-label" for="companyCheck">호스트로 가입</label>
+                    <div class="valid-feedback">호스트로 로그인 합니다.</div>
                     <div class="invalid-feedback"></div>
                 </div>
                 <div class="join_form_personal">
-                    <input class="form-check-input" type="radio" name="isAdmin" value="false" id="personalCheck"
+                    <input class="form-check-input" type="radio" name="userDivision" value="게스트" id="personalCheck"
                            required>
-                    <label class="form-check-label" for="personalCheck">개인 회원</label>
-                    <div class="valid-feedback">회원으로 로그인 합니다.</div>
+                    <label class="form-check-label" for="personalCheck">유저로 가입</label>
+                    <div class="valid-feedback">유저으로 로그인 합니다.</div>
                     <div class="invalid-feedback"></div>
                 </div>
             </div>
@@ -83,6 +84,10 @@
         <div class="join_button_con">
             <button type="submit" class="join_button">회원가입</button>
         </div>
+        <div class="loginPage_box"></div>
+        <a href="/kakao-login">
+            로그인 페이지
+        </a>
     </form>
 </div>
 
@@ -131,23 +136,21 @@
             });
         });
     }
-    $(document).ready(function(){
-        $('#userCheck').on('click', function(){
+
+    $(document).ready(function () {
+        $('#userCheck').on('click', function () {
             console.log('userCheck clicked');
             $.ajax({
                 type: 'POST',
                 url: '/check',
                 data: {
-                    "id" : $('#id').val()
+                    "username": $('#username').val()
                 },
-
-                success: function(data){
-                    if($.trim(data) == 0){
-                        alert("사용 가능한 아이디 입니다.");
-
-                    }
-                    else{
-                        alert("사용 불가능한 아이디 입니다.");
+                success: function (data) {
+                    if (data === 1) {
+                        alert("사용 가능한 아이디입니다.");
+                    } else if (data === 0) {
+                        alert("유저 아이디가 중복되었습니다.");
                     }
                 }
             });    //end ajax

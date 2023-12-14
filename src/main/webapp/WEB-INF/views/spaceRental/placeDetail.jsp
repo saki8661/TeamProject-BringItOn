@@ -123,7 +123,7 @@
                                 <div class="scroll3_place_detail_review_star">
                                     <i class="fas fa-star text-warning"></i>
                                     <div class="rated_star">${spaceReview.rating}</div>
-                                    <div class="rated_star_username">${spaceReview.username}
+                                    <div class="rated_star_username">${sessionUser.username}
                                     </div>
                                     <div class="separated_line"></div>
                                     <div class="rated_star_date">${spaceReview.createdAt}</div>

@@ -1,4 +1,4 @@
-package com.example.teamprojectbringiton.inquire.dto.reqDto;
+package com.example.teamprojectbringiton.inquire.dto.request;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -8,14 +8,14 @@ import java.sql.Timestamp;
 
 @Getter
 @NoArgsConstructor
-public class InquireUpdateDto {
+public class InquireUpdateDTO {
     private String inquireTitle;
     private String inquireContent;
     private Timestamp createdAt;
     private Integer userId;
 
     @Builder
-    public InquireUpdateDto(String inquireTitle, String inquireContent, Timestamp createdAt, Integer userId) {
+    public InquireUpdateDTO(String inquireTitle, String inquireContent, Timestamp createdAt, Integer userId) {
         this.inquireTitle = inquireTitle;
         this.inquireContent = inquireContent;
         this.createdAt = createdAt;

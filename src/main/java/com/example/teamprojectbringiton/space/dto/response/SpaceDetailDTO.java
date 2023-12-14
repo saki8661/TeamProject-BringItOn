@@ -1,10 +1,10 @@
-package com.example.teamprojectbringiton.space.dto.respDto;
+package com.example.teamprojectbringiton.space.dto.response;
 
 
 import lombok.Data;
 
 @Data
-public class SpaceDetailDto {
+public class SpaceDetailDTO {
     private Integer id;
     private String spaceName;
     private String description;

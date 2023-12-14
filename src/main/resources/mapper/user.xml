@@ -6,8 +6,10 @@
         namespace="com.example.teamprojectbringiton.user.UserRepository">
 
     <insert id="insert">
-        insert into user_tb(username, password, user_email, user_phone_number, user_address)
-        values (#{username}, #{password}, #{userEmail}, #{userPhoneNumber}, #{userAddress});
+        insert into user_tb(username, password, user_email, user_phone_number, user_address, user_pic_url, nickName,
+                            user_division, created_at)
+        values (#{username}, #{password}, #{userEmail}, #{userPhoneNumber}, #{userAddress}, #{userPicUrl}, #{nickName},
+                #{userDivision}, now());
     </insert>
 
     <update id="updateById">
@@ -58,7 +60,7 @@
 
 
     <select id="findByIdJoinTeam"
-            resultType="com.example.teamprojectbringiton.user.dto.respDto.UserTeamInfoDto">
+            resultType="com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO">
         select *
         from user_tb u
                  join team_tb t

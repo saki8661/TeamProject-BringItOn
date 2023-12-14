@@ -1,12 +1,10 @@
-package com.example.teamprojectbringiton.inquire.dto.reqDto;
+package com.example.teamprojectbringiton.inquire.dto.request;
 
 import lombok.*;
 
-import java.sql.Timestamp;
-
 @Getter
 @Setter
-public class InquireWriteDto {
+public class InquireWriteDTO {
     private String inquireTitle;
     private String inquireContent;
     private Integer inquireCategoryId;

@@ -867,7 +867,6 @@ input::placeholder {
 /* LeagueMain */
 
 
-
 .leagueMain_modal {
     text-align: center;
 }
@@ -1792,8 +1791,6 @@ td {
     }
 }
 
-<<<<<<< HEAD
-=======
 @media (min-width: 576px) {
     .league_modal-dialog {
         width: 700px;
@@ -1803,7 +1800,6 @@ td {
     }
 }
 
->>>>>>> dev
 
 .modal-dialog {
     display: inline-block;
@@ -1824,10 +1820,7 @@ td {
 
 .modal-body {
     padding-bottom: 0;
-<<<<<<< HEAD
-=======
     width: 100%;
->>>>>>> dev
 }
 
 .userReservation_modal_header h2 {
@@ -2066,10 +2059,6 @@ td {
     justify-content: center;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> dev
 .userPayment_table_header {
     margin-left: 3px;
 }
@@ -2384,8 +2373,6 @@ td {
     position: relative;
 }
 
-<<<<<<< HEAD
-=======
 .league_matching_menu_nav {
     width: 100%;
     margin-top: 0;
@@ -2397,7 +2384,6 @@ td {
     position: relative;
 }
 
->>>>>>> dev
 .menu_nav_area {
     display: flex;
     align-items: center;
@@ -2413,17 +2399,17 @@ td {
     text-align: center;
 }
 
-<<<<<<< HEAD
-=======
+
 .league_matching_menu_list {
     display: table;
     list-style-type: none;
     width: 30%;
     text-align: center;
     font-size: 14px;
+    justify-content: center;
+    justify-items: center;
 }
 
->>>>>>> dev
 .menu__menu {
     display: table-cell;
     vertical-align: middle;
@@ -2432,23 +2418,50 @@ td {
     border: 1px solid #19B357;
 }
 
-<<<<<<< HEAD
-=======
+.menu__menu img {
+    height: 20px;
+    width: 20px;
+}
+
+.menu__menu__menu {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+.menu__menu__menu img {
+    margin-right: 5px;
+}
+
 .league_matching_menu_menu {
     display: table-cell;
     vertical-align: middle;
     height: 40px;
-    width: 30%;
+    width: 50px;
     cursor: pointer;
-    border: 1px solid #19B357;
 }
 
-.league_matching_menu_menu:hover {
+
+.league_matching_menu_menu img {
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+}
+
+.league_matching_menu_menu a {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+
+.league_matching_menu_menu a:hover {
     background-color: #19B357;
     color: white;
+    border-radius: 5px;
 }
 
->>>>>>> dev
+
 .menu__menu:hover {
     background-color: #19B357;
     color: white;
@@ -2464,10 +2477,6 @@ td {
     display: table;
 }
 
-<<<<<<< HEAD
-=======
-
->>>>>>> dev
 .subwrapper {
     display: none;
     width: 100%;
@@ -2475,12 +2484,6 @@ td {
     top: 50px;
     left: 0;
 }
-
-/*.subnav {*/
-/*    width: 80%;*/
-/*    max-width: 1024px;*/
-/*    margin: 0 auto;*/
-/*}*/
 
 .submenu__list {
     display: none;
@@ -2521,13 +2524,8 @@ td {
 /*placeResistration*/
 
 . place_resistration_letter {
-<<<<<<< HEAD
->>> >>> > dev display: flex;
-=======
     display: flex;
->>>>>>> dev
     flex-direction: column;
-
 }
 
 .place_resistration_title {
@@ -2681,7 +2679,6 @@ td {
     width: 200px;
     height: auto;
     margin-top: 10px;
-< < < < < < < HEAD
 
 }
 
@@ -2697,6 +2694,8 @@ td {
     text-align: center; /* 텍스트를 수평 가운데 정렬합니다. */
     line-height: 27px;
     align-content: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .league_matching_table_sub_title {
@@ -2743,7 +2742,7 @@ td {
 }
 
 .league_matching_content {
-    width: 120px;
+    width: 125px;
     text-align: center;
     color: black;
 }
@@ -2771,7 +2770,7 @@ td {
 
 .matching_box {
     margin-top: 20px;
-    border: 2px solid black;
+
 }
 
 .matching_my_score {
@@ -3281,8 +3280,10 @@ body {
     flex-direction: row;
 }
 
-<<<<<<< HEAD
-=======
+.loginPage_box {
+    height: 15px;
 }
 
->>>>>>> dev
+.joinPage_box {
+    width: 5px;
+}

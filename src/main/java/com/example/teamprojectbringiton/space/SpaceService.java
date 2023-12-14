@@ -1,10 +1,10 @@
 package com.example.teamprojectbringiton.space;
 
 
-import com.example.teamprojectbringiton.space.dto.respDto.SpaceDetailDto;
-import com.example.teamprojectbringiton.space.dto.respDto.SpaceDto;
-import com.example.teamprojectbringiton.space.dto.respDto.SpaceListDto;
-import com.example.teamprojectbringiton.space.dto.respDto.SpaceReviewDto;
+import com.example.teamprojectbringiton.space.dto.response.SpaceDTO;
+import com.example.teamprojectbringiton.space.dto.response.SpaceDetailDTO;
+import com.example.teamprojectbringiton.space.dto.response.SpaceListDTO;
+import com.example.teamprojectbringiton.space.dto.response.SpaceReviewDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -16,28 +16,28 @@ public class SpaceService {
     @Autowired
     private SpaceRepository spaceRepository;
 
-    public List<SpaceListDto> findAll() {
-        List<SpaceListDto> spaces = spaceRepository.findAllJoinSportAndRegion();
+    public List<SpaceListDTO> findAll() {
+        List<SpaceListDTO> spaces = spaceRepository.findAllJoinSportAndRegion();
         System.out.println(spaces.get(1).isInside());
 
         return spaces;
     }
 
-    public SpaceDetailDto spaceFindById(Integer id) {
-        SpaceDetailDto spaceDetail = spaceRepository.findByIdJoinSpaceAndSpacePic(id);
+    public SpaceDetailDTO spaceFindById(Integer id) {
+        SpaceDetailDTO spaceDetail = spaceRepository.findByIdJoinSpaceAndSpacePic(id);
         System.out.println("++++++");
         return spaceDetail;
     }
 
-    public List<SpaceReviewDto> spaceReviewFindById(Integer id) {
+    public List<SpaceReviewDTO> spaceReviewFindById(Integer id) {
         System.out.println("서비스 진입" + id);
-        List<SpaceReviewDto> spaceReview = spaceRepository.findByIdSpaceReview(id);
+        List<SpaceReviewDTO> spaceReview = spaceRepository.findByIdSpaceReview(id);
         System.out.println("+++++++++++++++++레파지토리++++++++++++++");
         return spaceReview;
 
     }
 
-    public List<SpaceDto> findAllPaged(int pageSize, int currentPage) {
+    public List<SpaceDTO> findAllPaged(int pageSize, int currentPage) {
         System.out.println("페이징 서비스 진입 : " + pageSize);
         System.out.println("페이징 서비스 진입 : " + currentPage);
         int offset = currentPage * pageSize - pageSize;

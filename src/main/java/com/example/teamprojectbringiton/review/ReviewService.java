@@ -1,7 +1,6 @@
 package com.example.teamprojectbringiton.review;
 
 import com.example.teamprojectbringiton.review.reqDTO.SpaceReviewDto;
-import com.example.teamprojectbringiton.space.dto.reqDTO.SpaceRatingReviewDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
