@@ -85,7 +85,7 @@
                     <c:forEach var="item" items="${spaces}">
                         <div>
                             <div class="inside_content">
-                                <img src="/images/${item.spacePic}">
+                                <a href="/space-detail/1"><img src="/images/${item.spacePic}"></a>
                             </div>
 
                             <div class="main_content_title m-2">
@@ -115,12 +115,14 @@
 
                 <ul class="pagination main_paging">
                     <li class="page-item${pageVO.currentPage eq pageVO.firstPage ? ' disabled' : ''}">
-                        <a class="page-link" href="?currentPage=${pageVO.firstPage}&itemsPerPage=${pageVO.countPerPage}">
+                        <a class="page-link"
+                           href="?currentPage=${pageVO.firstPage}&itemsPerPage=${pageVO.countPerPage}">
                             <<
                         </a>
                     </li>
                     <li class="page-item${pageVO.currentPage eq pageVO.firstPage ? ' disabled' : ''}">
-                        <a class="page-link" href="?currentPage=${pageVO.currentPage - 1}&itemsPerPage=${pageVO.countPerPage}">
+                        <a class="page-link"
+                           href="?currentPage=${pageVO.currentPage - 1}&itemsPerPage=${pageVO.countPerPage}">
                             <
                         </a>
                     </li>
@@ -129,7 +131,8 @@
                             <!-- 페이지가 5개 이하일 경우 -->
                             <c:forEach begin="1" end="${pageVO.lastPage}" var="pageNumber">
                                 <li class="page-item ${pageVO.currentPage eq pageNumber ? 'active' : ''}">
-                                    <a class="page-link" href="?currentPage=${pageNumber}&itemsPerPage=${pageVO.countPerPage}">
+                                    <a class="page-link"
+                                       href="?currentPage=${pageNumber}&itemsPerPage=${pageVO.countPerPage}">
                                             ${pageNumber}
                                     </a>
                                 </li>
@@ -137,19 +140,20 @@
                         </c:when>
                         <c:otherwise>
                             <!-- 페이지가 5개 초과일 경우 -->
-                            <c:set var="startPage" value="${pageVO.currentPage - 2}" />
+                            <c:set var="startPage" value="${pageVO.currentPage - 2}"/>
                             <c:choose>
                                 <c:when test="${startPage lt 1}">
-                                    <c:set var="startPage" value="1" />
+                                    <c:set var="startPage" value="1"/>
                                 </c:when>
                                 <c:when test="${startPage gt pageVO.lastPage - 4}">
-                                    <c:set var="startPage" value="${pageVO.lastPage - 4}" />
+                                    <c:set var="startPage" value="${pageVO.lastPage - 4}"/>
                                 </c:when>
                             </c:choose>
 
                             <c:forEach begin="${startPage}" end="${startPage + 4}" var="pageNumber">
                                 <li class="page-item ${pageVO.currentPage eq pageNumber ? 'active' : ''}">
-                                    <a class="page-link" href="?currentPage=${pageNumber}&itemsPerPage=${pageVO.countPerPage}">
+                                    <a class="page-link"
+                                       href="?currentPage=${pageNumber}&itemsPerPage=${pageVO.countPerPage}">
                                             ${pageNumber}
                                     </a>
                                 </li>
@@ -157,7 +161,8 @@
                         </c:otherwise>
                     </c:choose>
                     <li class="page-item${pageVO.currentPage eq pageVO.lastPage ? ' disabled' : ''}">
-                        <a class="page-link" href="?currentPage=${pageVO.currentPage + 1}&itemsPerPage=${pageVO.countPerPage}">
+                        <a class="page-link"
+                           href="?currentPage=${pageVO.currentPage + 1}&itemsPerPage=${pageVO.countPerPage}">
                             >
                         </a>
                     </li>

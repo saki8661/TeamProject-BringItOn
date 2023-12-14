@@ -11,8 +11,7 @@
 
     <update id="updateById">
         update space_tb
-        set
-        where id = #{id}
+        set where id = #{id}
     </update>
 
     <delete id="deleteById">
@@ -32,21 +31,40 @@
         from space_tb
     </select>
 
-        <select id="findAllJoinSportAndRegion" resultType="com.example.teamprojectbringiton.space.dto.respDTO.SpaceDto">
-            select *
-            from space_tb space
+    <select id="findByIdJoinSpaceAndSpacePic"
+            resultType="com.example.teamprojectbringiton.space.dto.response.SpaceDetailDTO">
+        select *
+        from space_tb as space
+             join space_pic_tb as pic
+        on space.id= pic.space_id
+        where space.id = #{id}
+    </select>
+
+    <select id="findByIdSpaceReview" resultType="com.example.teamprojectbringiton.space.dto.response.SpaceReviewDTO">
+        select ut.username, rt.rating, rt.comment, rt.created_at
+        from review_tb rt
+                 join user_tb ut on rt.user_id = ut.id
+        where rt.space_id = #{id}
+        order by rt.created_at desc;
+    </select>
+
+    <select id="findAllJoinSportAndRegion" resultType="com.example.teamprojectbringiton.space.dto.response.SpaceDTO">
+        select *
+        from space_tb space
             left join sport_tb sport
-            on space.sport_id = sport.id
-                left join region_tb r
-                on space.region_id = r.id
-                left join space_pic_tb pic
-                on space.id = pic.space_id
-            order by space.id desc
-            limit #{pageSize} offset #{offset}
-        </select>
+        on space.sport_id = sport.id
+            left join region_tb r
+            on space.region_id = r.id
+            left join space_pic_tb pic
+            on space.id = pic.space_id
+        order by space.id desc
+            limit #{pageSize}
+        offset #{offset}
+    </select>
 
     <select id="findAllCount" resultType="int">
         select count(*)
         from space_tb;
     </select>
+
 </mapper>

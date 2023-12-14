@@ -1,8 +1,8 @@
 package com.example.teamprojectbringiton.inquire;
 
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
-import com.example.teamprojectbringiton.inquire.dto.reqDto.InquireWriteDto;
-import com.example.teamprojectbringiton.inquire.dto.respDto.InquireListDto;
+import com.example.teamprojectbringiton.inquire.dto.request.InquireWriteDTO;
+import com.example.teamprojectbringiton.inquire.dto.response.InquireListDTO;
 import com.example.teamprojectbringiton.inquire.inquireCategory.InquireCategory;
 import com.example.teamprojectbringiton.inquire.inquireCategory.InquireCategoryRepository;
 import jakarta.servlet.http.HttpSession;
@@ -12,11 +12,13 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+
 @Service
 public class InquireService {
 
     @Autowired
     private InquireRepository inquireRepository;
+
 
     @Autowired
     private InquireCategoryRepository inquireCategoryRepository;
@@ -25,7 +27,7 @@ public class InquireService {
     private HttpSession session;
 
     // 공지 목록 보기 기능
-    public List<InquireListDto> inquireList() {
+    public List<InquireListDTO> inquireList() {
         return inquireRepository.findAllJoinCategory();
     }
 
@@ -33,7 +35,7 @@ public class InquireService {
         return inquireCategoryRepository.findAll();
     }
 
-    public void inquireWrite(InquireWriteDto dto, Integer principalId) {
+    public void inquireWrite(InquireWriteDTO dto, Integer principalId) {
         Inquire inquire = Inquire.builder()
                 .inquireTitle(dto.getInquireTitle())
                 .inquireContent(dto.getInquireContent())
@@ -42,12 +44,13 @@ public class InquireService {
                 .build();
 
         int inquireWrite = inquireRepository.insert(inquire);
-        System.out.println("inquire@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+ dto.getInquireTitle());
-        System.out.println("inquire@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+ dto.getInquireContent());
-        System.out.println("inquire@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+ dto.getInquireCategoryId());
-        System.out.println("inquire@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+ principalId);
-        if(inquireWrite != 1){
+        System.out.println("inquire@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" + dto.getInquireTitle());
+        System.out.println("inquire@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" + dto.getInquireContent());
+        System.out.println("inquire@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" + dto.getInquireCategoryId());
+        System.out.println("inquire@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" + principalId);
+        if (inquireWrite != 1) {
             throw new CustomRestfullException("공지 등록 실패", HttpStatus.INTERNAL_SERVER_ERROR);
+
         }
     }
 

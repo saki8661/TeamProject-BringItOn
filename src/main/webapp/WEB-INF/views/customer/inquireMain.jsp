@@ -75,6 +75,7 @@
                             <div>내용</div>
                             <textarea class="form-control" style="height: 300px" id="content"
                                       placeholder="문의 내용을 입력하세요" name="inquireContent"></textarea>
+
                             <div class="inquire_write_modal_footer">
                                 <button type="submit">
                                     등록
@@ -128,7 +129,6 @@
         </div>
     </c:forEach>
 
-
 </div>
 
 <script>
@@ -168,6 +168,7 @@
             selectedValueInput.value = dropdown.value;
         });
     });
+
 </script>
 
 <%@ include file="../layout/footer.jsp" %>

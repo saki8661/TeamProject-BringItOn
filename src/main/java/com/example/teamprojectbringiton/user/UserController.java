@@ -1,23 +1,18 @@
 package com.example.teamprojectbringiton.user;
 
 import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
-import com.example.teamprojectbringiton._core.utils.Define;
-import com.example.teamprojectbringiton.user.dto.reqDto.JoinDto;
-import com.example.teamprojectbringiton.user.dto.reqDto.LoginDto;
-import com.example.teamprojectbringiton.user.dto.reqDto.PwdUpdateDto;
-import com.example.teamprojectbringiton.user.dto.respDto.KakaoProfile;
-import com.example.teamprojectbringiton.user.dto.respDto.OAuthToken;
-import com.example.teamprojectbringiton.user.dto.respDto.UserTeamInfoDto;
+import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
+import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
+import com.example.teamprojectbringiton.user.dto.request.PwdUpdateDTO;
+import com.example.teamprojectbringiton.user.dto.response.KakaoProfile;
+import com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.*;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.util.LinkedMultiValueMap;
-import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.client.RestTemplate;
 
 @Controller
 public class UserController {
@@ -34,6 +29,7 @@ public class UserController {
 
     @GetMapping("/kakao-login")
     public String kakaoLogin(Model model) {
+
         System.out.println("카카오로그인 겟");
         model.addAttribute("key", key);
         return "user/kakaoLoginPage";
@@ -45,7 +41,7 @@ public class UserController {
     }
 
     @PostMapping("/join")
-    public String joinProc(JoinDto dto) {
+    public String joinProc(JoinDTO dto) {
         userService.userSave(dto);
         return "redirect:/login";
     }
@@ -62,12 +58,14 @@ public class UserController {
     }
 
     @GetMapping("/login")
+
     public String loginPage() {
         return "/user/loginPage";
     }
 
     @PostMapping("/login")
-    public String login(LoginDto loginDto, Model model) {
+
+    public String login(LoginDTO loginDto, Model model) {
         User user = userService.login(loginDto);
         session.setAttribute("sessionUser", user);
         model.addAttribute("sessionUser", user);
@@ -98,12 +96,14 @@ public class UserController {
 
     @GetMapping("/logout")
     public String logout() {
+
         session.invalidate();
         return "redirect:/home";
     }
 
     @GetMapping("/user-update/{id}")
     public String userUpdatePage(@PathVariable Integer id, Model model) {
+
         // 인증 검사 (로그인 유무)
         User principal = (User) session.getAttribute("sessionUser");
         if (principal == null) {
@@ -117,7 +117,8 @@ public class UserController {
     }
 
     @PostMapping("/passwordUpdate/{id}")
-    public String passwordUpdate(@PathVariable Integer id, PwdUpdateDto dto) {
+    public String passwordUpdate(@PathVariable Integer id, PwdUpdateDTO dto) {
+
 
         userService.userPwdUpdate(id, dto);
 
@@ -126,7 +127,7 @@ public class UserController {
 
     @GetMapping("/user-team/{id}")
     public String userTeamManagementPage(@PathVariable Integer id, Model model) {
-        UserTeamInfoDto teamInfo = userService.findByIdWithTeam(id);
+        UserTeamInfoDTO teamInfo = userService.findByIdWithTeam(id);
         model.addAttribute("teamInfo", teamInfo);
 
         return "user/userTeam";
@@ -134,6 +135,7 @@ public class UserController {
 
 
     @GetMapping("/user-bookmark")
+
     public String userBookmarkManagementPage() {
         return "user/userBookmark";
     }
@@ -158,4 +160,5 @@ public class UserController {
     public String leagueMatchingPage() {
         return "user/leagueMatchingPage";
     }
+
 }

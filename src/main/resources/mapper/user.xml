@@ -60,7 +60,7 @@
 
 
     <select id="findByIdJoinTeam"
-            resultType="com.example.teamprojectbringiton.user.dto.respDto.UserTeamInfoDto">
+            resultType="com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO">
         select *
         from user_tb u
                  join team_tb t

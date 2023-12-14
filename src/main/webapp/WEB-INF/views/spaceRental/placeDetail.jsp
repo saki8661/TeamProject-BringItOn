@@ -8,9 +8,9 @@
             <div class="place_detail_description">
                 <div class="slider-container">
                     <div class="slider">
-                        <img src="/images/place.jpg" alt="Image 1">
-                        <img src="/images/place.jpg" alt="Image 2">
-                        <img src="/images/place.jpg" alt="Image 3">
+                        <img src="/images/${spaceDetail.spacePic}" alt="Image 1">
+                        <img src="/images/${spaceDetail.spacePic}" alt="Image 2">
+                        <img src="/images/${spaceDetail.spacePic}" alt="Image 3">
                         <!-- Add more images as needed -->
                     </div>
                     <div class="place_detail_slider_button">
@@ -20,36 +20,38 @@
                 </div>
                 <div class="place_detail_photo_name_container">
                     <div class="place_detail_photo_name">
-                        <h1>한성대학교</h1>
+                        <h1>${spaceDetail.spaceName}</h1>
                     </div>
                     <div class="place_detail_photo_name_field">
                         야외시설 테니스장/풋살장
                     </div>
                     <div class="place_detail_photo_location">
-                        서울 성북구 삼선교로16길 116
+
                     </div>
                     <div class="place_detail_photo_star_container">
+
                         <i class="fas fa-star text-warning"></i>
                         <div class="place_detail_photo_star_num">
-                            4.9
+                            ${spaceReview.rating}
                         </div>
                         <div class="separated_line"></div>
                         <div class="place_detail_review">
                             후기(22)
                         </div>
+
                     </div>
                 </div>
                 <div class="place_detail_tab_bar_container">
                     <ul class="place_detail_list">
-                        <li class="place_detail_li" style="padding-left: 50px"><a href="#scroll1_place_detail_info"
-                                                                                  class="scroll_move">공간정보</a>
+                        <li class="place_detail_li"><a href="#scroll1_place_detail_info"
+                                                       class="scroll_move">공간정보</a>
                         <li>
                         <li class="place_detail_li"><a href="#scroll2_place_detail_caution" class="scroll_move">주의사항</a>
                         <li>
-                        <li class="place_detail_li"><a href="#scroll3_place_detail_review" class="scroll_move">후기</a>
+                        <li class="place_detail_li"><a href="#scroll3_place_detail_review" class="scroll_move">공간후기</a>
                         <li>
                         <li class="place_detail_li"><a href="#scroll4_place_detail_qna"
-                                                       class="scroll4_place_detail_qna">문의</a>
+                                                       class="scroll4_place_detail_qna">공간문의</a>
                         <li>
                         <li class="place_detail_li"><a href="#scroll5_return_rule" class="scroll_move">환불규정</a>
                         <li>
@@ -58,8 +60,7 @@
 
                 <div class="place_detail_listbox">
                     <div class="scroll1_place_detail_info" id="scroll1_place_detail_info">
-                        ++++++++ 공간 정보++++++
-                        호스트에 받을 내용들
+                        ${spaceDetail.description}
                     </div>
                     <div class="scroll2_place_detail_caution" id="scroll2_place_detail_caution">
                         <div class="scroll2_place_detail_caution_title">
@@ -88,29 +89,51 @@
                         </div>
 
                         <div class="scroll3_place_detail_review" id="scroll3_place_detail_review">
-                            <div class="scroll3_place_detail_review_write">
-                                <button class="scroll3_place_detail_review_write_button">
-                                    댓글쓰기
-                                </button>
-                            </div>
-                            <div class="scroll3_place_detail_review_title">
-                                후기 22
-                            </div>
-                            <div class="scroll3_place_detail_review_textarea">
-                                <textarea class="scroll3_place_detail_review_textarea"></textarea>
-                            </div>
-                            <div class="scroll3_place_detail_review_star">
-                                <i class="fas fa-star text-warning"></i>
-                                <div class="rated_star">5</div>
-                                <div class="rated_star_username">이**
+                            <form method="post" action="/space-review">
+
+
+                                <div class="scroll3_place_detail_review_write">
+                                    <div class="scroll3_place_detail_review_title">공간후기</div>
+                                    <i class="fas fa-star text-warning"></i>
+                                    <div class="scroll3_place_detail_review_rating_star">
+                                        <label for="rating">별점주기:</label>
+                                        <select id="rating" name="rating">
+                                            <option value="1">1</option>
+                                            <option value="2">2</option>
+                                            <option value="3">3</option>
+                                            <option value="4">4</option>
+                                            <option value="5">5</option>
+                                        </select>
+                                    </div>
                                 </div>
-                                <div class="separated_line"></div>
-                                <div class="rated_star_date">2023-08-19</div>
-                            </div>
-                            <div class="scroll3_place_detail_review_content_container">
-                                <h3>항상 이용할 때마다 넘모 죠슴둥</h3>
-                            </div>
+                                <div class="scroll3_place_detail_review_textarea_container">
+                                    <div class="scroll3_place_detail_review_textarea">
+                                <textarea class="scroll3_place_detail_review_textarea" id="comment" name="comment"
+                                          placeholder="후기를 작성해주세요"></textarea>
+                                    </div>
+                                    <input type="hidden" name="spaceId" value="${spaceDetail.id}">
+
+                                    <button class="scroll3_place_detail_review_write_button" type="submit">
+                                        후기쓰기
+                                    </button>
+                                </div>
+                            </form>
+
+                            <c:forEach var="spaceReview" items="${spaceReviewList}">
+                                <div class="scroll3_place_detail_review_star">
+                                    <i class="fas fa-star text-warning"></i>
+                                    <div class="rated_star">${spaceReview.rating}</div>
+                                    <div class="rated_star_username">${sessionUser.username}
+                                    </div>
+                                    <div class="separated_line"></div>
+                                    <div class="rated_star_date">${spaceReview.createdAt}</div>
+                                </div>
+                                <div class="scroll3_place_detail_review_content_container">
+                                    <h3>>${spaceReview.comment}</h3>
+                                </div>
+                            </c:forEach>
                         </div>
+
 
                         <div class="scroll4_place_detail_qna" id="scroll4_place_detail_qna">
                             <div class="scroll4_place_detail_qna_container">
@@ -139,7 +162,8 @@
 
                         </div>
                         <div class="scroll5_return_rule" id="scroll5_return_rule">
-                            <h1 style="font-size: 20px; font-weight: bolder; padding-top: 20px; padding-bottom: 20px">환불
+                            <h1 style="font-size: 20px; font-weight: bolder; padding-top: 20px; padding-bottom: 20px">
+                                환불
                                 규정</h1>
                             <h1 style="font-size: 15px; font-weight: bolder; padding-bottom: 20px">공통 상품</h1>
                             <h1 style="font-size: 15px; font-weight: bolder; padding-bottom: 20px">회원</h1>
@@ -149,7 +173,6 @@
                             <h1 style="font-size: 15px; font-weight: bolder; padding-top: 20px; padding-bottom: 20px">
                                 천재지변 및 불가항력</h1>
                             <h1 style="font-size: 15px;  padding-bottom: 20px">- 공간 이용일 기준 당일 취소 시 : 100% 환불</h1>
-
 
                         </div>
                     </div>
@@ -162,7 +185,7 @@
                         12월 4일
                     </div>
                     <div class="place_detail_stick_area_menu_place">
-                        <h2>한성 대학교</h2>
+                        <h2>${spaceDetail.spaceName}</h2>
                     </div>
                     <div class="place_detail_stick_area_menu_location">
                         서울 성북구 삼선교로16길 116
@@ -172,7 +195,7 @@
                         <a href="" style="text-decoration: underline;color: #8A8A8A">지도 보기</a>
                     </div>
                     <div class="place_detail_stick_area_menu_location_cost">
-                        60000 원
+                        ${spaceDetail.pricePerHour}
                     </div>
                 </div>
 
@@ -180,7 +203,9 @@
                     <div class="place_detail_stick_area_menu_bottom">
                         <i class="fas fa-heart fa-2x" id="heartIcon" style="padding-right: 10px"
                            onclick="toggleHeartColor()"></i>
-                        <button class="place_detail_stick_area_menu_button">예약하기</button>
+                        <a href="http://localhost/reservation">
+                            <button class="place_detail_stick_area_menu_button">예약하기</button>
+                        </a>
                     </div>
                 </div>
             </div>
@@ -232,6 +257,7 @@
             slider.style.transform = "translateX(" + translateValue + ")";
         }
     });
+
 </script>
 
 

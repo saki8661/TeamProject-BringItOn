@@ -13,10 +13,10 @@
 
     <update id="updateByUserId">
         update inquire_tb
-        set inquire_title = #{inquireTitle},
+        set inquire_title   = #{inquireTitle},
             inquire_content = #{inquireContent},
-            created_at = now(),
-            user_id = #{userId}
+            created_at      = now(),
+            user_id         = #{userId}
         where user_id = #{userId}
     </update>
 
@@ -28,15 +28,18 @@
 
     <select id="findById"
             resultType="com.example.teamprojectbringiton.inquire.Inquire">
-        select * from inquire_tb where id = #{id}
+        select *
+        from inquire_tb
+        where id = #{id}
     </select>
 
 
     <select id="findAllJoinCategory"
-            resultType="com.example.teamprojectbringiton.inquire.dto.respDto.InquireListDto">
-        select * from inquire_tb i
-                          join inquire_category_tb ic
-                               on i.inquire_category_id = ic.id
+            resultType="com.example.teamprojectbringiton.inquire.dto.response.InquireListDTO">
+        select *
+        from inquire_tb i
+                 join inquire_category_tb ic
+                      on i.inquire_category_id = ic.id
     </select>
 
 </mapper>

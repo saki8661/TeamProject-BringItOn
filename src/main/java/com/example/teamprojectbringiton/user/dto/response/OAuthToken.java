@@ -1,4 +1,4 @@
-package com.example.teamprojectbringiton.user.dto.respDto;
+package com.example.teamprojectbringiton.user.dto.response;
 
 
 import com.fasterxml.jackson.databind.PropertyNamingStrategies;

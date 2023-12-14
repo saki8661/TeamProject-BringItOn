@@ -40,6 +40,7 @@ public class Space {
         this.createdAt = createdAt;
         this.userId = userId;
         this.sportId = sportId;
+
     }
 }
 
