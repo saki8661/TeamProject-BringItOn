@@ -1,5 +1,6 @@
 package com.example.teamprojectbringiton.inquire.dto.request;
 
+
 import lombok.Getter;
 import lombok.Setter;
 
@@ -11,5 +12,6 @@ public class InquireUpdateDTO {
     private String inquireContent;
     private Integer inquireCategoryId;
     private Integer userId;
+
 
 }

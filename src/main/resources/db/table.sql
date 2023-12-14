@@ -9,7 +9,6 @@ CREATE TABLE user_tb
     user_phone_number VARCHAR(20)  NOT NULL,
     user_pic_url      VARCHAR,
     user_division     VARCHAR,
-    company_name      VARCHAR,
     account_number    VARCHAR,
     account_name      VARCHAR,
     created_at        TIMESTAMP,

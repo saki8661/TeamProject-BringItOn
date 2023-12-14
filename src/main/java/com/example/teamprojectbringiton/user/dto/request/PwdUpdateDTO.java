@@ -1,5 +1,6 @@
 package com.example.teamprojectbringiton.user.dto.request;
 
+
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

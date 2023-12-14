@@ -19,7 +19,6 @@ public class User {
     private String userPhoneNumber;
     private String userPicUrl;
     private String userDivision;
-    private String companyName;
     private String accountNumber;
     private String accountName;
     private Timestamp createdAt;
@@ -27,7 +26,7 @@ public class User {
     private Integer bankId;
 
     @Builder
-    public User(Integer id, String username, String nickName, String password, String userEmail, String userAddress, String userPhoneNumber, String userPicUrl, String userDivision, String companyName, String accountNumber, String accountName, Timestamp createdAt, Integer teamId, Integer bankId) {
+    public User(Integer id, String username, String nickName, String password, String userEmail, String userAddress, String userPhoneNumber, String userPicUrl, String userDivision, String accountNumber, String accountName, Timestamp createdAt, Integer teamId, Integer bankId) {
         this.id = id;
         this.username = username;
         this.nickName = nickName;
@@ -37,11 +36,14 @@ public class User {
         this.userPhoneNumber = userPhoneNumber;
         this.userPicUrl = userPicUrl;
         this.userDivision = userDivision;
-        this.companyName = companyName;
         this.accountNumber = accountNumber;
         this.accountName = accountName;
         this.createdAt = createdAt;
         this.teamId = teamId;
         this.bankId = bankId;
+    }
+
+    public void updatePassword(String password) {
+        this.password = password;
     }
 }

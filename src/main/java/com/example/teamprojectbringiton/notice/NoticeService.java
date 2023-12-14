@@ -1,5 +1,6 @@
 package com.example.teamprojectbringiton.notice;
 
+
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
 import com.example.teamprojectbringiton.notice.dto.request.NoticeUpdateDTO;
 import com.example.teamprojectbringiton.notice.dto.request.NoticeWriteDTO;
@@ -28,7 +29,7 @@ public class NoticeService {
                 .noticeCategoryId(dto.getCategoryId())
                 .build();
         int noticeWrite = noticeRepository.insert(notice);
-        if(noticeWrite != 1){
+        if (noticeWrite != 1) {
             throw new CustomRestfullException("공지 등록 실패", HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return noticeWrite;
@@ -43,20 +44,20 @@ public class NoticeService {
                 .build();
 
         int noticeUpdate = noticeRepository.updateById(notice);
-        if(noticeUpdate != 1){
+        if (noticeUpdate != 1) {
             throw new CustomRestfullException("공지 수정 실패", HttpStatus.INTERNAL_SERVER_ERROR);
         }
         return noticeUpdate;
     }
 
 
-    public int deleteById(Integer id){
+    public int deleteById(Integer id) {
 
         int noticeDelete = noticeRepository.deleteById(id);
         if (noticeDelete != 1) {
-            throw  new CustomRestfullException("공지 삭제 실패", HttpStatus.INTERNAL_SERVER_ERROR);
+            throw new CustomRestfullException("공지 삭제 실패", HttpStatus.INTERNAL_SERVER_ERROR);
         }
-        return  noticeDelete;
+        return noticeDelete;
     }
 
 

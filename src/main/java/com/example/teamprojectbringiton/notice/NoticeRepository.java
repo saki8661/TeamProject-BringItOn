@@ -1,6 +1,8 @@
 package com.example.teamprojectbringiton.notice;
 
+
 import com.example.teamprojectbringiton.notice.dto.response.NoticeListDto;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

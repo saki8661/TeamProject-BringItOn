@@ -10,7 +10,6 @@
         values (#{noticeCategoryId}, #{notice_title}, #{notice_content}, now());
     </insert>
 
-
     <select id="findByNoticeId" resultType="com.example.teamprojectbringiton.notice.Notice">
         select * from notice_tb where id = #{id}
     </select>
@@ -30,7 +29,6 @@
         where id = #{id}
     </delete>
 
-
     <select id="findAll"
             resultType="com.example.teamprojectbringiton.notice.Notice">
         select * from notice_tb
@@ -42,7 +40,6 @@
         join notice_category_tb nc
         on n.notice_category_id = nc.id
     </select>
-
 
     <select id="findByNoticeCategoryId" resultType="com.example.teamprojectbringiton.notice.Notice">
         select *

@@ -16,18 +16,20 @@
 
 
 <div class="user_container">
-    <div><img src="./images/logo.png" class="user_logo"></div>
+    <div><a href="/home"><img src="./images/logo.png" class="user_logo"></a></div>
+
 
     <h3 class="join_us_text">고객님 환영합니다! 기다리고 있었습니다.</h3>
 
-
-    <div><img src="./images/kakao_login_medium_narrow.png" class="kakao_login_button">
-    </div>
+    <a href="https://kauth.kakao.com/oauth/authorize?response_type=code&client_id=${key}&redirect_uri=http://localhost:80/kakao-callback&prompt=login">
+        <div><img src="./images/kakao_login_button.png" class="kakao_login_button">
+        </div>
+    </a>
 
 
     <div class="common_button">
         <a href="http://localhost/login">
-        <button type="submit" class="kakao_login_common_button">로그인 (호스트는 일반로그인 필수)</button>
+            <button type="submit" class="kakao_login_common_button">로그인 (호스트는 일반로그인 필수)</button>
         </a>
     </div>
 

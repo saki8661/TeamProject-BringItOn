@@ -1,6 +1,6 @@
 package com.example.teamprojectbringiton.inquire;
 
-import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
+
 import com.example.teamprojectbringiton.inquire.dto.request.InquireUpdateDTO;
 import com.example.teamprojectbringiton.inquire.dto.request.InquireWriteDTO;
 import com.example.teamprojectbringiton.inquire.dto.response.InquireListDTO;
@@ -8,7 +8,6 @@ import com.example.teamprojectbringiton.inquire.inquireCategory.InquireCategory;
 import com.example.teamprojectbringiton.user.User;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -46,19 +45,15 @@ public class InquireController {
     @PostMapping("/inquire-write")
     public String inquireWriteProc(InquireWriteDTO dto) {
         User sessionUser = (User) session.getAttribute("sessionUser");
-        System.out.println("1111@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+sessionUser.getId());
+        System.out.println("1111@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" + sessionUser.getId());
         inquireService.inquireWrite(dto, sessionUser.getId());
-        System.out.println("2222@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@"+sessionUser.getId());
+        System.out.println("2222@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" + sessionUser.getId());
         return "redirect:/inquire-main";
     }
 
     @PostMapping("/inquire-update/{id}")
     public String inquireUpdate(InquireUpdateDTO dto){
         User sessionUser = (User) session.getAttribute("sessionUser");
-        if(dto.getUserId() != sessionUser.getId()) {
-            throw new CustomRestfullException("수정할 수 없습니다",
-                    HttpStatus.BAD_REQUEST);
-        }
         inquireService.inquireUpdate(dto, sessionUser.getId());
         System.out.println("@@@@@@@@@@@@@업데이트 컨트롤러 호출됨");
         return "redirect:/inquire-main";
@@ -71,4 +66,6 @@ public class InquireController {
         return "redirect:/inquire-main";
     }
 
+
 }
+

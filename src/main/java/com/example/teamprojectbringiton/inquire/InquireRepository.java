@@ -1,5 +1,6 @@
 package com.example.teamprojectbringiton.inquire;
 
+
 import com.example.teamprojectbringiton.inquire.dto.response.InquireListDTO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -17,6 +18,11 @@ public interface InquireRepository {
     public Inquire findByInquireId(Integer id);
 
     public Inquire findByInquireCategoryId(String number);
+
+
+    public List<Inquire> findAll();
+
+    public Inquire findByNoticeCategoryId(String number);
 
 
     public List<InquireListDTO> findAllJoinCategory();

@@ -262,8 +262,6 @@
                         <button class="matching_button matching_btn_style" type="button" data-bs-toggle="modal"
                                 data-bs-target="#myModal">매칭하기
                         </button>
-
-
                     </div>
                     <hr class="matchingPage_manual_box">
                     <div class="matching_list">
@@ -292,6 +290,7 @@
                         <div class="modal" id="myModal">
                             <div class="modal-dialog">
                                 <div class="league_matching_modal modal-content">
+
 
                                     <!-- Modal Header -->
                                     <div class="userReservation_modal_header">

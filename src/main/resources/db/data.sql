@@ -1,27 +1,27 @@
 -- user_tb
 INSERT INTO user_tb (username, nickname, password, user_email, user_address, user_phone_number, user_pic_url,
-                     user_division, company_name, account_number, account_name, created_at, bank_id, team_id)
+                     user_division, account_number, account_name, created_at, bank_id, team_id)
 
 VALUES ('ssar', '대욱', 'password1', 'ssar@nate.com', '서울시 강남구', '010-1111-1111', 'default_profile.jpg', '호스트',
-        'Company 1', '123456789', '나의 계좌1', NOW(), 1, 1),
+        '123456789', '나의 계좌1', NOW(), 1, 1),
        ('cos', '세환', 'password', 'cos@nate.com', '서울시 마포구', '010-2222-2222', 'default_profile.jpg', '게스트',
-        'Company 2', '234567891', '나의 계좌2', NOW(), 2, 2),
+        '234567891', '나의 계좌2', NOW(), 2, 2),
        ('love', '언약', 'password', 'love@nate.com', '서울시 남구', '010-3333-3333', 'default_profile.jpg', '게스트',
-        'Company 3', '345678912', '나의 계좌3', NOW(), 1, 3),
+        '345678912', '나의 계좌3', NOW(), 1, 3),
        ('peace', '채빈', 'password', 'peace@nate.com', '서울시 강남구', '010-4444-4444', 'default_profile.jpg', '호스트',
-        'Company 4', '456789123', '나의 계좌4', NOW(), 3, 4),
+        '456789123', '나의 계좌4', NOW(), 3, 4),
        ('ssar1', '길동', 'password', 'ssar1@nate.com', '서울시 강남구', '010-5555-5555', 'default_profile.jpg', '게스트',
-        'Company 5', '567891234', '나의 계좌5', NOW(), 1, 5),
+        '567891234', '나의 계좌5', NOW(), 1, 5),
        ('ssar2', '보고', 'password', 'ssar2@nate.com', '서울시 강남구', '010-6666-6666', 'default_profile.jpg', '게스트',
-        'Company 6', '67891234', '나의 계좌6', NOW(), 1, 6),
+        '67891234', '나의 계좌6', NOW(), 1, 6),
        ('ssar3', '꺽정', 'password', 'ssar3@nate.com', '서울시 강남구', '010-7777-7777', 'default_profile.jpg', '게스트',
-        'Company 7', '789123456', '나의 계좌7', NOW(), 1, 7),
+        '789123456', '나의 계좌7', NOW(), 1, 7),
        ('ssar4', '허준', 'password', 'ssar@nate.com', '서울시 강남구', '010-8888-8888', 'default_profile.jpg', '게스트',
-        'Company 8', '891234567', '나의 계좌8', NOW(), 1, 8),
+        '891234567', '나의 계좌8', NOW(), 1, 8),
        ('ssa5', '민수', 'password', 'ssar@nate.com', '서울시 강남구', '010-9999-9999', 'default_profile.jpg', '게스트',
-        'Company 9', '912345678', '나의 계좌9', NOW(), 1, 9),
+        '912345678', '나의 계좌9', NOW(), 1, 9),
        ('ssar6', '영희', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', '게스트',
-        'Company 10', '109876543', '나의 계좌10', NOW(), 1, 10);
+        '109876543', '나의 계좌10', NOW(), 1, 10);
 
 -- 팀 더미 데이터
 INSERT INTO team_tb (team_name, team_capacity, team_pic_url, team_introduce, level, region_id, sport_id)

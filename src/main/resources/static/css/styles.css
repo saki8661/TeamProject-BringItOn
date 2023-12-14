@@ -866,7 +866,10 @@ input::placeholder {
 
 /* LeagueMain */
 
+<<<<<<< HEAD
 .leagueMain_table_main{}
+=======
+>>>>>>> dev
 
 .leagueMain_modal {
     text-align: center;
@@ -1287,7 +1290,7 @@ input::placeholder {
 .modal-dialog {
     display: inline-block;
     text-align: left;
-    vertical-align: middle;
+    vertical-align: center;
 }
 
 .userReservation_modal_header {
@@ -2059,7 +2062,6 @@ td {
     justify-content: center;
 }
 
-
 .userPayment_table_header {
     margin-left: 3px;
 }
@@ -2193,7 +2195,7 @@ td {
 .inquire_layout {
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-between;
 }
 
 .inquireMain_dropdown_btn {
@@ -2398,12 +2400,15 @@ td {
     text-align: center;
 }
 
+
 .league_matching_menu_list {
     display: table;
     list-style-type: none;
     width: 30%;
     text-align: center;
     font-size: 14px;
+    justify-content: center;
+    justify-items: center;
 }
 
 .menu__menu {
@@ -2414,19 +2419,49 @@ td {
     border: 1px solid #19B357;
 }
 
+.menu__menu img {
+    height: 20px;
+    width: 20px;
+}
+
+.menu__menu__menu {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+.menu__menu__menu img {
+    margin-right: 5px;
+}
+
 .league_matching_menu_menu {
     display: table-cell;
     vertical-align: middle;
     height: 40px;
-    width: 30%;
+    width: 50px;
     cursor: pointer;
-    border: 1px solid #19B357;
 }
 
-.league_matching_menu_menu:hover {
+
+.league_matching_menu_menu img {
+    height: 15px;
+    width: 15px;
+    margin-right: 5px;
+}
+
+.league_matching_menu_menu a {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+
+.league_matching_menu_menu a:hover {
     background-color: #19B357;
     color: white;
+    border-radius: 5px;
 }
+
 
 .menu__menu:hover {
     background-color: #19B357;
@@ -2443,7 +2478,6 @@ td {
     display: table;
 }
 
-
 .subwrapper {
     display: none;
     width: 100%;
@@ -2451,12 +2485,6 @@ td {
     top: 50px;
     left: 0;
 }
-
-/*.subnav {*/
-/*    width: 80%;*/
-/*    max-width: 1024px;*/
-/*    margin: 0 auto;*/
-/*}*/
 
 .submenu__list {
     display: none;
@@ -2499,7 +2527,6 @@ td {
 . place_resistration_letter {
     display: flex;
     flex-direction: column;
-
 }
 
 .place_resistration_title {
@@ -2668,6 +2695,8 @@ td {
     text-align: center; /* 텍스트를 수평 가운데 정렬합니다. */
     line-height: 27px;
     align-content: center;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 }
 
 .league_matching_table_sub_title {
@@ -2714,7 +2743,7 @@ td {
 }
 
 .league_matching_content {
-    width: 120px;
+    width: 125px;
     text-align: center;
     color: black;
 }
@@ -2742,7 +2771,7 @@ td {
 
 .matching_box {
     margin-top: 20px;
-    border: 2px solid black;
+
 }
 
 .matching_my_score {
@@ -2787,6 +2816,7 @@ td {
 
 .place_detail_description {
     flex-direction: column;
+    width: 60%;
 }
 
 .place_detail_photo_container {
@@ -2873,7 +2903,7 @@ a {
 
 .place_detail_li {
     display: inline-block;
-    padding-right: 50px;
+    width: 20%;
     font-weight: bolder;
     color: #8A8A8A;
 
@@ -2921,9 +2951,9 @@ body {
 .place_detail_stick_area {
     position: sticky;
     top: 20px;
-    width: 100%;
+    width: 40%;
     height: 100%;
-    margin-left: 20px;
+    margin-left: 50px;
     margin-top: 20px;
     background-color: #ffffff;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* 그림자 추가 */
@@ -3081,7 +3111,7 @@ body {
     text-align: start;
     padding-top: 20px;
     border-top: 1px solid #F0F0F0;
-    padding-bottom: 10px;
+    padding-bottom: 20px;
     font-weight: bold;
 
 
@@ -3105,12 +3135,18 @@ body {
     height: 100%;
 }
 
+.scroll3_place_detail_review_title {
+    font-size: 20px;
+    font-weight: bolder;
+    padding-right: 20px;
+}
+
 .scroll3_place_detail_review_write {
     display: flex;
-    justify-content: flex-end; /* 오른쪽 정렬 */
+    flex-direction: row; /* 오른쪽 정렬 */
     padding-bottom: 10px;
     border-top: 1px solid #F0F0F0;
-    padding-top: 10px;
+    padding-top: 20px;
 }
 
 .scroll3_place_detail_review_write_button {
@@ -3122,12 +3158,23 @@ body {
     color: #19B357;
 }
 
+.scroll3_place_detail_review_textarea_container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .scroll3_place_detail_review_textarea {
-    width: 100%;
-    height: 100px;
+    width: 350px;
+    height: 35px;
     border: 1px solid #999;
     resize: none;
     color: black;
+}
+
+.scroll3_place_detail_review_rating_star {
+    padding-left: 10px;
+
 }
 
 .scroll3_place_detail_review_star {
@@ -3232,6 +3279,12 @@ body {
 .place_detail_stick_area_menu_location_copy {
     display: flex;
     flex-direction: row;
-
 }
 
+.loginPage_box {
+    height: 15px;
+}
+
+.joinPage_box {
+    width: 5px;
+}
