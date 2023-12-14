@@ -30,6 +30,9 @@ public class UserController {
     @Value("${LOGIN_REST_API_KEY}")
     private String key;
 
+    @Value("${TENCO_KEY}")
+    private String tencoKey;
+
 
     @GetMapping("/kakao-login")
     public String kakaoLogin(Model model) {
@@ -122,7 +125,7 @@ public class UserController {
     @PostMapping("/passwordUpdate")
     public String passwordUpdate(@PathVariable Integer id, PwdUpdateDTO dto) {
         userService.userPwdUpdate(id, dto);
-        return "redirect: /kakao-login";
+        return "redirect:/kakao-login";
     }
 
     @GetMapping("/user-team/{id}")
@@ -159,18 +162,19 @@ public class UserController {
         return "user/leagueMatchingPage";
     }
 
-    @GetMapping("/user-check-password")
-    public String userCheckPasswordPage() {
+    @GetMapping("/user-check-password/{id}")
+    public String userCheckPasswordPage(@PathVariable Integer id) {
+        User user = userService.findById(id);
+        if (user.getPassword().equals(tencoKey)) {
+            return "redirect:/user-update/" + id;
+        }
         return "user/userCheckPassword";
     }
 
     @PostMapping("/user-check-password")
     public ResponseEntity<CheckPasswordDTO> userCheckPassword(String checkPassword) {
         User sessionUser = (User) session.getAttribute("sessionUser");
-        CheckPasswordDTO checkPasswordDTO = new CheckPasswordDTO();
-        checkPasswordDTO.setSuccess(true);
-        checkPasswordDTO.setUserId(sessionUser.getId());
-        System.out.println("체크하러 왔다 : " + checkPassword);
-        return ResponseEntity.ok(checkPasswordDTO);
+        CheckPasswordDTO response = userService.pwdCheck(checkPassword, sessionUser.getId());
+        return ResponseEntity.ok(response);
     }
 }

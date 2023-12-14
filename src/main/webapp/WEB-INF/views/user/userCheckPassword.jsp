@@ -38,6 +38,7 @@
 
 
         <script>
+
             $('#checkPwd').click(function () {
                 const checkPassword = $('#password').val();
                 if (!checkPassword || checkPassword.trim() === "") {
@@ -50,16 +51,19 @@
                         datatype: "text"
                     }).done(function (result) {
                         console.log(result);
-                        if (result) {
+
+                        if (result.success) {
                             console.log("비밀번호 일치");
                             alert("비밀번호 인증 성공")
                             window.location.href = "/user-update/" + result.userId;
-                        } else if (!result) {
+
+                        } else {
                             console.log("비밀번호 틀림");
                             // 비밀번호가 일치하지 않으면
                             alert("비밀번호가 맞지 않습니다.");
                             window.location.reload();
                         }
+
                     }).fail(function (error) {
                         alert(JSON.stringify(error));
                     })

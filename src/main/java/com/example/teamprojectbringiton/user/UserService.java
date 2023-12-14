@@ -4,6 +4,7 @@ package com.example.teamprojectbringiton.user;
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
 import com.example.teamprojectbringiton.user.dto.request.PwdUpdateDTO;
+import com.example.teamprojectbringiton.user.dto.response.CheckPasswordDTO;
 import com.example.teamprojectbringiton.user.dto.response.KakaoProfile;
 import com.example.teamprojectbringiton.user.dto.response.OAuthToken;
 import com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO;
@@ -141,5 +142,15 @@ public class UserService {
         System.out.println("카카오 로그인 사진 : " + response2.getBody().getProperties().getProfileImage());
 
         return response2.getBody();
+    }
+
+    public CheckPasswordDTO pwdCheck(String password, Integer id) {
+        // 비밀번호 비교를 위한 유저 정보 조회
+        User user = userRepository.findById(id);
+        // 비밀번호 비교해서 값 보내기
+        if (user.getPassword().equals(password)) {
+            return new CheckPasswordDTO(id, true);
+        }
+        return new CheckPasswordDTO(id, false);
     }
 }

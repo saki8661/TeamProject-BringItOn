@@ -58,7 +58,6 @@
         where username = #{username}
     </select>
 
-
     <select id="findByIdJoinTeam"
             resultType="com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO">
         select *
@@ -71,4 +70,6 @@
                       on t.sport_id = s.id
         where u.id = #{id}
     </select>
+
+
 </mapper>

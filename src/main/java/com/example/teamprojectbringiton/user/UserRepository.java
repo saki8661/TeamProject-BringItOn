@@ -8,7 +8,7 @@ import java.util.List;
 
 @Mapper
 public interface UserRepository {
-    
+
     public void insert(User user);        // 사용자 등록
 
     public User updateById(User user);    // 사용자 수정
