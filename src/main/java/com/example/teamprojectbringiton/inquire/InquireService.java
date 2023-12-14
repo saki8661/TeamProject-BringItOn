@@ -1,8 +1,9 @@
 package com.example.teamprojectbringiton.inquire;
 
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
-import com.example.teamprojectbringiton.inquire.dto.reqDto.InquireWriteDto;
-import com.example.teamprojectbringiton.inquire.dto.respDto.InquireListDto;
+import com.example.teamprojectbringiton.inquire.dto.request.InquireUpdateDTO;
+import com.example.teamprojectbringiton.inquire.dto.request.InquireWriteDTO;
+import com.example.teamprojectbringiton.inquire.dto.response.InquireListDTO;
 import com.example.teamprojectbringiton.inquire.inquireCategory.InquireCategory;
 import com.example.teamprojectbringiton.inquire.inquireCategory.InquireCategoryRepository;
 import jakarta.servlet.http.HttpSession;
@@ -25,15 +26,17 @@ public class InquireService {
     private HttpSession session;
 
     // 공지 목록 보기 기능
-    public List<InquireListDto> inquireList() {
+    public List<InquireListDTO> inquireList() {
         return inquireRepository.findAllJoinCategory();
     }
 
+    // 문의목록 불러오기
     public List<InquireCategory> inquireCategoryList() {
         return inquireCategoryRepository.findAll();
     }
 
-    public void inquireWrite(InquireWriteDto dto, Integer principalId) {
+    // 문의작성하기
+    public void inquireWrite(InquireWriteDTO dto, Integer principalId) {
         Inquire inquire = Inquire.builder()
                 .inquireTitle(dto.getInquireTitle())
                 .inquireContent(dto.getInquireContent())
@@ -51,6 +54,24 @@ public class InquireService {
         }
     }
 
+    // 문의수정하기
+    public int inquireUpdate(InquireUpdateDTO dto, Integer principalId) {
+        Inquire inquire = Inquire.builder()
+                .id(dto.getId())
+                .inquireTitle(dto.getInquireTitle())
+                .inquireContent(dto.getInquireContent())
+                .inquireCategoryId(dto.getInquireCategoryId())
+                .userId(principalId)
+                .build();
+
+        int inquireUpdate = inquireRepository.updateById(inquire);
+        if(inquireUpdate != 1){
+            throw new CustomRestfullException("문의 수정 실패", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        return inquireUpdate;
+    }
+
+    // 문의삭제하기
     public int deleteById(Integer id){
         int inquireDelete = inquireRepository.deleteById(id);
         System.out.println("@@@@@@@@@@@@@컨트롤러 호출됨1");
@@ -61,5 +82,6 @@ public class InquireService {
         System.out.println("@@@@@@@@@@@@@서비스 호출됨2");
         return  inquireDelete;
     }
+
 
 }

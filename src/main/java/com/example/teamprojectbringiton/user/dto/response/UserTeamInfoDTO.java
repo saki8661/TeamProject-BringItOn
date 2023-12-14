@@ -1,4 +1,4 @@
-package com.example.teamprojectbringiton.user.dto.respDto;
+package com.example.teamprojectbringiton.user.dto.response;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -7,7 +7,7 @@ import lombok.Setter;
 
     @Getter
     @Setter
-    public class UserTeamInfoDto {
+    public class UserTeamInfoDTO {
         private Integer id;
         private Integer teamId;
         private String teamName;

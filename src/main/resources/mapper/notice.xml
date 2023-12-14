@@ -14,6 +14,7 @@
     <select id="findByNoticeId" resultType="com.example.teamprojectbringiton.notice.Notice">
         select * from notice_tb where id = #{id}
     </select>
+
     <update id="updateById">
         update notice_tb
         set notice_category_id = #{noticeCategoryId},
@@ -36,7 +37,7 @@
     </select>
 
     <select id="findAllJoinCategory"
-            resultType="com.example.teamprojectbringiton.notice.dto.respDto.NoticeListDto">
+            resultType="com.example.teamprojectbringiton.notice.dto.response.NoticeListDto">
         select * from notice_tb n
         join notice_category_tb nc
         on n.notice_category_id = nc.id

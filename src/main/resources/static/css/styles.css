@@ -866,7 +866,7 @@ input::placeholder {
 
 /* LeagueMain */
 
-
+.leagueMain_table_main{}
 
 .leagueMain_modal {
     text-align: center;
@@ -1259,12 +1259,11 @@ input::placeholder {
 }
 
 .leagueMain_table {
+    border-top: #dee2e6 1px solid;
+    margin-top: 12px;
     display: flex;
-    text-align: center;
-    width: 100%;
-    margin-bottom: 10px;
-    justify-items: flex-start;
-    /*justify-content: center;*/
+    justify-items: center;
+    justify-content: center;
 }
 
 .leagueMain_table table {
@@ -2065,6 +2064,8 @@ td {
     margin-left: 3px;
 }
 
+
+
 .userPayment_table_header th {
     text-align: center;
     width: 100px;
@@ -2192,7 +2193,7 @@ td {
 .inquire_layout {
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: space-around;
 }
 
 .inquireMain_dropdown_btn {

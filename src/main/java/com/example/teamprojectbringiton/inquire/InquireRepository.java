@@ -1,8 +1,6 @@
 package com.example.teamprojectbringiton.inquire;
 
-import com.example.teamprojectbringiton.inquire.dto.respDto.InquireListDto;
-import com.example.teamprojectbringiton.notice.Notice;
-import com.example.teamprojectbringiton.notice.dto.respDto.NoticeListDto;
+import com.example.teamprojectbringiton.inquire.dto.response.InquireListDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -16,7 +14,11 @@ public interface InquireRepository {
 
     public int deleteById(Integer id);
 
+    public Inquire findByInquireId(Integer id);
 
-    public List<InquireListDto> findAllJoinCategory();
+    public Inquire findByInquireCategoryId(String number);
+
+
+    public List<InquireListDTO> findAllJoinCategory();
 
 }

@@ -110,9 +110,9 @@
 
                                     <!-- Modal body -->
                                     <div class="modal-body">
-                                        <div class="leagueMain_table">
+                                        <div class="userPayment_table">
                                             <Table>
-                                                <tr class="leagueMain_table_header">
+                                                <tr class="leagueMain_table_main">
                                                     <th>신청기간</th>
                                                     <td>2024-02-01<br>
                                                         ~ 2024-2-28

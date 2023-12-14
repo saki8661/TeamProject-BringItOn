@@ -1,11 +1,11 @@
-package com.example.teamprojectbringiton.user.dto.reqDto;
+package com.example.teamprojectbringiton.user.dto.request;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Data
 @NoArgsConstructor
-public class LoginDto {
+public class LoginDTO {
 
     private String username;
     private String password;

@@ -1,13 +1,12 @@
 package com.example.teamprojectbringiton.notice;
 
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
-import com.example.teamprojectbringiton.notice.dto.reqDto.NoticeUpdateDto;
-import com.example.teamprojectbringiton.notice.dto.reqDto.NoticeWriteDto;
-import com.example.teamprojectbringiton.notice.dto.respDto.NoticeListDto;
+import com.example.teamprojectbringiton.notice.dto.request.NoticeUpdateDTO;
+import com.example.teamprojectbringiton.notice.dto.request.NoticeWriteDTO;
+import com.example.teamprojectbringiton.notice.dto.response.NoticeListDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -22,7 +21,7 @@ public class NoticeService {
         return noticeRepository.findAllJoinCategory();
     }
 
-    public int noticeWrite(NoticeWriteDto dto) {
+    public int noticeWrite(NoticeWriteDTO dto) {
         Notice notice = Notice.builder()
                 .noticeTitle(dto.getNoticeTitle())
                 .noticeContent(dto.getNoticeContent())
@@ -35,18 +34,13 @@ public class NoticeService {
         return noticeWrite;
     }
 
-    public int noticeUpdate(NoticeUpdateDto dto) {
+    public int noticeUpdate(NoticeUpdateDTO dto) {
         Notice notice = Notice.builder()
                 .id(dto.getId())
                 .noticeTitle(dto.getNoticeTitle())
                 .noticeContent(dto.getNoticeContent())
                 .noticeCategoryId(dto.getNoticeCategoryId())
                 .build();
-//        Notice notice = noticeRepository.findByNoticeId(dto.getId());
-//        notice.setNoticeTitle(dto.getNoticeTitle());
-//        notice.setNoticeContent(dto.getNoticeContent());
-//        notice.setNoticeCategoryId(dto.getNoticeCategoryId());
-
 
         int noticeUpdate = noticeRepository.updateById(notice);
         if(noticeUpdate != 1){
