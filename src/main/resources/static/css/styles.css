@@ -865,11 +865,10 @@ input::placeholder {
 
 
 /* LeagueMain */
+.leagueMain_table_main {
 
-<<<<<<< HEAD
-.leagueMain_table_main{}
-=======
->>>>>>> dev
+}
+
 
 .leagueMain_modal {
     text-align: center;
@@ -2067,7 +2066,6 @@ td {
 }
 
 
-
 .userPayment_table_header th {
     text-align: center;
     width: 100px;
@@ -2229,7 +2227,7 @@ td {
     height: 50px;
 }
 
-.inquireMain_update_btn{
+.inquireMain_update_btn {
     background: #19B357;
     padding: 10px 30px;
     border-radius: 12.5px;
@@ -2237,7 +2235,7 @@ td {
     margin-left: 10px;
 }
 
-.inquireMain_delete_btn{
+.inquireMain_delete_btn {
     background: #EC4937;
     padding: 10px 30px;
     border-radius: 12.5px;
@@ -3287,4 +3285,63 @@ body {
 
 .joinPage_box {
     width: 5px;
+}
+
+.check_pwd_text_start {
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    justify-items: center;
+}
+
+.check_pwd_text-center {
+    display: flex;
+    align-items: center;
+}
+
+.check_pwd_btn_style {
+    border-radius: 5px;
+    height: 35px;
+    width: 105px;
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.check_pwd_card_body {
+    height: 220px;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.check_pwd_box {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #6c757d;
+    width: 464px;
+    border-radius: 5px;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    width: 300px;
+    height: 40px;
+}
+
+.check_pwd_text {
+    margin-top: 120px;
+    text-align: center;
+    font-size: 15px;
+    color: #BFC3D2;
+    font-weight: bold;
 }

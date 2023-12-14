@@ -6,12 +6,14 @@ import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedExce
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
 import com.example.teamprojectbringiton.user.dto.request.PwdUpdateDTO;
+import com.example.teamprojectbringiton.user.dto.response.CheckPasswordDTO;
 import com.example.teamprojectbringiton.user.dto.response.KakaoProfile;
 import com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -117,10 +119,9 @@ public class UserController {
         return "user/userUpdate";
     }
 
-    @PostMapping("/passwordUpdate/{id}")
+    @PostMapping("/passwordUpdate")
     public String passwordUpdate(@PathVariable Integer id, PwdUpdateDTO dto) {
         userService.userPwdUpdate(id, dto);
-
         return "redirect: /kakao-login";
     }
 
@@ -128,10 +129,8 @@ public class UserController {
     public String userTeamManagementPage(@PathVariable Integer id, Model model) {
         UserTeamInfoDTO teamInfo = userService.findByIdWithTeam(id);
         model.addAttribute("teamInfo", teamInfo);
-
         return "user/userTeam";
     }
-
 
     @GetMapping("/user-bookmark")
 
@@ -160,4 +159,18 @@ public class UserController {
         return "user/leagueMatchingPage";
     }
 
+    @GetMapping("/user-check-password")
+    public String userCheckPasswordPage() {
+        return "user/userCheckPassword";
+    }
+
+    @PostMapping("/user-check-password")
+    public ResponseEntity<CheckPasswordDTO> userCheckPassword(String checkPassword) {
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        CheckPasswordDTO checkPasswordDTO = new CheckPasswordDTO();
+        checkPasswordDTO.setSuccess(true);
+        checkPasswordDTO.setUserId(sessionUser.getId());
+        System.out.println("체크하러 왔다 : " + checkPassword);
+        return ResponseEntity.ok(checkPasswordDTO);
+    }
 }

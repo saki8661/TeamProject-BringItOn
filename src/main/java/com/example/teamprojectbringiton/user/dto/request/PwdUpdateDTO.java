@@ -9,5 +9,4 @@ import lombok.NoArgsConstructor;
 public class PwdUpdateDTO {
     private String newPassword;
     private String newPasswordCheck;
-
 }
