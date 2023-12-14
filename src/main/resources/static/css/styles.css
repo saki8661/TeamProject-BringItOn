@@ -855,7 +855,7 @@ input::placeholder {
 }
 
 .userReview_button button {
-    background: #f44336;
+    background: #19B357;
     height: 30px;
     width: 100px;
     font-weight: bold;
@@ -865,6 +865,8 @@ input::placeholder {
 
 
 /* LeagueMain */
+
+
 
 .leagueMain_modal {
     text-align: center;
@@ -1218,13 +1220,51 @@ input::placeholder {
     margin-left: 10px;
 }
 
+.leagueMain_modal_header {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+    border-bottom: #dee2e6 1px solid;
+    height: 80px;
+
+}
+
+.leagueMain_modal_footer {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: #dee2e6 1px solid;
+    margin: 10px;
+    padding-top: 10px;
+    height: 50px;
+}
+
+.leagueMain_modal_footer a:nth-child(1) {
+    background: #19B357;
+    padding: 10px 30px;
+    border-radius: 12.5px;
+    color: white;
+    margin-left: 10px;
+}
+
+.leagueMain_modal_footer a:nth-child(2) {
+    background: #EC4937;
+    padding: 10px 30px;
+    border-radius: 12.5px;
+    color: white;
+    margin-left: 10px;
+}
+
 .leagueMain_table {
     display: flex;
     text-align: center;
     width: 100%;
     margin-bottom: 10px;
-    justify-items: center;
-    justify-content: center;
+    justify-items: flex-start;
+    /*justify-content: center;*/
 }
 
 .leagueMain_table table {
@@ -1248,7 +1288,7 @@ input::placeholder {
 .modal-dialog {
     display: inline-block;
     text-align: left;
-    vertical-align: center;
+    vertical-align: middle;
 }
 
 .userReservation_modal_header {
@@ -1259,6 +1299,8 @@ input::placeholder {
     justify-content: space-between;
     padding: 10px 10px;
     border-bottom: #dee2e6 1px solid;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
 
 }
 
@@ -1714,6 +1756,16 @@ td {
     justify-self: end;
 }
 
+.userReservation_modal_header {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 10px;
+    border-bottom: #dee2e6 1px solid;
+
+}
+
 .modal {
     text-align: center;
 }
@@ -1769,6 +1821,7 @@ td {
 
 .modal-body {
     padding-bottom: 0;
+    width: 100%;
 }
 
 .userReservation_modal_header h2 {
@@ -2142,6 +2195,57 @@ td {
     justify-content: space-between;
 }
 
+.inquireMain_dropdown_btn {
+    background-color: #ffffff; /* 배경 색상 */
+    color: black; /* 글자 색상 */
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 1px #BFC3D1 solid;
+
+}
+
+.inquireMain_dropdown_btn:hover {
+    border-color: #6c757d;
+}
+
+.inquireMain_dropdown_btn:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.inquireMain_update_delete_btn {
+    display: flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: flex-end;
+    border-top: #dee2e6 1px solid;
+    margin: 10px;
+    padding-top: 10px;
+    height: 50px;
+}
+
+.inquireMain_update_delete_btn a:nth-child(1) {
+    background: #19B357;
+    padding: 10px 30px;
+    border-radius: 12.5px;
+    color: white;
+    margin-left: 10px;
+}
+
+.inquireMain_update_delete_btn a:nth-child(2) {
+    background: #EC4937;
+    padding: 10px 30px;
+    border-radius: 12.5px;
+    color: white;
+    margin-left: 10px;
+}
+
+/*.inquireMain_dropdown_btn :focus-visible{*/
+/*    outline-color: darkgray;*/
+/*}*/
+
 /* inquireWrite */
 
 .inquire_write {
@@ -2428,7 +2532,7 @@ td {
 /*placeResistration*/
 
 . place_resistration_letter {
->>> >>> > dev display: flex;
+    display: flex;
     flex-direction: column;
 
 }

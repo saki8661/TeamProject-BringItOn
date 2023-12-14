@@ -123,34 +123,32 @@
 
                                     <!-- Modal body -->
                                     <div class="modal-body">
-                                        <div class="modal_body">
-                                            <div class="leagueMain_table">
-                                                <Table>
-                                                    <tr class="leagueMain_table_header">
-                                                        <th>신청기간</th>
-                                                        <td>2024-02-01<br>
-                                                            ~ 2024-2-28
-                                                        </td>
-                                                        <th>대회기간</th>
-                                                        <td>2024-03-01<br>
-                                                            ~ 2024-06-30
-                                                        </td>
-                                                    </tr>
-                                                    <tr>
-                                                        <th>모집상태</th>
-                                                        <td>모집 진행전</td>
-                                                        <th>리그, 지역</th>
-                                                        <td>경기, 서울</td>
+                                        <div class="leagueMain_table">
+                                            <Table>
+                                                <tr class="leagueMain_table_header">
+                                                    <th>신청기간</th>
+                                                    <td>2024-02-01<br>
+                                                        ~ 2024-2-28
+                                                    </td>
+                                                    <th>대회기간</th>
+                                                    <td>2024-03-01<br>
+                                                        ~ 2024-06-30
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th>모집상태</th>
+                                                    <td>모집 진행전</td>
+                                                    <th>리그, 지역</th>
+                                                    <td>경기, 서울</td>
 
-                                                    </tr>
-                                                    <tr>
-                                                        <th>모집현황</th>
-                                                        <td>-팀/10팀</td>
-                                                        <th>주최</th>
-                                                        <td>Bring It On</td>
-                                                    </tr>
-                                                </Table>
-                                            </div>
+                                                </tr>
+                                                <tr>
+                                                    <th>모집현황</th>
+                                                    <td>-팀/10팀</td>
+                                                    <th>주최</th>
+                                                    <td>Bring It On</td>
+                                                </tr>
+                                            </Table>
                                         </div>
                                     </div>
 

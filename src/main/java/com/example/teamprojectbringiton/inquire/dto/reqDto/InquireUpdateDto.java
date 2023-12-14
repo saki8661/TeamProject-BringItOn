@@ -8,14 +8,14 @@ import java.sql.Timestamp;
 
 @Getter
 @NoArgsConstructor
-public class UpdateInquireDto {
+public class InquireUpdateDto {
     private String inquireTitle;
     private String inquireContent;
     private Timestamp createdAt;
     private Integer userId;
 
     @Builder
-    public UpdateInquireDto(String inquireTitle, String inquireContent, Timestamp createdAt, Integer userId) {
+    public InquireUpdateDto(String inquireTitle, String inquireContent, Timestamp createdAt, Integer userId) {
         this.inquireTitle = inquireTitle;
         this.inquireContent = inquireContent;
         this.createdAt = createdAt;
