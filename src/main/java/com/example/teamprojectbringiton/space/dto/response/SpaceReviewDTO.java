@@ -10,4 +10,5 @@ public class SpaceReviewDTO {
     private Integer rating;
     private String comment;
     private Timestamp createdAt;
+    private String username;
 }

@@ -21,8 +21,10 @@ public class ReservationController {
         return "/spaceRental/reservation";
     }
 
+
     @GetMapping("/matching-main")
     public  String matchReservationPage(Model model){
+
         List<MatchingReservationDTO> matchings = reservationService.matchingReservationList();
         List<Team> teamList = reservationService.teamList();
         List<Region> regionList = reservationService.regionList();
@@ -32,5 +34,6 @@ public class ReservationController {
         model.addAttribute("regionList", regionList);
         return "/matching/matchingPage";
     }
+
 
 }
