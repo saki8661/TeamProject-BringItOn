@@ -187,10 +187,7 @@
 
         </div>
     </c:forEach>
-<<<<<<< HEAD
-=======
 
->>>>>>> dev
 </div>
 
 <script>

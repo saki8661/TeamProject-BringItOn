@@ -219,6 +219,7 @@
                 </div>
                 <div class="manual_card">
                     <div class="matching_list">
+                        <c:forEach var="matching" items="${matchings}">
                         <div class="matching_detail">
                             <div class="manual_tit">
                                 09:00
@@ -226,31 +227,7 @@
                             <div class="matchingPage_team_box">
                                 <div class="matchingPage_team">
                                     <div>
-                                        <span class="manual_tit"> < FC 대욱 > </span>
-                                    </div>
-                                    <div>
-                                        <span class="manual_tit">6 vs 6 경기</span>
-                                    </div>
-                                </div>
-                                <div class="manual_num">부산 준타스 풋살 아레나 화이트</div>
-                            </div>
-                        </div>
-                        <button class="matching_button matching_btn_style" type="button" data-bs-toggle="modal"
-                                data-bs-target="#myModal">매칭하기
-                        </button>
-
-
-                    </div>
-                    <hr class="matchingPage_manual_box">
-                    <div class="matching_list">
-                        <div class="matching_detail">
-                            <div class="manual_tit">
-                                09:00
-                            </div>
-                            <div class="matchingPage_team_box">
-                                <div class="matchingPage_team">
-                                    <div>
-                                        <span class="manual_tit"> < FC 대욱 > </span>
+                                        <span class="manual_tit"> < ${matching.teamName} > </span>
                                     </div>
                                     <div>
                                         <span class="manual_tit">6 vs 6 경기</span>
@@ -263,102 +240,82 @@
                                 data-bs-target="#myModal">매칭하기
                         </button>
                     </div>
-                    <hr class="matchingPage_manual_box">
-                    <div class="matching_list">
-                        <div class="matching_detail">
-                            <div class="manual_tit">
-                                09:00
-                            </div>
-                            <div class="matchingPage_team_box">
-                                <div class="matchingPage_team">
-                                    <div>
-                                        <span class="manual_tit"> < FC 대욱 > </span>
-                                    </div>
-                                    <div>
-                                        <span class="manual_tit">6 vs 6 경기</span>
-                                    </div>
-                                </div>
-                                <div class="manual_num">부산 준타스 풋살 아레나 화이트</div>
-                            </div>
-                        </div>
-                        <button class="matching_button matching_btn_style" type="button" data-bs-toggle="modal"
-                                data-bs-target="#myModal">매칭하기
-                        </button>
 
                         <%--======================================MODAL================================================================--%>
 
-                        <div class="modal" id="myModal">
-                            <div class="modal-dialog">
-                                <div class="league_matching_modal modal-content">
+                    <div class="modal" id="myModal">
+                        <div class="modal-dialog">
+                            <div class="league_matching_modal modal-content">
 
 
-                                    <!-- Modal Header -->
-                                    <div class="userReservation_modal_header">
-                                        <h2>매칭 상세</h2>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                    </div>
+                                <!-- Modal Header -->
+                                <div class="userReservation_modal_header">
+                                    <h2>매칭 상세</h2>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
 
-                                    <!-- Modal body -->
-                                    <div class="modal-body">
-                                        <div class="modal_body">
-                                            <div class="userPayment_body_desc">
-                                                <img src="images/stadium.png" alt="">
-                                                <div class="userPayment_text">
-                                                    <div>
-                                                        부산 준타스 풋볼 아레나
-                                                    </div>
-                                                    <div>
-                                                        부산 진구
-                                                    </div>
-                                                    <div>
-                                                        시작: 2023-12-07 13시
-                                                    </div>
-                                                    <div>
-                                                        종료: 2023-12-07 15시
-                                                    </div>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <div class="modal_body">
+                                        <div class="userPayment_body_desc">
+                                            <img src="images/stadium.png" alt="">
+                                            <div class="userPayment_text">
+                                                <div>
+                                                    부산 준타스 풋볼 아레나
+                                                </div>
+                                                <div>
+                                                    부산 진구
+                                                </div>
+                                                <div>
+                                                    시작: 2023-12-07 13시
+                                                </div>
+                                                <div>
+                                                    종료: 2023-12-07 15시
                                                 </div>
                                             </div>
-                                            <div class="userPayment_table">
-                                                <Table>
-                                                    <div class="userPayment_detail_style">
-                                                        <tr class="userPayment_table_header">
-                                                            <th>팀명</th>
-                                                            <td>FC 대욱</td>
-                                                            <th>진행상태</th>
-                                                            <td>진행중</td>
-                                                        </tr>
-                                                        <tr class="userPayment_table_header">
-                                                            <th>인원수</th>
-                                                            <td>6명</td>
-                                                            <th>가격</th>
-                                                            <td>120,000원</td>
-                                                        </tr>
-                                                    </div>
-                                                </Table>
-                                            </div>
+                                        </div>
+                                        <div class="userPayment_table">
+                                            <Table>
+                                                <div class="userPayment_detail_style">
+                                                    <tr class="userPayment_table_header">
+                                                        <th>팀명</th>
+                                                        <td>FC 대욱</td>
+                                                        <th>진행상태</th>
+                                                        <td>진행중</td>
+                                                    </tr>
+                                                    <tr class="userPayment_table_header">
+                                                        <th>인원수</th>
+                                                        <td>6명</td>
+                                                        <th>가격</th>
+                                                        <td>120,000원</td>
+                                                    </tr>
+                                                </div>
+                                            </Table>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <!-- Modal footer -->
-                                    <div class="userPayment_modal_footer">
-                                        <div>
-                                            <div style="height: 10px"></div>
-                                            <a href="#">
-                                                <button>매칭 신청</button>
-                                            </a>
-                                        </div>
-                                        <div></div>
+                                <!-- Modal footer -->
+                                <div class="userPayment_modal_footer">
+                                    <div>
+                                        <div style="height: 10px"></div>
+                                        <a href="#">
+                                            <button>매칭 신청</button>
+                                        </a>
                                     </div>
+                                    <div></div>
                                 </div>
                             </div>
                         </div>
-                        <%--====================================MODAL==================================================================--%>
                     </div>
-                    <hr class="matchingPage_manual_box">
+                        <%--====================================MODAL==================================================================--%>
                 </div>
+                <hr class="matchingPage_manual_box">
+                </c:forEach>
             </li>
         </ul>
     </div>
+</div>
 
 
 </div>
