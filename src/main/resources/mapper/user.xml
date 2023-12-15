@@ -14,9 +14,17 @@
 
     <update id="updateById">
         update user_tb
-        set username = #{username},
-            password = #{password},
-            fullname = #{fullname}
+        set password     = #{username},
+            user_pic_url = #{password},
+            fullname     = #{fullname}
+        where id = #{id}
+    </update>
+
+    <!-- 개인정보 수정 -->
+    <update id="userUpdate">
+        update user_tb
+        set password     = #{password},
+            user_pic_url = #{userPicUrl}
         where id = #{id}
     </update>
 

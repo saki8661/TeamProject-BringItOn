@@ -1,9 +1,10 @@
 package com.example.teamprojectbringiton.user;
 
 
+import com.example.teamprojectbringiton._core.vo.MyPath;
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
-import com.example.teamprojectbringiton.user.dto.request.PwdUpdateDTO;
+import com.example.teamprojectbringiton.user.dto.request.UserUpdateDTO;
 import com.example.teamprojectbringiton.user.dto.response.CheckPasswordDTO;
 import com.example.teamprojectbringiton.user.dto.response.KakaoProfile;
 import com.example.teamprojectbringiton.user.dto.response.OAuthToken;
@@ -16,6 +17,11 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
+
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.UUID;
 
 @Service
 public class UserService {
@@ -89,9 +95,6 @@ public class UserService {
     }
 
 
-    public void userPwdUpdate(Integer id, PwdUpdateDTO pwdUpdateDto) {
-    }
-
     public UserTeamInfoDTO findByIdWithTeam(Integer id) {
         return userRepository.findByIdJoinTeam(id);
     }
@@ -140,6 +143,7 @@ public class UserService {
 
         System.out.println("카카오 로그인 닉네임 : " + response2.getBody().getProperties().getNickname());
         System.out.println("카카오 로그인 사진 : " + response2.getBody().getProperties().getProfileImage());
+        System.out.println("카카오 로그인 사진 2 : " + response2.getBody().getProperties().getThumbnailImage());
 
         return response2.getBody();
     }
@@ -152,5 +156,28 @@ public class UserService {
             return new CheckPasswordDTO(id, true);
         }
         return new CheckPasswordDTO(id, false);
+    }
+
+    @Transactional
+    public void userUpdate(UserUpdateDTO dto, Integer id) {
+        UUID uuid = UUID.randomUUID(); // 랜덤한 해시값을 만들어줌
+        String fileName = uuid + "_" + dto.getPic().getOriginalFilename();
+        System.out.println("fileName : " + fileName);
+
+        // 프로젝트 실행 파일로 변경하면 -< blogv2-1.jar
+        // 해당 실행파일 경로에 images 폴더가 필요함.
+        Path filePath = Paths.get(MyPath.IMG_PATH + fileName); // 서버 실행되는 위치의 폴더를 패치로 잡아준다
+        try {
+            Files.write(filePath, dto.getPic().getBytes());
+        } catch (Exception e) {
+            throw new RuntimeException(e.getMessage());
+        }
+        User user = userRepository.findById(id);
+        System.out.println("영속화 잘 됬니 ? : " + user);
+        user.updatePassword(dto.getPassword());
+        System.out.println("패스워드 변경 완료? : " + user.getPassword());
+        user.updateUserPicUrl(fileName);
+        System.out.println("이미지 변경완료? : " + user.getUserPicUrl());
+        userRepository.userUpdate(user);
     }
 }

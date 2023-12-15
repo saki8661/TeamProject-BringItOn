@@ -5,7 +5,7 @@ import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedExce
 
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
-import com.example.teamprojectbringiton.user.dto.request.PwdUpdateDTO;
+import com.example.teamprojectbringiton.user.dto.request.UserUpdateDTO;
 import com.example.teamprojectbringiton.user.dto.response.CheckPasswordDTO;
 import com.example.teamprojectbringiton.user.dto.response.KakaoProfile;
 import com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO;
@@ -117,15 +117,19 @@ public class UserController {
         }
 
         User user = userService.findById(id);
+        System.out.println("user의 이미지 : " + user.getUserPicUrl());
         model.addAttribute("user", user);
 
         return "user/userUpdate";
     }
 
-    @PostMapping("/passwordUpdate")
-    public String passwordUpdate(@PathVariable Integer id, PwdUpdateDTO dto) {
-        userService.userPwdUpdate(id, dto);
-        return "redirect:/kakao-login";
+    @PostMapping("/user-update")
+    public String userUpdate(UserUpdateDTO dto) {
+        System.out.println("업데이트 진입 : " + dto.getPic());
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        userService.userUpdate(dto, sessionUser.getId());
+        System.out.println("업데이트 나옴 : ");
+        return "redirect:/user-update/" + sessionUser.getId();
     }
 
     @GetMapping("/user-team/{id}")
