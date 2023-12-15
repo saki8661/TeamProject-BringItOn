@@ -27,7 +27,7 @@ public class InquireService {
     @Autowired
     private HttpSession session;
 
-    // 공지 목록 보기 기능
+    // 문의 목록 보기 기능
     public List<InquireListDTO> inquireList() {
         return inquireRepository.findAllJoinCategory();
     }

@@ -136,19 +136,26 @@
 
 
                         <div class="scroll4_place_detail_qna" id="scroll4_place_detail_qna">
+                            <div class="scroll4_place_detail_qna_title">공간문의</div>
                             <div class="scroll4_place_detail_qna_container">
+                                <div class="scroll4_place_detail_qna_textarea">
+                                <textarea class="scroll4_place_detail_qna_textarea" id="inquire_comment"
+                                          name="inquire_comment"
+                                          placeholder="문의를 작성해주세요"></textarea>
+                                </div>
                                 <button class="scroll4_place_detail_qna_container_button">
                                     문의하기
                                 </button>
                             </div>
-                            문의 23
                             <div class="scroll4_place_detail_qna_list">
-                                <div class="scroll4_place_detail_qna_list_title">
-                                    수요일 저녁 9~11시 예약 안되나영? 12월엔 예약 안되나용?
+                                <div class="scroll4_place_detail_review_list_container">
+                                    <div class="scroll4_place_detail_qna_username">${sessionUser.username}
+                                    </div>
+                                    <div class="separated_line"></div>
+                                    <div class="scroll4_place_detail_qna_date">2023-12-15</div>
+
                                 </div>
-                                <div class="scroll4_place_detail_qna_list_username">
-                                    지**
-                                </div>
+                                <div class="scroll4_place_detail_qna_content">수요일에 예약되나용? 시설이 어느정도 깨끗한가용?</div>
                             </div>
                             <div class="scroll4_place_detail_qna_list_pagination">
                                 <ul class="pagination">
@@ -178,7 +185,6 @@
                     </div>
                 </div>
             </div>
-
             <div id="container" class="place_detail_stick_area">
                 <div class="place_detail_stick_area_menu">
                     <div class="place_detail_stick_area_menu_date">
