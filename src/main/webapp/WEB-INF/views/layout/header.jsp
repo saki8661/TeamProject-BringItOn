@@ -21,9 +21,7 @@
     <!-- FullCalendar Script -->
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.js"></script>
 
-
     <link rel="stylesheet" href="/css/styles.css">
-    <script src="script.js" defer></script>
     <!--별점 아이콘 라이브러리-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!--하트 아이콘 라이브러리-->

@@ -1,6 +1,7 @@
 package com.example.teamprojectbringiton.user;
 
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
+import com.example.teamprojectbringiton.user.dto.response.UserPointDTO;
 import com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO;
 import org.apache.ibatis.annotations.Mapper;
 
@@ -27,5 +28,7 @@ public interface UserRepository {
 
     // 사용자의 아이디로 팀 조회
     public UserTeamInfoDTO findByIdJoinTeam(Integer id);
+
+    public UserPointDTO findByIdJoinPoint(Integer id);
 
 }

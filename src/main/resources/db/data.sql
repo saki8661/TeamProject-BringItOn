@@ -495,18 +495,18 @@ VALUES (1, 1),
 
 
 -- payment_tb 테이블
-INSERT INTO payment_tb (price, created_at, user_id)
-values ('10000', '2023-12-06', 1),
-       ('100000', '2023-12-02', 1),
-       ('30000', '2023-11-15', 1),
-       ('10000', '2023-11-10', 1);
+INSERT INTO payment_tb (amount, payment_number, is_charge, created_at, user_id)
+values ('10000', '1', TRUE, NOW(), 1),
+       ('100000', '2', TRUE,NOW(), 2),
+       ('30000', '3', TRUE, NOW(), 3),
+       ('10000', '4', TRUE, NOW(), 4);
 
--- 포인트 사용내역 더미 데이터
+-- 포인트 더미 데이터
 INSERT INTO point_tb (my_point, created_at, user_id)
 VALUES ('10000', NOW(), 1),
-       ('100000', NOW(), 1),
-       ('300000', NOW(), 1),
-       ('10000', NOW(), 1);
+       ('100000', NOW(), 2),
+       ('300000', NOW(), 3),
+       ('10000', NOW(), 4);
 
 -- 포인트 sodur 데이터
 INSERT INTO point_history_tb (point_amount, charge_point, use_point, refund, refund_date, created_at, user_id)

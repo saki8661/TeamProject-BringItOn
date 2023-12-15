@@ -711,6 +711,27 @@ input::placeholder {
     gap: 15px;
 }
 
+.modal_charge_icon button {
+    text-align: end;
+}
+
+.modal_charge_icon img{
+
+}
+
+.modal_charge_icon_container{
+    display: flex;
+    text-align: end;
+    justify-content: end;
+    border: 1px #F3F5F7 solid;
+    width: 100%;
+    max-width: 120%;
+    height: 80px;
+    box-sizing: border-box;
+    border-radius: 15px;
+
+}
+
 .modal_charge_body_title{
     color: black;
     margin-bottom: 10px;

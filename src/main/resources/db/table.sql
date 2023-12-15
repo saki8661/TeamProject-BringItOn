@@ -148,7 +148,9 @@ CREATE TABLE bank_tb
 CREATE TABLE payment_tb
 (
     id         INT AUTO_INCREMENT PRIMARY KEY,
-    price      INT,
+    amount      INT,
+    payment_number VARCHAR,
+    is_charge BOOLEAN,
     created_at DATE,
     user_id    INT
 );
