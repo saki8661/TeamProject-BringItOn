@@ -11,11 +11,13 @@ public class SpacePic {
 
     private Integer id;
     private String spacePic;
+    private String spaceId;
 
     @Builder
-    public SpacePic(Integer id, String spacePic) {
+    public SpacePic(Integer id, String spacePic, String spaceId) {
         this.id = id;
         this.spacePic = spacePic;
+        this.spaceId = spaceId;
     }
 
 }

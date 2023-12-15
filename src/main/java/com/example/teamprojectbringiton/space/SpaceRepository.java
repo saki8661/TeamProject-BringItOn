@@ -38,4 +38,5 @@ public interface SpaceRepository {
 
     public int findAllCount();
 
+
 }

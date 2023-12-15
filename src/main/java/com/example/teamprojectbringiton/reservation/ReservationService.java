@@ -3,6 +3,8 @@ package com.example.teamprojectbringiton.reservation;
 import com.example.teamprojectbringiton.region.Region;
 import com.example.teamprojectbringiton.region.RegionRepository;
 import com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO;
+import com.example.teamprojectbringiton.space.Space;
+import com.example.teamprojectbringiton.space.SpaceRepository;
 import com.example.teamprojectbringiton.team.Team;
 import com.example.teamprojectbringiton.team.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +24,9 @@ public class ReservationService {
     @Autowired
     RegionRepository regionRepository;
 
+    @Autowired
+    SpaceRepository spaceRepository;
+
     public List<Team> teamList() {
 
         return teamRepository.findAll();
@@ -31,7 +36,14 @@ public class ReservationService {
         return regionRepository.findAll();
     }
 
+    public List<Space> spaceList() {
+        return spaceRepository.findAll();
+    }
+
     public List<MatchingReservationDTO> matchingReservationList() {
-        return reservationRepository.findApplyMathingResv();
+        System.out.println("service 진입");
+        List<MatchingReservationDTO> dtos = reservationRepository.findApplyMatchingResv();
+        System.out.println(dtos.size());
+        return dtos;
     }
 }
