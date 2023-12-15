@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 @ToString
 @NoArgsConstructor
 @AllArgsConstructor
-public class SpaceReviewDto {
+public class SpaceReviewDTO {
     private Integer rating;
     private String comment;
     private String username;

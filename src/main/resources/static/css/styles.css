@@ -932,7 +932,6 @@ input::placeholder {
 
 .leagueMain_table_main{}
 
-
 .leagueMain_modal {
     text-align: center;
 }
@@ -2129,7 +2128,6 @@ td {
 }
 
 
-
 .userPayment_table_header th {
     text-align: center;
     width: 100px;
@@ -2291,7 +2289,7 @@ td {
     height: 50px;
 }
 
-.inquireMain_update_btn{
+.inquireMain_update_btn {
     background: #19B357;
     padding: 10px 30px;
     border-radius: 12.5px;
@@ -2299,7 +2297,7 @@ td {
     margin-left: 10px;
 }
 
-.inquireMain_delete_btn{
+.inquireMain_delete_btn {
     background: #EC4937;
     padding: 10px 30px;
     border-radius: 12.5px;
@@ -3244,14 +3242,8 @@ body {
     flex-direction: row;
     padding-top: 20px;
 
-
 }
 
-.scroll4_place_detail_review_list_container {
-    display: flex;
-    flex-direction: column;
-    padding-top: 20px;
-}
 
 .rated_star_username {
     padding-left: 10px;
@@ -3273,13 +3265,16 @@ body {
 .scroll4_place_detail_qna {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
 
 }
 
 .scroll4_place_detail_qna_container {
     display: flex;
-    justify-content: flex-end;
-    padding-top: 10px;
+    padding-top: 20px;
+    flex-direction: row;
 }
 
 .scroll4_place_detail_qna_container_button {
@@ -3301,8 +3296,39 @@ body {
     height: 100%;
 }
 
-.scroll4_place_detail_qna_list_title {
-    font-weight: bold;
+.scroll4_place_detail_qna_title {
+    font-size: 20px;
+    font-weight: bolder;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+.scroll4_place_detail_qna_textarea {
+    width: 100%;
+    height: 100%;
+}
+
+.scroll4_place_detail_review_list_container {
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+}
+
+
+.scroll4_place_detail_qna_username {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.scroll4_place_detail_qna_date {
+    font-weight: bolder;
+    color: #8A8A8A;
+    padding-left: 10px;
+
+}
+
+.scroll4_place_detail_qna_content {
+    padding-left: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
 }
