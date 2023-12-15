@@ -151,7 +151,7 @@ CREATE TABLE payment_tb
     amount      INT,
     payment_number VARCHAR,
     is_charge BOOLEAN,
-    created_at DATE,
+    created_at TIMESTAMP,
     user_id    INT
 );
 

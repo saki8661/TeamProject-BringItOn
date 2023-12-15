@@ -182,15 +182,17 @@
                     $.ajax({
                         url: '/payment-write',
                         type: 'POST',
-                        dataType: 'json',
-                        data: {
-                            orderNum: orderNum,
-                            amount: amount,
-
-                            // 추가 필요한 데이터가 있다면 여기에 추가
-                        },
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                                amount: amount,
+                                paymentNumber: orderNum,
+                                isCharge: true,
+                                userId: ${userPoint.id}
+                                // 추가 필요한 데이터가 있다면 여기에 추가
+                            }),
                         success: function(response) {
                             console.log(response);
+                            window.location.href = "/league-matching-page"
                             // 성공적으로 데이터를 서버로 전송한 후 추가적으로 수행할 작업이 있다면 여기에 추가
                         },
                         error: function(error) {
