@@ -14,20 +14,20 @@ public class SpaceInquire {
     private Integer id;
     private String inquireType;
     private String inquireContent;
-    private Integer inquireAnswer;
+    private String inquireAnswer;
     private Timestamp createdAt;
     private Integer userId;
-    private Integer sportId;
+    private Integer spaceId;
 
     @Builder
-    public SpaceInquire(Integer id, String inquireType, String inquireContent, Integer inquireAnswer, Timestamp createdAt, Integer userId, Integer sportId) {
+    public SpaceInquire(Integer id, String inquireType, String inquireContent, String inquireAnswer, Timestamp createdAt, Integer userId, Integer spaceId) {
         this.id = id;
         this.inquireType = inquireType;
         this.inquireContent = inquireContent;
         this.inquireAnswer = inquireAnswer;
         this.createdAt = createdAt;
         this.userId = userId;
-        this.sportId = sportId;
+        this.spaceId = spaceId;
 
     }
 }

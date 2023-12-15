@@ -3,7 +3,6 @@
 <%@ include file="../layout/header.jsp" %>
 <div class="frame">
     <div class="place_detail_container">
-
         <div class="place_detail_stick_menu_container">
             <div class="place_detail_description">
                 <div class="slider-container">
@@ -50,8 +49,7 @@
                         <li>
                         <li class="place_detail_li"><a href="#scroll3_place_detail_review" class="scroll_move">공간후기</a>
                         <li>
-                        <li class="place_detail_li"><a href="#scroll4_place_detail_qna"
-                                                       class="scroll4_place_detail_qna">공간문의</a>
+                        <li class="place_detail_li"><a href="#scroll4_place_detail_qna" class="scroll_move">공간문의</a>
                         <li>
                         <li class="place_detail_li"><a href="#scroll5_return_rule" class="scroll_move">환불규정</a>
                         <li>
@@ -133,58 +131,74 @@
                                 </div>
                             </c:forEach>
                         </div>
+                    </div>
+                </div>
 
-
-                        <div class="scroll4_place_detail_qna" id="scroll4_place_detail_qna">
-                            <div class="scroll4_place_detail_qna_title">공간문의</div>
-                            <div class="scroll4_place_detail_qna_container">
-                                <div class="scroll4_place_detail_qna_textarea">
+                <div class="scroll4_place_detail_qna" id="scroll4_place_detail_qna">
+                    <form method="post" action="/space-inquire">
+                        <div class="scroll4_place_detail_qna_big_title">
+                            <div class="scroll4_place_detail_qna_title">공간문의
+                            </div>
+                            <div class="scroll4_place_detail_qna_type">
+                                <label for="type">문의유형:</label>
+                                <select id="type" name="type">
+                                    <option value="공간문의">공간문의</option>
+                                    <option value="가격문의">가격문의</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="scroll4_place_detail_qna_container">
+                            <div class="scroll4_place_detail_qna_textarea">
                                 <textarea class="scroll4_place_detail_qna_textarea" id="inquire_comment"
                                           name="inquire_comment"
                                           placeholder="문의를 작성해주세요"></textarea>
-                                </div>
-                                <button class="scroll4_place_detail_qna_container_button">
-                                    문의하기
-                                </button>
                             </div>
-                            <div class="scroll4_place_detail_qna_list">
+                            <input type="hidden" name="spaceId" value="${spaceDetail.id}">
+
+                            <button class="scroll4_place_detail_qna_container_button" type="submit">
+                                문의하기
+                            </button>
+                        </div>
+                    </form>
+                    <div class="scroll4_place_detail_qna_list">
+                        <c:forEach var="spaceInquireList" items="${spaceInquireList}" varStatus="loop">
+                            <div class="scroll4_place_detail_qna_list_total">
                                 <div class="scroll4_place_detail_review_list_container">
-                                    <div class="scroll4_place_detail_qna_username">${sessionUser.username}
-                                    </div>
+                                    <div class="scroll4_place_detail_qna_username">${sessionUser.username}</div>
                                     <div class="separated_line"></div>
-                                    <div class="scroll4_place_detail_qna_date">2023-12-15</div>
-
+                                    <div class="scroll4_place_detail_qna_date">${spaceInquireList.createdAt}</div>
                                 </div>
-                                <div class="scroll4_place_detail_qna_content">수요일에 예약되나용? 시설이 어느정도 깨끗한가용?</div>
+                                <div class="scroll4_place_detail_qna_content">${spaceInquireList.inquireContent}</div>
+                                <div class="scroll4_place_detail_qna_answer">
+                                    <p id="answerToggleButton_${loop.index}" onclick="toggleAnswer(${loop.index})"
+                                       style="padding-bottom: 20px">
+                                        답변</p>
+                                </div>
+                                <div class="scroll4_place_detail_qna_answer_content"
+                                     id="answerHiddenContent_${loop.index}" style="padding-bottom: 10px">
+                                        ${spaceInquireList.inquireAnswer}
+                                </div>
                             </div>
-                            <div class="scroll4_place_detail_qna_list_pagination">
-                                <ul class="pagination">
-                                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">2</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
-                                </ul>
-                            </div>
+                        </c:forEach>
+                    </div>
+                    <div class="scroll5_return_rule" id="scroll5_return_rule">
+                        <h1 style="font-size: 20px; font-weight: bolder; padding-top: 20px; padding-bottom: 20px">
+                            환불
+                            규정</h1>
+                        <h1 style="font-size: 15px; font-weight: bolder; padding-bottom: 20px">공통 상품</h1>
+                        <h1 style="font-size: 15px; font-weight: bolder; padding-bottom: 20px">회원</h1>
+                        <h1 style="padding-bottom: 20px">- 공간 이용일 기준 8일전 : 100%환불</h1>
+                        <h1 style="padding-bottom: 20px">- 공간 이용일 기준 7일전 : 환불 불가</h1>
 
-                        </div>
-                        <div class="scroll5_return_rule" id="scroll5_return_rule">
-                            <h1 style="font-size: 20px; font-weight: bolder; padding-top: 20px; padding-bottom: 20px">
-                                환불
-                                규정</h1>
-                            <h1 style="font-size: 15px; font-weight: bolder; padding-bottom: 20px">공통 상품</h1>
-                            <h1 style="font-size: 15px; font-weight: bolder; padding-bottom: 20px">회원</h1>
-                            <h1 style="padding-bottom: 20px">- 공간 이용일 기준 8일전 : 100%환불</h1>
-                            <h1 style="padding-bottom: 20px">- 공간 이용일 기준 7일전 : 환불 불가</h1>
-
-                            <h1 style="font-size: 15px; font-weight: bolder; padding-top: 20px; padding-bottom: 20px">
-                                천재지변 및 불가항력</h1>
-                            <h1 style="font-size: 15px;  padding-bottom: 20px">- 공간 이용일 기준 당일 취소 시 : 100% 환불</h1>
-
-                        </div>
+                        <h1 style="font-size: 15px; font-weight: bolder; padding-top: 20px; padding-bottom: 20px">
+                            천재지변 및 불가항력</h1>
+                        <h1 style="font-size: 15px;  padding-bottom: 20px">- 공간 이용일 기준 당일 취소 시 : 100% 환불</h1>
                     </div>
                 </div>
+
             </div>
+
+
             <div id="container" class="place_detail_stick_area">
                 <div class="place_detail_stick_area_menu">
                     <div class="place_detail_stick_area_menu_date">
@@ -263,6 +277,17 @@
             slider.style.transform = "translateX(" + translateValue + ")";
         }
     });
+
+    function toggleAnswer(index) {
+        var answerContent = document.getElementById("answerHiddenContent_" + index);
+
+        // 현재 상태를 확인하여 토글
+        if (answerContent.style.display === "none" || answerContent.style.display === "") {
+            answerContent.style.display = "block"; // 나타내기
+        } else {
+            answerContent.style.display = "none"; // 숨기기
+        }
+    }
 
 </script>
 

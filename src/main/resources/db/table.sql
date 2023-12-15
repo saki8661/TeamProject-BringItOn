@@ -142,7 +142,7 @@ CREATE TABLE space_inquire_tb
 (
     id               INT AUTO_INCREMENT PRIMARY KEY,
     inquire_type     VARCHAR(50),
-    inquire_content   VARCHAR(255),
+    inquire_content  VARCHAR(255),
     inquire_answer   VARCHAR(255),
     created_at       TIMESTAMP,
     user_id          INT,
