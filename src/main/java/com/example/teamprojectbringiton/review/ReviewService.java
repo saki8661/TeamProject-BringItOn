@@ -1,6 +1,6 @@
 package com.example.teamprojectbringiton.review;
 
-import com.example.teamprojectbringiton.review.reqDTO.SpaceReviewDto;
+import com.example.teamprojectbringiton.review.reqDTO.SpaceReviewDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,7 +12,7 @@ public class ReviewService {
     private ReviewRepository reviewRepository;
 
     @Transactional
-    public void reviewSave(SpaceReviewDto dto) {
+    public void reviewSave(SpaceReviewDTO dto) {
         Review review = Review.builder()
                 .rating(dto.getRating())
                 .comment(dto.getComment())
