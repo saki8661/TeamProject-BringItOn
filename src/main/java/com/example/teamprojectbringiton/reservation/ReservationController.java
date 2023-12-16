@@ -22,18 +22,4 @@ public class ReservationController {
     }
 
 
-    @GetMapping("/matching-main")
-    public  String matchReservationPage(Model model){
-
-        List<MatchingReservationDTO> matchings = reservationService.matchingReservationList();
-        List<Team> teamList = reservationService.teamList();
-        List<Region> regionList = reservationService.regionList();
-        System.out.println("매칭신청 예약 리스트 입니다"+matchings.get(0).getTeamName());
-        model.addAttribute("matchings", matchings);
-        model.addAttribute("teamList", teamList);
-        model.addAttribute("regionList", regionList);
-        return "/matching/matchingPage";
-    }
-
-
 }

@@ -441,14 +441,13 @@ VALUES (1, 'inside1.png'),
 
 -- 시설 공간 예약 더미 데이터
 INSERT INTO reservation_tb (reservation_date, personnel, start_time, end_time, to_host, status, matching, created_at,
-                            user_id,
-                            space_id)
+                            user_id, space_id)
 VALUES ('2024-01-01', 6, '10:00:00', '12:00:00', '장비대여 되나요?', '예약진행중', true, CURRENT_TIMESTAMP, 2, 1),
-       ('2024-01-02', 2, '14:00:00', '16:00:00', Null, '예약완료', false, CURRENT_TIMESTAMP, 3, 2),
-       ('2024-01-01', 3, '12:00:00', '14:00:00', Null, '예약완료', true, CURRENT_TIMESTAMP, 5, 5),
-       ('2024-01-02', 4, '10:00:00', '12:00:00', Null, '예약진행중', true, CURRENT_TIMESTAMP, 6, 6),
-       ('2024-01-02', 2, '18:00:00', '20:00:00', Null, '예약진행중', false, CURRENT_TIMESTAMP, 7, 7),
-       ('2024-01-01', 5, '19:00:00', '21:00:00', Null, '예약진행중', false, CURRENT_TIMESTAMP, 8, 8);
+       ('2024-01-02', 2, '14:00:00', '16:00:00', '장비대여 되나요?', '예약완료', false, CURRENT_TIMESTAMP, 3, 2),
+       ('2024-01-01', 3, '12:00:00', '14:00:00', '장비대여 되나요?', '예약완료', true, CURRENT_TIMESTAMP, 5, 5),
+       ('2024-01-02', 4, '10:00:00', '12:00:00', '장비대여 되나요?', '예약진행중', true, CURRENT_TIMESTAMP, 6, 6),
+       ('2024-01-02', 2, '18:00:00', '20:00:00', '장비대여 되나요?', '예약진행중', false, CURRENT_TIMESTAMP, 7, 7),
+       ('2024-01-01', 5, '19:00:00', '21:00:00', '장비대여 되나요?', '예약진행중', false, CURRENT_TIMESTAMP, 8, 8);
 
 
 -- 한줄리뷰 더미 데이터
@@ -505,7 +504,7 @@ VALUES ('시설문의', '근처에 주차공간 여유롭나요?', '주차는 �
 -- payment_tb 테이블
 INSERT INTO payment_tb (amount, payment_number, is_charge, created_at, user_id)
 values ('10000', '1', TRUE, NOW(), 1),
-       ('100000', '2', TRUE,NOW(), 2),
+       ('100000', '2', TRUE, NOW(), 2),
        ('30000', '3', TRUE, NOW(), 3),
        ('10000', '4', TRUE, NOW(), 4);
 
