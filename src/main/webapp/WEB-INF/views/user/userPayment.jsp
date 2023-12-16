@@ -163,7 +163,7 @@
 
             // POST 요청 데이터 (필요에 따라 수정)
             var postData = {
-                merchant_uid: "order_no_202312143605137536",
+                merchant_uid: "order_no_202312146445340777",
                 reason: "환불"
                 // 추가 필드가 있으면 여기에 추가
             };

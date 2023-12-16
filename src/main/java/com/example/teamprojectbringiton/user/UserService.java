@@ -6,6 +6,7 @@ import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
 import com.example.teamprojectbringiton.user.dto.request.PwdUpdateDTO;
 import com.example.teamprojectbringiton.user.dto.response.KakaoProfile;
 import com.example.teamprojectbringiton.user.dto.response.OAuthToken;
+import com.example.teamprojectbringiton.user.dto.response.UserPointDTO;
 import com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -141,5 +142,10 @@ public class UserService {
         System.out.println("카카오 로그인 사진 : " + response2.getBody().getProperties().getProfileImage());
 
         return response2.getBody();
+    }
+
+    public UserPointDTO findByIdJoinPoint(Integer id){
+        UserPointDTO dto = userRepository.findByIdJoinPoint(id);
+        return dto;
     }
 }

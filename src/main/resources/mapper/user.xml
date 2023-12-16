@@ -71,4 +71,14 @@
                       on t.sport_id = s.id
         where u.id = #{id}
     </select>
+
+    <select id="findByIdJoinPoint"
+            resultType="com.example.teamprojectbringiton.user.dto.response.UserPointDTO">
+        select *
+        from user_tb u
+                 left join point_tb p
+                           on u.id = p.user_id
+        where u.id = #{id}
+    </select>
+
 </mapper>

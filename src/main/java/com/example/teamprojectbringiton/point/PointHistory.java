@@ -23,7 +23,6 @@ public class PointHistory {
     @Builder
     public PointHistory(Integer id, Integer pointAmount, Integer chargePoint, Integer usePoint, Boolean refund, Date refundDate, Date createdAt, Integer userId) {
         this.id = id;
-        this.pointAmount = pointAmount;
         this.chargePoint = chargePoint;
         this.pointAmount = pointAmount;
         this.usePoint = usePoint;

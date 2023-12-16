@@ -10,14 +10,18 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class Payment {
     private Integer id;
-    private Integer price;
+    private Integer amount;
+    private String paymentNumber;
+    private Boolean isCharge;
     private Timestamp createdAt;
     private Integer userId;
 
     @Builder
-    public Payment(Integer id, Integer price, Timestamp createdAt, Integer userId) {
+    public Payment(Integer id, Integer amount, String paymentNumber, Boolean isCharge, Timestamp createdAt, Integer userId) {
         this.id = id;
-        this.price = price;
+        this.amount = amount;
+        this.paymentNumber = paymentNumber;
+        this.isCharge = isCharge;
         this.createdAt = createdAt;
         this.userId = userId;
     }
