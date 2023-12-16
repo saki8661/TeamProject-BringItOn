@@ -9,14 +9,20 @@ import java.sql.Time;
 @Getter
 @Setter
 public class MatchingReservationDTO {
+    private Integer id;
     private boolean matching;
+    private Integer personnel;
+    private String status;
     private Date reservationDate;
     private Time startTime;
     private Time endTime;
     private Integer teamId;
     private String teamName;
     private Integer spaceId;
-    private Integer spaceName;
+    private String spaceName;
+    private String spaceLocation;
+    private String spacePic;
+    private String pricePerHour;
     private Integer regionId;
-    private Integer regionName;
+    private String regionName;
 }
