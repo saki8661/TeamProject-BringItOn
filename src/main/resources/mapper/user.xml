@@ -81,4 +81,33 @@
         where u.id = #{id}
     </select>
 
+    <select id="findByIdForUserInfo"
+            resultType="com.example.teamprojectbringiton.user.dto.response.UserInfoDTO">
+        SELECT u.nickname,
+               u.user_email,
+               u.user_address,
+               u.user_division,
+               t.team_name,
+               t.team_introduce,
+               t.level,
+               r.region_name,
+               sp.sport_name,
+               rt.reservation_date,
+               rt.start_time,
+               rt.end_time,
+               rt.status,
+               s.space_name
+        FROM user_tb u
+                 LEFT JOIN
+             team_tb t ON u.team_id = t.id
+                 LEFT JOIN
+             region_tb r ON t.region_id = r.id
+                 LEFT JOIN
+             sport_tb sp ON sp.id = t.sport_id
+                 LEFT JOIN
+             reservation_tb rt ON rt.user_id = u.id
+                 LEFT JOIN
+             space_tb s ON s.user_id = u.id
+        WHERE u.id = #{id}
+    </select>
 </mapper>

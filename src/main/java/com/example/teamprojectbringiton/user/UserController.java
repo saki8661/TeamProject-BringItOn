@@ -106,8 +106,10 @@ public class UserController {
         return "redirect:/home";
     }
 
-    @GetMapping("/user-mypage")
-    public String userMyPage(){
+    @GetMapping("/user-mypage/{id}")
+    public String userMyPage(@PathVariable Integer id){
+        userService.findByIdForUserInfo(id);
+        System.out.println("===============================조회 끝! ");
         return "user/userMyPage";
     }
 
@@ -140,7 +142,6 @@ public class UserController {
 
         return "user/userTeam";
     }
-
 
     @GetMapping("/user-bookmark")
 

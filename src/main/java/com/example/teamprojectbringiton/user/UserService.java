@@ -4,10 +4,7 @@ package com.example.teamprojectbringiton.user;
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
 import com.example.teamprojectbringiton.user.dto.request.PwdUpdateDTO;
-import com.example.teamprojectbringiton.user.dto.response.KakaoProfile;
-import com.example.teamprojectbringiton.user.dto.response.OAuthToken;
-import com.example.teamprojectbringiton.user.dto.response.UserPointDTO;
-import com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO;
+import com.example.teamprojectbringiton.user.dto.response.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
@@ -147,5 +144,10 @@ public class UserService {
     public UserPointDTO findByIdJoinPoint(Integer id){
         UserPointDTO dto = userRepository.findByIdJoinPoint(id);
         return dto;
+    }
+
+    public UserInfoDTO findByIdForUserInfo(Integer id) {
+        UserInfoDTO user = userRepository.findByIdForUserInfo(id);
+        return user;
     }
 }
