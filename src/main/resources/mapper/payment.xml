@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.teamprojectbringiton.payment.PaymentRepository">
+
+    <insert id="insert">
+        insert into payment_tb(amount, payment_number, is_charge, created_at, user_id)
+        values (#{amount}, #{paymentNumber}, #{isCharge}, now(), #{userId});
+    </insert>
+
+    <select id="findByUserIdJoinPoint"
+            resultType="com.example.teamprojectbringiton.payment.response.PaymentDTO">
+        select *
+        from payment_tb pay
+        join user_tb u
+        on pay.user_id = u.id
+        join point_tb p
+        on p.user_id = u.id
+        where u.id = #{id}
+    </select>
+
+</mapper>

@@ -8,7 +8,16 @@
         <div class="userInfo_charge">
             나의 캐시
             <br>
-            99,999,999원
+            <c:set var="userPoint" value="${sessionScope.userPoint}"/>
+
+            <c:if test="${not empty userPoint and not empty userPoint.myPoint}">
+                ${userPoint.myPoint}원
+            </c:if>
+            <c:if test="${empty userPoint or empty userPoint.myPoint}">
+                0원
+            </c:if>
+
+
             <!-- Button to Open the Modal -->
             <button type="button" class="userInfo_charge_button" data-bs-toggle="modal" data-bs-target="#paymentModal">
                 충전
@@ -72,31 +81,20 @@
                                         충전 방법
                                     </div>
                                     <div class="modal_charge_icon">
-                                        <button type="button" onclick="kakaoPay()">
-                                            <img src="/images/kakao_payment_icon.png">
-                                        </button>
-                                        <button type="button" onclick="nicePay()">
-                                            <img src="/images/nicepay_payment_icon.png">
-                                        </button>
-                                    </div>
-                                </div>
-                                <div class="modal_charge_checkbox">
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="terms" required>
-                                        <div class="form-check-label modal_charge_checkbox_label">
-                                            <div>
-                                                [필수]결제 서비스 이용약관
-                                            </div>
-                                            <a href="#"> ></a>
+                                        <div class="modal_charge_icon_container">
+                                            <button type="button" onclick="kakaoPay()">
+                                                <img src="/images/kakao_payment_icon.png">
+                                            </button>
                                         </div>
-                                    </div>
-                                    <div class="form-check">
-                                        <input class="form-check-input" type="checkbox" value="" id="privacy" required>
-                                        <div class="form-check-label modal_charge_checkbox_label">
-                                            <div>
-                                                [필수]개인정보 처리 동의
-                                            </div>
-                                            <a href="#"> ></a>
+                                        <div class="modal_charge_icon_container">
+                                            <button type="button" onclick="nicePay()">
+                                                <img src="/images/nicepay_payment_icon.png">
+                                            </button>
+                                        </div>
+                                        <div class="modal_charge_icon_container">
+                                            <button type="button" onclick="tossPay()">
+                                                <img src="/images/toss_payment_icon.png">
+                                            </button>
                                         </div>
                                     </div>
                                 </div>
@@ -116,6 +114,7 @@
         </div>
         <hr>
         <div class="userInfo_link">
+            <a class="nav-link userInfo_link_text" href="/user-mypage">나의 정보</a>
             <a class="nav-link userInfo_link_text" href="/user-team/${sessionUser.id}">팀 관리</a>
             <a class="nav-link userInfo_link_text" href="/user-bookmark">북마크</a>
             <a class="nav-link userInfo_link_text" href="/user-reservation">예약 내역</a>
@@ -129,6 +128,8 @@
 </div>
 
 <script>
+    var amount = 0;
+
     function activateButton(button) {
         // 모든 버튼에서 'active' 클래스 제거
         var buttons = document.querySelectorAll('.modal_price_button_item');
@@ -138,69 +139,123 @@
 
         // 클릭된 버튼에 'active' 클래스 추가
         button.classList.add('active');
+
+        amount = parseInt(button.innerText.replace(/[^0-9]/g, ''), 10);
+        console.log(amount);
     }
 
     IMP.init('imp70414440');
 
-    function createOrderNum(){
+    function createOrderNum() {
         const date = new Date();
         const year = date.getFullYear();
         const month = String(date.getMonth() + 1).padStart(2, "0");
         const day = String(date.getDate()).padStart(2, "0");
 
         let orderNum = year + month + day;
-        for(let i=0;i<10;i++) {
+        for (let i = 0; i < 10; i++) {
             orderNum += Math.floor(Math.random() * 8);
         }
         return orderNum;
     }
 
+
     function kakaoPay() {
         const orderNum = createOrderNum();
-        console.log(orderNum);
 
         IMP.request_pay({
-            pg : 'kakaopay.TC0ONETIME',
-            pay_method : 'card', //생략 가능
-            merchant_uid: 'order_no_'+orderNum, // 상점에서 관리하는 주문 번호
-            name : '주문명:결제테스트',
-            amount : 14000,
-            buyer_email : 'iamport@siot.do',
-            buyer_name : '구매자이름',
-            buyer_tel : '010-1234-5678',
-            buyer_addr : '서울특별시 강남구 삼성동',
-            buyer_postcode : '123-456'
-        }, function(rsp) { if ( response.success ) { //결제 성공
-            console.log(response);
-        } else {
-            alert('결제실패 : ' + response.error_msg);
-        }
-        });
+                pg: 'kakaopay.TC0ONETIME',
+                pay_method: 'card', //생략 가능
+                merchant_uid: 'order_no_' + orderNum, // 상점에서 관리하는 주문 번호
+                name: amount + 'point 충전',
+                amount: amount,
+                buyer_email: "${userPoint.userEmail}",
+                buyer_name: "${userPoint.username}",
+                buyer_tel: "${userPoint.userPhoneNumber}",
+                buyer_addr: "${userPoint.userAddress}",
+            }, async (rsp) => {
+                if (amount == 0) {
+                    alert("충전할 금액을 선택해주세요.")
+                }
+                if (rsp.success) {
+                    // 결제 성공시
+                    alert("결제 성공");
+                    $.ajax({
+                        url: '/payment-write',
+                        type: 'POST',
+                        contentType: 'application/json',
+                        data: JSON.stringify({
+                                amount: amount,
+                                paymentNumber: orderNum,
+                                isCharge: true,
+                                userId: ${userPoint.id}
+                                // 추가 필요한 데이터가 있다면 여기에 추가
+                            }),
+                        success: function(response) {
+                            console.log(response);
+                            window.location.href = "/user-mypage";
+                            // 성공적으로 데이터를 서버로 전송한 후 추가적으로 수행할 작업이 있다면 여기에 추가
+                        },
+                        error: function(error) {
+                            console.error('Ajax 통신 에러:', error);
+                        }
+                    });
+                }
+
+            }
+        );
+
     }
+
 
     function nicePay() {
         const orderNum = createOrderNum();
-        console.log(orderNum);
-
 
         IMP.request_pay(
             {
                 pg: "nice_v2.",
                 pay_method: "card",
-                merchant_uid: 'orderNo'+orderNum,
-                name: "주문명:결제테스트",
-                amount: 1004,
-                buyer_email: "test@portone.io",
-                buyer_name: "구매자이름",
-                buyer_tel: "010-1234-5678",
-                buyer_addr: "서울특별시 강남구 삼성동",
-                buyer_postcode: "123-456",
+                merchant_uid: 'orderNo' + orderNum,
+                name: amount + 'point 충전',
+                amount: amount,
+                buyer_email: "${userPoint.userEmail}",
+                buyer_name: "${userPoint.username}",
+                buyer_tel: "${userPoint.userPhoneNumber}",
+                buyer_addr: "${userPoint.userAddress}",
             },
             function (rsp) {
-                if ( response.success ) { //결제 성공
+                if (amount == 0) {
+                    alert("충전할 금액을 선택해주세요.")
+                }
+                if (rsp.success) { //결제 성공
                     console.log(response);
                 } else {
                     alert('결제실패 : ' + response.error_msg);
+                }
+            }
+        );
+    }
+
+    function tossPay() {
+        const orderNum = createOrderNum();
+
+        IMP.request_pay({
+                pg: 'tosspay',
+                pay_method: 'card',
+                merchant_uid: 'order_no_' + orderNum,
+                name: amount + 'point 충전',
+                amount: amount,
+                buyer_email: "${userPoint.userEmail}",
+                buyer_name: "${userPoint.username}",
+                buyer_tel: "${userPoint.userPhoneNumber}",
+                buyer_addr: "${userPoint.userAddress}",
+                m_redirect_url: 'http://localhost/home'
+            }, function (rsp) {
+                if (amount == 0) {
+                    alert("충전할 금액을 선택해주세요.")
+                }
+                if (rsp.success) { //결제 성공
+                    console.log(response);
                 }
             }
         );

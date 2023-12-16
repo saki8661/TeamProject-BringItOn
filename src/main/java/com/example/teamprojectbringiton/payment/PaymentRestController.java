@@ -1,14 +1,26 @@
 package com.example.teamprojectbringiton.payment;
 
+import com.example.teamprojectbringiton.payment.request.UpdatePointDTO;
+import com.example.teamprojectbringiton.payment.response.PaymentDTO;
+import com.example.teamprojectbringiton.point.PointService;
+import com.example.teamprojectbringiton.user.User;
+import com.example.teamprojectbringiton.user.UserService;
+import com.example.teamprojectbringiton.user.dto.response.UserPointDTO;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
+import jakarta.servlet.http.HttpSession;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.net.ssl.HttpsURLConnection;
 import java.io.*;
 import java.net.URL;
+import java.util.List;
 import java.util.Map;
 
 @RestController
@@ -17,6 +29,18 @@ public class PaymentRestController {
     private String payment_imp_key;
     @Value("${PAYMENT_IMP_SECRET}")
     private String payment_imp_secret;
+
+    @Autowired
+    private PaymentService paymentService;
+
+    @Autowired
+    private PointService pointService;
+
+    @Autowired
+    private HttpSession session;
+
+    @Autowired
+    private UserService userService;
 
     @PostMapping("/payment/refund")
     public void refundRequest(String access_token, String merchant_uid, String reason) throws IOException {
@@ -82,6 +106,36 @@ public class PaymentRestController {
         conn.disconnect(); // 연결 종료
 
         return accessToken;
+    }
+
+    @PostMapping("/payment-write")
+    public ResponseEntity<String> writePayment(@RequestBody Payment payment) {
+        try {
+            paymentService.paymentWrite(payment);
+            UserPointDTO userPoint = (UserPointDTO) session.getAttribute("userPoint");
+
+            List<PaymentDTO> dto = paymentService.findByUserIdJoinPoint(userPoint.getId());
+
+            int nowPoint = dto.stream()
+                    .reduce((first, second) -> second)
+                    .map(lastDTO -> lastDTO.getAmount() + lastDTO.getMyPoint())
+                    .orElse(0);
+
+            UpdatePointDTO updatePointDTO = new UpdatePointDTO();
+
+            updatePointDTO.setNowPoint(nowPoint);
+            updatePointDTO.setId(userPoint.getId());
+
+            pointService.pointUpdate(updatePointDTO);
+            UserPointDTO userPointDTO = userService.findByIdJoinPoint(userPoint.getId());
+            session.setAttribute("userPoint", userPointDTO);
+
+            return new ResponseEntity<>("결제 성공", HttpStatus.OK);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity<>("Failed to save payment data", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
 }
