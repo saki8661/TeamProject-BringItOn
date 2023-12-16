@@ -93,14 +93,7 @@
                             </div>
                             <div class="main_content_category m-2">
                                 [${item.sector}/${item.sportName}]
-                                <c:choose>
-                                    <c:when test="${item.isInside()}">
-                                        실내 체육관
-                                    </c:when>
-                                    <c:otherwise>
-                                        실외 체육관
-                                    </c:otherwise>
-                                </c:choose>
+                                    ${item.isInside() ? '실내 체육관' : '실외 체육관'}
                             </div>
                             <div class="main_content_location m-2">
                                     ${item.regionName}
@@ -116,13 +109,13 @@
                 <ul class="pagination main_paging">
                     <li class="page-item${pageVO.currentPage eq pageVO.firstPage ? ' disabled' : ''}">
                         <a class="page-link"
-                           href="?currentPage=${pageVO.firstPage}&itemsPerPage=${pageVO.countPerPage}">
+                           href="/home?currentPage=${pageVO.firstPage}">
                             <<
                         </a>
                     </li>
                     <li class="page-item${pageVO.currentPage eq pageVO.firstPage ? ' disabled' : ''}">
                         <a class="page-link"
-                           href="?currentPage=${pageVO.currentPage - 1}&itemsPerPage=${pageVO.countPerPage}">
+                           href="/home?currentPage=${pageVO.currentPage - 1}">
                             <
                         </a>
                     </li>
@@ -132,7 +125,7 @@
                             <c:forEach begin="1" end="${pageVO.lastPage}" var="pageNumber">
                                 <li class="page-item ${pageVO.currentPage eq pageNumber ? 'active' : ''}">
                                     <a class="page-link"
-                                       href="?currentPage=${pageNumber}&itemsPerPage=${pageVO.countPerPage}">
+                                       href="/home?currentPage=${pageNumber}">
                                             ${pageNumber}
                                     </a>
                                 </li>
@@ -153,7 +146,7 @@
                             <c:forEach begin="${startPage}" end="${startPage + 4}" var="pageNumber">
                                 <li class="page-item ${pageVO.currentPage eq pageNumber ? 'active' : ''}">
                                     <a class="page-link"
-                                       href="?currentPage=${pageNumber}&itemsPerPage=${pageVO.countPerPage}">
+                                       href="/home?currentPage=${pageNumber}">
                                             ${pageNumber}
                                     </a>
                                 </li>
@@ -162,12 +155,12 @@
                     </c:choose>
                     <li class="page-item${pageVO.currentPage eq pageVO.lastPage ? ' disabled' : ''}">
                         <a class="page-link"
-                           href="?currentPage=${pageVO.currentPage + 1}&itemsPerPage=${pageVO.countPerPage}">
+                           href="/home?currentPage=${pageVO.currentPage + 1}">
                             >
                         </a>
                     </li>
                     <li class="page-item${pageVO.currentPage eq pageVO.lastPage ? ' disabled' : ''}">
-                        <a class="page-link" href="?currentPage=${pageVO.lastPage}&itemsPerPage=${pageVO.countPerPage}">
+                        <a class="page-link" href="/home?currentPage=${pageVO.lastPage}">
                             >>
                         </a>
                     </li>
@@ -177,6 +170,59 @@
         </div>
     </div>
 </div>
+
+<script>
+    $(document).ready(function () {
+        $(".pagination a").click(function (e) {
+            e.preventDefault();
+
+            var page = $(this).text();
+
+            $.ajax({
+                url: "/homePaging?currentPage="+page,
+                type: "GET",
+                contentType: "application/json",
+                success: function (data) {
+                    console.log(data)
+                    console.log("여기부터")
+                    $(".main_layout").empty();
+                    var htmlString = "";
+                    data.forEach(function (item) {
+                        htmlString += '<div>' +
+                            '<div class="inside_content">' +
+                            '<a href="/space-detail/1"><img src="/images/' + item.spacePic + '"></a>' +
+                            '</div>' +
+                            '<div class="main_content_title m-2">' + item.spaceName + '</div>' +
+                            '<div class="main_content_category m-2">[' + item.sector + '/' + item.sportName + ']' +
+                            '</div>' +
+                            '<div class="main_content_location m-2">' + item.regionName + '</div>' +
+                            '<div class="main_content_price m-2 mb-4">' + item.pricePerHour + '원 ~</div>' +
+                            '</div>';
+                    });
+
+                    $(".main_layout").append(htmlString);
+                    console.log("Clicked Page: " + page);
+                    console.log("여기까지")
+                },
+                error: function () {
+                    console.log(data)
+                    alert("AJAX 요청 중 오류가 발생했습니다.");
+                }
+            });
+        });
+    });
+
+    $(document).ready(function() {
+        // 페이지네이션 버튼 클릭 이벤트 처리
+        $('.main_paging').on('click', 'li.page-item:not(.disabled) a.page-link', function(e) {
+            // 모든 페이지네이션 버튼에서 'active' 클래스 제거
+            $('.main_paging li.page-item').removeClass('active');
+
+            // 클릭한 버튼에 'active' 클래스 추가
+            $(this).parent('li.page-item').addClass('active');
+        });
+    });
+</script>
 
 <%@ include file="layout/footer.jsp" %>
 
