@@ -114,6 +114,7 @@
         </div>
         <hr>
         <div class="userInfo_link">
+            <a class="nav-link userInfo_link_text" href="/user-mypage">나의 정보</a>
             <a class="nav-link userInfo_link_text" href="/user-team/${sessionUser.id}">팀 관리</a>
             <a class="nav-link userInfo_link_text" href="/user-bookmark">북마크</a>
             <a class="nav-link userInfo_link_text" href="/user-reservation">예약 내역</a>
@@ -192,7 +193,7 @@
                             }),
                         success: function(response) {
                             console.log(response);
-                            window.location.href = "/league-matching-page"
+                            window.location.href = "/user-mypage";
                             // 성공적으로 데이터를 서버로 전송한 후 추가적으로 수행할 작업이 있다면 여기에 추가
                         },
                         error: function(error) {

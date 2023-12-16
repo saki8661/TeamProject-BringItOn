@@ -106,6 +106,11 @@ public class UserController {
         return "redirect:/home";
     }
 
+    @GetMapping("/user-mypage")
+    public String userMyPage(){
+        return "user/userMyPage";
+    }
+
     @GetMapping("/user-update/{id}")
     public String userUpdatePage(@PathVariable Integer id, Model model) {
 
