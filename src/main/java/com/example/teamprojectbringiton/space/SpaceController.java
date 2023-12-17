@@ -40,7 +40,7 @@ public class SpaceController {
         return "/spaceRental/placeDetail";
     }
 
-    @GetMapping({"/space-main", "/", "/home"})
+    @GetMapping({"/","home"})
     public String spaceMainPage(@RequestParam(name = "currentPage", defaultValue = "1") int currentPage,
                                 @RequestParam(name = "pageSize", defaultValue = "8") int pageSize,
                                 Model model) {
@@ -58,7 +58,8 @@ public class SpaceController {
         pageVO.setCountSize(5);
 
         model.addAttribute("spaces", spaces);
-        model.addAttribute("pageVO", pageVO); // 페이징 정보를 모델에 추가
+        model.addAttribute("pageVO", pageVO);
+        // 페이징 정보를 모델에 추가
 
         return "/home";
     }
