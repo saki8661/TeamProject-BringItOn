@@ -28,5 +28,8 @@ public interface UserRepository {
     // 사용자의 아이디로 팀 조회
     public UserTeamInfoDTO findByIdJoinTeam(Integer id);
 
-    public void userUpdate(User user);
+    public void userUpdateImage(User user);
+
+    public void userUpdatePassword(User user);
+
 }

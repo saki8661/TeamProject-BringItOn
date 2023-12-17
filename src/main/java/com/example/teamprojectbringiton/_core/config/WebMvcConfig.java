@@ -20,9 +20,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-
         registry.addInterceptor(authInterceptor)
-                .addPathPatterns("/account/**")
+                .addPathPatterns("/user/**")
                 .addPathPatterns("/auth/**"); // 추가하는 방밥
 
     }
@@ -30,7 +29,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
         WebMvcConfigurer.super.addResourceHandlers(registry); // 기존에 하는 일 (지우면 안됨)
-
         registry.addResourceHandler("/img/**") // 누군가 /images//**(머든지) 요청을 하면
                 .addResourceLocations("file:" + "./img/") // ./images/ 로 가서 **칸에 들어가는 값을 찾아준다.
                 .setCachePeriod(10) // 10 (초) (초단위)
@@ -42,6 +40,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
+
+
+
 
 }
 

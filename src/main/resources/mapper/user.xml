@@ -20,11 +20,17 @@
         where id = #{id}
     </update>
 
-    <!-- 개인정보 수정 -->
-    <update id="userUpdate">
+    <!-- 프로필 이미지 수정 -->
+    <update id="userUpdateImage" parameterType="com.example.teamprojectbringiton.user.User">
         update user_tb
-        set password     = #{password},
-            user_pic_url = #{userPicUrl}
+        set user_pic_url = #{userPicUrl}
+        where id = #{id}
+    </update>
+
+    <!-- 패스워드 수정 -->
+    <update id="userUpdatePassword" parameterType="com.example.teamprojectbringiton.user.User">
+        update user_tb
+        set password     = #{password}
         where id = #{id}
     </update>
 

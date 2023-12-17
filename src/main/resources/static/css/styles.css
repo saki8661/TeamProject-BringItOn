@@ -691,6 +691,7 @@ input::placeholder {
     align-items: center;
 }
 
+
 .userUpdate_image img {
     margin: 20px;
     width: 100px;
@@ -717,11 +718,16 @@ input::placeholder {
     justify-content: center;
 }
 
+.userUpdate_password_box {
+    display: flex;
+    justify-content: space-between;
+}
+
 .userUpdate_button button {
     background: #19B357;
     border-radius: 15px;
     border: #19B357 1px solid;
-    width: 50%;
+    width: 120px;
     height: 40px;
     color: white;
     margin-top: 20px;
@@ -3344,4 +3350,60 @@ body {
     font-size: 15px;
     color: #BFC3D2;
     font-weight: bold;
+}
+
+.userUpdate_image_box {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+.input_profile_image {
+    position: relative;
+    width: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+.profile_image {
+    background: url(../images/basic_img.svg) no-repeat;
+    width: 120px;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+    margin-top: 24px;
+}
+.profile_image_item {
+    border-radius: 50%;
+}
+.profile_file_box {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: var(--basic_wh);
+    border-radius: 47px;
+    border: 1px solid var(--line);
+    cursor: pointer;
+    bottom: 0;
+    right: 0;
+}
+.picture {
+    margin: 0 auto;
+}
+#inputFile {
+    display: none;
+}
+.input_file_custom {
+    background-size: cover;
+    position: absolute;
+    display: inline-block;
+    background: url(../images/icons/camera.svg) no-repeat;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%,-50%);
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    cursor:pointer;
+    bottom: 0;
 }
