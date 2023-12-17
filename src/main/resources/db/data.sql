@@ -594,3 +594,29 @@ VALUES ('서울리그', '2023-01-10', '2023-01-20', '2024-02-01', '2023-06-01', 
 INSERT INTO campaign_tb (campaign_pic, campaign_name, campaign_start, campaign_end, region_id)
 VALUES ('SoccerBanner1.png', '서울리그', '2023-04-01', '2023-12-01', 1),
        ('SoccerBanner2.png', '경기리그', '2023-04-15', '2023-12-15', 2);
+
+INSERT INTO board_tb (board_title, board_content, created_at, user_id)
+VALUES ('서울지역 매칭 하실분?', '서울지역 경기 매칭할 사람 드루와', CURRENT_TIMESTAMP, 1),
+       ('이거 다른데서 경기 매칭 가능한가요?', '소속팀이 원정개념으로 다른 타지가서 매칭해도 가능한가요?', CURRENT_TIMESTAMP, 1),
+       ('지역 스타디움', '스타디움 가격 너무 천차만별인데 이거 왜 그럼?', CURRENT_TIMESTAMP, 2),
+       ('이전에 용병으로 뛰신분 찾습니다', '일주일전에 부산에서 그냥 인원필요해서 같이 뛰신분 너무 잘해서 혹시 아시나요?', CURRENT_TIMESTAMP, 2);
+
+INSERT INTO reply_tb (`comment`, created_at, user_id, board_id)
+VALUES
+    ('신청합니다!', NOW(), 2, 1),
+    ('신청2', NOW(), 3, 1),
+    ('신청3', NOW(), 4, 1),
+    ('신청4', NOW(), 5, 1),
+    ('매주는 안되고 격주는 가능해요', NOW(), 6, 1),
+    ('그거 가능해요', NOW(), 3, 2),
+    ('잘 모르겠네용 ㅜㅜ', NOW(), 2, 2),
+    ('아마 가능한걸로 알아요', NOW(), 7, 2),
+    ('알빠노', NOW(), 5, 3),
+    ('물가가 다르나까,,,,,,,', NOW(), 4, 3),
+    ('부산에서 활동하시는 분한테 물어보면 빠를듯요', NOW(), 1, 4),
+    ('오 찾을 정도면 얼마나 잘하는거지?', NOW(), 3, 4),
+    ('찾기 겁나 힘들듯', NOW(), 7, 4),
+    ('ㅁㄴ이ㅡㅁ르ㅜㅏㅣ무', NOW(), 6, 4),
+    ('축구 드르와', NOW(), 8, 4),
+    ('내가 제일 잘함 ㅅㄱ', NOW(), 9, 4);
+

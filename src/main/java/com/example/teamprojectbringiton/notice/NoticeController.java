@@ -3,7 +3,7 @@ package com.example.teamprojectbringiton.notice;
 
 import com.example.teamprojectbringiton.notice.dto.request.NoticeUpdateDTO;
 import com.example.teamprojectbringiton.notice.dto.request.NoticeWriteDTO;
-import com.example.teamprojectbringiton.notice.dto.response.NoticeListDto;
+import com.example.teamprojectbringiton.notice.dto.response.NoticeListDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -25,7 +25,7 @@ public class NoticeController {
 
     @GetMapping("/notice-main")
     public String noticePage(Model model) {
-        List<NoticeListDto> notices = noticeService.noticeList();
+        List<NoticeListDTO> notices = noticeService.noticeList();
         System.out.println("담김?" + notices.get(0).getNoticeTitle());
         model.addAttribute("notices", notices);
         return "customer/noticeMain";
