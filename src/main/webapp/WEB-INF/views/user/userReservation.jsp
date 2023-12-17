@@ -7,7 +7,7 @@
 
         <div class="row">
             <%@include file="../layout/userInfoInside.jsp" %>
-            <div class="col-md-9 box">
+            <div class="userInfo_body col-md-8 box">
                 <div class="d-flex pe-3 my-3">
                     <div class="userInfo_title">예약 내역</div>
                 </div>
@@ -118,7 +118,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="mt-5 d-flex justify-content-center">
                     <ul class="pagination">
                         <li class="page-item"><a class="page-link" href="#"><</a></li>
@@ -127,6 +126,7 @@
                     </ul>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

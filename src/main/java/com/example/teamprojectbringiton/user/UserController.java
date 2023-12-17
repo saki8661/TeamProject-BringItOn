@@ -170,4 +170,8 @@ public class UserController {
         return "user/leagueMatchingPage";
     }
 
+    @GetMapping("/user-mypage2")
+    public String test() {
+        return "user/userMyPage2";
+    }
 }
