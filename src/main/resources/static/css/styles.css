@@ -776,6 +776,7 @@ input::placeholder {
     align-items: center;
 }
 
+
 .userUpdate_image img {
     margin: 20px;
     width: 100px;
@@ -802,15 +803,20 @@ input::placeholder {
     justify-content: center;
 }
 
+.userUpdate_password_box {
+    display: flex;
+    justify-content: space-between;
+    height: 45px;
+}
+
 .userUpdate_button button {
     background: #19B357;
     border-radius: 15px;
     border: #19B357 1px solid;
-    width: 50%;
-    height: 40px;
+    width: 115px;
+    height: 30px;
     color: white;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 7px;
 }
 
 .userUpdate_main_content {
@@ -950,8 +956,14 @@ input::placeholder {
 
 
 /* LeagueMain */
+.leagueMain_table_main {
 
+}
+
+<<<<<<< HEAD
+=======
 .leagueMain_table_main{}
+>>>>>>> dev
 
 .leagueMain_modal {
     text-align: center;
@@ -3396,4 +3408,125 @@ body {
 
 .joinPage_box {
     width: 5px;
+}
+
+.check_pwd_text_start {
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    justify-items: center;
+}
+
+.check_pwd_text-center {
+    display: flex;
+    align-items: center;
+}
+
+.check_pwd_btn_style {
+    border-radius: 5px;
+    height: 35px;
+    width: 105px;
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.check_pwd_card_body {
+    height: 220px;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.check_pwd_box {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #6c757d;
+    width: 464px;
+    border-radius: 5px;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    width: 300px;
+    height: 40px;
+}
+
+.check_pwd_text {
+    margin-top: 120px;
+    text-align: center;
+    font-size: 15px;
+    color: #BFC3D2;
+    font-weight: bold;
+}
+
+.userUpdate_image_box {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+.input_profile_image {
+    position: relative;
+    width: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.profile_image {
+    background: url(../images/basic_img.svg) no-repeat;
+    width: 120px;
+    height: 120px;
+    background-size: cover;
+    background-position: center;
+    margin: 0 auto;
+    margin-top: 24px;
+}
+
+.profile_image_item {
+    border-radius: 50%;
+}
+
+.profile_file_box {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: var(--basic_wh);
+    border-radius: 47px;
+    border: 1px solid var(--line);
+    cursor: pointer;
+    bottom: 0;
+    right: 0;
+}
+
+.picture {
+    margin: 0 auto;
+}
+
+#inputFile {
+    display: none;
+}
+
+.input_file_custom {
+    background-size: cover;
+    position: absolute;
+    display: inline-block;
+    background: url(../images/icons/camera.svg) no-repeat;
+    top: 50%;
+    right: 50%;
+    transform: translate(50%, -50%);
+    background-size: cover;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    bottom: 0;
 }

@@ -114,15 +114,14 @@
         </div>
         <hr>
         <div class="userInfo_link">
-            <a class="nav-link userInfo_link_text" href="/user-mypage">나의 정보</a>
-            <a class="nav-link userInfo_link_text" href="/user-team/${sessionUser.id}">팀 관리</a>
-            <a class="nav-link userInfo_link_text" href="/user-bookmark">북마크</a>
-            <a class="nav-link userInfo_link_text" href="/user-reservation">예약 내역</a>
-            <a class="nav-link userInfo_link_text" href="/user-payment">결제 내역</a>
-            <a class="nav-link userInfo_link_text" href="/user-review">후기 관리</a>
-            <a class="nav-link userInfo_link_text" href="/user-update/${sessionUser.id}">개인정보
+            <a class="nav-link userInfo_link_text" href="/user/team/${sessionUser.id}">팀 관리</a>
+            <a class="nav-link userInfo_link_text" href="/user/bookmark">북마크</a>
+            <a class="nav-link userInfo_link_text" href="/user/reservation">예약 내역</a>
+            <a class="nav-link userInfo_link_text" href="/user/payment">결제 내역</a>
+            <a class="nav-link userInfo_link_text" href="/user/review">후기 관리</a>
+            <a class="nav-link userInfo_link_text" href="/user/check-password/${sessionUser.id}">개인정보
                 수정</a>
-            <a class="nav-link userInfo_link_text" href="/league-matching-page">리그/매칭 현황</a>
+            <a class="nav-link userInfo_link_text" href="/user/league-matching-page">리그/매칭 현황</a>
         </div>
     </div>
 </div>
@@ -185,18 +184,18 @@
                         type: 'POST',
                         contentType: 'application/json',
                         data: JSON.stringify({
-                                amount: amount,
-                                paymentNumber: orderNum,
-                                isCharge: true,
-                                userId: ${userPoint.id}
-                                // 추가 필요한 데이터가 있다면 여기에 추가
-                            }),
-                        success: function(response) {
+                            amount: amount,
+                            paymentNumber: orderNum,
+                            isCharge: true,
+                            userId: ${userPoint.id}
+                            // 추가 필요한 데이터가 있다면 여기에 추가
+                        }),
+                        success: function (response) {
                             console.log(response);
                             window.location.href = "/user-mypage";
                             // 성공적으로 데이터를 서버로 전송한 후 추가적으로 수행할 작업이 있다면 여기에 추가
                         },
-                        error: function(error) {
+                        error: function (error) {
                             console.error('Ajax 통신 에러:', error);
                         }
                     });

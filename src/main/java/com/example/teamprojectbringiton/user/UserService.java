@@ -1,9 +1,12 @@
 package com.example.teamprojectbringiton.user;
 
-
+import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
+import com.example.teamprojectbringiton._core.utils.Function;
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
-import com.example.teamprojectbringiton.user.dto.request.PwdUpdateDTO;
+import com.example.teamprojectbringiton.user.dto.request.UserUpdatePasswordDTO;
+import com.example.teamprojectbringiton.user.dto.request.UserUpdateImageDTO;
+import com.example.teamprojectbringiton.user.dto.response.CheckPasswordDTO;
 import com.example.teamprojectbringiton.user.dto.response.KakaoProfile;
 import com.example.teamprojectbringiton.user.dto.response.OAuthToken;
 import com.example.teamprojectbringiton.user.dto.response.UserPointDTO;
@@ -28,6 +31,9 @@ public class UserService {
 
     @Value("${LOGIN_REST_API_KEY}")
     private String key;
+
+    @Autowired
+    private Function function;
 
     @Transactional
     public User usernameCheck(String username) {
@@ -57,6 +63,7 @@ public class UserService {
     @Transactional
     public void kakaoUserSave(KakaoProfile kakaoProfile) {
         System.out.println("카카오 프로필 서비스 왔어 : " + kakaoProfile.getId());
+
         // 회원 정보 확인
         User userSearch = userRepository.findByUsername(kakaoProfile.getId());
         System.out.println("프로필 조회 잘했어 : " + userSearch);
@@ -64,8 +71,8 @@ public class UserService {
             User user = User.builder()
                     .username(kakaoProfile.getId())
                     .password(tencoKey)
-                    .userEmail("")
-                    .userPhoneNumber("")
+                    .userEmail("kakao@naver.com")
+                    .userPhoneNumber("010-0000-0000")
                     .userAddress("")
                     .userDivision("게스트")
                     .nickName(kakaoProfile.getProperties().getNickname())
@@ -85,12 +92,13 @@ public class UserService {
 
     public User login(LoginDTO loginDto) {
         User user = userRepository.findByUsernameAndPassword(loginDto);
+        // 사용자가 보낸 로그인 정보가 있는지 확인 없으면 alert 창을 띄움
+        if (user == null) {
+            throw new CustomRestfullException("아이디와 비번이 일치하지 않습니다.", HttpStatus.BAD_GATEWAY);
+        }
         return user;
     }
 
-
-    public void userPwdUpdate(Integer id, PwdUpdateDTO pwdUpdateDto) {
-    }
 
     public UserTeamInfoDTO findByIdWithTeam(Integer id) {
         return userRepository.findByIdJoinTeam(id);
@@ -138,13 +146,42 @@ public class UserService {
         ResponseEntity<KakaoProfile> response2 = rt2.exchange("https://kapi.kakao.com/v2/user/me", HttpMethod.POST,
                 requestMsg2, KakaoProfile.class);
 
-        System.out.println("카카오 로그인 닉네임 : " + response2.getBody().getProperties().getNickname());
-        System.out.println("카카오 로그인 사진 : " + response2.getBody().getProperties().getProfileImage());
-
         return response2.getBody();
     }
 
-    public UserPointDTO findByIdJoinPoint(Integer id){
+
+    // 개인정보 수정을 위한 패스워드 확인
+    public CheckPasswordDTO pwdCheck(String password, Integer id) {
+        // 비밀번호 비교를 위한 유저 정보 조회
+        User user = userRepository.findById(id);
+        // 비밀번호 비교해서 값 보내기
+        if (user.getPassword().equals(password)) {
+            return new CheckPasswordDTO(id, true);
+        }
+        return new CheckPasswordDTO(id, false);
+    }
+
+    // 프로필 이미지 업뎃
+    @Transactional
+    public User userUpdateImage(UserUpdateImageDTO dto, User sessionUser) {
+        User user = userRepository.findById(sessionUser.getId());
+
+        String fileName = function.saveImage(dto.getPic());
+
+        user.updateUserPicUrl(fileName);
+        userRepository.userUpdateImage(user);
+        return user;
+    }
+
+    @Transactional
+    public User userUpdatePassword(UserUpdatePasswordDTO dto, Integer id) {
+        User user = userRepository.findById(id);
+        user.updatePassword(dto.getPassword());
+        userRepository.userUpdatePassword(user);
+        return user;
+    }
+
+    public UserPointDTO findByIdJoinPoint(Integer id) {
         UserPointDTO dto = userRepository.findByIdJoinPoint(id);
         return dto;
     }

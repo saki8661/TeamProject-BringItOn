@@ -62,9 +62,9 @@
                                 <a href="/join">회원가입</a>
                             </c:when>
                             <c:otherwise>
-                                <a href="#">My페이지</a>
-                                <a href="/user-update/${sessionUser.id}">회원정보 수정</a>
-                                <a href="/logout">로그아웃</a>
+                                <a href="/user/league-matching-page">My페이지</a>
+                                <a href="/user/check-password/${sessionUser.id}">회원정보 수정</a>
+                                <a href="/user/logout">로그아웃</a>
                             </c:otherwise>
                         </c:choose>
                     </div>

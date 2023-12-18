@@ -12,8 +12,11 @@ public class KakaoProfile {
     private Propreties properties;
 
     @Data
+    @JsonNaming(value = PropertyNamingStrategies.SnakeCaseStrategy.class)
     public class Propreties {
         private String nickname;
         private String profileImage;
+        private String thumbnailImage;
+
     }
 }
