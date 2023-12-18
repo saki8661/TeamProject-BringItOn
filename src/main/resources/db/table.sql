@@ -302,18 +302,57 @@ CREATE TABLE campaign_tb
 
 CREATE TABLE board_tb
 (
-    id             INT AUTO_INCREMENT PRIMARY KEY,
+    id            INT AUTO_INCREMENT PRIMARY KEY,
     board_title   VARCHAR(50),
-    board_content  VARCHAR(255),
-    created_at   DATE,
-    user_id      INT
+    board_content VARCHAR(255),
+    created_at    DATE,
+    user_id       INT
 );
 
 CREATE TABLE reply_tb
 (
-    id             INT AUTO_INCREMENT PRIMARY KEY,
-    comment  VARCHAR(255),
-    created_at   TIMESTAMP,
-    user_id      INT,
-    board_id      INT
+    id         INT AUTO_INCREMENT PRIMARY KEY,
+    comment    VARCHAR(255),
+    created_at TIMESTAMP,
+    user_id    INT,
+    board_id   INT
 );
+
+CREATE TABLE product_category_tb
+(
+    id                    INT AUTO_INCREMENT PRIMARY KEY,
+    product_category_name VARCHAR(255)
+);
+
+CREATE TABLE product_tb
+(
+    id                  INT AUTO_INCREMENT PRIMARY KEY,
+    product_name        VARCHAR(255),
+    product_pic         VARCHAR(255),
+    product_price       INT,
+    product_category_id INT,
+    created_at          TIMESTAMP
+);
+
+CREATE TABLE cart_tb
+(
+    id               INT AUTO_INCREMENT PRIMARY KEY,
+    quantity         INT,
+    product_id       INT,
+    user_id          INT,
+    cart_total_price INT,
+    created_at       TIMESTAMP
+);
+
+CREATE TABLE order_tb
+(
+    id                INT AUTO_INCREMENT PRIMARY KEY,
+    quantity          INT,
+    product_id        INT,
+    user_id           INT,
+    order_total_price INT,
+    created_at        TIMESTAMP
+);
+
+
+

@@ -11,6 +11,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import java.util.List;
@@ -48,5 +49,11 @@ public class MatchingController {
         return "redirect:/matching-main";
     }
 
+    @GetMapping("/matching-myMatch/{id}")
+    public String myMatchPage(@PathVariable Integer id){
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        matchingService.findByMyApplyMatch(sessionUser.getId());
+        return "redirect:/matching-main";
+    }
 
 }

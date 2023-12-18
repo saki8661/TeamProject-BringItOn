@@ -28,5 +28,12 @@
         WHERE id = #{Id}
     </select>
 
+    <select id="findByMyApplyMatch">
+        select *
+        from matching_tb
+        where user_id = #{principalId}
+    </select>
+
+
 
 </mapper>
