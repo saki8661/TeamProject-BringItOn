@@ -31,4 +31,13 @@ public class MatchingService {
     }
 
 
+    public int findByMyApplyMatch(Integer principalId) {
+        int findByMyApplyMatch = matchingRepository.findByMyApplyMatch(principalId);
+        if (findByMyApplyMatch != 1) {
+            throw  new CustomRestfullException("매치 조회 실패", HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+        System.out.println("@@@@@@@@@@@@@서비스 호출됨2");
+        return  findByMyApplyMatch;
+    }
+
 }

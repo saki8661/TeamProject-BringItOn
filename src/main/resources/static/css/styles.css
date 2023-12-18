@@ -2077,6 +2077,20 @@ input::placeholder {
     text-align: center;
 }
 
+/* 매칭 완료된 버튼 스타일 */
+.matched_btn_style {
+    margin-top: 20px;
+    margin-right: 20px;
+    border-radius: 5px;
+    height: 40px;
+    width: 120px;
+    font-size: 20px;
+    text-align: center;
+    background-color: #808080; /* 회색 */
+    color: white;
+    cursor: not-allowed; /* 클릭 불가능한 상태 */
+}
+
 .league_matching_btn_style {
     margin-top: 10px;
     margin-right: 0;
