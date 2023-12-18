@@ -4,7 +4,7 @@
 
 <mapper namespace="com.example.teamprojectbringiton.reservation.ReservationRepository">
 
-    <select id="findApplyMathingResv" resultType="com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO">
+    <select id="findApplyMatchingResv" resultType="com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO">
         select *
         from reservation_tb resv
                  join team_tb t

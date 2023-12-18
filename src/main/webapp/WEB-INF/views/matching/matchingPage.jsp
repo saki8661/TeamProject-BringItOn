@@ -306,10 +306,10 @@
                                     <div>
                                         <div style="height: 10px"></div>
                                         <form action="/matching-apply", method="post">
+                                            <input type="hidden" value="${matching.id}" name="reservationId">
                                             <button class="inquireMain_delete_btn">매칭 신청</button>
                                         </form>
                                     </div>
-                                    <div></div>
                                 </div>
                             </div>
                         </div>

@@ -1,11 +1,9 @@
 package com.example.teamprojectbringiton.matching;
 
-import com.example.teamprojectbringiton.inquire.dto.request.InquireWriteDTO;
-import com.example.teamprojectbringiton.matching.dto.request.MatchingApplyDTO;
+import com.example.teamprojectbringiton.matching.dto.response.MatchingListDTO;
 import com.example.teamprojectbringiton.region.Region;
 import com.example.teamprojectbringiton.reservation.ReservationService;
 import com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO;
-import com.example.teamprojectbringiton.space.Space;
 import com.example.teamprojectbringiton.team.Team;
 import com.example.teamprojectbringiton.user.User;
 import jakarta.servlet.http.HttpSession;
@@ -36,7 +34,6 @@ public class MatchingController {
         System.out.println("-============================"+matchings.size());
         List<Team> teamList = reservationService.teamList();
         List<Region> regionList = reservationService.regionList();
-        List<Space> spaceList = reservationService.spaceList();
         System.out.println("매칭신청 예약 리스트 입니다"+matchings.get(0).getTeamName());
         model.addAttribute("matchings", matchings);
         model.addAttribute("teamList", teamList);
@@ -44,10 +41,12 @@ public class MatchingController {
         return "matching/matchingPage";
     }
 
-    @PostMapping("matching-apply")
-    public String matchingApply(MatchingApplyDTO dto){
+    @PostMapping("/matching-apply")
+    public String matchingApply(MatchingListDTO dto){
         User sessionUser = (User) session.getAttribute("sessionUser");
         matchingService.matchigApply(dto, sessionUser.getId());
         return "redirect:/matching-main";
     }
+
+
 }

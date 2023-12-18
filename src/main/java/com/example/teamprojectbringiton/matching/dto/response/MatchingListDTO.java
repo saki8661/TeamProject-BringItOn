@@ -7,8 +7,8 @@ import lombok.Setter;
 @Setter
 public class MatchingListDTO {
 
-//    private Integer matchUserId;
-//    private Integer reservationId;
-//    private Integer reservationDate;
-//    private Time startTime;
+    private Integer id;
+    private String matchingStatus;
+    private Integer reservationId;
+    private Integer matchUserId;
 }
