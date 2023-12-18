@@ -60,7 +60,7 @@
                         </c:when>
                         <c:otherwise>
                             <button class="header_myPage_button">
-                                <a href="/user-mybring/${sessionUser.id}"><img src="/images/info.png"></a>
+                                <a href="/user/mybring/${sessionUser.id}"><img src="/images/info.png"></a>
                             </button>
                         </c:otherwise>
                     </c:choose>

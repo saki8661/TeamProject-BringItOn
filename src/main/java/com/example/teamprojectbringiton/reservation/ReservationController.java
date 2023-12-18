@@ -23,7 +23,7 @@ public class ReservationController {
         return "/spaceRental/reservation";
     }
 
-    @GetMapping("/user-reservation/{id}")
+    @GetMapping("/user/reservation/{id}")
     public String userReservationPage(@PathVariable Integer id, Model model) {
         List<UserReservationListDTO> reservationList = reservationService.findByUserId(id);
         model.addAttribute("reservationList", reservationList);

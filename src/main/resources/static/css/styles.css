@@ -217,16 +217,16 @@ input::placeholder {
     width: 100%;
 }
 
-.header_auth{
+.header_auth {
     display: flex;
     align-items: center;
 }
 
-.header_login_button{
+.header_login_button {
 
 }
 
-.header_join_button{
+.header_join_button {
 
 }
 
@@ -641,7 +641,7 @@ input::placeholder {
     align-items: center;
 }
 
-.userInfo_body{
+.userInfo_body {
     border-left: 1px #19B357 solid;
     padding-left: 20px;
     padding-right: 20px;
@@ -697,7 +697,7 @@ input::placeholder {
     color: #bbbbbb;
 }
 
-.userInfo_profile_button{
+.userInfo_profile_button {
     background: #f2f5f7;
     border-radius: 10px;
     color: #8E9296;
@@ -706,7 +706,7 @@ input::placeholder {
     text-align: center;
 }
 
-.userInfo_profile_button button{
+.userInfo_profile_button button {
     line-height: 40px;
     font-size: 15px;
 }
@@ -832,6 +832,7 @@ input::placeholder {
     align-items: center;
 }
 
+
 .userUpdate_image img {
     margin: 20px;
     width: 100px;
@@ -858,15 +859,20 @@ input::placeholder {
     justify-content: center;
 }
 
+.userUpdate_password_box {
+    display: flex;
+    justify-content: space-between;
+    height: 45px;
+}
+
 .userUpdate_button button {
     background: #19B357;
     border-radius: 15px;
     border: #19B357 1px solid;
-    width: 50%;
-    height: 40px;
+    width: 115px;
+    height: 30px;
     color: white;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 7px;
 }
 
 .userUpdate_main_content {
@@ -1006,10 +1012,6 @@ input::placeholder {
 
 
 /* LeagueMain */
-
-.leagueMain_table_main {
-}
-
 .leagueMain_modal {
     text-align: center;
 }
@@ -1606,7 +1608,7 @@ input::placeholder {
     padding-bottom: 30px;
 }
 
-td {
+.re_calendar_detail td {
     padding: 5px;
     width: 50px;
     height: 50px;
@@ -3185,25 +3187,10 @@ EDIT ON
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-
     cursor: pointer;
-}
-
-{
-    position: absolute
-;
-    top: 50%
-;
-    transform: translateY(-50%)
-;
-    font-size: 30px
-;
-    cursor: pointer
-;
-    font-weight: bolder
-;
-    color: white
-;
+    font-size: 30px;
+    font-weight: bolder;
+    color: white;
 }
 
 .prev-button {
@@ -3309,9 +3296,7 @@ EDIT ON
     display: flex;
     flex-direction: row;
     padding-top: 20px;
-
 }
-
 
 .rated_star_username {
     padding-left: 10px;
@@ -3496,17 +3481,113 @@ EDIT ON
     background: #19B357;
 }
 
-.myBring_link{
+.myBring_link {
     font-size: 20px;
 }
 
-.myBring_link>a> div{
+.myBring_link > a > div {
     display: flex;
     padding: 10px;
     margin: 15px;
     align-items: center;
 }
 
-.myBring_link img{
+.myBring_link img {
     margin-right: 10px;
+}
+
+.check_pwd_text_start {
+    display: flex;
+    width: 70%;
+    justify-content: center;
+    justify-items: center;
+}
+
+.check_pwd_text-center {
+    display: flex;
+    align-items: center;
+}
+
+.check_pwd_btn_style {
+    border-radius: 5px;
+    height: 35px;
+    width: 105px;
+    font-size: 12px;
+    text-align: center;
+    font-weight: bold;
+
+}
+
+.check_pwd_card_body {
+    height: 220px;
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+    align-content: center;
+    align-items: center;
+}
+
+.check_pwd_box {
+    display: flex;
+    height: 80px;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #6c757d;
+    width: 464px;
+    border-radius: 5px;
+}
+
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    align-content: center;
+    width: 300px;
+    height: 40px;
+}
+
+.check_pwd_text {
+    margin-top: 120px;
+    text-align: center;
+    font-size: 15px;
+    color: #BFC3D2;
+    font-weight: bold;
+}
+
+.userUpdate_image_box {
+    display: flex;
+    justify-items: center;
+    justify-content: center;
+}
+
+.input_profile_image {
+    position: relative;
+    width: 200px;
+    margin: 0 auto;
+    border-radius: 50%;
+}
+
+.profile_image_item {
+    border-radius: 50%;
+}
+
+.profile_file_box {
+    position: absolute;
+    width: 60px;
+    height: 60px;
+    background-color: var(--basic_wh);
+    border-radius: 47px;
+    border: 1px solid var(--line);
+    cursor: pointer;
+    bottom: 0;
+    right: 0;
+}
+
+.picture {
+    margin: 0 auto;
+}
+
+#inputFile {
+    display: none;
 }
