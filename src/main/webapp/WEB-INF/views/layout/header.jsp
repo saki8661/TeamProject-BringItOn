@@ -59,9 +59,19 @@
                             </div>
                         </c:when>
                         <c:otherwise>
-                            <button class="header_myPage_button">
-                                <a href="/user/mybring/${sessionUser.id}"><img src="/images/info.png"></a>
-                            </button>
+                            <c:choose>
+                                <c:when test="${sessionUser.userDivision eq 'admin'}">
+                                    <!-- admin인 경우 다른 URL을 사용 -->
+                                    <button class="header_myPage_button">
+                                        <a href="/user/admin/${sessionUser.id}"><img src="/images/info.png"></a>
+                                    </button>
+                                </c:when>
+                                <c:otherwise>
+                                    <button class="header_myPage_button">
+                                        <a href="/user/mybring/${sessionUser.id}"><img src="/images/info.png"></a>
+                                    </button>
+                                </c:otherwise>
+                            </c:choose>
                         </c:otherwise>
                     </c:choose>
                 </div>

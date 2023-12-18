@@ -323,6 +323,32 @@
 </div>
 
 <script>
+    const manualCg = document.querySelectorAll(".manual_category > li > a");
+    const manual = document.querySelectorAll(".manual > li");
+    manualCg.forEach((tab, idex) => {
+        tab.addEventListener("click", function () {
+            manual.forEach((inner) => {
+                inner.classList.remove("manual_active");
+            })
+            manualCg.forEach((item) => {
+                item.classList.remove("manual_active");
+            })
+            manualCg[idex].classList.add("manual_active");
+            manual[idex].classList.add("manual_active");
+        })
+    })
+    const manualTab = document.querySelector(".manual_tab");
+    if (manualTab) {
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 'auto', // 한 슬라이드에 보여줄 갯수
+            freeMode: false,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+        });
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
         const regionOptions = document.querySelectorAll(".region-option");
         const matchingCards = document.querySelectorAll(".manual_card");
