@@ -25,4 +25,5 @@ public class MatchingReservationDTO {
     private String pricePerHour;
     private Integer regionId;
     private String regionName;
+    private Integer matchingId;
 }

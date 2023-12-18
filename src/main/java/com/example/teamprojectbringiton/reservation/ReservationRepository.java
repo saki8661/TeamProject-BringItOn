@@ -9,8 +9,10 @@ import java.util.List;
 @Mapper
 public interface ReservationRepository {
 
-    public List<MatchingReservationDTO> findApplyMathingResv();
+
+    public List<MatchingReservationDTO> findApplyMatchingResv();
 
     public List<UserReservationListDTO> findByUserId(Integer id);
+
 }
     

@@ -238,7 +238,7 @@
                                     </div>
                                 </div>
                                 <button class="matching_button matching_btn_style" type="button" data-bs-toggle="modal"
-                                        data-bs-target="#myModal-${matching.id}">매칭하기
+                                        data-bs-target="#matchingModal-${matching.id}">매칭하기
                                 </button>
                             </div>
                         </div>
@@ -248,7 +248,7 @@
 
                 <%--======================================MODAL================================================================--%>
                 <c:forEach var="matching" items="${matchings}">
-                    <div class="modal" id="myModal">
+                    <div class="modal" id="matchingModal-${matching.id}">
                         <div class="modal-dialog">
                             <div class="league_matching_modal modal-content">
 
@@ -305,11 +305,11 @@
                                 <div class="userPayment_modal_footer">
                                     <div>
                                         <div style="height: 10px"></div>
-                                        <a href="#">
-                                            <button>매칭 신청</button>
-                                        </a>
+                                        <form action="/matching-apply", method="post">
+                                            <input type="hidden" value="${matching.id}" name="reservationId">
+                                            <button class="inquireMain_delete_btn">매칭 신청</button>
+                                        </form>
                                     </div>
-                                    <div></div>
                                 </div>
                             </div>
                         </div>
