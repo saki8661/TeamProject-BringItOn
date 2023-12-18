@@ -299,3 +299,21 @@ CREATE TABLE campaign_tb
     campaign_end   DATE,
     region_id      INT
 );
+
+CREATE TABLE board_tb
+(
+    id             INT AUTO_INCREMENT PRIMARY KEY,
+    board_title   VARCHAR(50),
+    board_content  VARCHAR(255),
+    created_at   DATE,
+    user_id      INT
+);
+
+CREATE TABLE reply_tb
+(
+    id             INT AUTO_INCREMENT PRIMARY KEY,
+    comment  VARCHAR(255),
+    created_at   TIMESTAMP,
+    user_id      INT,
+    board_id      INT
+);
