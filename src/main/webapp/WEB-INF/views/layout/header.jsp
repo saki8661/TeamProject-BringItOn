@@ -51,23 +51,19 @@
                     </div>
                 </form>
                 <a class="nav_add" href="javascript:void(0)">시설등록</a>
-                <div class="dropdown">
-                    <button class="dropbtn">
-                        <img src="/images/info.png">
-                    </button>
-                    <div class="dropdown-content">
-                        <c:choose>
-                            <c:when test="${empty sessionUser}">
-                                <a href="/kakao-login">로그인</a>
-                                <a href="/join">회원가입</a>
-                            </c:when>
-                            <c:otherwise>
-                                <a href="#">My페이지</a>
-                                <a href="/user-update/${sessionUser.id}">회원정보 수정</a>
-                                <a href="/logout">로그아웃</a>
-                            </c:otherwise>
-                        </c:choose>
-                    </div>
+                <div class="header_auth">
+                    <c:choose>
+                        <c:when test="${empty sessionUser}">
+                            <div class="header_login_button">
+                                <a href="/kakao-login"><img src="/images/info.png"></a>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <button class="header_myPage_button">
+                                <a href="/user/mybring/${sessionUser.id}"><img src="/images/info.png"></a>
+                            </button>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </nav>

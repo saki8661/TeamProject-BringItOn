@@ -18,4 +18,16 @@
         where resv.matching = true
     </select>
 
+    <select id="findByUserId" resultType="com.example.teamprojectbringiton.reservation.dto.response.UserReservationListDTO">
+        select *
+        from reservation_tb r
+                 join user_tb u
+                      on r.user_id = u.id
+                 join space_tb s
+                      on r.space_id = s.id
+        join space_pic_tb sp
+        on sp.space_id = s.id
+        where u.id = #{id}
+    </select>
+
 </mapper>

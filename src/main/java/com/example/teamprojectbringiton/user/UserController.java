@@ -1,18 +1,18 @@
 package com.example.teamprojectbringiton.user;
 
-import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
-
 
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
-import com.example.teamprojectbringiton.user.dto.request.PwdUpdateDTO;
+import com.example.teamprojectbringiton.user.dto.request.UserUpdateImageDTO;
+import com.example.teamprojectbringiton.user.dto.request.UserUpdatePasswordDTO;
+import com.example.teamprojectbringiton.user.dto.response.CheckPasswordDTO;
 import com.example.teamprojectbringiton.user.dto.response.KakaoProfile;
 import com.example.teamprojectbringiton.user.dto.response.UserPointDTO;
 import com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -29,10 +29,12 @@ public class UserController {
     @Value("${LOGIN_REST_API_KEY}")
     private String key;
 
+    @Value("${TENCO_KEY}")
+    private String tencoKey;
+
 
     @GetMapping("/kakao-login")
     public String kakaoLogin(Model model) {
-
         System.out.println("카카오로그인 겟");
         model.addAttribute("key", key);
         return "user/kakaoLoginPage";
@@ -61,7 +63,6 @@ public class UserController {
     }
 
     @GetMapping("/login")
-
     public String loginPage() {
         return "/user/loginPage";
     }
@@ -71,7 +72,6 @@ public class UserController {
         User user = userService.login(loginDto);
         session.setAttribute("sessionUser", user);
         model.addAttribute("sessionUser", user);
-
         UserPointDTO userPointDTO = userService.findByIdJoinPoint(user.getId());
         session.setAttribute("userPoint", userPointDTO);
 
@@ -99,74 +99,95 @@ public class UserController {
         return "redirect:/home";
     }
 
-    @GetMapping("/logout")
+    @GetMapping("/user/logout")
     public String logout() {
 
         session.invalidate();
         return "redirect:/home";
     }
 
-    @GetMapping("/user-mypage")
-    public String userMyPage(){
+    @GetMapping("/user/mypage/{id}")
+    public String userMyPage(@PathVariable Integer id) {
+        userService.findByIdForUserInfo(id);
+        System.out.println("===============================조회 끝! ");
         return "user/userMyPage";
     }
 
-    @GetMapping("/user-update/{id}")
+    @GetMapping("/user/update/{id}")
     public String userUpdatePage(@PathVariable Integer id, Model model) {
 
         // 인증 검사 (로그인 유무)
         User principal = (User) session.getAttribute("sessionUser");
-        if (principal == null) {
-            throw new UnAuthorizedException("로그인을 먼저 해주세요.", HttpStatus.UNAUTHORIZED);
-        }
-
-        User user = userService.findById(id);
-        model.addAttribute("user", user);
-
+        model.addAttribute("user", principal);
         return "user/userUpdate";
     }
 
-    @PostMapping("/passwordUpdate/{id}")
-    public String passwordUpdate(@PathVariable Integer id, PwdUpdateDTO dto) {
-        userService.userPwdUpdate(id, dto);
-
-        return "redirect: /kakao-login";
+    @PostMapping("/user/update-image")
+    public String userUpdateImage(UserUpdateImageDTO dto) {
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        User user = userService.userUpdateImage(dto, sessionUser);
+        session.setAttribute("sessionUser", user);
+        return "redirect:/user/update/" + sessionUser.getId();
     }
 
-    @GetMapping("/user-team/{id}")
+    @PostMapping("/user/update-password")
+    public String userUpdatePassword(UserUpdatePasswordDTO dto) {
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        User user = userService.userUpdatePassword(dto, sessionUser.getId());
+        session.setAttribute("sessionUser", user);
+        return "redirect:/user/check-password/" + sessionUser.getId();
+    }
+
+
+    @GetMapping("/user/team/{id}")
     public String userTeamManagementPage(@PathVariable Integer id, Model model) {
         UserTeamInfoDTO teamInfo = userService.findByIdWithTeam(id);
         model.addAttribute("teamInfo", teamInfo);
-
         return "user/userTeam";
     }
 
+    @GetMapping("/user/bookmark/{id}")
 
-    @GetMapping("/user-bookmark")
-
-    public String userBookmarkManagementPage() {
+    public String userBookmarkManagementPage(@PathVariable Integer id) {
         return "user/userBookmark";
     }
 
-    @GetMapping("/user-review")
-    public String userReviewManagementPage() {
+    @GetMapping("/user/review/{id}")
+    public String userReviewManagementPage(@PathVariable Integer id) {
         return "user/userReview";
     }
 
-    @GetMapping("/user-reservation")
-    public String userReservationPage() {
-        return "user/userReservation";
-    }
 
-    @GetMapping("/user-payment")
-    public String userPaymentPage() {
+    @GetMapping("/user/payment/{id}")
+    public String userPaymentPage(@PathVariable Integer id) {
         return "user/userPayment";
     }
 
     // 리그/매칭 현황 페이지 구현 완료
-    @GetMapping("/league-matching-page")
-    public String leagueMatchingPage() {
+    @GetMapping("/user/league-matching-page/{id}")
+    public String leagueMatchingPage(@PathVariable Integer id) {
         return "user/leagueMatchingPage";
     }
 
+    @GetMapping("/user/mybring/{id}")
+    public String myBringPage() {
+        return "user/userMyBring";
+    }
+
+    @GetMapping("/user/check-password/{id}")
+    public String userCheckPasswordPage(@PathVariable Integer id) {
+        User user = userService.findById(id);
+        if (user.getPassword().equals(tencoKey)) {
+            return "redirect:/user/update/" + id;
+        }
+        return "user/userCheckPassword";
+    }
+
+    @PostMapping("/user/check-password")
+    public ResponseEntity<CheckPasswordDTO> userCheckPassword(String checkPassword) {
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        CheckPasswordDTO response = userService.pwdCheck(checkPassword, sessionUser.getId());
+        return ResponseEntity.ok(response);
+
+    }
 }

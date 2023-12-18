@@ -15,7 +15,7 @@
                 </ul>
             </li>
             <li class="main_link">
-                <a href="/matching-page">매칭</a>
+                <a href="/matching-main">매칭</a>
             </li>
 
             <li class="main_link">
