@@ -721,17 +721,17 @@ input::placeholder {
 .userUpdate_password_box {
     display: flex;
     justify-content: space-between;
+    height: 45px;
 }
 
 .userUpdate_button button {
     background: #19B357;
     border-radius: 15px;
     border: #19B357 1px solid;
-    width: 120px;
-    height: 40px;
+    width: 115px;
+    height: 30px;
     color: white;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 7px;
 }
 
 .userUpdate_main_content {
@@ -3364,6 +3364,7 @@ body {
     margin: 0 auto;
     border-radius: 50%;
 }
+
 .profile_image {
     background: url(../images/basic_img.svg) no-repeat;
     width: 120px;
@@ -3373,9 +3374,11 @@ body {
     margin: 0 auto;
     margin-top: 24px;
 }
+
 .profile_image_item {
     border-radius: 50%;
 }
+
 .profile_file_box {
     position: absolute;
     width: 60px;
@@ -3387,12 +3390,15 @@ body {
     bottom: 0;
     right: 0;
 }
+
 .picture {
     margin: 0 auto;
 }
+
 #inputFile {
     display: none;
 }
+
 .input_file_custom {
     background-size: cover;
     position: absolute;
@@ -3400,10 +3406,10 @@ body {
     background: url(../images/icons/camera.svg) no-repeat;
     top: 50%;
     right: 50%;
-    transform: translate(50%,-50%);
+    transform: translate(50%, -50%);
     background-size: cover;
     width: 40px;
     height: 40px;
-    cursor:pointer;
+    cursor: pointer;
     bottom: 0;
 }

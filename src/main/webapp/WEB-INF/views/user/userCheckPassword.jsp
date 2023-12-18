@@ -46,7 +46,7 @@
                 } else {
                     $.ajax({
                         type: 'POST',
-                        url: '/user-check-password',
+                        url: '/user/check-password',
                         data: {'checkPassword': checkPassword},
                         datatype: "text"
                     }).done(function (result) {
@@ -55,7 +55,7 @@
                         if (result.success) {
                             console.log("비밀번호 일치");
                             alert("비밀번호 인증 성공")
-                            window.location.href = "/user-update/" + result.userId;
+                            window.location.href = "/user/update/" + result.userId;
 
                         } else {
                             console.log("비밀번호 틀림");

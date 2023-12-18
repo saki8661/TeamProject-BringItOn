@@ -2,6 +2,7 @@ package com.example.teamprojectbringiton._core.config;
 
 
 import com.example.teamprojectbringiton._core.handler.AuthInterceptor;
+import com.example.teamprojectbringiton._core.interceptor.LoginInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -20,9 +21,8 @@ public class WebMvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(authInterceptor)
-                .addPathPatterns("/user/**")
-                .addPathPatterns("/auth/**"); // 추가하는 방밥
+        registry.addInterceptor(new LoginInterceptor())
+                .addPathPatterns("/user/**");
 
     }
 
@@ -40,8 +40,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
-
-
 
 
 }

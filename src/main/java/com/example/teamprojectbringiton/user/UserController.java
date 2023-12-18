@@ -1,7 +1,5 @@
 package com.example.teamprojectbringiton.user;
 
-import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
-
 
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
@@ -37,7 +35,6 @@ public class UserController {
 
     @GetMapping("/kakao-login")
     public String kakaoLogin(Model model) {
-
         System.out.println("카카오로그인 겟");
         model.addAttribute("key", key);
         return "user/kakaoLoginPage";
@@ -66,7 +63,6 @@ public class UserController {
     }
 
     @GetMapping("/login")
-
     public String loginPage() {
         return "/user/loginPage";
     }
@@ -122,6 +118,7 @@ public class UserController {
         session.setAttribute("sessionUser", user);
         return "redirect:/user/update/" + sessionUser.getId();
     }
+
     @PostMapping("/user/update-password")
     public String userUpdatePassword(UserUpdatePasswordDTO dto) {
         User sessionUser = (User) session.getAttribute("sessionUser");
@@ -139,7 +136,6 @@ public class UserController {
     }
 
     @GetMapping("/user/bookmark")
-
     public String userBookmarkManagementPage() {
         return "user/userBookmark";
     }

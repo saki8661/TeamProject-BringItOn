@@ -3,6 +3,7 @@ package com.example.teamprojectbringiton.user;
 
 import com.example.teamprojectbringiton._core.handler.exception.CustomPageException;
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
+import com.example.teamprojectbringiton._core.utils.Function;
 import com.example.teamprojectbringiton._core.vo.MyPath;
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
@@ -37,6 +38,9 @@ public class UserService {
 
     @Value("${LOGIN_REST_API_KEY}")
     private String key;
+
+    @Autowired
+    private Function function;
 
     @Transactional
     public User usernameCheck(String username) {
@@ -74,8 +78,8 @@ public class UserService {
             User user = User.builder()
                     .username(kakaoProfile.getId())
                     .password(tencoKey)
-                    .userEmail("")
-                    .userPhoneNumber("")
+                    .userEmail("kakao@naver.com")
+                    .userPhoneNumber("010-0000-0000")
                     .userAddress("")
                     .userDivision("게스트")
                     .nickName(kakaoProfile.getProperties().getNickname())
@@ -97,7 +101,7 @@ public class UserService {
         User user = userRepository.findByUsernameAndPassword(loginDto);
         // 사용자가 보낸 로그인 정보가 있는지 확인 없으면 alert 창을 띄움
         if (user == null) {
-            throw new CustomRestfullException("아이디와 비번이 일치하지 않습니다.",HttpStatus.BAD_GATEWAY);
+            throw new CustomRestfullException("아이디와 비번이 일치하지 않습니다.", HttpStatus.BAD_GATEWAY);
         }
         return user;
     }
@@ -168,18 +172,8 @@ public class UserService {
     public User userUpdateImage(UserUpdateImageDTO dto, User sessionUser) {
         User user = userRepository.findById(sessionUser.getId());
 
-        UUID uuid = UUID.randomUUID(); // 랜덤한 해시값을 만들어줌
-        String fileName = uuid + "_" + dto.getPic().getOriginalFilename();
-        System.out.println("fileName : " + fileName);
+        String fileName = function.saveImage(dto.getPic());
 
-        // 프로젝트 실행 파일로 변경하면 -< blogv2-1.jar
-        // 해당 실행파일 경로에 images 폴더가 필요함.
-        Path filePath = Paths.get(MyPath.IMG_PATH + fileName); // 서버 실행되는 위치의 폴더를 패치로 잡아준다
-        try {
-            Files.write(filePath, dto.getPic().getBytes());
-        } catch (Exception e) {
-            throw new RuntimeException(e.getMessage());
-        }
         user.updateUserPicUrl(fileName);
         userRepository.userUpdateImage(user);
         return user;
