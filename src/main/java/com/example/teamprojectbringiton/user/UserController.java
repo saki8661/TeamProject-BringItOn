@@ -143,35 +143,32 @@ public class UserController {
         return "user/userTeam";
     }
 
-    @GetMapping("/user-bookmark")
+    @GetMapping("/user-bookmark/{id}")
 
-    public String userBookmarkManagementPage() {
+    public String userBookmarkManagementPage(@PathVariable Integer id) {
         return "user/userBookmark";
     }
 
-    @GetMapping("/user-review")
-    public String userReviewManagementPage() {
+    @GetMapping("/user-review/{id}")
+    public String userReviewManagementPage(@PathVariable Integer id) {
         return "user/userReview";
     }
 
-    @GetMapping("/user-reservation")
-    public String userReservationPage() {
-        return "user/userReservation";
-    }
 
-    @GetMapping("/user-payment")
-    public String userPaymentPage() {
+
+    @GetMapping("/user-payment/{id}")
+    public String userPaymentPage(@PathVariable Integer id) {
         return "user/userPayment";
     }
 
     // 리그/매칭 현황 페이지 구현 완료
-    @GetMapping("/league-matching-page")
-    public String leagueMatchingPage() {
+    @GetMapping("/league-matching-page/{id}")
+    public String leagueMatchingPage(@PathVariable Integer id) {
         return "user/leagueMatchingPage";
     }
 
-    @GetMapping("/user-mypage2")
+    @GetMapping("/user-mybring/{id}")
     public String test() {
-        return "user/userMyPage2";
+        return "user/userMyBring";
     }
 }

@@ -12,13 +12,13 @@
                 </div>
                 <hr/>
                 <div class="myBring_link">
-                    <a href="">
+                    <a href="/user-mypage/${sessionUser.id}">
                         <div>
                             <img width="25" height="25" src="https://img.icons8.com/external-febrian-hidayat-flat-febrian-hidayat/25/external-information-ui-essential-febrian-hidayat-flat-febrian-hidayat.png" alt="external-information-ui-essential-febrian-hidayat-flat-febrian-hidayat"/>
                             <span>나의 정보</span>
                         </div>
                     </a>
-                    <a href="">
+                    <a href="/user-team/${sessionUser.id}">
                         <div>
                             <img width="25" height="25" src="https://img.icons8.com/emoji/48/soccer-ball-emoji.png" alt="soccer-ball-emoji"/>
                             <span>나의 팀</span>
@@ -30,31 +30,31 @@
                             <span>팀 신청 내역</span>
                         </div>
                     </a>
-                    <a href="">
+                    <a href="/user-bookmark/${sessionUser.id}">
                         <div>
                             <img width="25" height="25" src="https://img.icons8.com/fluency/25/bookmark.png" alt="bookmark"/>
                             <span>북마크</span>
                         </div>
                     </a>
-                    <a href="">
+                    <a href="/user-reservation/${sessionUser.id}">
                         <div>
                             <img width="25" height="25" src="https://img.icons8.com/emoji/48/calendar-emoji.png" alt="calendar-emoji"/>
                             <span>예약 내역</span>
                         </div>
                     </a>
-                    <a href="">
+                    <a href="/user-payment/${sessionUser.id}">
                         <div>
                             <img width="25" height="25" src="https://img.icons8.com/fluency/25/cheap-2--v1.png" alt="cheap-2--v1"/>
                             <span>결제 내역</span>
                         </div>
                     </a>
-                    <a href="">
+                    <a href="/user-review/${sessionUser.id}">
                         <div>
                             <img width="25" height="25" src="https://img.icons8.com/bubbles/50/review.png" alt="review"/>
                             <span>후기 관리</span>
                         </div>
                     </a>
-                    <a href="">
+                    <a href="/user-update/${sessionUser.id}">
                         <div>
                             <img width="25" height="25" src="https://img.icons8.com/fluency/25/gender-neutral-user--v1.png" alt="gender-neutral-user--v1"/>
                             <span>
@@ -62,7 +62,7 @@
                             </span>
                         </div>
                     </a>
-                    <a href="">
+                    <a href="/user-setting/${sessionUser.id}">
                         <div>
                             <img width="25" height="25" src="https://img.icons8.com/emoji/48/gear-emoji.png" alt="gear-emoji"/>
                             <span> 설정</span>
