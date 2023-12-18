@@ -4,13 +4,8 @@ import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullEx
 import com.example.teamprojectbringiton._core.utils.Function;
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
-import com.example.teamprojectbringiton.user.dto.request.UserUpdatePasswordDTO;
-import com.example.teamprojectbringiton.user.dto.request.UserUpdateImageDTO;
-import com.example.teamprojectbringiton.user.dto.response.CheckPasswordDTO;
-import com.example.teamprojectbringiton.user.dto.response.KakaoProfile;
-import com.example.teamprojectbringiton.user.dto.response.OAuthToken;
-import com.example.teamprojectbringiton.user.dto.response.UserPointDTO;
-import com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO;
+import com.example.teamprojectbringiton.user.dto.response.*;
+import com.example.teamprojectbringiton.user.dto.request.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
@@ -42,9 +37,8 @@ public class UserService {
     }
 
     @Transactional
-
     public void userSave(JoinDTO dto) {
-        System.out.println("서비스 진입");
+
         //회원가입 db에 insert
         User user = User.builder()
                 .username(dto.getUsername())
@@ -184,5 +178,10 @@ public class UserService {
     public UserPointDTO findByIdJoinPoint(Integer id) {
         UserPointDTO dto = userRepository.findByIdJoinPoint(id);
         return dto;
+    }
+
+    public UserInfoDTO findByIdForUserInfo(Integer id) {
+        UserInfoDTO user = userRepository.findByIdForUserInfo(id);
+        return user;
     }
 }

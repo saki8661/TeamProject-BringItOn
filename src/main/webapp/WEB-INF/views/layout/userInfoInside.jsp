@@ -1,26 +1,40 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<div class="col-md-3">
+<div class="col-md-4">
     <div class="userInfo_aside">
         <div class="userInfo_image">
-            <img src="/images/default_profile.jpg">
+            <img src="/images/sh_profile.jpg">
+        </div>
+        <div class="userInformation">
+            <div>
+                <div class="userInfo_point_nickname">박세환</div>
+                <div class="userInfo_point_username">cos</div>
+            </div>
+            <div class="userInfo_profile_button">
+                <button>
+                    프로필 보기
+                </button>
+            </div>
         </div>
         <div class="userInfo_charge">
-            나의 캐시
-            <br>
-            <c:set var="userPoint" value="${sessionScope.userPoint}"/>
+            <div>
+                나의 캐시
+                <br>
+                <div class="userInfo_point">
+                    <c:set var="userPoint" value="${sessionScope.userPoint}"/>
 
-            <c:if test="${not empty userPoint and not empty userPoint.myPoint}">
-                ${userPoint.myPoint}원
-            </c:if>
-            <c:if test="${empty userPoint or empty userPoint.myPoint}">
-                0원
-            </c:if>
-
+                    <c:if test="${not empty userPoint and not empty userPoint.myPoint}">
+                        ${userPoint.myPoint}원
+                    </c:if>
+                    <c:if test="${empty userPoint or empty userPoint.myPoint}">
+                        0원
+                    </c:if>
+                </div>
+            </div>
 
             <!-- Button to Open the Modal -->
             <button type="button" class="userInfo_charge_button" data-bs-toggle="modal" data-bs-target="#paymentModal">
-                충전
+                충전하기
             </button>
 
             <!-- The Modal -->
@@ -109,20 +123,18 @@
                     </div>
                 </div>
             </div>
-
-
         </div>
-        <hr>
-        <div class="userInfo_link">
-            <a class="nav-link userInfo_link_text" href="/user/team/${sessionUser.id}">팀 관리</a>
-            <a class="nav-link userInfo_link_text" href="/user/bookmark">북마크</a>
-            <a class="nav-link userInfo_link_text" href="/user/reservation">예약 내역</a>
-            <a class="nav-link userInfo_link_text" href="/user/payment">결제 내역</a>
-            <a class="nav-link userInfo_link_text" href="/user/review">후기 관리</a>
-            <a class="nav-link userInfo_link_text" href="/user/check-password/${sessionUser.id}">개인정보
-                수정</a>
-            <a class="nav-link userInfo_link_text" href="/user/league-matching-page">리그/매칭 현황</a>
-        </div>
+<%--        <div class="userInfo_link">--%>
+<%--            <a class="nav-link userInfo_link_text" href="/user-mypage/${sessionUser.id}">나의 정보</a>--%>
+<%--            <a class="nav-link userInfo_link_text" href="/user-team/${sessionUser.id}">팀 관리</a>--%>
+<%--            <a class="nav-link userInfo_link_text" href="/user-bookmark">북마크</a>--%>
+<%--            <a class="nav-link userInfo_link_text" href="/user-reservation">예약 내역</a>--%>
+<%--            <a class="nav-link userInfo_link_text" href="/user-payment">결제 내역</a>--%>
+<%--            <a class="nav-link userInfo_link_text" href="/user-review">후기 관리</a>--%>
+<%--            <a class="nav-link userInfo_link_text" href="/user-update/${sessionUser.id}">개인정보--%>
+<%--                수정</a>--%>
+<%--            <a class="nav-link userInfo_link_text" href="/league-matching-page">리그/매칭 현황</a>--%>
+<%--        </div>--%>
     </div>
 </div>
 
@@ -192,7 +204,7 @@
                         }),
                         success: function (response) {
                             console.log(response);
-                            window.location.href = "/user-mypage";
+                            window.location.href = "/user-mypage/${userPoint.id}";
                             // 성공적으로 데이터를 서버로 전송한 후 추가적으로 수행할 작업이 있다면 여기에 추가
                         },
                         error: function (error) {

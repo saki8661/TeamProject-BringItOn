@@ -1,6 +1,7 @@
 package com.example.teamprojectbringiton.user;
 
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
+import com.example.teamprojectbringiton.user.dto.response.UserInfoDTO;
 import com.example.teamprojectbringiton.user.dto.response.UserPointDTO;
 import com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO;
 import org.apache.ibatis.annotations.Mapper;
@@ -35,4 +36,5 @@ public interface UserRepository {
 
     public UserPointDTO findByIdJoinPoint(Integer id);
 
+    public UserInfoDTO findByIdForUserInfo(Integer id);
 }

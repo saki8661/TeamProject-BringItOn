@@ -7,7 +7,7 @@
 
         <div class="row">
             <%@include file="../layout/userInfoInside.jsp" %>
-            <div class="col-md-9 box">
+            <div class="userInfo_body col-md-8 box">
                 <div class="d-flex pe-3 my-3">
                     <div class="userInfo_title">후기 관리</div>
                 </div>

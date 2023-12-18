@@ -12,6 +12,7 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class Reservation {
     private Integer id;
+    private Integer reservationNumber;
     private Date reservationDate;
     private Integer personnel;
     private Time startTime;
@@ -24,9 +25,10 @@ public class Reservation {
     private Integer spaceId;
 
     @Builder
-    public Reservation(Integer id, Date reservationDate,Integer personnel, Time startTime, Time endTime, String toHost, String status, boolean matching, Timestamp createdAt, Integer userId, Integer spaceId) {
+    public Reservation(Integer id, Integer reservationNumber, Date reservationDate,Integer personnel, Time startTime, Time endTime, String toHost, String status, boolean matching, Timestamp createdAt, Integer userId, Integer spaceId) {
 
         this.id = id;
+        this.reservationNumber = reservationNumber;
         this.reservationDate = reservationDate;
         this.personnel = personnel;
         this.startTime = startTime;

@@ -7,7 +7,7 @@
 
         <div class="row">
             <%@include file="../layout/userInfoInside.jsp" %>
-            <div class="col-md-9 box">
+            <div class="userInfo_body col-md-8 box">
                 <div class="d-flex pe-3 my-3">
                     <div class="userInfo_title">예약 내역</div>
                 </div>
@@ -16,10 +16,10 @@
 
                     <div class="userReservation_tabbox">
                         <div class="userReservation_tab">
-                            <a class="nav-link userReservation_link" href="#">전체(1)</a>
-                            <a class="nav-link userReservation_link" href="#">진행중(1)</a>
-                            <a class="nav-link userReservation_link" href="#">완료(1)</a>
-                            <a class="nav-link userReservation_link" href="#">취소/환불(1)</a>
+                            <a class="nav-link userReservation_link" href="#">전체()</a>
+                            <a class="nav-link userReservation_link" href="#">진행중()</a>
+                            <a class="nav-link userReservation_link" href="#">완료()</a>
+                            <a class="nav-link userReservation_link" href="#">취소/환불()</a>
                         </div>
                     </div>
                     <form class="d-flex">
@@ -41,44 +41,48 @@
                         </tr>
                         </thead>
                         <tbody>
-                        <tr class="userReservation_table_tr">
-                            <td>16-12369</td>
-                            <td>
-                                <div class="userReservation_pic">
-                                    <img src="/images/stadium.png">
-                                </div>
-                            </td>
-                            <td>
-                                <div class="userReservation_detail">
-                                    <button type="button" data-bs-toggle="modal"
-                                            data-bs-target="#myModal">
-                                        부산 준타스 풋볼아레나
-                                    </button>
-                                </div>
-                            </td>
-                            <td>2023-12-06 (수) 13시 시작 <br> 2023-12-06 (수) 15시 종료</td>
-                            <td>30,000원</td>
-                            <td>결제 대기</td>
-                        </tr>
-                        <tr class="userReservation_table_tr">
-                            <td>16-12369</td>
-                            <td>
-                                <div class="userReservation_pic">
-                                    <img src="/images/stadium.png">
-                                </div>
-                            </td>
-                            <td>
-                                <div class="userReservation_detail">
-                                    <button type="button" data-bs-toggle="modal"
-                                            data-bs-target="#myModal">
-                                        부산 준타스 풋볼아레나
-                                    </button>
-                                </div>
-                            </td>
-                            <td>2023-12-06 (수) 13시 시작 <br> 2023-12-06 (수) 15시 종료</td>
-                            <td>30,000원</td>
-                            <td>결제 대기</td>
-                        </tr>
+                        <c:forEach var="reservation" items="${reservationList}">
+                            <tr class="userReservation_table_tr">
+                                <td>${reservation.reservationNumber}</td>
+                                <td>
+                                    <div class="userReservation_pic">
+                                        <img src="/images/${reservation.spacePic}">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="userReservation_detail">
+                                        <button type="button" data-bs-toggle="modal"
+                                                data-bs-target="#myModal">
+                                                ${reservation.spaceName}
+                                        </button>
+                                    </div>
+                                </td>
+                                <td>${reservation.reservationDate} <br>
+                                        ${reservation.startTime} ~ ${reservation.endTime}
+                                </td>
+                                <td>${reservation.pricePerHour}원</td>
+                                <td>${reservation.status}</td>
+                            </tr>
+                        </c:forEach>
+                        <%--                        <tr class="userReservation_table_tr">--%>
+                        <%--                            <td>16-12369</td>--%>
+                        <%--                            <td>--%>
+                        <%--                                <div class="userReservation_pic">--%>
+                        <%--                                    <img src="/images/stadium.png">--%>
+                        <%--                                </div>--%>
+                        <%--                            </td>--%>
+                        <%--                            <td>--%>
+                        <%--                                <div class="userReservation_detail">--%>
+                        <%--                                    <button type="button" data-bs-toggle="modal"--%>
+                        <%--                                            data-bs-target="#myModal">--%>
+                        <%--                                        부산 준타스 풋볼아레나--%>
+                        <%--                                    </button>--%>
+                        <%--                                </div>--%>
+                        <%--                            </td>--%>
+                        <%--                            <td>2023-12-06 (수) 13시 시작 <br> 2023-12-06 (수) 15시 종료</td>--%>
+                        <%--                            <td>30,000원</td>--%>
+                        <%--                            <td>결제 대기</td>--%>
+                        <%--                        </tr>--%>
                         </tbody>
                     </table>
 
@@ -118,7 +122,6 @@
                         </div>
                     </div>
                 </div>
-
                 <div class="mt-5 d-flex justify-content-center">
                     <ul class="pagination">
                         <li class="page-item"><a class="page-link" href="#"><</a></li>
@@ -127,6 +130,7 @@
                     </ul>
                 </div>
             </div>
+
         </div>
     </div>
 </div>

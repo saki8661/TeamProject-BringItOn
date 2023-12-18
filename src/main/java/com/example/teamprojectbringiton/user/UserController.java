@@ -99,16 +99,17 @@ public class UserController {
         return "redirect:/home";
     }
 
-    @GetMapping("user/logout")
+    @GetMapping("/user/logout")
     public String logout() {
 
         session.invalidate();
         return "redirect:/home";
     }
 
-
-    @GetMapping("/user-mypage")
-    public String userMyPage() {
+    @GetMapping("/user/mypage/{id}")
+    public String userMyPage(@PathVariable Integer id) {
+        userService.findByIdForUserInfo(id);
+        System.out.println("===============================조회 끝! ");
         return "user/userMyPage";
     }
 
@@ -145,30 +146,32 @@ public class UserController {
         return "user/userTeam";
     }
 
-    @GetMapping("/user/bookmark")
-    public String userBookmarkManagementPage() {
+    @GetMapping("/user/bookmark/{id}")
+
+    public String userBookmarkManagementPage(@PathVariable Integer id) {
         return "user/userBookmark";
     }
 
-    @GetMapping("/user/review")
-    public String userReviewManagementPage() {
+    @GetMapping("/user/review/{id}")
+    public String userReviewManagementPage(@PathVariable Integer id) {
         return "user/userReview";
     }
 
-    @GetMapping("/user/reservation")
-    public String userReservationPage() {
-        return "user/userReservation";
-    }
 
-    @GetMapping("/user/payment")
-    public String userPaymentPage() {
+    @GetMapping("/user/payment/{id}")
+    public String userPaymentPage(@PathVariable Integer id) {
         return "user/userPayment";
     }
 
     // 리그/매칭 현황 페이지 구현 완료
-    @GetMapping("/user/league-matching-page")
-    public String leagueMatchingPage() {
+    @GetMapping("/user/league-matching-page/{id}")
+    public String leagueMatchingPage(@PathVariable Integer id) {
         return "user/leagueMatchingPage";
+    }
+
+    @GetMapping("/user/mybring/{id}")
+    public String myBringPage() {
+        return "user/userMyBring";
     }
 
     @GetMapping("/user/check-password/{id}")
@@ -185,5 +188,6 @@ public class UserController {
         User sessionUser = (User) session.getAttribute("sessionUser");
         CheckPasswordDTO response = userService.pwdCheck(checkPassword, sessionUser.getId());
         return ResponseEntity.ok(response);
+
     }
 }

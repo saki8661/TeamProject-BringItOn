@@ -60,17 +60,18 @@ CREATE TABLE space_pic_tb
 -- 시설 공간 예약 테이블
 CREATE TABLE reservation_tb
 (
-    id               INT AUTO_INCREMENT PRIMARY KEY,
-    reservation_date DATE,
-    personnel        INT,
-    start_time       TIME,
-    end_time         TIME,
-    status           VARCHAR(50),
-    to_host          VARCHAR(255),
-    matching         BOOLEAN,
-    created_at       TIMESTAMP,
-    user_id          INT,
-    space_id         INT
+    id                 INT AUTO_INCREMENT PRIMARY KEY,
+    reservation_number INT,
+    reservation_date   DATE,
+    personnel          INT,
+    start_time         TIME,
+    end_time           TIME,
+    status             VARCHAR(50),
+    to_host            VARCHAR(255),
+    matching           BOOLEAN,
+    created_at         TIMESTAMP,
+    user_id            INT,
+    space_id           INT
 );
 
 -- 지역 테이블 (코드)
@@ -140,13 +141,13 @@ CREATE TABLE bookmark_tb
 -- 공간대여 상세보기 문의 테이블
 CREATE TABLE space_inquire_tb
 (
-    id               INT AUTO_INCREMENT PRIMARY KEY,
-    inquire_type     VARCHAR(50),
-    inquire_content   VARCHAR(255),
-    inquire_answer   VARCHAR(255),
-    created_at       TIMESTAMP,
-    user_id          INT,
-    space_id         INT
+    id              INT AUTO_INCREMENT PRIMARY KEY,
+    inquire_type    VARCHAR(50),
+    inquire_content VARCHAR(255),
+    inquire_answer  VARCHAR(255),
+    created_at      TIMESTAMP,
+    user_id         INT,
+    space_id        INT
 );
 
 -- 은행 이름 테
@@ -160,12 +161,12 @@ CREATE TABLE bank_tb
 -- 결제내역 테이블
 CREATE TABLE payment_tb
 (
-    id         INT AUTO_INCREMENT PRIMARY KEY,
-    amount      INT,
+    id             INT AUTO_INCREMENT PRIMARY KEY,
+    amount         INT,
     payment_number VARCHAR,
-    is_charge BOOLEAN,
-    created_at TIMESTAMP,
-    user_id    INT
+    is_charge      BOOLEAN,
+    created_at     TIMESTAMP,
+    user_id        INT
 );
 
 -- 포인트 내역
