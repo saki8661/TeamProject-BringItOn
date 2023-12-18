@@ -14,7 +14,7 @@
             </ul>
         </li>
         <li class="main_link">
-            <a href="/matching-page">매칭</a>
+            <a href="/matching-main">매칭</a>
         </li>
 
         <li class="main_link">
@@ -195,203 +195,159 @@
     <div class="frame">
         <ul class="manual">
             <li class="manual_box manual_active">
-                <div>
+                <div class="frame">
                     <ul class="nav">
-                        <li class="matching_sorting nav-item dropdown">
-                            <a role="button" data-bs-toggle="dropdown" href="#">내 지역
-                                <ul class="dropdown-menu sub_navbar_style">
-                                    <li><a href="#">서울</a></li>
-                                    <li><a href="#">경기</a></li>
-                                    <li><a href="#">인천</a></li>
-                                    <li><a href="#">강원</a></li>
-                                    <li><a href="#">대전</a></li>
-                                    <li><a href="#">충남/세종</a></li>
-                                    <li><a href="#">충북</a></li>
-                                    <li><a href="#">대구</a></li>
-                                    <li><a href="#">경북</a></li>
-                                    <li><a href="#">부산</a></li>
-                                    <li><a href="#">울산</a></li>
-                                    <li><a href="#">경남</a></li>
-                                </ul>
+                        <li class="main_link nav-item dropdown matching_sorting">
+                            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
+                                <span id="selectedRegion">내 지역</span>
                             </a>
+                            <ul class="dropdown-menu sub_navbar_style">
+                                <c:forEach var="region" items="${regionList}">
+                                    <li>
+                                        <a class="dropdown-item region-option" href="#" data-region-id="${region.id+1}">
+                                                ${region.regionName}
+                                        </a>
+                                    </li>
+                                </c:forEach>
+                            </ul>
                         </li>
                     </ul>
                 </div>
-                <div class="manual_card">
-                    <div class="matching_list">
-                        <div class="matching_detail">
-                            <div class="manual_tit">
-                                09:00
-                            </div>
-                            <div class="matchingPage_team_box">
-                                <div class="matchingPage_team">
-                                    <div>
-                                        <span class="manual_tit"> < FC 대욱 > </span>
+                <div class="manual_box" id="matchingListContainer">
+                    <c:forEach var="matching" items="${matchings}">
+                        <div class="manual_card region-${matching.regionId}" data-region-id="${matching.regionId}">
+                            <div class="matching_list">
+                                <div class="matching_detail">
+                                    <div class="manual_tit">
+                                            ${matching.reservationDate}/
                                     </div>
-                                    <div>
-                                        <span class="manual_tit">6 vs 6 경기</span>
+                                    <div class="manual_tit">
+                                            ${matching.startTime}~
+                                            ${matching.endTime}
                                     </div>
-                                </div>
-                                <div class="manual_num">부산 준타스 풋살 아레나 화이트</div>
-                            </div>
-                        </div>
-                        <button class="matching_button matching_btn_style" type="button" data-bs-toggle="modal"
-                                data-bs-target="#myModal">매칭하기
-                        </button>
-
-
-                    </div>
-                    <hr class="matchingPage_manual_box">
-                    <div class="matching_list">
-                        <div class="matching_detail">
-                            <div class="manual_tit">
-                                09:00
-                            </div>
-                            <div class="matchingPage_team_box">
-                                <div class="matchingPage_team">
-                                    <div>
-                                        <span class="manual_tit"> < FC 대욱 > </span>
-                                    </div>
-                                    <div>
-                                        <span class="manual_tit">6 vs 6 경기</span>
+                                    <div class="matchingPage_team_box">
+                                        <div class="matchingPage_team">
+                                            <div>
+                                                <span class="manual_tit"> <${matching.teamName}> </span>
+                                            </div>
+                                            <div>
+                                                <span class="manual_tit">${matching.personnel} vs ${matching.personnel} 경기</span>
+                                            </div>
+                                        </div>
+                                        <div class="manual_num">${matching.spaceName}</div>
                                     </div>
                                 </div>
-                                <div class="manual_num">부산 준타스 풋살 아레나 화이트</div>
+                                <button class="matching_button matching_btn_style" type="button" data-bs-toggle="modal"
+                                        data-bs-target="#myModal-${matching.id}">매칭하기
+                                </button>
                             </div>
                         </div>
-                        <button class="matching_button matching_btn_style" type="button" data-bs-toggle="modal"
-                                data-bs-target="#myModal">매칭하기
-                        </button>
-                    </div>
-                    <hr class="matchingPage_manual_box">
-                    <div class="matching_list">
-                        <div class="matching_detail">
-                            <div class="manual_tit">
-                                09:00
-                            </div>
-                            <div class="matchingPage_team_box">
-                                <div class="matchingPage_team">
-                                    <div>
-                                        <span class="manual_tit"> < FC 대욱 > </span>
-                                    </div>
-                                    <div>
-                                        <span class="manual_tit">6 vs 6 경기</span>
-                                    </div>
+                        <hr class="matchingPage_manual_box region-${matching.regionId}">
+                    </c:forEach>
+                </div>
+
+                <%--======================================MODAL================================================================--%>
+                <c:forEach var="matching" items="${matchings}">
+                    <div class="modal" id="myModal">
+                        <div class="modal-dialog">
+                            <div class="league_matching_modal modal-content">
+
+                                <!-- Modal Header -->
+                                <div class="userReservation_modal_header">
+                                    <h2>매칭 상세</h2>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                 </div>
-                                <div class="manual_num">부산 준타스 풋살 아레나 화이트</div>
-                            </div>
-                        </div>
-                        <button class="matching_button matching_btn_style" type="button" data-bs-toggle="modal"
-                                data-bs-target="#myModal">매칭하기
-                        </button>
 
-                        <%--======================================MODAL================================================================--%>
-
-                        <div class="modal" id="myModal">
-                            <div class="modal-dialog">
-                                <div class="league_matching_modal modal-content">
-
-
-                                    <!-- Modal Header -->
-                                    <div class="userReservation_modal_header">
-                                        <h2>매칭 상세</h2>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                    </div>
-
-                                    <!-- Modal body -->
-                                    <div class="modal-body">
-                                        <div class="modal_body">
-                                            <div class="userPayment_body_desc">
-                                                <img src="images/stadium.png" alt="">
-                                                <div class="userPayment_text">
-                                                    <div>
-                                                        부산 준타스 풋볼 아레나
-                                                    </div>
-                                                    <div>
-                                                        부산 진구
-                                                    </div>
-                                                    <div>
-                                                        시작: 2023-12-07 13시
-                                                    </div>
-                                                    <div>
-                                                        종료: 2023-12-07 15시
-                                                    </div>
+                                <!-- Modal body -->
+                                <div class="modal-body">
+                                    <div class="modal_body">
+                                        <div class="userPayment_body_desc">
+                                            <img src="images/${matching.spacePic}" alt="">
+                                            <div class="userPayment_text">
+                                                <div>
+                                                        ${matching.teamName}
+                                                </div>
+                                                <div>
+                                                        ${matching.spaceLocation}
+                                                </div>
+                                                <div>
+                                                    시작: ${matching.startTime}
+                                                </div>
+                                                <div>
+                                                    종료: ${matching.endTime}
                                                 </div>
                                             </div>
-                                            <div class="userPayment_table">
-                                                <Table>
-                                                    <div class="userPayment_detail_style">
-                                                        <tr class="userPayment_table_header">
-                                                            <th>팀명</th>
-                                                            <td>FC 대욱</td>
-                                                            <th>진행상태</th>
-                                                            <td>진행중</td>
-                                                        </tr>
-                                                        <tr class="userPayment_table_header">
-                                                            <th>인원수</th>
-                                                            <td>6명</td>
-                                                            <th>가격</th>
-                                                            <td>120,000원</td>
-                                                        </tr>
-                                                    </div>
-                                                </Table>
-                                            </div>
+                                        </div>
+                                        <div class="userPayment_table">
+                                            <Table>
+                                                <div class="userPayment_detail_style">
+                                                    <tr class="userPayment_table_header">
+                                                        <th>팀명</th>
+                                                        <td>${matching.teamName}</td>
+                                                        <br>
+                                                        <th>진행상태</th>
+                                                        <td>${matching.status}</td>
+                                                    </tr>
+                                                    <tr class="userPayment_table_header">
+                                                        <th>인원수</th>
+                                                        <td>${matching.personnel}</td>
+                                                        <br>
+                                                        <th>가격</th>
+                                                        <td>1인 : ${matching.pricePerHour} 원</td>
+                                                    </tr>
+                                                </div>
+                                            </Table>
                                         </div>
                                     </div>
+                                </div>
 
-                                    <!-- Modal footer -->
-                                    <div class="userPayment_modal_footer">
-                                        <div>
-                                            <div style="height: 10px"></div>
-                                            <a href="#">
-                                                <button>매칭 신청</button>
-                                            </a>
-                                        </div>
-                                        <div></div>
+                                <!-- Modal footer -->
+                                <div class="userPayment_modal_footer">
+                                    <div>
+                                        <div style="height: 10px"></div>
+                                        <a href="#">
+                                            <button>매칭 신청</button>
+                                        </a>
                                     </div>
+                                    <div></div>
                                 </div>
                             </div>
                         </div>
-                        <%--====================================MODAL==================================================================--%>
                     </div>
+                    <%--====================================MODAL==================================================================--%>
                     <hr class="matchingPage_manual_box">
-                </div>
+                </c:forEach>
             </li>
         </ul>
     </div>
-
-
 </div>
 
 <script>
-    const manualCg = document.querySelectorAll(".manual_category > li > a");
-    const manual = document.querySelectorAll(".manual > li");
-
-    manualCg.forEach((tab, idex) => {
-        tab.addEventListener("click", function () {
-            manual.forEach((inner) => {
-                inner.classList.remove("manual_active");
-            })
-            manualCg.forEach((item) => {
-                item.classList.remove("manual_active");
-            })
-            manualCg[idex].classList.add("manual_active");
-            manual[idex].classList.add("manual_active");
-
-        })
-    })
-
-    const manualTab = document.querySelector(".manual_tab");
-    if (manualTab) {
-        var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 'auto', // 한 슬라이드에 보여줄 갯수
-            freeMode: false,
-            navigation: {
-                nextEl: ".swiper-button-next",
-                prevEl: ".swiper-button-prev"
-            },
+    document.addEventListener("DOMContentLoaded", function () {
+        const regionOptions = document.querySelectorAll(".region-option");
+        const matchingCards = document.querySelectorAll(".manual_card");
+        const selectedRegionSpan = document.getElementById("selectedRegion");
+        regionOptions.forEach(option => {
+            option.addEventListener("click", function (e) {
+                e.preventDefault();
+                const selectedRegionId = this.getAttribute("data-region-id");
+                const selectedRegionName = this.innerText;
+                // 선택한 지역에 해당하는 매칭만 표시하기
+                matchingCards.forEach(card => {
+                    const regionId = card.getAttribute("data-region-id");
+                    if (regionId === selectedRegionId || selectedRegionId === "all") {
+                        card.style.display = "block";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+                // 선택한 지역명으로 드롭다운 버튼 내용 변경
+                selectedRegionSpan.innerText = selectedRegionName;
+            });
         });
-    }
+    });
+
+
 </script>
 
 

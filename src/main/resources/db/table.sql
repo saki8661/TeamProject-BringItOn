@@ -62,6 +62,7 @@ CREATE TABLE reservation_tb
 (
     id               INT AUTO_INCREMENT PRIMARY KEY,
     reservation_date DATE,
+    personnel        INT,
     start_time       TIME,
     end_time         TIME,
     status           VARCHAR(50),
@@ -136,6 +137,18 @@ CREATE TABLE bookmark_tb
     user_id  INT
 );
 
+-- 공간대여 상세보기 문의 테이블
+CREATE TABLE space_inquire_tb
+(
+    id               INT AUTO_INCREMENT PRIMARY KEY,
+    inquire_type     VARCHAR(50),
+    inquire_content   VARCHAR(255),
+    inquire_answer   VARCHAR(255),
+    created_at       TIMESTAMP,
+    user_id          INT,
+    space_id         INT
+);
+
 -- 은행 이름 테
 -- 이블 (코드 테이블) - 결재 하면서 새로 구상
 CREATE TABLE bank_tb
@@ -148,8 +161,10 @@ CREATE TABLE bank_tb
 CREATE TABLE payment_tb
 (
     id         INT AUTO_INCREMENT PRIMARY KEY,
-    price      INT,
-    created_at DATE,
+    amount      INT,
+    payment_number VARCHAR,
+    is_charge BOOLEAN,
+    created_at TIMESTAMP,
     user_id    INT
 );
 

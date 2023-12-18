@@ -440,14 +440,14 @@ VALUES (1, 'inside1.png'),
        (108, 'outside2.png');
 
 -- 시설 공간 예약 더미 데이터
-INSERT INTO reservation_tb (reservation_date, start_time, end_time, to_host, status, matching, created_at, user_id,
-                            space_id)
-VALUES ('2024-01-01', '10:00:00', '12:00:00', '장비대여 되나요?', '예약진행중', true, CURRENT_TIMESTAMP, 2, 1),
-       ('2024-01-02', '14:00:00', '16:00:00', Null, '예약완료', false, CURRENT_TIMESTAMP, 3, 2),
-       ('2024-01-01', '12:00:00', '14:00:00', Null, '예약완료', true, CURRENT_TIMESTAMP, 5, 5),
-       ('2024-01-02', '10:00:00', '12:00:00', Null, '예약진행중', true, CURRENT_TIMESTAMP, 6, 6),
-       ('2024-01-02', '18:00:00', '20:00:00', Null, '예약진행중', false, CURRENT_TIMESTAMP, 7, 7),
-       ('2024-01-01', '19:00:00', '21:00:00', Null, '예약진행중', false, CURRENT_TIMESTAMP, 8, 8);
+INSERT INTO reservation_tb (reservation_date, personnel, start_time, end_time, to_host, status, matching, created_at,
+                            user_id, space_id)
+VALUES ('2024-01-01', 6, '10:00:00', '12:00:00', '장비대여 되나요?', '예약진행중', true, CURRENT_TIMESTAMP, 2, 1),
+       ('2024-01-02', 2, '14:00:00', '16:00:00', '장비대여 되나요?', '예약완료', false, CURRENT_TIMESTAMP, 3, 2),
+       ('2024-01-01', 3, '12:00:00', '14:00:00', '장비대여 되나요?', '예약완료', true, CURRENT_TIMESTAMP, 5, 5),
+       ('2024-01-02', 4, '10:00:00', '12:00:00', '장비대여 되나요?', '예약진행중', true, CURRENT_TIMESTAMP, 6, 6),
+       ('2024-01-02', 2, '18:00:00', '20:00:00', '장비대여 되나요?', '예약진행중', false, CURRENT_TIMESTAMP, 7, 7),
+       ('2024-01-01', 5, '19:00:00', '21:00:00', '장비대여 되나요?', '예약진행중', false, CURRENT_TIMESTAMP, 8, 8);
 
 
 -- 한줄리뷰 더미 데이터
@@ -493,20 +493,27 @@ VALUES (1, 1),
        (2, 2),
        (3, 3);
 
+-- 공간대여 문의 더미 데이터 ( 시설문의, 가격문의 )
+INSERT INTO space_inquire_tb (inquire_type, inquire_content, inquire_answer, user_id, space_id, created_at)
+VALUES ('시설문의', '근처에 주차공간 여유롭나요?', '주차는 건너편 길가에 해주세여', 1, 1, CURRENT_TIMESTAMP),
+       ('가격문의', '충전 없이는 예약 불가능 하나요?', '프로그램 지침상 충전을 꼭 해주셔야 합니다', 1, 1, CURRENT_TIMESTAMP),
+       ('시설문의', '근처에 맛집있나여???', '근처 대방어 맛집 있습니다', 2, 1, CURRENT_TIMESTAMP),
+       ('가격문의', '6명 단체 예약인데 따로 할인은 없나요?', '죄송합니다 할인은 불가능 합니다', 6, 2, CURRENT_TIMESTAMP),
+       ('시설문의', '잔디 관리 잘돼있나요?', '인조 잔디라서 불편함은 따로 없을듯여', 7, 2, CURRENT_TIMESTAMP);
 
 -- payment_tb 테이블
-INSERT INTO payment_tb (price, created_at, user_id)
-values ('10000', '2023-12-06', 1),
-       ('100000', '2023-12-02', 1),
-       ('30000', '2023-11-15', 1),
-       ('10000', '2023-11-10', 1);
+INSERT INTO payment_tb (amount, payment_number, is_charge, created_at, user_id)
+values ('10000', '1', TRUE, NOW(), 1),
+       ('100000', '2', TRUE, NOW(), 2),
+       ('30000', '3', TRUE, NOW(), 3),
+       ('10000', '4', TRUE, NOW(), 4);
 
--- 포인트 사용내역 더미 데이터
+-- 포인트 더미 데이터
 INSERT INTO point_tb (my_point, created_at, user_id)
 VALUES ('10000', NOW(), 1),
-       ('100000', NOW(), 1),
-       ('300000', NOW(), 1),
-       ('10000', NOW(), 1);
+       ('100000', NOW(), 2),
+       ('300000', NOW(), 3),
+       ('10000', NOW(), 4);
 
 -- 포인트 sodur 데이터
 INSERT INTO point_history_tb (point_amount, charge_point, use_point, refund, refund_date, created_at, user_id)

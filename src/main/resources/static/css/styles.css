@@ -656,12 +656,97 @@ input::placeholder {
     padding: 10px;
 }
 
-.userInfo_charge button {
+.userInfo_charge_button {
     background: yellow;
     width: 40px;
     height: 30px;
     border-radius: 5px;
     color: black;
+}
+
+.modal_charge_body{
+    margin-left: 50px;
+    margin-right: 50px;
+    height: 400px;
+}
+
+.modal_charge_button {
+    background: #19B357;
+    border-radius: 15px;
+    width: 100%;
+    height: 50px;
+}
+
+.modal_price_button {
+    display: grid;
+    grid-template-rows: repeat(3, 50px);
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.modal_price_button button {
+    cursor: pointer;
+    border-radius: 10px;
+    background: #F3F5F7;
+    color: #B1BAC0;
+}
+
+.modal_price_button_item.active {
+    background-color: #19B357;
+    color: white;
+}
+
+.modal_charge_point{
+    color: #378AD7;
+    text-align: end;
+    margin-top: 10px;
+}
+
+.modal_charge_method{
+    height: 200px;
+}
+
+.modal_charge_icon{
+    display: flex;
+    gap: 15px;
+}
+
+.modal_charge_icon button {
+    text-align: end;
+}
+
+.modal_charge_icon img{
+
+}
+
+.modal_charge_icon_container{
+    display: flex;
+    text-align: end;
+    justify-content: end;
+    border: 1px #F3F5F7 solid;
+    width: 100%;
+    max-width: 120%;
+    height: 80px;
+    box-sizing: border-box;
+    border-radius: 15px;
+
+}
+
+.modal_charge_body_title{
+    color: black;
+    margin-bottom: 10px;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.modal_charge_checkbox{
+    color: black;
+    padding-bottom: 10px;
+}
+
+.modal_charge_checkbox_label {
+    display: flex;
+    line-height: 1.2;
 }
 
 .userInfo_link {
@@ -875,6 +960,10 @@ input::placeholder {
 
 }
 
+<<<<<<< HEAD
+=======
+.leagueMain_table_main{}
+>>>>>>> dev
 
 .leagueMain_modal {
     text-align: center;
@@ -2052,7 +2141,7 @@ td {
 }
 
 
-.userPayment_modal_footer a {
+.userPayment_modal_footer button {
     background: #19B357;
     padding: 10px 30px;
     border-radius: 12.5px;
@@ -3186,14 +3275,8 @@ body {
     flex-direction: row;
     padding-top: 20px;
 
-
 }
 
-.scroll4_place_detail_review_list_container {
-    display: flex;
-    flex-direction: column;
-    padding-top: 20px;
-}
 
 .rated_star_username {
     padding-left: 10px;
@@ -3215,13 +3298,16 @@ body {
 .scroll4_place_detail_qna {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding-top: 10px;
 
 }
 
 .scroll4_place_detail_qna_container {
     display: flex;
-    justify-content: flex-end;
-    padding-top: 10px;
+    padding-top: 20px;
+    flex-direction: row;
 }
 
 .scroll4_place_detail_qna_container_button {
@@ -3243,8 +3329,39 @@ body {
     height: 100%;
 }
 
-.scroll4_place_detail_qna_list_title {
-    font-weight: bold;
+.scroll4_place_detail_qna_title {
+    font-size: 20px;
+    font-weight: bolder;
+    padding-right: 20px;
+    padding-top: 20px;
+}
+
+.scroll4_place_detail_qna_textarea {
+    width: 100%;
+    height: 100%;
+}
+
+.scroll4_place_detail_review_list_container {
+    display: flex;
+    flex-direction: row;
+    padding-top: 20px;
+}
+
+
+.scroll4_place_detail_qna_username {
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.scroll4_place_detail_qna_date {
+    font-weight: bolder;
+    color: #8A8A8A;
+    padding-left: 10px;
+
+}
+
+.scroll4_place_detail_qna_content {
+    padding-left: 20px;
     padding-top: 20px;
     padding-bottom: 20px;
 }

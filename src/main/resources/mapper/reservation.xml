@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.teamprojectbringiton.reservation.ReservationRepository">
+
+    <select id="findApplyMathingResv" resultType="com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO">
+        select *
+        from reservation_tb resv
+                 join team_tb t
+                      on resv.user_id = t.id
+                 join region_tb r
+                      on t.region_id = r.id
+                 join space_tb s
+                      on resv.space_id = s.id
+                 join space_pic_tb sp
+                      on s.id = sp.space_id
+        where resv.matching = true
+    </select>
+
+</mapper>

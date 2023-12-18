@@ -40,7 +40,7 @@
                                 </div>
                             </div>
                             <button type="button" data-bs-toggle="modal"
-                                    data-bs-target="#myModal">상세보기
+                                    data-bs-target="#userPaymentModal">상세보기
                             </button>
                         </div>
                     </div>
@@ -72,12 +72,12 @@
                                 </div>
                             </div>
                             <button type="button" data-bs-toggle="modal"
-                                    data-bs-target="#myModal">상세보기
+                                    data-bs-target="#userPaymentModal">상세보기
                             </button>
                         </div>
                     </div>
 
-                    <div class="modal" id="myModal">
+                    <div class="modal" id="userPaymentModal">
                         <div class="modal-dialog">
                             <div class="league_matching_modal modal-content">
 
@@ -132,15 +132,14 @@
                                 <div class="userPayment_modal_footer">
                                     <div>
                                         <div style="height: 10px"></div>
-                                        <a href="#">
-                                            <button>환불 요청</button>
-                                        </a>
+                                        <button type="button" id="refundButton">
+                                            환불 요청
+                                        </button>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
 
                 </div>
                 <div class="mt-5 d-flex justify-content-center">
@@ -155,5 +154,42 @@
     </div>
 </div>
 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        // 버튼 클릭 이벤트 처리
+        document.getElementById("refundButton").addEventListener("click", function () {
+            // POST 요청을 보낼 URL
+            var url = "http://localhost/payment/refund";
 
+            // POST 요청 데이터 (필요에 따라 수정)
+            var postData = {
+                merchant_uid: "order_no_202312146445340777",
+                reason: "환불"
+                // 추가 필드가 있으면 여기에 추가
+            };
+
+            // XMLHttpRequest를 사용하여 POST 요청 보내기
+            var xhr = new XMLHttpRequest();
+            xhr.open("POST", url, true);
+            xhr.setRequestHeader("Content-Type", "application/json");
+
+            // 요청이 완료되면 실행되는 콜백 함수
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    // 성공 시 실행할 코드
+                    console.log("POST 요청 성공", xhr.responseText);
+                    $('#userPaymentModal').modal('hide');
+                    alert("결제가 정상적으로 취소되었습니다.")
+
+                } else {
+                    // 실패 시 실행할 코드
+                    console.error("POST 요청 실패", xhr.statusText);
+                }
+            };
+
+            // 요청 전송
+            xhr.send(JSON.stringify(postData));
+        });
+    });
+</script>
 <%@ include file="../layout/footer.jsp" %>

@@ -7,11 +7,11 @@ import com.example.teamprojectbringiton.user.dto.request.UserUpdateImageDTO;
 import com.example.teamprojectbringiton.user.dto.request.UserUpdatePasswordDTO;
 import com.example.teamprojectbringiton.user.dto.response.CheckPasswordDTO;
 import com.example.teamprojectbringiton.user.dto.response.KakaoProfile;
+import com.example.teamprojectbringiton.user.dto.response.UserPointDTO;
 import com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -72,6 +72,9 @@ public class UserController {
         User user = userService.login(loginDto);
         session.setAttribute("sessionUser", user);
         model.addAttribute("sessionUser", user);
+        UserPointDTO userPointDTO = userService.findByIdJoinPoint(user.getId());
+        session.setAttribute("userPoint", userPointDTO);
+
         return "redirect:/home";
     }
 
@@ -87,11 +90,12 @@ public class UserController {
         userService.kakaoUserSave(kakaoProfile);
         // 로그인 로직 처리를 위해 유저정보 조회
         User user = userService.findByUsername(kakaoProfile.getId());
+        UserPointDTO userPointDTO = userService.findByIdJoinPoint(user.getId());
 
         // 공통된 패스워드 노출 안되게 하기 위해 null
         user.updatePassword("");
-
         session.setAttribute("sessionUser", user);
+        session.setAttribute("userPoint", userPointDTO);
         return "redirect:/home";
     }
 
@@ -100,6 +104,12 @@ public class UserController {
 
         session.invalidate();
         return "redirect:/home";
+    }
+
+
+    @GetMapping("/user-mypage")
+    public String userMyPage() {
+        return "user/userMyPage";
     }
 
     @GetMapping("/user/update/{id}")

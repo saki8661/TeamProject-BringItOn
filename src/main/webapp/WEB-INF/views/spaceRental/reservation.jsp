@@ -91,6 +91,10 @@
                     <h2>00:00~23:59</h2>
                 </div>
             </div>
+            <form>
+                <p><input type="time"></p>
+                <p><input type="submit" value="Submit"></p>
+            </form>
 
             <form class="re_time_choice_radio">
                 <label>

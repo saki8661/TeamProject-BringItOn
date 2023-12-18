@@ -30,7 +30,7 @@
     <!-- 패스워드 수정 -->
     <update id="userUpdatePassword" parameterType="com.example.teamprojectbringiton.user.User">
         update user_tb
-        set password     = #{password}
+        set password = #{password}
         where id = #{id}
     </update>
 
@@ -85,5 +85,13 @@
         where u.id = #{id}
     </select>
 
+    <select id="findByIdJoinPoint"
+            resultType="com.example.teamprojectbringiton.user.dto.response.UserPointDTO">
+        select *
+        from user_tb u
+                 left join point_tb p
+                           on u.id = p.user_id
+        where u.id = #{id}
+    </select>
 
 </mapper>

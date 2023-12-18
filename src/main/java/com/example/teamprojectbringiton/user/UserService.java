@@ -1,10 +1,7 @@
 package com.example.teamprojectbringiton.user;
 
-
-import com.example.teamprojectbringiton._core.handler.exception.CustomPageException;
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
 import com.example.teamprojectbringiton._core.utils.Function;
-import com.example.teamprojectbringiton._core.vo.MyPath;
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
 import com.example.teamprojectbringiton.user.dto.request.UserUpdatePasswordDTO;
@@ -12,6 +9,7 @@ import com.example.teamprojectbringiton.user.dto.request.UserUpdateImageDTO;
 import com.example.teamprojectbringiton.user.dto.response.CheckPasswordDTO;
 import com.example.teamprojectbringiton.user.dto.response.KakaoProfile;
 import com.example.teamprojectbringiton.user.dto.response.OAuthToken;
+import com.example.teamprojectbringiton.user.dto.response.UserPointDTO;
 import com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -21,11 +19,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
-
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.UUID;
 
 @Service
 public class UserService {
@@ -156,6 +149,7 @@ public class UserService {
         return response2.getBody();
     }
 
+
     // 개인정보 수정을 위한 패스워드 확인
     public CheckPasswordDTO pwdCheck(String password, Integer id) {
         // 비밀번호 비교를 위한 유저 정보 조회
@@ -185,5 +179,10 @@ public class UserService {
         user.updatePassword(dto.getPassword());
         userRepository.userUpdatePassword(user);
         return user;
+    }
+
+    public UserPointDTO findByIdJoinPoint(Integer id) {
+        UserPointDTO dto = userRepository.findByIdJoinPoint(id);
+        return dto;
     }
 }

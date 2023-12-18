@@ -21,13 +21,15 @@
     <!-- FullCalendar Script -->
     <script src="https://cdn.jsdelivr.net/npm/fullcalendar@3.10.2/dist/fullcalendar.min.js"></script>
 
-
     <link rel="stylesheet" href="/css/styles.css">
-    <script src="script.js" defer></script>
     <!--별점 아이콘 라이브러리-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!--하트 아이콘 라이브러리-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <%--iamport 결제 api--%>
+    <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+    <script integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
+    <script crossorigin="anonymous"></script>
 </head>
 
 
