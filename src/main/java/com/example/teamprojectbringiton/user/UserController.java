@@ -75,6 +75,9 @@ public class UserController {
         UserPointDTO userPointDTO = userService.findByIdJoinPoint(user.getId());
         session.setAttribute("userPoint", userPointDTO);
 
+        if(user.getUserDivision().equals("admin")){
+            return "redirect:/admin/admin-main";
+        }
         return "redirect:/home";
     }
 
@@ -189,5 +192,10 @@ public class UserController {
         CheckPasswordDTO response = userService.pwdCheck(checkPassword, sessionUser.getId());
         return ResponseEntity.ok(response);
 
+    }
+
+    @GetMapping("/admin")
+    public String adminPage(){
+        return "admin/admin";
     }
 }
