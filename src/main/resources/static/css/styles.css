@@ -671,7 +671,7 @@ input::placeholder {
     align-items: center;
     color: white;
     font-size: 15px;
-    padding: 10px;
+    padding: 20px;
 }
 
 .userInfo_point {
@@ -711,9 +711,10 @@ input::placeholder {
     font-size: 15px;
 }
 
-.userInfo_charge_button {
-    background: yellow;
-    width: 100px;
+.userInfo_charge_button
+{
+    background: #ffcc00;
+    width: 75px;
     height: 40px;
     border-radius: 5px;
     color: black;
