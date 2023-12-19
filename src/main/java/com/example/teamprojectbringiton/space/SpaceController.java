@@ -5,6 +5,8 @@ import com.example.teamprojectbringiton._core.utils.PageVO;
 import com.example.teamprojectbringiton.space.dto.response.SpaceDTO;
 import com.example.teamprojectbringiton.space.dto.response.SpaceDetailDTO;
 import com.example.teamprojectbringiton.space.dto.response.SpaceReviewDTO;
+import com.example.teamprojectbringiton.spaceInquire.SpaceInquireService;
+import com.example.teamprojectbringiton.spaceInquire.response.SpaceInquireDTO;
 import com.example.teamprojectbringiton.user.User;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +25,9 @@ public class SpaceController {
     private SpaceService spaceService;
 
     @Autowired
+    private SpaceInquireService spaceInquireService;
+
+    @Autowired
     private HttpSession session;
 
 
@@ -33,6 +38,8 @@ public class SpaceController {
         model.addAttribute("spaceDetail", spaceDetail);
         List<SpaceReviewDTO> spaceReviewList = spaceService.spaceReviewFindById(id);
         model.addAttribute("spaceReviewList", spaceReviewList);
+        List<SpaceInquireDTO> spaceInquireList = spaceInquireService.spaceInqFindById(id);
+        model.addAttribute("spaceInquireList", spaceInquireList);
         System.out.println("모델에 담겼나마루치아라치");
         return "/spaceRental/placeDetail";
     }

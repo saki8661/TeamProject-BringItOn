@@ -141,13 +141,13 @@ CREATE TABLE bookmark_tb
 -- 공간대여 상세보기 문의 테이블
 CREATE TABLE space_inquire_tb
 (
-    id              INT AUTO_INCREMENT PRIMARY KEY,
-    inquire_type    VARCHAR(50),
-    inquire_content VARCHAR(255),
-    inquire_answer  VARCHAR(255),
-    created_at      TIMESTAMP,
-    user_id         INT,
-    space_id        INT
+    id               INT AUTO_INCREMENT PRIMARY KEY,
+    inquire_type     VARCHAR(50),
+    inquire_content  VARCHAR(255),
+    inquire_answer   VARCHAR(255),
+    created_at       TIMESTAMP,
+    user_id          INT,
+    space_id         INT
 );
 
 -- 은행 이름 테
@@ -299,3 +299,60 @@ CREATE TABLE campaign_tb
     campaign_end   DATE,
     region_id      INT
 );
+
+CREATE TABLE board_tb
+(
+    id            INT AUTO_INCREMENT PRIMARY KEY,
+    board_title   VARCHAR(50),
+    board_content VARCHAR(255),
+    created_at    DATE,
+    user_id       INT
+);
+
+CREATE TABLE reply_tb
+(
+    id         INT AUTO_INCREMENT PRIMARY KEY,
+    comment    VARCHAR(255),
+    created_at TIMESTAMP,
+    user_id    INT,
+    board_id   INT
+);
+
+CREATE TABLE product_category_tb
+(
+    id                    INT AUTO_INCREMENT PRIMARY KEY,
+    product_category_name VARCHAR(255)
+);
+
+CREATE TABLE product_tb
+(
+    id                  INT AUTO_INCREMENT PRIMARY KEY,
+    product_name        VARCHAR(255),
+    product_pic         VARCHAR(255),
+    product_price       INT,
+    product_category_id INT,
+    created_at          TIMESTAMP
+);
+
+CREATE TABLE cart_tb
+(
+    id               INT AUTO_INCREMENT PRIMARY KEY,
+    quantity         INT,
+    product_id       INT,
+    user_id          INT,
+    cart_total_price INT,
+    created_at       TIMESTAMP
+);
+
+CREATE TABLE order_tb
+(
+    id                INT AUTO_INCREMENT PRIMARY KEY,
+    quantity          INT,
+    product_id        INT,
+    user_id           INT,
+    order_total_price INT,
+    created_at        TIMESTAMP
+);
+
+
+

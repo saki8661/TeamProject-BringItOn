@@ -7,7 +7,7 @@ import java.sql.Timestamp;
 
 @Getter
 @Setter
-public class NoticeListDto {
+public class NoticeListDTO {
     private Integer id;
     private String noticeTitle;
     private String noticeContent;

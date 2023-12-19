@@ -238,7 +238,7 @@
                                     </div>
                                 </div>
                                 <button class="matching_button matching_btn_style" type="button" data-bs-toggle="modal"
-                                        data-bs-target="#myModal-${matching.id}">매칭하기
+                                        data-bs-target="#matchingModal-${matching.id}">매칭하기
                                 </button>
                             </div>
                         </div>
@@ -248,7 +248,7 @@
 
                 <%--======================================MODAL================================================================--%>
                 <c:forEach var="matching" items="${matchings}">
-                    <div class="modal" id="myModal">
+                    <div class="modal" id="matchingModal-${matching.id}">
                         <div class="modal-dialog">
                             <div class="league_matching_modal modal-content">
 
@@ -305,11 +305,11 @@
                                 <div class="userPayment_modal_footer">
                                     <div>
                                         <div style="height: 10px"></div>
-                                        <a href="#">
-                                            <button>매칭 신청</button>
-                                        </a>
+                                        <form action="/matching-apply", method="post">
+                                            <input type="hidden" value="${matching.id}" name="reservationId">
+                                            <button class="inquireMain_delete_btn">매칭 신청</button>
+                                        </form>
                                     </div>
-                                    <div></div>
                                 </div>
                             </div>
                         </div>
@@ -323,6 +323,32 @@
 </div>
 
 <script>
+    const manualCg = document.querySelectorAll(".manual_category > li > a");
+    const manual = document.querySelectorAll(".manual > li");
+    manualCg.forEach((tab, idex) => {
+        tab.addEventListener("click", function () {
+            manual.forEach((inner) => {
+                inner.classList.remove("manual_active");
+            })
+            manualCg.forEach((item) => {
+                item.classList.remove("manual_active");
+            })
+            manualCg[idex].classList.add("manual_active");
+            manual[idex].classList.add("manual_active");
+        })
+    })
+    const manualTab = document.querySelector(".manual_tab");
+    if (manualTab) {
+        var swiper = new Swiper(".mySwiper", {
+            slidesPerView: 'auto', // 한 슬라이드에 보여줄 갯수
+            freeMode: false,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev"
+            },
+        });
+    }
+
     document.addEventListener("DOMContentLoaded", function () {
         const regionOptions = document.querySelectorAll(".region-option");
         const matchingCards = document.querySelectorAll(".manual_card");
@@ -346,6 +372,26 @@
             });
         });
     });
+
+    // 매칭 여부에 따라 버튼 스타일 변경
+    function updateButtonStyle(matchingStatus) {
+        const button = document.getElementById('yourButtonId'); // 버튼의 ID를 지정해주세요.
+
+        if (matchingStatus === '매칭완료') {
+            button.classList.remove('matching_btn_style');
+            button.classList.add('matched_btn_style');
+            button.disabled = true; // 클릭 비활성화
+        } else {
+            button.classList.remove('matched_btn_style');
+            button.classList.add('matching_btn_style');
+            button.disabled = false; // 클릭 활성화
+        }
+    }
+
+    // 매칭 상태를 가져와서 버튼 스타일 업데이트
+    const matchingStatus = '매칭완료'; // 매칭 상태를 가져와야 합니다.
+    updateButtonStyle(matchingStatus);
+
 
 
 </script>

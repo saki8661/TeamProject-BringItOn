@@ -1,7 +1,6 @@
 package com.example.teamprojectbringiton.user;
 
 
-import com.example.teamprojectbringiton._core.utils.ApiUtils;
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
 import com.example.teamprojectbringiton.user.dto.request.UserUpdateImageDTO;
@@ -76,6 +75,9 @@ public class UserController {
         UserPointDTO userPointDTO = userService.findByIdJoinPoint(user.getId());
         session.setAttribute("userPoint", userPointDTO);
 
+        if (user.getUserDivision().equals("admin")) {
+            return "redirect:/admin/admin-main";
+        }
         return "redirect:/home";
     }
 
@@ -191,5 +193,9 @@ public class UserController {
         return ResponseEntity.ok(response);
     }
 
+    @GetMapping("/admin")
+    public String adminPage() {
+        return "admin/admin";
+    }
 
 }
