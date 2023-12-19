@@ -32,8 +32,6 @@ html {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-size: small;
-    font-family: 'Noto Sans KR', sans-serif;
 }
 
 button {
@@ -738,8 +736,7 @@ input::placeholder {
     font-size: 15px;
 }
 
-.userInfo_charge_button
-{
+.userInfo_charge_button {
     background: #ffcc00;
     width: 75px;
     height: 40px;

@@ -110,7 +110,7 @@
                                           placeholder="후기를 작성해주세요"></textarea>
                                     </div>
                                     <input type="hidden" name="spaceId" value="${spaceDetail.id}">
-
+                                    <input type="hidden" name="userId" value="${sessionUser.id}" id="userId">
                                     <button class="scroll3_place_detail_review_write_button" type="submit">
                                         후기쓰기
                                     </button>
@@ -134,14 +134,15 @@
                     </div>
                 </div>
 
+
                 <div class="scroll4_place_detail_qna" id="scroll4_place_detail_qna">
                     <form method="post" action="/space-inquire">
                         <div class="scroll4_place_detail_qna_big_title">
                             <div class="scroll4_place_detail_qna_title">공간문의
                             </div>
                             <div class="scroll4_place_detail_qna_type">
-                                <label for="type">문의유형:</label>
-                                <select id="type" name="type">
+                                <label for="inquireType">문의유형:</label>
+                                <select id="inquireType" name="inquireType+">
                                     <option value="공간문의">공간문의</option>
                                     <option value="가격문의">가격문의</option>
                                 </select>
@@ -160,6 +161,7 @@
                             </button>
                         </div>
                     </form>
+
                     <div class="scroll4_place_detail_qna_list">
                         <c:forEach var="spaceInquireList" items="${spaceInquireList}" varStatus="loop">
                             <div class="scroll4_place_detail_qna_list_total">
@@ -246,6 +248,30 @@
 
     function toggleHeartColor() {
         var heartIcon = document.getElementById('heartIcon');
+
+        var spaceId = "${spaceDetail.id}";
+        var userId = "${sessionUser.id}";
+
+
+        // Ajax를 사용하여 서버에 데이터 전송
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "/space-bookmark", true);
+        xhr.setRequestHeader("Content-Type", "application/json");
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // 서버에서의 응답 처리
+                console.log(xhr.responseText);
+            }
+        };
+
+        var data = {
+            spaceId: spaceId,
+            userId: userId
+            // userId는 서버 측에서 세션 등을 통해 가져오거나 클라이언트에서 미리 설정된 값으로 전달
+        };
+
+        xhr.send(JSON.stringify(data));
 
         // 색상 클래스를 토글합니다.
         heartIcon.classList.toggle('heart-filled');
