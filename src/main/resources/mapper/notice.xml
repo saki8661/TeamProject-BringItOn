@@ -35,7 +35,7 @@
     </select>
 
     <select id="findAllJoinCategory"
-            resultType="com.example.teamprojectbringiton.notice.dto.response.NoticeListDto">
+            resultType="com.example.teamprojectbringiton.notice.dto.response.NoticeListDTO">
         select * from notice_tb n
         join notice_category_tb nc
         on n.notice_category_id = nc.id

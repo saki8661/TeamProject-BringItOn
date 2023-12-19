@@ -46,4 +46,12 @@ public class User {
     public void updatePassword(String password) {
         this.password = password;
     }
+
+
+    public void updateUserPicUrl(String userPicUrl) {
+        this.userPicUrl = userPicUrl;
+    }
 }
+
+
+

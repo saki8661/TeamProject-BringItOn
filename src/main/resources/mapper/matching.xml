@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+        namespace="com.example.teamprojectbringiton.matching.MatchingRepository">
+
+    <select id="findAllMatching">
+        select * from matching_tb
+    </select>
+
+    <insert id="insertMatching">
+        insert into matching_tb(matching_status, reservation_id, match_user_id)
+        values (#{matchingStatus}, #{reservationId}, #{matchUserId});
+    </insert>
+
+    <update id="updateMatching">
+        update matching_tb
+        set matching_status = #{matchingStatus},
+            reservation_id = #{reservationId},
+            match_user_id = #{matchUserId}
+        where id = #{id}
+    </update>
+
+    <select id="getMatchingStatus" resultType="java.lang.String" parameterType="java.lang.Long">
+        SELECT matchingStatus
+        FROM matching_tb
+        WHERE id = #{Id}
+    </select>
+
+    <select id="findByMyApplyMatch">
+        select *
+        from matching_tb
+        where user_id = #{principalId}
+    </select>
+
+
+
+</mapper>

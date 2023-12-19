@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+        namespace="com.example.teamprojectbringiton.board.BoardRepository">
+
+    <select id="findAll"
+            resultType="com.example.teamprojectbringiton.board.dto.response.BoardListDTO">
+        select *
+        from board_tb
+    </select>
+
+    <select id="findByJoinReplyId"
+            resultType="com.example.teamprojectbringiton.board.dto.response.BoardDetailDTO">
+        select *
+        from board_tb b
+        join reply_tb r
+        on b.id = r.board_id
+        where b.id = #{id}
+    </select>
+
+    <delete id="deleteById">
+        delete
+        from board_tb
+        where id = #{id}
+    </delete>
+
+
+</mapper>

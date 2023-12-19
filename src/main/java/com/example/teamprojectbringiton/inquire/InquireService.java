@@ -27,7 +27,7 @@ public class InquireService {
     @Autowired
     private HttpSession session;
 
-    // 공지 목록 보기 기능
+    // 문의 목록 보기 기능
     public List<InquireListDTO> inquireList() {
         return inquireRepository.findAllJoinCategory();
     }
@@ -79,7 +79,6 @@ public class InquireService {
     public int deleteById(Integer id){
         int inquireDelete = inquireRepository.deleteById(id);
         System.out.println("@@@@@@@@@@@@@컨트롤러 호출됨1");
-
         if (inquireDelete != 1) {
             throw  new CustomRestfullException("문의 삭제 실패", HttpStatus.INTERNAL_SERVER_ERROR);
         }

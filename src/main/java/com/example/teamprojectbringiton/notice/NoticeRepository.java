@@ -1,7 +1,7 @@
 package com.example.teamprojectbringiton.notice;
 
 
-import com.example.teamprojectbringiton.notice.dto.response.NoticeListDto;
+import com.example.teamprojectbringiton.notice.dto.response.NoticeListDTO;
 
 import org.apache.ibatis.annotations.Mapper;
 
@@ -18,7 +18,7 @@ public interface NoticeRepository {
 
     public List<Notice> findAll();
 
-    public List<NoticeListDto> findAllJoinCategory();
+    public List<NoticeListDTO> findAllJoinCategory();
 
     public Notice findByNoticeCategoryId(String number);
 

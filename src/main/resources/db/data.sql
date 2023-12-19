@@ -2,26 +2,28 @@
 INSERT INTO user_tb (username, nickname, password, user_email, user_address, user_phone_number, user_pic_url,
                      user_division, account_number, account_name, created_at, bank_id, team_id)
 
-VALUES ('ssar', '대욱', 'password1', 'ssar@nate.com', '서울시 강남구', '010-1111-1111', 'default_profile.jpg', '호스트',
+VALUES ('ssar', '대욱', 'password1', 'ssar@nate.com', '서울시 강남구', '010-1111-1111', 'default_profile.jpg', 'host',
         '123456789', '나의 계좌1', NOW(), 1, 1),
-       ('cos', '세환', 'password', 'cos@nate.com', '서울시 마포구', '010-2222-2222', 'default_profile.jpg', '게스트',
+       ('cos', '세환', 'password', 'cos@nate.com', '서울시 마포구', '010-2222-2222', 'default_profile.jpg', 'general',
         '234567891', '나의 계좌2', NOW(), 2, 2),
-       ('love', '언약', 'password', 'love@nate.com', '서울시 남구', '010-3333-3333', 'default_profile.jpg', '게스트',
+       ('love', '언약', 'password', 'love@nate.com', '서울시 남구', '010-3333-3333', 'default_profile.jpg', 'general',
         '345678912', '나의 계좌3', NOW(), 1, 3),
-       ('peace', '채빈', 'password', 'peace@nate.com', '서울시 강남구', '010-4444-4444', 'default_profile.jpg', '호스트',
+       ('peace', '채빈', 'password', 'peace@nate.com', '서울시 강남구', '010-4444-4444', 'default_profile.jpg', 'host',
         '456789123', '나의 계좌4', NOW(), 3, 4),
-       ('ssar1', '길동', 'password', 'ssar1@nate.com', '서울시 강남구', '010-5555-5555', 'default_profile.jpg', '게스트',
+       ('ssar1', '길동', 'password', 'ssar1@nate.com', '서울시 강남구', '010-5555-5555', 'default_profile.jpg', 'general',
         '567891234', '나의 계좌5', NOW(), 1, 5),
-       ('ssar2', '보고', 'password', 'ssar2@nate.com', '서울시 강남구', '010-6666-6666', 'default_profile.jpg', '게스트',
+       ('ssar2', '보고', 'password', 'ssar2@nate.com', '서울시 강남구', '010-6666-6666', 'default_profile.jpg', 'general',
         '67891234', '나의 계좌6', NOW(), 1, 6),
-       ('ssar3', '꺽정', 'password', 'ssar3@nate.com', '서울시 강남구', '010-7777-7777', 'default_profile.jpg', '게스트',
+       ('ssar3', '꺽정', 'password', 'ssar3@nate.com', '서울시 강남구', '010-7777-7777', 'default_profile.jpg', 'general',
         '789123456', '나의 계좌7', NOW(), 1, 7),
-       ('ssar4', '허준', 'password', 'ssar@nate.com', '서울시 강남구', '010-8888-8888', 'default_profile.jpg', '게스트',
+       ('ssar4', '허준', 'password', 'ssar@nate.com', '서울시 강남구', '010-8888-8888', 'default_profile.jpg', 'general',
         '891234567', '나의 계좌8', NOW(), 1, 8),
-       ('ssa5', '민수', 'password', 'ssar@nate.com', '서울시 강남구', '010-9999-9999', 'default_profile.jpg', '게스트',
+       ('ssa5', '민수', 'password', 'ssar@nate.com', '서울시 강남구', '010-9999-9999', 'default_profile.jpg', 'general',
         '912345678', '나의 계좌9', NOW(), 1, 9),
-       ('ssar6', '영희', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', '게스트',
-        '109876543', '나의 계좌10', NOW(), 1, 10);
+       ('ssar6', '영희', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', 'general',
+        '109876543', '나의 계좌10', NOW(), 1, 10),
+       ('bbarkse', '관리자', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', 'admin',
+        '109876543', '나의 계좌10', NOW(), 1, 11);
 
 -- 팀 더미 데이터
 INSERT INTO team_tb (team_name, team_capacity, team_pic_url, team_introduce, level, region_id, sport_id)
@@ -440,15 +442,15 @@ VALUES (1, 'inside1.png'),
        (108, 'outside2.png');
 
 -- 시설 공간 예약 더미 데이터
-INSERT INTO reservation_tb (reservation_date, personnel, start_time, end_time, to_host, status, matching, created_at,
-                            user_id,
-                            space_id)
-VALUES ('2024-01-01', 6, '10:00:00', '12:00:00', '장비대여 되나요?', '예약진행중', true, CURRENT_TIMESTAMP, 2, 1),
-       ('2024-01-02', 2, '14:00:00', '16:00:00', Null, '예약완료', false, CURRENT_TIMESTAMP, 3, 2),
-       ('2024-01-01', 3, '12:00:00', '14:00:00', Null, '예약완료', true, CURRENT_TIMESTAMP, 5, 5),
-       ('2024-01-02', 4, '10:00:00', '12:00:00', Null, '예약진행중', true, CURRENT_TIMESTAMP, 6, 6),
-       ('2024-01-02', 2, '18:00:00', '20:00:00', Null, '예약진행중', false, CURRENT_TIMESTAMP, 7, 7),
-       ('2024-01-01', 5, '19:00:00', '21:00:00', Null, '예약진행중', false, CURRENT_TIMESTAMP, 8, 8);
+INSERT INTO reservation_tb (reservation_number, reservation_date, personnel, start_time, end_time, to_host, status,
+                            matching, created_at,
+                            user_id, space_id)
+VALUES (2023121801, '2024-01-01', 6, '10:00', '12:00', '장비대여 되나요?', '예약진행중', true, CURRENT_TIMESTAMP, 2, 1),
+       (2023121802, '2024-01-02', 2, '14:00', '16:00', '장비대여 되나요?', '예약완료', false, CURRENT_TIMESTAMP, 3, 2),
+       (2023121803, '2024-01-01', 3, '12:00', '14:00', '장비대여 되나요?', '예약완료', true, CURRENT_TIMESTAMP, 5, 5),
+       (2023121804, '2024-01-02', 4, '10:00', '12:00', '장비대여 되나요?', '예약진행중', true, CURRENT_TIMESTAMP, 6, 6),
+       (2023121805, '2024-01-02', 2, '18:00', '20:00', '장비대여 되나요?', '예약진행중', false, CURRENT_TIMESTAMP, 7, 7),
+       (2023121806, '2024-01-01', 5, '19:00', '21:00', '장비대여 되나요?', '예약진행중', false, CURRENT_TIMESTAMP, 8, 8);
 
 
 -- 한줄리뷰 더미 데이터
@@ -464,8 +466,8 @@ VALUES (4, '좋아요!', 1, 2, CURRENT_TIMESTAMP),
 
 -- 매칭 더미 데이터
 INSERT INTO matching_tb (reservation_id, match_user_id, matching_status)
-VALUES (1, 1, '매칭대기'),
-       (2, 2, '매칭대기'),
+VALUES (1, null, '매칭대기'),
+       (2, null, '매칭대기'),
        (3, 3, '매칭완료'),
        (4, 4, '매칭완료'),
        (5, 5, '매칭완료'),
@@ -503,18 +505,18 @@ VALUES ('시설문의', '근처에 주차공간 여유롭나요?', '주차는 �
        ('시설문의', '잔디 관리 잘돼있나요?', '인조 잔디라서 불편함은 따로 없을듯여', 7, 2, CURRENT_TIMESTAMP);
 
 -- payment_tb 테이블
-INSERT INTO payment_tb (price, created_at, user_id)
-values ('10000', '2023-12-06', 1),
-       ('100000', '2023-12-02', 1),
-       ('30000', '2023-11-15', 1),
-       ('10000', '2023-11-10', 1);
+INSERT INTO payment_tb (amount, payment_number, is_charge, created_at, user_id)
+values ('10000', '1', TRUE, NOW(), 1),
+       ('100000', '2', TRUE, NOW(), 2),
+       ('30000', '3', TRUE, NOW(), 3),
+       ('10000', '4', TRUE, NOW(), 4);
 
--- 포인트 사용내역 더미 데이터
+-- 포인트 더미 데이터
 INSERT INTO point_tb (my_point, created_at, user_id)
 VALUES ('10000', NOW(), 1),
-       ('100000', NOW(), 1),
-       ('300000', NOW(), 1),
-       ('10000', NOW(), 1);
+       ('100000', NOW(), 2),
+       ('300000', NOW(), 3),
+       ('10000', NOW(), 4);
 
 -- 포인트 sodur 데이터
 INSERT INTO point_history_tb (point_amount, charge_point, use_point, refund, refund_date, created_at, user_id)
@@ -595,3 +597,28 @@ VALUES ('서울리그', '2023-01-10', '2023-01-20', '2024-02-01', '2023-06-01', 
 INSERT INTO campaign_tb (campaign_pic, campaign_name, campaign_start, campaign_end, region_id)
 VALUES ('SoccerBanner1.png', '서울리그', '2023-04-01', '2023-12-01', 1),
        ('SoccerBanner2.png', '경기리그', '2023-04-15', '2023-12-15', 2);
+
+INSERT INTO board_tb (board_title, board_content, created_at, user_id)
+VALUES ('서울지역 매칭 하실분?', '서울지역 경기 매칭할 사람 드루와', CURRENT_TIMESTAMP, 1),
+       ('이거 다른데서 경기 매칭 가능한가요?', '소속팀이 원정개념으로 다른 타지가서 매칭해도 가능한가요?', CURRENT_TIMESTAMP, 1),
+       ('지역 스타디움', '스타디움 가격 너무 천차만별인데 이거 왜 그럼?', CURRENT_TIMESTAMP, 2),
+       ('이전에 용병으로 뛰신분 찾습니다', '일주일전에 부산에서 그냥 인원필요해서 같이 뛰신분 너무 잘해서 혹시 아시나요?', CURRENT_TIMESTAMP, 2);
+
+INSERT INTO reply_tb (`comment`, created_at, user_id, board_id)
+VALUES ('신청합니다!', NOW(), 2, 1),
+       ('신청2', NOW(), 3, 1),
+       ('신청3', NOW(), 4, 1),
+       ('신청4', NOW(), 5, 1),
+       ('매주는 안되고 격주는 가능해요', NOW(), 6, 1),
+       ('그거 가능해요', NOW(), 3, 2),
+       ('잘 모르겠네용 ㅜㅜ', NOW(), 2, 2),
+       ('아마 가능한걸로 알아요', NOW(), 7, 2),
+       ('알빠노', NOW(), 5, 3),
+       ('물가가 다르나까,,,,,,,', NOW(), 4, 3),
+       ('부산에서 활동하시는 분한테 물어보면 빠를듯요', NOW(), 1, 4),
+       ('오 찾을 정도면 얼마나 잘하는거지?', NOW(), 3, 4),
+       ('찾기 겁나 힘들듯', NOW(), 7, 4),
+       ('ㅁㄴ이ㅡㅁ르ㅜㅏㅣ무', NOW(), 6, 4),
+       ('축구 드르와', NOW(), 8, 4),
+       ('내가 제일 잘함 ㅅㄱ', NOW(), 9, 4);
+

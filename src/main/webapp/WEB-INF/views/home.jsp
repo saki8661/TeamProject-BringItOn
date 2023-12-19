@@ -16,7 +16,7 @@
                 </ul>
             </li>
             <li class="main_link">
-                <a href="/matching-page">매칭</a>
+                <a href="/matching-main">매칭</a>
             </li>
 
             <li class="main_link">
@@ -79,13 +79,13 @@
                     </button>
                 </div>
             </div>
-            <div class="container-fluid">
-                <div class="main_layout">
 
+            <div class="container-fluid" style="height: 657px">
+                <div class="main_layout">
                     <c:forEach var="item" items="${spaces}">
                         <div>
                             <div class="inside_content">
-                                <a href="/space-detail/1"><img src="/images/${item.spacePic}"></a>
+                                <a href="/space-detail/${item.id}"><img src="/images/${item.spacePic}"></a>
                             </div>
 
                             <div class="main_content_title m-2">
@@ -93,14 +93,7 @@
                             </div>
                             <div class="main_content_category m-2">
                                 [${item.sector}/${item.sportName}]
-                                <c:choose>
-                                    <c:when test="${item.isInside()}">
-                                        실내 체육관
-                                    </c:when>
-                                    <c:otherwise>
-                                        실외 체육관
-                                    </c:otherwise>
-                                </c:choose>
+                                    ${item.isInside() ? '실내 체육관' : '실외 체육관'}
                             </div>
                             <div class="main_content_location m-2">
                                     ${item.regionName}
@@ -110,73 +103,186 @@
                             </div>
                         </div>
                     </c:forEach>
-
                 </div>
-
-                <ul class="pagination main_paging">
-                    <li class="page-item${pageVO.currentPage eq pageVO.firstPage ? ' disabled' : ''}">
-                        <a class="page-link"
-                           href="?currentPage=${pageVO.firstPage}&itemsPerPage=${pageVO.countPerPage}">
-                            <<
-                        </a>
-                    </li>
-                    <li class="page-item${pageVO.currentPage eq pageVO.firstPage ? ' disabled' : ''}">
-                        <a class="page-link"
-                           href="?currentPage=${pageVO.currentPage - 1}&itemsPerPage=${pageVO.countPerPage}">
-                            <
-                        </a>
-                    </li>
-                    <c:choose>
-                        <c:when test="${pageVO.lastPage <= 5}">
-                            <!-- 페이지가 5개 이하일 경우 -->
-                            <c:forEach begin="1" end="${pageVO.lastPage}" var="pageNumber">
-                                <li class="page-item ${pageVO.currentPage eq pageNumber ? 'active' : ''}">
-                                    <a class="page-link"
-                                       href="?currentPage=${pageNumber}&itemsPerPage=${pageVO.countPerPage}">
-                                            ${pageNumber}
-                                    </a>
-                                </li>
-                            </c:forEach>
-                        </c:when>
-                        <c:otherwise>
-                            <!-- 페이지가 5개 초과일 경우 -->
-                            <c:set var="startPage" value="${pageVO.currentPage - 2}"/>
-                            <c:choose>
-                                <c:when test="${startPage lt 1}">
-                                    <c:set var="startPage" value="1"/>
-                                </c:when>
-                                <c:when test="${startPage gt pageVO.lastPage - 4}">
-                                    <c:set var="startPage" value="${pageVO.lastPage - 4}"/>
-                                </c:when>
-                            </c:choose>
-
-                            <c:forEach begin="${startPage}" end="${startPage + 4}" var="pageNumber">
-                                <li class="page-item ${pageVO.currentPage eq pageNumber ? 'active' : ''}">
-                                    <a class="page-link"
-                                       href="?currentPage=${pageNumber}&itemsPerPage=${pageVO.countPerPage}">
-                                            ${pageNumber}
-                                    </a>
-                                </li>
-                            </c:forEach>
-                        </c:otherwise>
-                    </c:choose>
-                    <li class="page-item${pageVO.currentPage eq pageVO.lastPage ? ' disabled' : ''}">
-                        <a class="page-link"
-                           href="?currentPage=${pageVO.currentPage + 1}&itemsPerPage=${pageVO.countPerPage}">
-                            >
-                        </a>
-                    </li>
-                    <li class="page-item${pageVO.currentPage eq pageVO.lastPage ? ' disabled' : ''}">
-                        <a class="page-link" href="?currentPage=${pageVO.lastPage}&itemsPerPage=${pageVO.countPerPage}">
-                            >>
-                        </a>
-                    </li>
-                </ul>
-
             </div>
+
+            <ul class="pagination main_paging">
+                <li class="first_page_item page-item">
+                    <a class="page-link"
+                       href="/home?currentPage=${pageVO.firstPage}">
+                        <<
+                    </a>
+                </li>
+                <li class="page-item">
+                    <a class="prev_page_item page-link"
+                       href="/home?currentPage=${pageVO.currentPage - 1}">
+                        <
+                    </a>
+                </li>
+                <c:choose>
+                    <c:when test="${pageVO.lastPage <= 5}">
+                        <!-- 페이지가 5개 이하일 경우 -->
+                        <c:forEach begin="1" end="${pageVO.lastPage}" var="pageNumber">
+                            <li class="page-item ${pageVO.currentPage eq pageNumber ? 'active' : ''}">
+                                <a class="page-link"
+                                   href="/home?currentPage=${pageNumber}">
+                                        ${pageNumber}
+                                </a>
+                            </li>
+                        </c:forEach>
+                    </c:when>
+                    <c:otherwise>
+                        <!-- 페이지가 5개 초과일 경우 -->
+                        <c:set var="startPage" value="${pageVO.currentPage - 2}"/>
+                        <c:choose>
+                            <c:when test="${startPage lt 1}">
+                                <c:set var="startPage" value="1"/>
+                            </c:when>
+                            <c:when test="${startPage gt pageVO.lastPage - 4}">
+                                <c:set var="startPage" value="${pageVO.lastPage - 4}"/>
+                            </c:when>
+                        </c:choose>
+
+                        <c:forEach begin="${startPage}" end="${startPage + 4}" var="pageNumber">
+                            <li class="page-item ${pageVO.currentPage eq pageNumber ? 'active' : ''}">
+                                <a class="page-link"
+                                   href="/home?currentPage=${pageNumber}">
+                                        ${pageNumber}
+                                </a>
+                            </li>
+                        </c:forEach>
+                    </c:otherwise>
+                </c:choose>
+                <li class="next_page_item page-item">
+                    <a class="next_page_item page-link"
+                       href="/home?currentPage=${pageVO.currentPage + 1}">
+                        >
+                    </a>
+                </li>
+                <li class="last_page_item page-item">
+                    <a class="page-link" href="/home?currentPage=${pageVO.lastPage}">
+                        >>
+                    </a>
+                </li>
+            </ul>
         </div>
     </div>
 </div>
+
+<script>
+
+    $(document).ready(function () {
+        // 현재 페이지, 첫 페이지, 마지막 페이지 설정
+        var currentPage = parseInt("${currentPage}");
+        var firstPage = parseInt("${pageVO.firstPage}");
+        var lastPage = parseInt("${pageVO.lastPage}");
+
+        $('.main_paging').on('click', 'li.page-item:not(.disabled) a.page-link, li.prev_page_item:not(.disabled) a.prev_page_link, li.next_page_item:not(.disabled) a.next_page_link, li.first_page_item:not(.disabled) a.first_page_link, li.last_page_item:not(.disabled) a.last_page_link', function (e) {
+            e.preventDefault();
+
+            // 클릭한 페이지 번호 가져오기
+            var clickedPage;
+            if ($(this).parent('li').hasClass('prev_page_item')) {
+                clickedPage = currentPage - 1;
+            } else if ($(this).parent('li').hasClass('next_page_item')) {
+                clickedPage = currentPage + 1;
+            } else if ($(this).parent('li').hasClass('last_page_item')) {
+                clickedPage = lastPage;
+            } else if ($(this).parent('li').hasClass('first_page_item')) {
+                clickedPage = firstPage;
+            } else {
+                clickedPage = parseInt($(this).text());
+            }
+            console.log(clickedPage);
+
+            $.ajax({
+                url: "/homePaging?currentPage=" + clickedPage,
+                type: "GET",
+                contentType: "application/json",
+                success: function (data) {
+                    if (Array.isArray(data)) {
+                        updatePagination(clickedPage);
+                        updateMainLayout(data);
+                    }
+                },
+                error: function () {
+                    alert("AJAX 요청 중 오류가 발생했습니다.");
+                }
+            });
+        });
+
+        // 페이지 갱신 로직
+        function updatePagination(clickedPage) {
+            var pagination = $(".main_paging");
+            pagination.empty();
+
+            var totalPages = parseInt("${pageVO.lastPage}");
+            var maxVisiblePages = 5;
+
+            // 현재 페이지 갱신
+            $(".pagination li").removeClass("active");
+            $(".pagination li:contains('" + clickedPage + "')").addClass("active");
+
+            // 페이지 번호
+            if (totalPages <= maxVisiblePages) {
+                // 페이지가 5개 이하인 경우 모든 페이지 번호 표시
+                for (var i = 1; i <= totalPages; i++) {
+                    pagination.append('<li class="page-item' + (clickedPage === i ? ' active' : '') + '"><a class="page-link" href="/home?currentPage=' + i + '">' + i + '</a></li>');
+                }
+            } else {
+                var startPage = Math.max(1, clickedPage - Math.floor(maxVisiblePages / 2));
+                var endPage = Math.min(totalPages, startPage + maxVisiblePages - 1);
+                for (var i = startPage; i <= endPage; i++) {
+                    pagination.append('<li class="page-item' + (clickedPage === i ? ' active' : '') + '"><a class="page-link" href="/home?currentPage=' + i + '">' + i + '</a></li>');
+                }
+            }
+
+            var currentPage = parseInt("${currentPage}");
+            var firstPage = parseInt("${pageVO.firstPage}");
+            var lastPage = parseInt("${pageVO.lastPage}");
+
+
+            // 이전 페이지
+            pagination.prepend('<li class="page-item' + (clickedPage === firstPage ? ' disabled' : '') + '"><a class="page-link prev_page_item" href="/home?currentPage=${pageVO.currentPage - 1}"><</a></li>');
+
+            // 다음 페이지
+            pagination.append('<li class="page-item' + (clickedPage === lastPage ? ' disabled' : '') + '"><a class="page-link next_page_item" href="/home?currentPage=${pageVO.currentPage + 1}">></a></li>');
+
+            // 처음 페이지
+            pagination.prepend('<li class="page-item' + (clickedPage === firstPage ? ' disabled' : '') + '"><a class="page-link first_page_item" href="/home?currentPage=${firstPage}"><<</a></li>');
+
+            // 마지막 페이지
+            pagination.append('<li class="page-item' + (clickedPage === lastPage ? ' disabled' : '') + '"><a class="page-link last_page_item" href="/home?currentPage=${lastPage}">>></a></li>');
+        }
+
+
+        // 화면 갱신 로직
+        function updateMainLayout(data) {
+            $(".main_layout").empty();
+            var htmlString = "";
+            data.forEach(function (item) {
+                htmlString += '<div>' +
+                    '<div class="inside_content">' +
+                    '<a href="/space-detail/' + item.id + '"><img src="/images/' + item.spacePic + '"></a>' +
+                    '</div>' +
+                    '<div class="main_content_title m-2">' + item.spaceName + '</div>' +
+                    '<div class="main_content_category m-2">[' + item.sector + '/' + item.sportName + ']' +
+                    '</div>' +
+                    '<div class="main_content_location m-2">' + item.regionName + '</div>' +
+                    '<div class="main_content_price m-2 mb-4">' + item.pricePerHour + '원 ~</div>' +
+                    '</div>';
+            });
+
+            $(".main_layout").append(htmlString);
+        }
+    });
+
+    $('.main_paging').on('click', 'li.page-item:not(.disabled) a.page-link', function (e) {
+        $('.main_paging li.page-item').removeClass('active');
+        $(this).parent('li.page-item').addClass('active');
+    });
+
+</script>
 
 <%@ include file="layout/footer.jsp" %>
 

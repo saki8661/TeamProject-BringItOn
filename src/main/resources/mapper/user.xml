@@ -14,9 +14,23 @@
 
     <update id="updateById">
         update user_tb
-        set username = #{username},
-            password = #{password},
-            fullname = #{fullname}
+        set password     = #{username},
+            user_pic_url = #{password},
+            fullname     = #{fullname}
+        where id = #{id}
+    </update>
+
+    <!-- 프로필 이미지 수정 -->
+    <update id="userUpdateImage" parameterType="com.example.teamprojectbringiton.user.User">
+        update user_tb
+        set user_pic_url = #{userPicUrl}
+        where id = #{id}
+    </update>
+
+    <!-- 패스워드 수정 -->
+    <update id="userUpdatePassword" parameterType="com.example.teamprojectbringiton.user.User">
+        update user_tb
+        set password = #{password}
         where id = #{id}
     </update>
 
@@ -58,7 +72,6 @@
         where username = #{username}
     </select>
 
-
     <select id="findByIdJoinTeam"
             resultType="com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO">
         select *
@@ -70,5 +83,44 @@
                  join sport_tb s
                       on t.sport_id = s.id
         where u.id = #{id}
+    </select>
+
+    <select id="findByIdJoinPoint"
+            resultType="com.example.teamprojectbringiton.user.dto.response.UserPointDTO">
+        select *
+        from user_tb u
+                 left join point_tb p
+                           on u.id = p.user_id
+        where u.id = #{id}
+    </select>
+
+    <select id="findByIdForUserInfo"
+            resultType="com.example.teamprojectbringiton.user.dto.response.UserInfoDTO">
+        SELECT u.nickname,
+               u.user_email,
+               u.user_address,
+               u.user_division,
+               t.team_name,
+               t.team_introduce,
+               t.level,
+               r.region_name,
+               sp.sport_name,
+               rt.reservation_date,
+               rt.start_time,
+               rt.end_time,
+               rt.status,
+               s.space_name
+        FROM user_tb u
+                 LEFT JOIN team_tb t
+                           ON u.team_id = t.id
+                 LEFT JOIN region_tb r
+                           ON t.region_id = r.id
+                 LEFT JOIN sport_tb sp
+                           ON sp.id = t.sport_id
+                 LEFT JOIN reservation_tb rt
+                           ON rt.user_id = u.id
+                 LEFT JOIN space_tb s
+                           ON s.id = rt.space_id
+        WHERE u.id = #{id}
     </select>
 </mapper>

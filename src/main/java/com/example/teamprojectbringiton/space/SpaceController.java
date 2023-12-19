@@ -33,22 +33,18 @@ public class SpaceController {
 
     @GetMapping("/space-detail/{id}")
     public String placeDetailPage(@PathVariable Integer id, Model model) {
-        User sessionUser = (User) session.getAttribute("sessionUser");
-        System.out.println("세션에는 값이 머가 있을까 ? : " + sessionUser.getUsername());
         System.out.println("컨트롤러 진입" + id);
         SpaceDetailDTO spaceDetail = spaceService.spaceFindById(id);
         model.addAttribute("spaceDetail", spaceDetail);
         List<SpaceReviewDTO> spaceReviewList = spaceService.spaceReviewFindById(id);
         model.addAttribute("spaceReviewList", spaceReviewList);
-        model.addAttribute("sessionUser", sessionUser);
         List<SpaceInquireDTO> spaceInquireList = spaceInquireService.spaceInqFindById(id);
         model.addAttribute("spaceInquireList", spaceInquireList);
-        model.addAttribute("sessionUser", sessionUser);
         System.out.println("모델에 담겼나마루치아라치");
         return "/spaceRental/placeDetail";
     }
 
-    @GetMapping({"/space-main", "/", "/home"})
+    @GetMapping({"/","home"})
     public String spaceMainPage(@RequestParam(name = "currentPage", defaultValue = "1") int currentPage,
                                 @RequestParam(name = "pageSize", defaultValue = "8") int pageSize,
                                 Model model) {
@@ -66,7 +62,8 @@ public class SpaceController {
         pageVO.setCountSize(5);
 
         model.addAttribute("spaces", spaces);
-        model.addAttribute("pageVO", pageVO); // 페이징 정보를 모델에 추가
+        model.addAttribute("pageVO", pageVO);
+        // 페이징 정보를 모델에 추가
 
         return "/home";
     }

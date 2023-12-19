@@ -4,7 +4,7 @@ package com.example.teamprojectbringiton.notice;
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
 import com.example.teamprojectbringiton.notice.dto.request.NoticeUpdateDTO;
 import com.example.teamprojectbringiton.notice.dto.request.NoticeWriteDTO;
-import com.example.teamprojectbringiton.notice.dto.response.NoticeListDto;
+import com.example.teamprojectbringiton.notice.dto.response.NoticeListDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -18,7 +18,7 @@ public class NoticeService {
     private NoticeRepository noticeRepository;
 
     // 공지 목록 보기 기능
-    public List<NoticeListDto> noticeList() {
+    public List<NoticeListDTO> noticeList() {
         return noticeRepository.findAllJoinCategory();
     }
 
