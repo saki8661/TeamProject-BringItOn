@@ -15,4 +15,6 @@ public interface ReservationRepository {
 
     public List<UserReservationListDTO> findByUserId(Integer id);
 
+
+
 }
