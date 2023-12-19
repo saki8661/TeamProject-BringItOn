@@ -179,7 +179,7 @@
                     '<td>' + item.userAddress + '</td>' +
                     '<td>' + item.userPhoneNumber + '</td>' +
                     '<td>' + item.createdAt + '</td>' +
-                    '<td>' + item.myPoint + '</td>' +
+                    '<td>' + (item.myPoint !== null ? item.myPoint : 0) + '</td>' +
                     '</tr>';
             });
         }

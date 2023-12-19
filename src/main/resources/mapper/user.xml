@@ -81,6 +81,14 @@
         where username = #{username}
     </select>
 
+    <!-- email 으로 사용자 검색 -->
+    <select id="findByUserEmail"
+            resultType="com.example.teamprojectbringiton.user.User">
+        select *
+        from user_tb
+        where user_email = #{userEmail}
+    </select>
+
     <select id="findByIdJoinTeam"
             resultType="com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO">
         select *
