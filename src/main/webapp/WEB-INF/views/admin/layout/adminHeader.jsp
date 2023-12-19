@@ -63,40 +63,28 @@
 <div class="admin_tab_container">
     <ul class="admin_tab_category">
         <li><a href="#">회원 관리</a></li>
-        <li><a href="#">팀 관리</a></li>
         <li><a href="#">시설 관리</a></li>
-        <li><a href="#">매칭 관리</a></li>
         <li><a href="#">상품 관리</a></li>
         <li><a href="#">주문 관리</a></li>
-        <li><a href="#">통계 분석</a></li>
         <li><a href="#">고객 지원</a></li>
     </ul>
 </div>
 <div class="admin_tab_content">
     <ul class="admin_tab_items">
         <li>
-            <%@ include file="../adminUser.jsp" %>
+            <%@ include file="../adminUser/adminUser.jsp" %>
         </li>
         <li>
-            <%@ include file="../adminTeam.jsp" %>
+            <%@ include file="../adminSpace/adminSpace.jsp" %>
         </li>
         <li>
-            <%@ include file="../adminSpace.jsp" %>
+            <%@ include file="../adminProduct/adminProduct.jsp" %>
         </li>
         <li>
-            <%@ include file="../adminMatch.jsp" %>
+            <%@ include file="../adminOrder/adminOrder.jsp" %>
         </li>
         <li>
-            <%@ include file="../adminProduct.jsp" %>
-        </li>
-        <li>
-            <%@ include file="../adminOrder.jsp" %>
-        </li>
-        <li>
-            <%@ include file="../adminStatistics.jsp" %>
-        </li>
-        <li>
-            <%@ include file="../adminCustomer.jsp" %>
+            <%@ include file="../adminCustomer/adminCustomer.jsp" %>
         </li>
     </ul>
 </div>

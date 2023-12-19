@@ -2,6 +2,8 @@ package com.example.teamprojectbringiton.user;
 
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
 import com.example.teamprojectbringiton._core.utils.Function;
+import com.example.teamprojectbringiton.admin.dto.response.UserCountRespDTO;
+import com.example.teamprojectbringiton.admin.dto.response.UserSearchRespDTO;
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
 import com.example.teamprojectbringiton.user.dto.response.*;
@@ -18,7 +20,10 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+
+import java.util.List;
 import java.util.Random;
+
 
 @Service
 public class UserService {
@@ -198,6 +203,38 @@ public class UserService {
     public UserInfoDTO findByIdForUserInfo(Integer id) {
         UserInfoDTO user = userRepository.findByIdForUserInfo(id);
         return user;
+    }
+
+    public List<UserSearchRespDTO> findAllByUsername(String keyword, String division) {
+        List<UserSearchRespDTO> user = userRepository.findAllByUsername(keyword, division);
+        return user;
+    }
+
+    public List<UserSearchRespDTO> findAllByNickname(String keyword, String division) {
+        List<UserSearchRespDTO> user = userRepository.findAllByNickname(keyword, division);
+        return user;
+    }
+
+    public List<UserSearchRespDTO> findAllByPhoneNumber(String keyword, String division) {
+        List<UserSearchRespDTO> user = userRepository.findAllByPhoneNumber(keyword, division);
+        return user;
+    }
+
+    public List<UserSearchRespDTO> findAllByEmail(String keyword, String division) {
+        List<UserSearchRespDTO> user = userRepository.findAllByEmail(keyword, division);
+        return user;
+    }
+
+
+    public List<UserSearchRespDTO> findAllJoinPoint(int pageSize, int currentPage) {
+        int offset = currentPage * pageSize - pageSize;
+        List<UserSearchRespDTO> userList = userRepository.findAllJoinPoint(pageSize, offset);
+        return userList;
+    }
+
+    public int findAllCount() {
+        int userCount =  userRepository.findAllCount();
+        return userCount;
     }
 
 }
