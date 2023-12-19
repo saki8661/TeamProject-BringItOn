@@ -2,18 +2,28 @@ package com.example.teamprojectbringiton.user;
 
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
 import com.example.teamprojectbringiton._core.utils.Function;
+import com.example.teamprojectbringiton.admin.dto.response.UserCountRespDTO;
+import com.example.teamprojectbringiton.admin.dto.response.UserSearchRespDTO;
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
 import com.example.teamprojectbringiton.user.dto.response.*;
 import com.example.teamprojectbringiton.user.dto.request.*;
+import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
+
+
+import java.util.List;
+import java.util.Random;
+
 
 @Service
 public class UserService {
@@ -30,6 +40,12 @@ public class UserService {
     @Autowired
     private Function function;
 
+    @Autowired
+    private JavaMailSender javaMailSender;
+
+    int authNumber;
+
+
     @Transactional
     public User usernameCheck(String username) {
         User user = userRepository.findByUsername(username);
@@ -39,15 +55,19 @@ public class UserService {
     @Transactional
     public void userSave(JoinDTO dto) {
 
+        String address = AddressParer.parseCity(dto.getUserAddress());
+        String phoneNuber = PhoneNumberFormatter.formatPhoneNumber(dto.getUserPhoneNumber());
+        System.out.println("주소 어떻게 파싱해? : " + address);
+        System.out.println("번호 어떻게 변경해? : " + phoneNuber);
         //회원가입 db에 insert
         User user = User.builder()
                 .username(dto.getUsername())
                 .password(dto.getPassword())
-                .userEmail(dto.getUserEmail())
-                .userPhoneNumber(dto.getUserPhoneNumber())
-                .userAddress("")
+                .userEmail(dto.getEmail())
+                .userPhoneNumber(phoneNuber)
+                .userAddress(address)
                 .userDivision(dto.getUserDivision())
-                .nickName("")
+                .nickName(dto.getNickName())
                 .userPicUrl("default_profile.jpg")
                 .build();
         userRepository.insert(user);
@@ -184,4 +204,37 @@ public class UserService {
         UserInfoDTO user = userRepository.findByIdForUserInfo(id);
         return user;
     }
+
+    public List<UserSearchRespDTO> findAllByUsername(String keyword, String division) {
+        List<UserSearchRespDTO> user = userRepository.findAllByUsername(keyword, division);
+        return user;
+    }
+
+    public List<UserSearchRespDTO> findAllByNickname(String keyword, String division) {
+        List<UserSearchRespDTO> user = userRepository.findAllByNickname(keyword, division);
+        return user;
+    }
+
+    public List<UserSearchRespDTO> findAllByPhoneNumber(String keyword, String division) {
+        List<UserSearchRespDTO> user = userRepository.findAllByPhoneNumber(keyword, division);
+        return user;
+    }
+
+    public List<UserSearchRespDTO> findAllByEmail(String keyword, String division) {
+        List<UserSearchRespDTO> user = userRepository.findAllByEmail(keyword, division);
+        return user;
+    }
+
+
+    public List<UserSearchRespDTO> findAllJoinPoint(int pageSize, int currentPage) {
+        int offset = currentPage * pageSize - pageSize;
+        List<UserSearchRespDTO> userList = userRepository.findAllJoinPoint(pageSize, offset);
+        return userList;
+    }
+
+    public int findAllCount() {
+        int userCount =  userRepository.findAllCount();
+        return userCount;
+    }
+
 }

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+        namespace="com.example.teamprojectbringiton.reply.ReplyRepository">
+
+    <select id="findRepliesByBoardId"
+            resultType="com.example.teamprojectbringiton.reply.dto.response.ReplyDTO">
+        select *
+        from reply_tb r
+        join user_tb u
+        on r.user_id = u.id
+        where r.board_id = #{boardId}
+        ORDER BY r.id DESC
+    </select>
+
+</mapper>

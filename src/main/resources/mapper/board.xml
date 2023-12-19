@@ -5,25 +5,36 @@
 <mapper
         namespace="com.example.teamprojectbringiton.board.BoardRepository">
 
-    <select id="findAll"
+    <select id="findAllJoinUser"
             resultType="com.example.teamprojectbringiton.board.dto.response.BoardListDTO">
         select *
-        from board_tb
+        from board_tb b
+        join user_tb u
+        on b.user_id = u.id
+        ORDER BY b.id DESC
     </select>
 
     <select id="findByJoinReplyId"
             resultType="com.example.teamprojectbringiton.board.dto.response.BoardDetailDTO">
         select *
         from board_tb b
-        join reply_tb r
+        left join reply_tb r
         on b.id = r.board_id
+        join user_tb u
+        on b.user_id = u.id
         where b.id = #{id}
+        ORDER BY r.id DESC
     </select>
+
+    <insert id="boardInsert">
+        insert into board_tb(board_title, board_content, created_at, user_id)
+        values (#{boardTitle}, #{boardContent}, now(), #{userId});
+    </insert>
 
     <delete id="deleteById">
         delete
         from board_tb
-        where id = #{id}
+        where id = ${id}
     </delete>
 
 

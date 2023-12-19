@@ -27,14 +27,14 @@ public class MyFilter1 implements Filter {
         HttpServletResponse resp = (HttpServletResponse) response;
 
         // 세션유저정보가 없거나 브라우저가 아니거나 Postman으로 유입하는 경우
-        if (req.getHeader("User-Agent").contains("XBox") || req.getHeader("User-Agent").contains("Postman")) {
-            resp.setHeader("Content-Type", "text/html; charset=utf-8");
-            PrintWriter out = resp.getWriter();
-
-            req.setAttribute("name", "불청객");
-            out.println("<h1>나가주세요" + req.getAttribute("name") + "</h1>");
-            return;
-        }
+//        if (req.getHeader("User-Agent").contains("XBox") || req.getHeader("User-Agent").contains("Postman")) {
+//            resp.setHeader("Content-Type", "text/html; charset=utf-8");
+//            PrintWriter out = resp.getWriter();
+//
+//            req.setAttribute("name", "불청객");
+//            out.println("<h1>나가주세요" + req.getAttribute("name") + "</h1>");
+//            return;
+//        }
 
         chain.doFilter(request, response);
     }
