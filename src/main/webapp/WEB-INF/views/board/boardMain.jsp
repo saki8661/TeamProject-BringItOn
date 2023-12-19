@@ -22,6 +22,10 @@
         </li>
 
         <li class="main_link">
+            <a href="/board-main">게시판</a>
+        </li>
+
+        <li class="main_link">
             <a href="/notice-main">고객센터</a>
         </li>
     </ul>
@@ -29,35 +33,42 @@
 <hr class="nav_hr_below"/>
 
 <div class="frame">
-    <div class="inquire_notice">
-        게시판
+    <div class="board_write">
+        <div>게시판</div>
+        <div class="board_write_button">
+            <button type="button">
+                <a href="/board-write" class="more_button">
+                    글쓰기
+                </a>
+            </button>
+        </div>
     </div>
-
-    <div class="inquire_notice_list">
-        <button type="button" class="more_button">
-            <div class="inquire_layout">
-                <div class="inquire_notice_item">
-                    <div>
-                        여긴 작성자 이름
+    <c:forEach var="board" items="${boards}">
+        <div class="board_list">
+            <button type="button" class="more_button">
+                <div class="board_layout">
+                    <div class="board_item">
+                        <div>
+                                ${board.nickName}
+                        </div>
+                        <div>
+                                ${board.boardTitle}
+                        </div>
                     </div>
-                    <div>
-                       여긴 제목
+                    <div class="d-flex">
+                        <div class="board_date">
+                                ${board.createdAt}
+                        </div>
+                        <div>
+                            <a href="/board-detail/${board.id}" class="more_button">
+                                <img src="/images/more.png" class="inquire_toggle_image">
+                            </a>
+                        </div>
                     </div>
                 </div>
-                <div class="d-flex">
-                    <div class="inquire_notice_date">
-                       등록일
-                    </div>
-                    <div>
-                        <a href="/board-detail/{id}" class="more_button">
-                        <img src="/images/more.png" class="inquire_toggle_image">
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </button>
-    </div>
-
+            </button>
+        </div>
+    </c:forEach>
 </div>
 
 <script>

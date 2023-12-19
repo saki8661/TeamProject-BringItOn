@@ -11,7 +11,7 @@ import java.sql.Date;
 public class BoardListDTO {
     private Integer id;
     private String boardTitle;
-    private String boardContent;
     private Date createdAt;
     private Integer userId;
+    private String nickName;
 }
