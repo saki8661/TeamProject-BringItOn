@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper
+        namespace="com.example.teamprojectbringiton.bookmark.BookmarkRepository">
+
+    <insert id="insert">
+        insert into bookmark_tb(space_id, user_id)
+        values (#{spaceId},#{userId});
+
+    </insert>
+
+    <delete id="deleteBookmark">
+        delete
+        from bookmark_tb
+        where id =#{id};
+    </delete>
+
+    <select id="findBySpaceIdAndUserId" resultType="com.example.teamprojectbringiton.bookmark.Bookmark">
+        SELECT *
+        FROM bookmark_tb
+        WHERE space_id = #{spaceId} AND user_id = #{userId}
+    </select>
+</mapper>
