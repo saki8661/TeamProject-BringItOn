@@ -304,7 +304,7 @@ CREATE TABLE board_tb
 (
     id            INT AUTO_INCREMENT PRIMARY KEY,
     board_title   VARCHAR(50),
-    board_content VARCHAR(255),
+    board_content TEXT,
     created_at    DATE,
     user_id       INT
 );
