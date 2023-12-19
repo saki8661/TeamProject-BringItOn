@@ -1,6 +1,8 @@
 package com.example.teamprojectbringiton.board;
 
+import com.example.teamprojectbringiton.board.dto.request.BoardUpdateDTO;
 import com.example.teamprojectbringiton.board.dto.request.BoardWriteDTO;
+import com.example.teamprojectbringiton.board.dto.response.BoardDTO;
 import com.example.teamprojectbringiton.board.dto.response.BoardDetailDTO;
 import com.example.teamprojectbringiton.board.dto.response.BoardListDTO;
 import com.example.teamprojectbringiton.user.User;
@@ -33,21 +35,6 @@ public class BoardController {
         model.addAttribute("boards", boards);
         return "board/boardMain";
     }
-
-//    @GetMapping("/board-detail/{id}")
-//    public String boardDetailPage(@PathVariable Integer id, Model model) {
-//        try {
-//            System.out.println("담김??@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
-//            BoardDetailDTO dto = boardService.boardDetail(id);
-//            model.addAttribute("dto", dto);
-//            System.out.println("모델에 담긴 dto인가?" + dto.getReplies().get(0).getNickName());
-//            return "board/boardDetailPage";
-//        } catch (Exception e) {
-//            e.printStackTrace();  // 스택 트레이스 출력
-//            // 예외 처리 또는 다른 작업 수행
-//            return "errorPage";  // 에러 페이지로 리다이렉트 또는 에러 메시지를 표시하는 뷰로 이동
-//        }
-//    }
 
     @GetMapping("/board-detail/{id}")
     public String boardDetailPage(@PathVariable Integer id, Model model) {
@@ -107,9 +94,21 @@ public class BoardController {
 
 
     @GetMapping("/board-update/{id}")
-    public String boardUpdatePage(@PathVariable Integer id){
-        return "board/boardUpdate";
+    public String boardUpdatePage(@PathVariable Integer id, Model model){
+        BoardDTO boardDTO = boardService.findById(id);
+        model.addAttribute("boardDTO", boardDTO);
+        return "board/boardUpdatePage";
     }
+
+    @PostMapping("/board-update/{id}")
+    public String boardUpdate(BoardUpdateDTO dto){
+        User sessionUser = (User) session.getAttribute("sessionUser");
+        dto.setUserId(sessionUser.getId());
+        boardService.boardUpdate(dto, dto.getId());
+        int boardUpdateId = dto.getId();
+        return "redirect:/board-detail/" + boardUpdateId;
+    }
+
 
     @GetMapping("/board-delete/{id}")
     public String boardDelete(@PathVariable Integer id){

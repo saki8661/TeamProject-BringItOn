@@ -58,7 +58,7 @@
     </div>
 
     <div class="d-flex justify-content-end">
-        <a class="btn btn-warning me-1" href="#">수정</a>
+        <a class="btn btn-warning me-1" href="/board-update/${dto.id}">수정</a>
         <form action="/board-delete/${dto.id}" method="get">
             <button type="submit" class="btn btn-danger">삭제</button>
         </form>
