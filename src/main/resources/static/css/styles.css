@@ -485,6 +485,23 @@ input::placeholder {
     height: 40px;
 }
 
+
+#joinEamil {
+    display: none;
+}
+
+.bring_number_btn {
+    color: #fff;
+    background-color: #19B357;
+    border: none;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    cursor: pointer; /* 커서 모양 변경 */
+    border-radius: 5px;
+    width: 150px;
+    height: 40px;
+}
+
 .join_button_con {
     padding-top: 50px;
 }
@@ -623,6 +640,10 @@ input::placeholder {
 .join_user_id {
     display: flex;
     padding-bottom: 20px;
+}
+
+.join_email {
+    display: flex;
 }
 
 
