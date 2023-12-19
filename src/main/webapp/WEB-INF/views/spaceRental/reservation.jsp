@@ -138,9 +138,9 @@
             </div>
         </div>
         <div class="re_matching_check">
-            <input type="checkbox" id="matchingCheckboxTrue">
+            <input type="radio" name="checkbox" id="matchingCheckboxTrue" class="matchingCheckbox" onclick="toggleCheckboxes(this)">
             <label for="matchingCheckboxTrue">매칭 할래요.</label>
-            <input type="checkbox" id="matchingCheckboxFalse">
+            <input type="radio" name="checkbox" id="matchingCheckboxFalse" class="matchingCheckbox" onclick="toggleCheckboxes(this)">
             <label for="matchingCheckboxFalse">매칭 안할래요.</label>
         </div>
         <div class="reservation_button">
@@ -244,13 +244,13 @@
             const resultElement = document.getElementById('result');
 
             // 현재 화면에 표시된 값
-            let number = resultElement.innerText;
+            let number = parseInt(resultElement.innerText);
 
             // 더하기/빼기
-            if (type === 'plus') {
-                number = parseInt(number) + 1;
-            } else if (type === 'minus') {
-                number = parseInt(number) - 1;
+            if (type === 'plus' && number < 6) {
+                number = number + 1;
+            } else if (type === 'minus' && number > 0) {
+                number = number - 1;
             }
 
             // 결과 출력
@@ -260,6 +260,29 @@
         // 라디오 버튼 언체크 함수
         function uncheckRadio() {
             document.getElementById('radioButton').checked = false;
+        }
+
+        function toggleCheckboxes(clickedCheckbox) {
+            // 모든 체크박스 요소 가져오기
+            const checkboxes = document.getElementsByClassName('matchingCheckbox');
+
+            // 클릭된 체크박스의 상태 확인
+            const isChecked = clickedCheckbox.checked;
+
+            // 모든 체크박스 비활성화
+            for (let i = 0; i < checkboxes.length; i++) {
+                checkboxes[i].disabled = true;
+            }
+
+            // 클릭된 체크박스만 활성화
+            clickedCheckbox.disabled = false;
+
+            // 클릭된 체크박스가 체크되었을 때에만 모든 체크박스 활성화
+            if (isChecked) {
+                for (let i = 0; i < checkboxes.length; i++) {
+                    checkboxes[i].disabled = false;
+                }
+            }
         }
     </script>
 <%@ include file="../layout/footer.jsp" %>

@@ -75,7 +75,7 @@
                     <input class="form-check-input" type="radio" name="userDivision" value="게스트" id="personalCheck"
                            required>
                     <label class="form-check-label" for="personalCheck">유저로 가입</label>
-                    <div class="valid-feedback">유저으로 로그인 합니다.</div>
+                    <div class="valid-feedback">유저로 로그인 합니다.</div>
                     <div class="invalid-feedback"></div>
                 </div>
             </div>

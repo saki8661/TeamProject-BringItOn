@@ -2,6 +2,7 @@ package com.example.teamprojectbringiton.reservation;
 
 import com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO;
 import com.example.teamprojectbringiton.reservation.dto.response.UserReservationListDTO;
+import com.example.teamprojectbringiton.reservation.response.ReservationDTO;
 import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
@@ -14,6 +15,8 @@ public interface ReservationRepository {
     public List<MatchingReservationDTO> findApplyMatchingResv();
 
     public List<UserReservationListDTO> findByUserId(Integer id);
+
+    //public  List<ReservationDTO> findBySpaceId(Integer id);
 
 
 
