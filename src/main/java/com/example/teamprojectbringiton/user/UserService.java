@@ -6,14 +6,19 @@ import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
 import com.example.teamprojectbringiton.user.dto.response.*;
 import com.example.teamprojectbringiton.user.dto.request.*;
+import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.*;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Random;
 
 @Service
 public class UserService {
@@ -30,6 +35,12 @@ public class UserService {
     @Autowired
     private Function function;
 
+    @Autowired
+    private JavaMailSender javaMailSender;
+
+    int authNumber;
+
+
     @Transactional
     public User usernameCheck(String username) {
         User user = userRepository.findByUsername(username);
@@ -39,15 +50,17 @@ public class UserService {
     @Transactional
     public void userSave(JoinDTO dto) {
 
+        String address = AddressParer.parseCity(dto.getUserAddress());
+        System.out.println("주소 어떻게 파싱해? : " + address);
         //회원가입 db에 insert
         User user = User.builder()
                 .username(dto.getUsername())
                 .password(dto.getPassword())
-                .userEmail(dto.getUserEmail())
+                .userEmail(dto.getEmail())
                 .userPhoneNumber(dto.getUserPhoneNumber())
-                .userAddress("")
+                .userAddress(address)
                 .userDivision(dto.getUserDivision())
-                .nickName("")
+                .nickName(dto.getNickName())
                 .userPicUrl("default_profile.jpg")
                 .build();
         userRepository.insert(user);
@@ -184,4 +197,5 @@ public class UserService {
         UserInfoDTO user = userRepository.findByIdForUserInfo(id);
         return user;
     }
+
 }

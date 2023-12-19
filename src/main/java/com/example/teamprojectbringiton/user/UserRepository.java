@@ -29,7 +29,7 @@ public interface UserRepository {
 
     // 사용자의 아이디로 팀 조회
     public UserTeamInfoDTO findByIdJoinTeam(Integer id);
-    
+
     public void userUpdateImage(User user);
 
     public void userUpdatePassword(User user);
@@ -37,4 +37,6 @@ public interface UserRepository {
     public UserPointDTO findByIdJoinPoint(Integer id);
 
     public UserInfoDTO findByIdForUserInfo(Integer id);
+
+    public User findByUserEmail(String userEmail);
 }

@@ -1,6 +1,7 @@
 package com.example.teamprojectbringiton.user;
 
 
+import com.example.teamprojectbringiton._core.utils.ApiUtils;
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
 import com.example.teamprojectbringiton.user.dto.request.UserUpdateImageDTO;
@@ -188,6 +189,7 @@ public class UserController {
         User sessionUser = (User) session.getAttribute("sessionUser");
         CheckPasswordDTO response = userService.pwdCheck(checkPassword, sessionUser.getId());
         return ResponseEntity.ok(response);
-
     }
+
+
 }
