@@ -23,13 +23,17 @@
 
     <link rel="stylesheet" href="/css/styles.css">
     <!--별점 아이콘 라이브러리-->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <!--하트 아이콘 라이브러리-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <!--하트 아이콘 라이브러리-->
     <%--iamport 결제 api--%>
     <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
     <script integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
     <script crossorigin="anonymous"></script>
+    <!-- Summernote CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css">
+    <!-- Summernote JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
+
 </head>
 
 

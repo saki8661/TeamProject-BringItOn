@@ -30,4 +30,10 @@
         where u.id = #{id}
     </select>
 
+
+<!--    <select id="findBySpaceId" resultType="com.example.teamprojectbringiton.reservation.dto.response.ReservationDTO">
+
+
+    </select>-->
+
 </mapper>

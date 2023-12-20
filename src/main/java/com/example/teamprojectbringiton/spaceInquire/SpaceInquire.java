@@ -10,7 +10,6 @@ import java.sql.Timestamp;
 @NoArgsConstructor
 public class SpaceInquire {
 
-
     private Integer id;
     private String inquireType;
     private String inquireContent;

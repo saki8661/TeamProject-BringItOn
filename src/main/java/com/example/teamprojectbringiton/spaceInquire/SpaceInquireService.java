@@ -26,15 +26,17 @@ public class SpaceInquireService {
 
     @Transactional
     public void spaceInqSave(com.example.teamprojectbringiton.spaceInquire.request.SpaceInquireDTO dto) {
+        System.out.println("++++insert진입++++");
         SpaceInquire spaceInquire = SpaceInquire.builder()
                 .inquireType(dto.getInquireType())
                 .inquireContent(dto.getInquireContent())
                 .userId(dto.getUserId())
                 .spaceId(dto.getSpaceId())
                 .build();
-        System.out.println("insert해따요");
+        System.out.println("insert해따요" + dto.getUserId());
         spaceInquireRepository.spaceInqInsert(spaceInquire);
 
     }
+
 
 }

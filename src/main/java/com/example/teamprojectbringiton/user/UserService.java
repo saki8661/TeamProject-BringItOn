@@ -3,6 +3,8 @@ package com.example.teamprojectbringiton.user;
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
 import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
 import com.example.teamprojectbringiton._core.utils.Function;
+import com.example.teamprojectbringiton.admin.dto.response.UserCountRespDTO;
+import com.example.teamprojectbringiton.admin.dto.response.UserSearchRespDTO;
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
 import com.example.teamprojectbringiton.user.dto.response.*;
@@ -19,7 +21,10 @@ import org.springframework.util.LinkedMultiValueMap;
 import org.springframework.util.MultiValueMap;
 import org.springframework.web.client.RestTemplate;
 
+
+import java.util.List;
 import java.util.Random;
+
 
 @Service
 public class UserService {
@@ -35,11 +40,6 @@ public class UserService {
 
     @Autowired
     private Function function;
-
-    @Autowired
-    private JavaMailSender javaMailSender;
-
-    int authNumber;
 
 
     @Transactional
@@ -201,6 +201,7 @@ public class UserService {
         return user;
     }
 
+    // 이메일과 폰번호가 같은거 조회
     public User findByEmailAndUserPhoneNumber(IdFindDTO dto) {
         String phoneNumber = PhoneNumberFormatter.formatPhoneNumber(dto.getUserPhoneNumber());
         System.out.println("폰번호 잘 바꿨나? : " + phoneNumber);
@@ -211,4 +212,38 @@ public class UserService {
         }
         throw new UnAuthorizedException("해당 아이디를 조회하지 못했습니다.", HttpStatus.BAD_REQUEST);
     }
+
+    public List<UserSearchRespDTO> findAllByUsername(String keyword, String division) {
+        List<UserSearchRespDTO> user = userRepository.findAllByUsername(keyword, division);
+        return user;
+    }
+
+    public List<UserSearchRespDTO> findAllByNickname(String keyword, String division) {
+        List<UserSearchRespDTO> user = userRepository.findAllByNickname(keyword, division);
+        return user;
+    }
+
+    public List<UserSearchRespDTO> findAllByPhoneNumber(String keyword, String division) {
+        List<UserSearchRespDTO> user = userRepository.findAllByPhoneNumber(keyword, division);
+        return user;
+    }
+
+    public List<UserSearchRespDTO> findAllByEmail(String keyword, String division) {
+        List<UserSearchRespDTO> user = userRepository.findAllByEmail(keyword, division);
+        return user;
+    }
+
+
+    public List<UserSearchRespDTO> findAllJoinPoint(int pageSize, int currentPage) {
+        int offset = currentPage * pageSize - pageSize;
+        List<UserSearchRespDTO> userList = userRepository.findAllJoinPoint(pageSize, offset);
+        return userList;
+    }
+
+    public int findAllCount() {
+        int userCount = userRepository.findAllCount();
+        return userCount;
+    }
+
+
 }

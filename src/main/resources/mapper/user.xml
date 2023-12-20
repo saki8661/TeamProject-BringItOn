@@ -63,6 +63,15 @@
         from user_tb
     </select>
 
+    <select id="findAllJoinPoint" resultType="com.example.teamprojectbringiton.admin.dto.response.UserSearchRespDTO">
+        select *
+        from user_tb u
+                 left join point_tb p
+                           on u.id = p.user_id
+        order by u.id asc
+            limit #{pageSize}
+        offset #{offset}
+    </select>
 
     <!-- username 으로 사용자 검색 -->
     <select id="findByUsername"
@@ -139,4 +148,48 @@
         WHERE user_email = #{userEmail}
           AND user_phone_number = #{userPhoneNumber};
     </select>
+
+    <select id="findAllByUsername" resultType="com.example.teamprojectbringiton.admin.dto.response.UserSearchRespDTO">
+        select *
+        from user_tb u
+                 left join point_tb p
+                           on u.id = p.user_id
+        where u.username like concat('%', #{keyword}, '%')
+          and u.user_division = #{division}
+    </select>
+
+    <select id="findAllByEmail" resultType="com.example.teamprojectbringiton.admin.dto.response.UserSearchRespDTO">
+        select *
+        from user_tb u
+                 left join point_tb p
+                           on u.id = p.user_id
+        where u.user_email like concat('%', #{keyword}, '%')
+          and u.user_division = #{division}
+    </select>
+
+    <select id="findAllByPhoneNumber"
+            resultType="com.example.teamprojectbringiton.admin.dto.response.UserSearchRespDTO">
+        select *
+        from user_tb u
+                 left join point_tb p
+                           on u.id = p.user_id
+
+        where u.user_phone_number like concat('%', #{keyword}, '%')
+          and u.user_division = #{division}
+    </select>
+
+    <select id="findAllByNickname" resultType="com.example.teamprojectbringiton.admin.dto.response.UserSearchRespDTO">
+        select *
+        from user_tb u
+                 left join point_tb p
+                           on u.id = p.user_id
+        where u.nickname like concat('%', #{keyword}, '%')
+          and u.user_division = #{division}
+    </select>
+
+    <select id="findAllCount" resultType="int">
+        select count(*)
+        from user_tb;
+    </select>
+
 </mapper>
