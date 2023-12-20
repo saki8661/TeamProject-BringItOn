@@ -1776,12 +1776,14 @@ input::placeholder {
     padding: 10px; /* 내부 여백 설정 */
     margin: 10px; /* 외부 여백 설정 */
     background-color: #FFFFFF;
-    height: 100px;
+    width: 500px;
+    height: 300px;
 }
 
 .re_host_send_container_txt {
     width: 100%;
     height: 100%;
+    resize: none;
     color: #FFFFFF;
 }
 
@@ -3699,6 +3701,7 @@ EDIT ON
     color: #7A7E98;
     font-weight: 400;
 }
+
 -------------------------------------------------------
 .board {
     margin-top: 100px;
@@ -3726,18 +3729,18 @@ EDIT ON
     justify-content: space-between;
 }
 
-.board_title{
+.board_title {
     font-size: 30px;
     font-weight: bold;
 
 }
 
-.board_desc{
+.board_desc {
     font-size: 20px;
 
 }
 
-.board_writer{
+.board_writer {
     padding-top: 30px;
     font-size: 20px;
 }
@@ -3830,7 +3833,6 @@ EDIT ON
 }
 
 -------------------------------------------------------
-
 .inquireMain_dropdown_btn {
     background-color: #ffffff; /* 배경 색상 */
     color: black; /* 글자 색상 */
