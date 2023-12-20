@@ -1,6 +1,7 @@
 package com.example.teamprojectbringiton.user;
 
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
+import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
 import com.example.teamprojectbringiton._core.utils.Function;
 import com.example.teamprojectbringiton.admin.dto.response.UserCountRespDTO;
 import com.example.teamprojectbringiton.admin.dto.response.UserSearchRespDTO;
@@ -39,11 +40,6 @@ public class UserService {
 
     @Autowired
     private Function function;
-
-    @Autowired
-    private JavaMailSender javaMailSender;
-
-    int authNumber;
 
 
     @Transactional
@@ -205,6 +201,18 @@ public class UserService {
         return user;
     }
 
+    // 이메일과 폰번호가 같은거 조회
+    public User findByEmailAndUserPhoneNumber(IdFindDTO dto) {
+        String phoneNumber = PhoneNumberFormatter.formatPhoneNumber(dto.getUserPhoneNumber());
+        System.out.println("폰번호 잘 바꿨나? : " + phoneNumber);
+        User user = userRepository.findByEmailAndUserPhoneNumber(dto.getEmail(), phoneNumber);
+        System.out.println("아이디 찾기 조회됨? : " + user.getUsername());
+        if (user != null) {
+            return user;
+        }
+        throw new UnAuthorizedException("해당 아이디를 조회하지 못했습니다.", HttpStatus.BAD_REQUEST);
+    }
+
     public List<UserSearchRespDTO> findAllByUsername(String keyword, String division) {
         List<UserSearchRespDTO> user = userRepository.findAllByUsername(keyword, division);
         return user;
@@ -233,8 +241,9 @@ public class UserService {
     }
 
     public int findAllCount() {
-        int userCount =  userRepository.findAllCount();
+        int userCount = userRepository.findAllCount();
         return userCount;
     }
+
 
 }

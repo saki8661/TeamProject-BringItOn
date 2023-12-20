@@ -33,10 +33,19 @@
 
 
         <button type="submit" class="login_button">로그인</button>
-        <div class="login_search_sign_in"><a href="">
-            아이디/비밀번호 찾기
-        </a>
+        <div class="search_box">
+            <div class="login_search_sign_in"><a href="/id-find">
+                아이디 찾기 /
+            </a>
+            </div>
+
+            <div style="width: 5px"></div>
+            <div class="login_search_sign_in"><a href="/password-find">
+                비밀번호 찾기
+            </a>
+            </div>
         </div>
+
         <div class="loginPage_box"></div>
         <a href="/join">
             회원가입하기
