@@ -30,10 +30,19 @@
         where u.id = #{id}
     </select>
 
+    <select id="findByIdReservSpaceAndSpacePic"
+            resultType="com.example.teamprojectbringiton.reservation.response.ReservationDTO">
+        select space_id, space_name, space_location, space_pic, price_per_hour
+        from space_tb as space
+             join space_pic_tb as pic
+        on space.id= pic.space_id
+        where space.id = #{id}
+    </select>
 
-<!--    <select id="findBySpaceId" resultType="com.example.teamprojectbringiton.reservation.dto.response.ReservationDTO">
 
-
-    </select>-->
+    <insert id="reservInsert">
+        insert into reservation_tb(personnel, to_host, matching,user_id,space_id, created_at)
+        values (#{personnel}, #{toHost}, #{matching}, #{userId}, #{spaceId}, now());
+    </insert>
 
 </mapper>

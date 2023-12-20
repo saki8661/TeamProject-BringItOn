@@ -8,15 +8,11 @@ import java.sql.Timestamp;
 
 @Data
 public class ReservationDTO {
-    private Integer reservationNumber;
-    private Date reservationDate;
-    private Integer personnel;
-    private String comment;
-    private Time startTime;
-    private Time endTime;
-    private String toHost;
+
     private Integer spaceId;
-    private Integer userId;
-    private boolean matching;
-    private Timestamp createdAt;
+    private String spaceName;
+    private String spaceLocation;
+    private String spacePic;
+    private Integer pricePerHour;
+
 }
