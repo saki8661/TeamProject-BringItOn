@@ -466,8 +466,8 @@ input::placeholder {
     padding-left: 500px;
     padding-right: 500px;
     text-align: center;
-
 }
+
 
 .address_container {
     display: flex;
@@ -541,6 +541,10 @@ input::placeholder {
     font-weight: bolder;
 }
 
+.search_box {
+    display: flex;
+    justify-content: center;
+}
 
 .kakao_login_search_sign_in {
     padding-top: 40px;
@@ -3612,7 +3616,7 @@ EDIT ON
 }
 
 .check_pwd_text {
-    margin-top: 120px;
+    margin-top: 70px;
     text-align: center;
     font-size: 15px;
     color: #BFC3D2;
@@ -3656,6 +3660,14 @@ EDIT ON
     display: none;
 }
 
+.find_box {
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+.find_box input {
+    height: 50px;
+}
 
 /* board */
 
@@ -3700,7 +3712,6 @@ EDIT ON
     font-weight: 400;
 }
 
--------------------------------------------------------
 .board {
     margin-top: 100px;
     padding-bottom: 30px;
@@ -3829,7 +3840,6 @@ EDIT ON
     font-size: 15px;
     font-weight: bold;
 }
-
 
 .inquireMain_dropdown_btn {
     background-color: #ffffff; /* 배경 색상 */
@@ -4065,3 +4075,4 @@ EDIT ON
 .team_main_link_category li a {
     background-color: white;
 }
+

@@ -19,6 +19,8 @@ public interface InquireRepository {
 
     public Inquire findByInquireCategoryId(String number);
 
+    public Inquire findById(Integer id);
+
 
     public List<Inquire> findAll();
 

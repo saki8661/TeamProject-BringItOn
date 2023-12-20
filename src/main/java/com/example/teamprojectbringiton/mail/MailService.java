@@ -38,14 +38,14 @@ public class MailService {
         authNumber = Integer.parseInt(randomNumber);
     }
 
-
+    @Transactional
     //mail을 어디서 보내는지, 어디로 보내는지 , 인증 번호를 html 형식으로 어떻게 보내는지 작성합니다.
     public void joinEmail(String email) {
 
         makeRandomNumber();
         String setFrom = "djsdir0106@gmail.com"; // email-config에 설정한 자신의 이메일 주소를 입력
         String toMail = email;
-        String title = "회원 가입 인증 이메일 입니다."; // 이메일 제목
+        String title = "[Bring It On] 회원 가입 인증 이메일 입니다."; // 이메일 제목
         String content =
                 "Bring It On을 방문해주셔서 감사합니다." +    //html 형식으로 작성 !
                         "<br><br>" +
@@ -56,6 +56,7 @@ public class MailService {
     }
 
 
+    @Transactional
     //이메일을 전송합니다.
     public void mailSend(String setFrom, String toMail, String title, String content) {
         System.out.println("이메일 전송 시작");
@@ -96,5 +97,37 @@ public class MailService {
             System.out.println("이메일 중복 안됨");
             return 1;
         }
+    }
+
+
+    public void passwordEmail(String email) {
+        User user = userRepository.findByUserEmail(email);
+        System.out.println("유저 정보가 왜 조회가 안되?" + user);
+        if (user != null) {
+            makeRandomNumber();
+            String setFrom = "djsdir0106@gmail.com"; // email-config에 설정한 자신의 이메일 주소를 입력
+            String toMail = email;
+            String title = "[Bring It On] 변경된 패스워드 입니다."; // 이메일 제목
+            String content =
+                    "Bring It On을 이용해주셔서 감사합니다." +    //html 형식으로 작성 !
+                            "<br><br>" +
+                            "변경된 비밀번호는 " + authNumber + "입니다." +
+                            "<br>" +
+                            "비밀번호를 입력하시고 개인정보 수정에서 수정해주세요"; //이메일 내용 삽입
+            mailSend(setFrom, toMail, title, content);
+        } else {
+            throw new CustomRestfullException("없는 이메일 입니다.", HttpStatus.BAD_REQUEST);
+        }
+
+    }
+
+    @Transactional
+    public User passwordUpdate(String email) {
+        System.out.println("패스워드 업데이트 진입 : " + email);
+        User user = userRepository.findByUserEmail(email);
+        System.out.println("유저정보 조회하기 : " + email);
+        user.updatePassword(Integer.toString(authNumber));
+        userRepository.userUpdatePassword(user);
+        return user;
     }
 }
