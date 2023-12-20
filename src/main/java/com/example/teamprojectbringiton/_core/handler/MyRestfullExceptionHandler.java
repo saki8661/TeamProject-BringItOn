@@ -24,6 +24,7 @@ public class MyRestfullExceptionHandler {
         sb.append("alert( `" + e.getMessage() + "`);");
         sb.append("history.back();");
         sb.append("</script>");
+        System.out.println("핸들러에서 잡음");
         return sb.toString();
     }
 

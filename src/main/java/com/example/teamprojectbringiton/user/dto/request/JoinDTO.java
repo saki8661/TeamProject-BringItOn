@@ -11,5 +11,7 @@ public class JoinDTO {
     private String userAddress;
     private String userDivision;
     private String nickName;
+    private Integer genderId;
+    private Integer ageId;
 
 }

@@ -13,7 +13,11 @@ CREATE TABLE user_tb
     account_name      VARCHAR,
     created_at        TIMESTAMP,
     bank_id           INT,
-    team_id           INT
+    team_id           INT,
+    gender_id         INT,
+    age_id            INT,
+    kakao_login       BOOLEAN
+
 );
 
 -- 팀 테이블
@@ -56,6 +60,21 @@ CREATE TABLE space_pic_tb
     space_pic VARCHAR(255),
     space_id  INT
 );
+
+-- 성별 테이블
+CREATE TABLE gender_tb
+(
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    gender VARCHAR
+);
+
+-- 나이 테이블
+CREATE TABLE age_tb
+(
+    id          INT AUTO_INCREMENT PRIMARY KEY,
+    age VARCHAR
+);
+
 
 -- 시설 공간 예약 테이블
 CREATE TABLE reservation_tb

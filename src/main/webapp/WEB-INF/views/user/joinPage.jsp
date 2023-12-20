@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,9 +16,9 @@
 </head>
 <body>
 
-
 <div class="user_container">
     <div><a href="/home"><img src="./images/logo.png" class="user_logo"></a></div>
+    <div class="div_box"></div>
 
 
     <form action="/join" method="post">
@@ -69,7 +70,29 @@
                 <input type="text" class="form-control" id="userAddress" placeholder="주소" name="userAddress"
                        onclick="findAddr()" required>
             </div>
+            <div class="div_box"></div>
 
+
+            <div class="join_option">
+                <div>
+                    <label for="lang" class="gender">성별</label>
+                    <select name="genderId" id="lang">
+                        <option value="1">남자</option>
+                        <option value="2">여자</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="lang-two" class="age">연령</label>
+                    <select name="ageId" id="lang-two">
+                        <c:forEach var="age" items="${ageList}">
+                            <option value="${age.id}">${age.age}</option>
+                        </c:forEach>
+                    </select>
+                </div>
+            </div>
+
+            <div class="div_box"></div>
 
             <div class="join_check">
                 <div class="join_form_company">
@@ -87,6 +110,8 @@
                     <div class="invalid-feedback"></div>
                 </div>
             </div>
+
+
         </div>
 
         <div class="join_button_con">
@@ -97,6 +122,7 @@
             로그인 페이지
         </a>
     </form>
+    <div class="div_box" style="height: 200px"></div>
 </div>
 
 <script>
