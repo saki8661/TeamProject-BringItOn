@@ -349,8 +349,13 @@ input::placeholder {
 .main_link {
     display: flex;
     list-style: none;
-    margin: 0 20px 20px 20px;
+    margin: 0 20px 10px 20px;
+}
 
+.host_main_link {
+    display: flex;
+    list-style: none;
+    margin: 10px 20px 20px 20px;
 }
 
 .main_link a {
@@ -2935,7 +2940,7 @@ input::placeholder {
     display: flex;
     justify-content: center;
     align-items: center; /* 세로 중앙 정렬을 위한 스타일 추가 */
-    width: 120px;
+    width: 135px;
     text-align: center;
     color: black;
 }
@@ -2943,6 +2948,8 @@ input::placeholder {
 .league_matching_content_team_name img {
     height: 30px;
     width: 30px;
+    border-radius: 10px;
+    margin-right: 5px;
 }
 
 
@@ -2950,6 +2957,7 @@ input::placeholder {
     width: 115px;
     text-align: center;
     color: black;
+    
 }
 
 .matching_box {
@@ -3888,5 +3896,19 @@ EDIT ON
     border-radius: 12.5px;
     color: white;
     margin-left: 10px;
+}
+
+.host_btn_style {
+    border-radius: 5px;
+    height: 30px;
+    width: 80px;
+    font-size: 16px;
+    text-align: center;
+    margin-right: 20px;
+}
+
+.host_button {
+    background-color: #19B357;
+    color: white;
 }
 

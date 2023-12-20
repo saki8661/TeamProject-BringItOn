@@ -9,74 +9,162 @@
 
 <div class="frame">
     <ul class="nav">
-        <li class="main_link nav-item dropdown">
-            <a class="nav-link dropdown-toggle" role="button" data-bs-toggle="dropdown">
-                나의 공간보기
-            </a>
-            <ul class="dropdown-menu sub_navbar_style">
-                <li><a class="dropdown-item" href="#">실내 스포츠</a></li>
-                <li><a class="dropdown-item" href="#">야외 스포츠</a></li>
-            </ul>
+        <li class="host_main_link">
+            <a href="">내시설보기</a>
         </li>
-        <li class="main_link">
-            <a href="/matching-main">매칭</a>
+        <li class="host_main_link">
+            <a href="">내예약현황</a>
         </li>
 
-        <li class="main_link">
-            <a href="/league-main">리그</a>
+        <li class="host_main_link">
+            <a href="">시설이용내역</a>
         </li>
 
-        <li class="main_link">
-            <a href="/notice-main">고객센터</a>
+        <li class="host_main_link">
+            <a href="">고객센터</a>
         </li>
     </ul>
 </div>
+<hr class="nav_hr_below"/>
 
-<div class="container mt-5">
+<div class="frame">
     <div class="row">
-        <div class="col-sm-4">
-            <h2>About Me</h2>
-            <h5>Photo of me:</h5>
-            <div class="userTeam_image">
-                <img src="/images/coin.jpg">
-                <div>
-                    <button type="button">
-                        이미지 변경
-                    </button>
-                </div>
+        <div class="col-md-9 box">
+            <div class="d-flex pe-3 my-3">
+                <div class="userInfo_title">내 시설</div>
             </div>
 
-            <p>Some text about me in culpa qui officia deserunt mollit anim..</p>
-            <h3 class="mt-4">Some Links</h3>
-            <p>Lorem ipsum dolor sit ame.</p>
-            <ul class="nav nav-pills flex-column">
-                <li class="nav-item">
-                    <a class="nav-link active" href="#">Active</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link disabled" href="#">Disabled</a>
-                </li>
-            </ul>
-            <hr class="d-sm-none">
-        </div>
-        <div class="col-sm-8">
-            <h2>TITLE HEADING</h2>
-            <h5>Title description, Dec 7, 2020</h5>
-            <div class="fakeimg">Fake Image</div>
-            <p>Some text..</p>
-            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+            <div>
+                <div class="matching_box">
+                    <div class="league_matching_table_title">
+                        시설목록
+                    </div>
+                    <div class="league_matching_table_sub_title">
+                        <div class="league_matching_title">시설명</div>
+                        <div class="league_matching_title">전화번호</div>
+                        <div class="league_matching_title">주소</div>
+                        <div class="league_matching_title">간단소개</div>
+                        <div></div>
+                        <div></div>
 
-            <h2 class="mt-5">TITLE HEADING</h2>
-            <h5>Title description, Sep 2, 2020</h5>
-            <div class="fakeimg">Fake Image</div>
-            <p>Some text..</p>
-            <p>Sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.</p>
+                    </div>
+                    <!--내 매칭 등록 해놓은 현황(매칭상태가 대기중인거)을 리스트로 뿌릴꺼임.-->
+                    <div class="league_matching_table_content">
+                        <div class="league_matching_content_team_name"><img src="/images/place.jpg">
+                            <div>실내축구공간1</div>
+                        </div>
+                        <div class="league_matching_content-date">010-1111-1111</div>
+                        <div class="league_matching_content-date">경남 창원시</div>
+                        <div class="league_matching_content"> 0 : 0 (무)</div>
+                        <button class="host_button host_btn_style" type="button" data-bs-toggle="modal"
+                                data-bs-target="#myModal_two">상세보기
+                    </div>
+                    <div class="league_matching_table_content">
+                        <div class="league_matching_content_team_name"><img src="/images/reservation_place.png">
+                            <div>실내축구공간2</div>
+                        </div>
+                        <div class="league_matching_content-date">2023-06-01 18:00</div>
+                        <div class="league_matching_content-date"> 부산 준타스 풋볼 아레나</div>
+                        <div class="league_matching_content"> 0 : 0 (무)</div>
+                        <button class="host_button host_btn_style" type="button" data-bs-toggle="modal"
+                                data-bs-target="#myModal_two">상세보기
+                        </button>
+                    </div>
+                </div>
+                <div class="league_matching_button">
+
+                </div>
+                <div class="modal" id="myModal_two">
+                    <div class="modal-dialog">
+                        <div class="modal_test modal-content">
+
+                            <!-- Modal Header -->
+                            <div class="userReservation_modal_header">
+                                <h2>총 전적</h2>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <div class="modal-body mt-2">
+                                <div class="modal_body">
+                                    <div>
+                                        <div class="card-contain">
+                                            <div class="matching_my_score">
+                                                <div>승
+                                                    <div class="card">
+                                                        <div class="card-body d-flex justify-content-end card-input">
+                                                            0
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>무
+                                                    <div class="card">
+                                                        <div class="card-body d-flex justify-content-end card-input">
+                                                            3
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div>패
+                                                    <div class="card">
+                                                        <div class="card-body d-flex justify-content-end card-input">
+                                                            0
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="matching_my_score_box"></div>
+
+
+                                    <div class="league_matching_table_sub_title">
+                                        <div class="league_matching_title">팀명</div>
+                                        <div class="league_matching_title">경기일</div>
+                                        <div class="league_matching_title">경기장</div>
+                                        <div class="league_matching_title">경기결과</div>
+                                        <div class="league_matching_title">상태</div>
+                                    </div>
+                                    <!--내 매칭 등록 해놓은 현황(매칭상태가 대기중인거)을 리스트로 뿌릴꺼임.-->
+                                    <div class="league_matching_table_content">
+                                        <div class="league_matching_content_team_name"><img src="/images/psg.jpg">
+                                            <div>FC 세환</div>
+                                        </div>
+                                        <div class="league_matching_content-date">2023-06-01 18:00</div>
+                                        <div class="league_matching_content-date"> 부산 준타스 풋볼 아레나</div>
+                                        <div class="league_matching_content"> 0 : 0 (무)</div>
+                                        <div class="league_matching_content">경기 종료</div>
+                                    </div>
+                                    <div class="league_matching_table_content">
+                                        <div class="league_matching_content_team_name"><img src="/images/psg.jpg">
+                                            <div>FC 세환</div>
+                                        </div>
+                                        <div class="league_matching_content-date">2023-06-01 18:00</div>
+                                        <div class="league_matching_content-date"> 부산 준타스 풋볼 아레나</div>
+                                        <div class="league_matching_content"> 0 : 0 (무)</div>
+                                        <div class="league_matching_content">경기 종료</div>
+                                    </div>
+                                    <div class="league_matching_table_content">
+                                        <div class="league_matching_content_team_name"><img src="/images/psg.jpg">
+                                            <div>FC 세환</div>
+                                        </div>
+                                        <div class="league_matching_content-date">2023-06-01 18:00</div>
+                                        <div class="league_matching_content-date"> 부산 준타스 풋볼 아레나</div>
+                                        <div class="league_matching_content"> 0 : 0 (무)</div>
+                                        <div class="league_matching_content">경기 종료</div>
+                                    </div>
+                                    <div class="mt-5 d-flex justify-content-center">
+                                        <ul class="pagination">
+                                            <li class="page-item"><a class="page-link" href="#"><</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
+                                            <li class="page-item"><a class="page-link" href="#">></a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
