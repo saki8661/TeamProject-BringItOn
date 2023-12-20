@@ -462,8 +462,8 @@ input::placeholder {
     padding-left: 500px;
     padding-right: 500px;
     text-align: center;
-
 }
+
 
 .address_container {
     display: flex;
@@ -537,6 +537,10 @@ input::placeholder {
     font-weight: bolder;
 }
 
+.search_box {
+    display: flex;
+    justify-content: center;
+}
 
 .kakao_login_search_sign_in {
     padding-top: 40px;
@@ -732,8 +736,7 @@ input::placeholder {
     font-size: 15px;
 }
 
-.userInfo_charge_button
-{
+.userInfo_charge_button {
     background: #ffcc00;
     width: 75px;
     height: 40px;
@@ -3608,7 +3611,7 @@ EDIT ON
 }
 
 .check_pwd_text {
-    margin-top: 120px;
+    margin-top: 70px;
     text-align: center;
     font-size: 15px;
     color: #BFC3D2;
@@ -3651,3 +3654,14 @@ EDIT ON
 #inputFile {
     display: none;
 }
+
+
+.find_box {
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+.find_box input {
+    height: 50px;
+}
+

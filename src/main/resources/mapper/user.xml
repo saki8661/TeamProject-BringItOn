@@ -131,4 +131,12 @@
                            ON s.id = rt.space_id
         WHERE u.id = #{id}
     </select>
+
+    <select id="findByEmailAndUserPhoneNumber"
+            resultType="com.example.teamprojectbringiton.user.User">
+        SELECT *
+        FROM user_tb
+        WHERE user_email = #{userEmail}
+          AND user_phone_number = #{userPhoneNumber};
+    </select>
 </mapper>

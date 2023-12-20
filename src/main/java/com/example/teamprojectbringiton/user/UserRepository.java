@@ -39,4 +39,6 @@ public interface UserRepository {
     public UserInfoDTO findByIdForUserInfo(Integer id);
 
     public User findByUserEmail(String userEmail);
+
+    public User findByEmailAndUserPhoneNumber(String userEmail, String userPhoneNumber);
 }

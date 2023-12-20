@@ -1,6 +1,7 @@
 package com.example.teamprojectbringiton.user;
 
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
+import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
 import com.example.teamprojectbringiton._core.utils.Function;
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
@@ -200,4 +201,14 @@ public class UserService {
         return user;
     }
 
+    public User findByEmailAndUserPhoneNumber(IdFindDTO dto) {
+        String phoneNumber = PhoneNumberFormatter.formatPhoneNumber(dto.getUserPhoneNumber());
+        System.out.println("폰번호 잘 바꿨나? : " + phoneNumber);
+        User user = userRepository.findByEmailAndUserPhoneNumber(dto.getEmail(), phoneNumber);
+        System.out.println("아이디 찾기 조회됨? : " + user.getUsername());
+        if (user != null) {
+            return user;
+        }
+        throw new UnAuthorizedException("해당 아이디를 조회하지 못했습니다.", HttpStatus.BAD_REQUEST);
+    }
 }
