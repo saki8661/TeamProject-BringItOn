@@ -3,8 +3,8 @@ package com.example.teamprojectbringiton.user;
 
 import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
 import com.example.teamprojectbringiton.age.Age;
+
 import com.example.teamprojectbringiton.age.AgeService;
-import com.example.teamprojectbringiton.gender.Gender;
 import com.example.teamprojectbringiton.gender.GenderService;
 import com.example.teamprojectbringiton.user.dto.request.*;
 import com.example.teamprojectbringiton.user.dto.response.*;
@@ -26,11 +26,10 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    private AgeService ageService;
-
-    @Autowired
     private GenderService genderService;
 
+    @Autowired
+    private AgeService ageService;
 
     @Autowired
     private HttpSession session;

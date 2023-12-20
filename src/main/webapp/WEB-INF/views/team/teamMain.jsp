@@ -75,8 +75,8 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        adminTabCg[1].classList.add("team_tab_active");
-        adminTab[1].classList.add("team_tab_active");
+        adminTabCg[0].classList.add("team_tab_active");
+        adminTab[0].classList.add("team_tab_active");
     });
 
     const adminTabCg = document.querySelectorAll(".team_main_link_category > li > a");

@@ -26,11 +26,15 @@ CREATE TABLE team_tb
     id             INT AUTO_INCREMENT PRIMARY KEY,
     team_name      VARCHAR(250) NOT NULL,
     team_capacity  VARCHAR,
+    team_location  VARCHAR,
     team_pic_url   VARCHAR,
     team_introduce VARCHAR(250),
     level          VARCHAR,
-    region_id      INT,
-    sport_id       INT
+    age_id         INT,
+    gender_id      INT,
+    position_id    INT,
+    sport_id       INT,
+    created_at     TIMESTAMP
 );
 
 
@@ -64,17 +68,23 @@ CREATE TABLE space_pic_tb
 -- 성별 테이블
 CREATE TABLE gender_tb
 (
-    id          INT AUTO_INCREMENT PRIMARY KEY,
+    id     INT AUTO_INCREMENT PRIMARY KEY,
     gender VARCHAR
 );
 
 -- 나이 테이블
 CREATE TABLE age_tb
 (
-    id          INT AUTO_INCREMENT PRIMARY KEY,
+    id  INT AUTO_INCREMENT PRIMARY KEY,
     age VARCHAR
 );
 
+-- 포지션 테이블
+CREATE TABLE position_tb
+(
+    id  INT AUTO_INCREMENT PRIMARY KEY,
+    position VARCHAR
+);
 
 -- 시설 공간 예약 테이블
 CREATE TABLE reservation_tb
@@ -160,13 +170,13 @@ CREATE TABLE bookmark_tb
 -- 공간대여 상세보기 문의 테이블
 CREATE TABLE space_inquire_tb
 (
-    id               INT AUTO_INCREMENT PRIMARY KEY,
-    inquire_type     VARCHAR(50),
-    inquire_content  VARCHAR(255),
-    inquire_answer   VARCHAR(255),
-    created_at       TIMESTAMP,
-    user_id          INT,
-    space_id         INT
+    id              INT AUTO_INCREMENT PRIMARY KEY,
+    inquire_type    VARCHAR(50),
+    inquire_content VARCHAR(255),
+    inquire_answer  VARCHAR(255),
+    created_at      TIMESTAMP,
+    user_id         INT,
+    space_id        INT
 );
 
 -- 은행 이름 테

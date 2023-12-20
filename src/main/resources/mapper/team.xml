@@ -6,8 +6,8 @@
         namespace="com.example.teamprojectbringiton.team.TeamRepository">
 
     <insert id="insert">
-        INSERT INTO team_tb (team_name, team_capacity, team_pic_url, team_introduce, level, region_id, sport_id)
-        VALUES (#{teamName}, #{teamCapacity}, #{teamPicUrl}, #{teamIntroduce}, #{level}, #{regionId}, #{sportId})
+        INSERT INTO team_tb (team_name, team_location, team_capacity, team_introduce, team_pic_url, age_id, gender_id, position_id, sport_id, created_at)
+        VALUES (#{teamName}, #{teamLocation}, #{teamCapacity}, #{teamIntroduce}, #{teamPicUrl}, #{ageId}, #{genderId}, #{positionId}, #{sportId}, now())
     </insert>
 
     <select id="findAll" resultType="com.example.teamprojectbringiton.team.Team">
@@ -24,8 +24,6 @@
     <select id="findAllJoinRegionAndSport" resultType="com.example.teamprojectbringiton.team.dto.response.TeamListDTO">
         select *
         from team_tb t
-        Join region_tb r
-        on t.region_id = r.id
         join sport_tb s
         on t.sport_id = s.id
     </select>

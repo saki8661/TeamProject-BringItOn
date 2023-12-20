@@ -6,66 +6,57 @@
             팀 등록
         </div>
         <div class="team_create_main_form">
-            <form action="/team-write">
+            <form action="/team-write" method="POST">
                 <div class="team_create_content">
                     <div class="team_create_input_box">
                         <div class="team_create_item_name">
                             팀 이름
                         </div>
-                        <input type="text">
+                        <input type="text" value="" name="teamName">
                         <div class="team_create_item_location">
                             연고지
                         </div>
-                        <input type="text">
+                        <input type="text" value="" name="teamLocation">
                     </div>
                     <div class="team_create_item_logo">
                         <div>엠블럼 등록</div>
                         <div class="team_logo_image">
-                            <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/50/external-image-creativity-flaticons-lineal-color-flat-icons.png" id="teamLogoButton" class="team_create_item_logo_input" alt="">
-                            <label for="teamLogoInput" >
+                            <img src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/50/external-image-creativity-flaticons-lineal-color-flat-icons.png"
+                                 id="teamLogoButton" class="team_create_item_logo_input" alt="">
+                            <label for="teamLogoInput">
                                 <input type="file" style="display: none" id="teamLogoInput">
                             </label>
                         </div>
                     </div>
                 </div>
-
-
-                =====================================================================================================================================
-                <div>팀 소개</div>
-                <div>
-                    <textarea name="" id="" cols="100" rows="10"></textarea>
+                <div class="team_create_item_desc">
+                    <div>팀 소개</div>
+                    <textarea name="teamDescription" id="" rows="10"></textarea>
                 </div>
-                <div>
-                    여기는 체크박스
-                    <input type="checkbox">
-                </div>
-                <div>
-                    여기는 라디오(종목)
-                    <input type="radio">
-                    <input type="radio">
-                    <input type="radio">
-                </div>
-                <div>
-                    여기는 라디오22(포지션)
-                    <input type="radio">
-                    <input type="radio">
-                </div>
-                <div>
-                    여기는 라디오33(성별)
-                    <input type="radio">
-                    <input type="radio">
-                    <input type="radio">
-                </div>
-                <div>
-                    여기는 라디오33(연령대)
-                    <input type="radio">
-                    <input type="radio">
-                    <input type="radio">
-                    <input type="radio">
-                    <input type="radio">
-                    <input type="radio">
-                </div>
-                <button type="submit" style="background-color: palegreen; width: 100%; height: 50px">팀 등록 하기</button>
+                <select name="sportId">
+                    <option value="1">축구</option>
+                    <option value="2">풋살</option>
+                    <option value="3">농구</option>
+                </select>
+                <select name="positionId">
+                    <option value="1">공격</option>
+                    <option value="2">수비</option>
+                    <option value="3">올라운드</option>
+                </select>
+                <select name="genderId">
+                    <option value="1">남자</option>
+                    <option value="2">여자</option>
+                    <option value="3">남녀모두</option>
+                </select>
+                <select name="ageId">
+                    <option value="1">10대</option>
+                    <option value="2">20대</option>
+                    <option value="3">30대</option>
+                    <option value="4">40대</option>
+                    <option value="5">50대</option>
+                </select>
+                <input type="hidden" name="teamCapacity" value="1">
+                <button type="submit" class="team_create_button">팀 등록 하기</button>
             </form>
         </div>
     </div>

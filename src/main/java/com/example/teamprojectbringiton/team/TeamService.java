@@ -29,6 +29,6 @@ public class TeamService {
     }
 
     public void insert(Team team) {
-        teamRepository.insert();
+        teamRepository.insert(team);
     }
 }

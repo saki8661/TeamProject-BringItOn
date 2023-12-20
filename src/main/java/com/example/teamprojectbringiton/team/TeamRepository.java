@@ -9,7 +9,7 @@ import java.util.List;
 @Mapper
 public interface TeamRepository {
 
-    public void insert();
+    public void insert(Team team);
 
     public List<Team> findAll();
 

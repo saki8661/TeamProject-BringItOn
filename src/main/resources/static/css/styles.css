@@ -4172,7 +4172,7 @@ EDIT ON
 }
 
 .team_create_input_box > input {
-    padding: 10px;
+    padding: 20px;
     width: 100%;
     height: 50px;
     line-height: 50px;
@@ -4242,6 +4242,7 @@ EDIT ON
     color: #333;
     text-align: center;
 }
+
 .team_logo_image {
     display: flex;
     justify-content: center;
@@ -4252,15 +4253,34 @@ EDIT ON
     border-radius: 5px;
 }
 
-.team_logo_image>img{
+.team_logo_image > img {
     width: 50px;
     height: 50px;
 }
 
 .team_logo_image > label {
     width: 100px;
-    height:100px;
-   position: absolute;
+    height: 100px;
+    position: absolute;
     top: 0;
     right: 0;
+}
+
+.team_create_item_desc > div {
+    font-size: 20px;
+
+}
+
+.team_create_item_desc > textarea {
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    border-radius: 20px;
+    margin: 10px 0 10px 0;
+    padding: 20px;
+}
+
+.team_create_button {
+    background-color: palegreen;
+    width: 100%;
+    height: 50px;
 }

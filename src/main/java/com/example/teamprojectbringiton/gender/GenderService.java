@@ -15,3 +15,4 @@ public class GenderService {
         return genderRepository.findAll();
     }
 }
+
