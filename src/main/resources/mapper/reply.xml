@@ -14,5 +14,19 @@
         where r.board_id = #{boardId}
         ORDER BY r.id DESC
     </select>
+    
+    <insert id="replyInsert">
+        insert into reply_tb(comment, created_at, board_id, user_id)
+            values (#{comment}, now(), #{boardId}, #{userId});
+    </insert>
 
+    <delete id="deleteById">
+        delete
+        from reply_tb
+        where id = ${id}
+    </delete>
+
+    <select id="findById" resultType="com.example.teamprojectbringiton.reply.dto.response.ReplyDTO">
+        select * from reply_tb where id = #{id}
+    </select>
 </mapper>

@@ -7,9 +7,9 @@
 
     <insert id="insert">
         insert into user_tb(username, password, user_email, user_phone_number, user_address, user_pic_url, nickName,
-                            user_division, created_at)
+                            user_division, created_at, gender_id, age_id, kakao_login)
         values (#{username}, #{password}, #{userEmail}, #{userPhoneNumber}, #{userAddress}, #{userPicUrl}, #{nickName},
-                #{userDivision}, now());
+                #{userDivision}, now(), #{genderId}, #{ageId}, #{kakaoLogin});
     </insert>
 
     <update id="updateById">
@@ -66,8 +66,8 @@
     <select id="findAllJoinPoint" resultType="com.example.teamprojectbringiton.admin.dto.response.UserSearchRespDTO">
         select *
         from user_tb u
-        left join point_tb p
-        on u.id = p.user_id
+                 left join point_tb p
+                           on u.id = p.user_id
         order by u.id asc
             limit #{pageSize}
         offset #{offset}
@@ -141,6 +141,14 @@
         WHERE u.id = #{id}
     </select>
 
+    <select id="findByEmailAndUserPhoneNumber"
+            resultType="com.example.teamprojectbringiton.user.User">
+        SELECT *
+        FROM user_tb
+        WHERE user_email = #{userEmail}
+          AND user_phone_number = #{userPhoneNumber};
+    </select>
+
     <select id="findAllByUsername" resultType="com.example.teamprojectbringiton.admin.dto.response.UserSearchRespDTO">
         select *
         from user_tb u
@@ -153,33 +161,45 @@
     <select id="findAllByEmail" resultType="com.example.teamprojectbringiton.admin.dto.response.UserSearchRespDTO">
         select *
         from user_tb u
-                 left       join point_tb p
-                      on u.id = p.user_id
-        where u.user_email like concat('%',#{keyword},'%')
+                 left join point_tb p
+                           on u.id = p.user_id
+        where u.user_email like concat('%', #{keyword}, '%')
           and u.user_division = #{division}
     </select>
 
-    <select id="findAllByPhoneNumber" resultType="com.example.teamprojectbringiton.admin.dto.response.UserSearchRespDTO">
+    <select id="findAllByPhoneNumber"
+            resultType="com.example.teamprojectbringiton.admin.dto.response.UserSearchRespDTO">
         select *
         from user_tb u
-         left        join point_tb p
-                      on u.id = p.user_id
+                 left join point_tb p
+                           on u.id = p.user_id
 
-        where u.user_phone_number like concat('%',#{keyword},'%')
+        where u.user_phone_number like concat('%', #{keyword}, '%')
           and u.user_division = #{division}
     </select>
 
     <select id="findAllByNickname" resultType="com.example.teamprojectbringiton.admin.dto.response.UserSearchRespDTO">
         select *
         from user_tb u
-                 left      join point_tb p
-                      on u.id = p.user_id
-        where u.nickname like concat('%',#{keyword},'%')
+                 left join point_tb p
+                           on u.id = p.user_id
+        where u.nickname like concat('%', #{keyword}, '%')
           and u.user_division = #{division}
+    </select>
+
+    <select id="findByIdJoinGenderAndAge" resultType="com.example.teamprojectbringiton.user.dto.response.UserUpdateDTO">
+        SELECT *
+        FROM USER_TB AS u
+                 JOIN AGE_TB AS a
+                      ON a.ID = u.AGE_ID
+                 JOIN GENDER_TB AS g
+                      ON g.ID = u.GENDER_ID
+        where u.id = #{id};
     </select>
 
     <select id="findAllCount" resultType="int">
         select count(*)
         from user_tb;
     </select>
+
 </mapper>

@@ -1,6 +1,7 @@
 package com.example.teamprojectbringiton.user;
 
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
+import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
 import com.example.teamprojectbringiton._core.utils.Function;
 import com.example.teamprojectbringiton.admin.dto.response.UserCountRespDTO;
 import com.example.teamprojectbringiton.admin.dto.response.UserSearchRespDTO;
@@ -40,11 +41,6 @@ public class UserService {
     @Autowired
     private Function function;
 
-    @Autowired
-    private JavaMailSender javaMailSender;
-
-    int authNumber;
-
 
     @Transactional
     public User usernameCheck(String username) {
@@ -55,20 +51,20 @@ public class UserService {
     @Transactional
     public void userSave(JoinDTO dto) {
 
-        String address = AddressParer.parseCity(dto.getUserAddress());
         String phoneNuber = PhoneNumberFormatter.formatPhoneNumber(dto.getUserPhoneNumber());
-        System.out.println("주소 어떻게 파싱해? : " + address);
-        System.out.println("번호 어떻게 변경해? : " + phoneNuber);
         //회원가입 db에 insert
         User user = User.builder()
                 .username(dto.getUsername())
                 .password(dto.getPassword())
                 .userEmail(dto.getEmail())
                 .userPhoneNumber(phoneNuber)
-                .userAddress(address)
+                .userAddress(dto.getUserAddress())
                 .userDivision(dto.getUserDivision())
                 .nickName(dto.getNickName())
                 .userPicUrl("default_profile.jpg")
+                .ageId(dto.getAgeId())
+                .genderId(dto.getGenderId())
+                .kakaoLogin(false)
                 .build();
         userRepository.insert(user);
     }
@@ -87,10 +83,13 @@ public class UserService {
                     .password(tencoKey)
                     .userEmail("kakao@naver.com")
                     .userPhoneNumber("010-0000-0000")
-                    .userAddress("")
+                    .userAddress("서울 강남구")
                     .userDivision("게스트")
                     .nickName(kakaoProfile.getProperties().getNickname())
                     .userPicUrl(kakaoProfile.getProperties().getProfileImage() != null ? kakaoProfile.getProperties().getProfileImage() : "default_profile.jpg")
+                    .genderId(1)
+                    .ageId(2)
+                    .kakaoLogin(true)
                     .build();
             userRepository.insert(user);
         }
@@ -205,6 +204,18 @@ public class UserService {
         return user;
     }
 
+    // 이메일과 폰번호가 같은거 조회
+    public User findByEmailAndUserPhoneNumber(IdFindDTO dto) {
+        String phoneNumber = PhoneNumberFormatter.formatPhoneNumber(dto.getUserPhoneNumber());
+        System.out.println("폰번호 잘 바꿨나? : " + phoneNumber);
+        User user = userRepository.findByEmailAndUserPhoneNumber(dto.getEmail(), phoneNumber);
+        System.out.println("아이디 찾기 조회됨? : " + user.getUsername());
+        if (user != null) {
+            return user;
+        }
+        throw new UnAuthorizedException("해당 아이디를 조회하지 못했습니다.", HttpStatus.BAD_REQUEST);
+    }
+
     public List<UserSearchRespDTO> findAllByUsername(String keyword, String division) {
         List<UserSearchRespDTO> user = userRepository.findAllByUsername(keyword, division);
         return user;
@@ -233,8 +244,12 @@ public class UserService {
     }
 
     public int findAllCount() {
-        int userCount =  userRepository.findAllCount();
+        int userCount = userRepository.findAllCount();
         return userCount;
     }
 
+    public UserUpdateDTO findByIdJoinGenderAndAge(Integer id) {
+        return userRepository.findByIdJoinGenderAndAge(id);
+
+    }
 }
