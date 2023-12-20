@@ -3890,3 +3890,11 @@ EDIT ON
     margin-left: 10px;
 }
 
+ .weekend_day {
+     color: blue; /* 토요일에 해당하는 슬라이드의 텍스트 색상을 파란색으로 지정 */
+ }
+
+.sunday {
+    color: red; /* 일요일에 해당하는 슬라이드의 텍스트 색상을 빨간색으로 지정 */
+}
+
