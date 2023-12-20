@@ -219,7 +219,7 @@
                 </div>
                 <div class="manual_box" id="matchingListContainer">
                     <c:forEach var="matching" items="${matchings}">
-                        <div class="manual_card region-${matching.regionId}" data-region-id="${matching.regionId}">
+                        <div class="manual_card region-${matching.teamLocation}" data-region-id="${matching.teamLocation}">
                             <div class="matching_list">
                                 <div class="matching_detail">
                                     <div class="manual_tit">
@@ -246,7 +246,7 @@
                                 </button>
                             </div>
                         </div>
-                        <hr class="matchingPage_manual_box region-${matching.regionId}">
+                        <hr class="matchingPage_manual_box region-${matching.teamLocation}">
                     </c:forEach>
                 </div>
 

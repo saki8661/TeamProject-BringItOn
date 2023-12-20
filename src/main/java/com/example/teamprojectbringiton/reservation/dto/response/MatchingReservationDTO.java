@@ -18,12 +18,11 @@ public class MatchingReservationDTO {
     private Time endTime;
     private Integer teamId;
     private String teamName;
+    private String teamLocation;
     private Integer spaceId;
     private String spaceName;
     private String spaceLocation;
     private String spacePic;
     private String pricePerHour;
-    private Integer regionId;
-    private String regionName;
     private Integer matchingId;
 }

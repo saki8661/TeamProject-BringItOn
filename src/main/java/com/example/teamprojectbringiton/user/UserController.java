@@ -118,7 +118,7 @@ public class UserController {
     public String logout() {
 
         session.invalidate();
-        return "redirect:/home";
+        return "redirect:/login";
     }
 
     @GetMapping("/user/mypage/{id}")
@@ -192,6 +192,11 @@ public class UserController {
     @GetMapping("/user/mybring/{id}")
     public String myBringPage() {
         return "user/userMyBring";
+    }
+
+    @GetMapping("/user/setting/{id}")
+    public String userSettingPage(){
+        return "user/userSetting";
     }
 
     @GetMapping("/user/check-password/{id}")
