@@ -16,7 +16,7 @@
                         <div class="userUpdate_image">
                             <div>
                                 <c:choose>
-                                    <c:when test="${empty user.password}">
+                                    <c:when test="${user.kakaoLogin == true}">
                                         <!-- 카카오 로그인이고 패스워드가 없는 경우 -->
                                         <img id="kakao_preview" class="circle_avatar" src="${user.userPicUrl}">
                                     </c:when>
@@ -46,8 +46,50 @@
                     <div class="userUpdate_main_contents">
 
                         <c:choose>
-                        <c:when test="${empty user.password}">
-                            <div class="userUpdate_main_content">
+                        <c:when test="${user.kakaoLogin == true}">
+                            <div class="userUpdate_content">
+                                <div class="userUpdate_content_two">
+                                    <div class="userUpdate_main_content_title">
+                                        휴대전화
+                                    </div>
+                                    <div>
+                                            ${user.userPhoneNumber}
+                                    </div>
+                                </div>
+                                <div class="userUpdate_content_two_two">
+                                    <div class="userUpdate_main_content_title">
+                                        성별
+                                    </div>
+                                    <div>
+                                            ${user.gender}
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                            <div class="userUpdate_content">
+                                <div class="userUpdate_content_two">
+                                    <div class="userUpdate_main_content_title">
+                                        이메일
+                                    </div>
+                                    <div>
+                                            ${user.userEmail}
+                                    </div>
+                                </div>
+                                <div class="userUpdate_content_two_two">
+                                    <div class="userUpdate_main_content_title">
+                                        나이
+                                    </div>
+                                    <div>
+                                            ${user.age}
+                                    </div>
+                                </div>
+                            </div>
+                            <hr>
+                        </c:when>
+                        <c:otherwise>
+                        <!-- 카카오 로그인이고 패스워드가 있는 경우 -->
+                        <div class="userUpdate_content">
+                            <div class="userUpdate_content_two">
                                 <div class="userUpdate_main_content_title">
                                     휴대전화
                                 </div>
@@ -55,8 +97,18 @@
                                         ${user.userPhoneNumber}
                                 </div>
                             </div>
-                            <hr>
-                            <div class="userUpdate_main_content">
+                            <div class="userUpdate_content_two_two">
+                                <div class="userUpdate_main_content_title">
+                                    성별
+                                </div>
+                                <div>
+                                        ${user.gender}
+                                </div>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="userUpdate_content">
+                            <div class="userUpdate_content_two">
                                 <div class="userUpdate_main_content_title">
                                     이메일
                                 </div>
@@ -64,27 +116,16 @@
                                         ${user.userEmail}
                                 </div>
                             </div>
-                            <hr>
-                        </c:when>
-                        <c:otherwise>
-                        <!-- 카카오 로그인이고 패스워드가 있는 경우 -->
-                        <div class="userUpdate_main_content">
-                            <div class="userUpdate_main_content_title">
-                                휴대전화
-                            </div>
-                            <div>
-                                    ${user.userPhoneNumber}
+                            <div class="userUpdate_content_two_two">
+                                <div class="userUpdate_main_content_title">
+                                    나이
+                                </div>
+                                <div>
+                                        ${user.age}
+                                </div>
                             </div>
                         </div>
-                        <hr>
-                        <div class="userUpdate_main_content">
-                            <div class="userUpdate_main_content_title">
-                                이메일
-                            </div>
-                            <div>
-                                    ${user.userEmail}
-                            </div>
-                        </div>
+
                         <hr>
                         <form id="passwordForm" action="/user/update-password" method="post">
                             <div class="userUpdate_main_content">

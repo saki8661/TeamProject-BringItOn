@@ -10,4 +10,19 @@
         select *
         from team_tb
     </select>
+
+    <select id="findById" resultType="com.example.teamprojectbringiton.team.Team">
+        select *
+        from team_tb
+        where id = #{id}
+    </select>
+
+    <select id="findAllJoinRegionAndSport" resultType="com.example.teamprojectbringiton.team.dto.response.TeamListDTO">
+        select *
+        from team_tb t
+        Join region_tb r
+        on t.region_id = r.id
+        join sport_tb s
+        on t.sport_id = s.id
+    </select>
 </mapper>

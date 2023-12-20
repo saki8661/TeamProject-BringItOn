@@ -6,6 +6,7 @@ import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
 import com.example.teamprojectbringiton.user.dto.response.UserInfoDTO;
 import com.example.teamprojectbringiton.user.dto.response.UserPointDTO;
 import com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO;
+import com.example.teamprojectbringiton.user.dto.response.UserUpdateDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -59,4 +60,5 @@ public interface UserRepository {
     // 유저 이메일과 폰번호 일치하는 데이터 조회
     public User findByEmailAndUserPhoneNumber(String userEmail, String userPhoneNumber);
 
+    public UserUpdateDTO findByIdJoinGenderAndAge(Integer id);
 }

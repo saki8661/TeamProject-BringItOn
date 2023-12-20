@@ -349,8 +349,13 @@ input::placeholder {
 .main_link {
     display: flex;
     list-style: none;
-    margin: 0 20px 20px 20px;
+    margin: 0 20px 10px 20px;
+}
 
+.host_main_link {
+    display: flex;
+    list-style: none;
+    margin: 10px 20px 20px 20px;
 }
 
 .main_link a {
@@ -908,6 +913,13 @@ input::placeholder {
     display: flex;
     align-items: center;
     justify-content: start;
+    margin: 20px 30px 20px;
+}
+
+.userUpdate_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     margin: 20px 30px 20px;
 }
 
@@ -2935,7 +2947,7 @@ input::placeholder {
     display: flex;
     justify-content: center;
     align-items: center; /* 세로 중앙 정렬을 위한 스타일 추가 */
-    width: 120px;
+    width: 135px;
     text-align: center;
     color: black;
 }
@@ -2943,6 +2955,8 @@ input::placeholder {
 .league_matching_content_team_name img {
     height: 30px;
     width: 30px;
+    border-radius: 10px;
+    margin-right: 5px;
 }
 
 
@@ -2950,6 +2964,7 @@ input::placeholder {
     width: 115px;
     text-align: center;
     color: black;
+
 }
 
 .matching_box {
@@ -3623,6 +3638,15 @@ EDIT ON
     font-weight: bold;
 }
 
+.find_pwd_text {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 15px;
+    color: #BFC3D2;
+    font-weight: bold;
+}
+
 .userUpdate_image_box {
     display: flex;
     justify-items: center;
@@ -3712,7 +3736,6 @@ EDIT ON
     font-weight: 400;
 }
 
--------------------------------------------------------
 .board {
     margin-top: 100px;
     padding-bottom: 30px;
@@ -3842,7 +3865,6 @@ EDIT ON
     font-weight: bold;
 }
 
--------------------------------------------------------
 .inquireMain_dropdown_btn {
     background-color: #ffffff; /* 배경 색상 */
     color: black; /* 글자 색상 */
@@ -3890,11 +3912,222 @@ EDIT ON
     margin-left: 10px;
 }
 
- .weekend_day {
-     color: blue; /* 토요일에 해당하는 슬라이드의 텍스트 색상을 파란색으로 지정 */
- }
-
-.sunday {
-    color: red; /* 일요일에 해당하는 슬라이드의 텍스트 색상을 빨간색으로 지정 */
+.host_btn_style {
+    border-radius: 5px;
+    height: 30px;
+    width: 80px;
+    font-size: 16px;
+    text-align: center;
+    margin-right: 20px;
 }
 
+.host_button {
+    background-color: #19B357;
+    color: white;
+}
+
+.join_option {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.userUpdate_content_two {
+    display: flex;
+}
+
+.userUpdate_content_two_two {
+    display: flex;
+    justify-content: start;
+    margin-right: 90px;
+}
+
+/* team */
+
+.team_main_link {
+    height: auto;
+    display: flex;
+    flex-wrap: nowrap;
+
+
+}
+
+.team_main_link_category {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+    margin: 0 100px 0 100px;
+    justify-content: space-around;
+}
+
+.team_main_recruit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #eeeeee;
+    border-radius: 25px;
+    width: 150px;
+}
+
+.team_main_recruit > div {
+    color: #bbbbbb;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.team_main_team_write {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #eeeeee;
+    border-radius: 25px;
+    width: 150px;
+}
+
+.team_main_team_write > div {
+    color: #Bbbbbb;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+.team_filter_area {
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+}
+
+.team_filter_area > select {
+    -o-appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #19B357;
+    width: 100px;
+    height: 50px;
+    border-radius: 25px;
+    text-align: center;
+}
+
+.team_filter_area > select > option {
+    border-radius: 10px;
+}
+
+.team_main_content {
+    padding: 50px;
+}
+
+.team_list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+}
+
+.team_list_item {
+    display: flex;
+    text-align: start;
+    align-items: center;
+    padding: 30px;
+    border: 1px #F3F5F7 solid;
+    border-radius: 15px;
+    gap: 10px;
+}
+
+.team_list_item_content {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.team_list_item_firstLine {
+    display: flex;
+    gap: 10px;
+}
+
+.team_list_item_name {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.team_list_item_capacity {
+    display: flex;
+    background: #d9d9d9;
+    justify-content: center;
+    align-items: center;
+    border-radius: 7.5px;
+    padding: 5px;
+}
+
+.team_list_item_location {
+    color: #9b8100;
+}
+
+.team_list_item_tag {
+    display: flex;
+    color: #bbbbbb;
+}
+
+.team_list_item_spacer {
+    height: 15px;
+}
+
+.team_list_item_tag div {
+    display: inline-block;
+    margin-right: 5px;
+    padding-right: 5px;
+    border-right: 1px solid #bbbbbb;
+}
+
+.team_list_item_tag div:last-child {
+    margin-right: 0;
+    padding-right: 0;
+    border-right: none;
+}
+
+
+.team_tab_items {
+    padding: 0;
+}
+
+.team_tab_items > li {
+    display: none;
+}
+
+.team_tab_items > li.team_tab_active {
+    display: block;
+}
+
+.team_main_link .team_main_link_category {
+    display: flex;
+    flex-wrap: nowrap;
+    width: 100%;
+}
+
+.team_main_link .team_main_link_category a {
+    display: inline-block;
+    width: 150px;
+    padding: 10px 0px;
+    text-align: center;
+}
+
+.team_main_link .team_main_link_category a.team_tab_active {
+    color: black;
+    font-size: 18px;
+    font-weight: bold;
+    border: none;
+}
+
+.team_main_link .team_main_link_category a:hover,
+.team_main_link .team_main_link_category a:hover {
+    font-weight: bold;
+}
+
+.team_main_link_category li a.team_tab_active {
+    background-color: #eeeeee;
+
+}
+
+.team_main_link_category li a {
+    background-color: white;
+}
+
+>>> >>> > dev
+>>>>>>> dev

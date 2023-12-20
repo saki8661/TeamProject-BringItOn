@@ -21,7 +21,11 @@
 
 
     <div class="frame">
+
         <div class="find_box mb-3">
+            <div class="find_pwd_text">사용중이신 패스워드는 초기화 되고, <br>
+                임의로 생성된 패스워드가 가입된 이메일로 전송됩니다.
+            </div>
             <input type="text" class="form-control" id="email" placeholder="이메일을 입력해주세요" name="email"
                    maxlength="30" required>
         </div>
@@ -44,9 +48,11 @@
             data: {
                 email: $('#email').val()
             },
+
             success: function (result) {
-                if (result) {
-                    alert(result + ' 이메일에서 비밀번호 확인하세요.');
+                console.log(result)
+                if (result === "성공") {
+                    alert('임의로 비밀번호를 이메일로 전송했습니다. 이메일에서 비밀번호 확인하세요.');
                 } else {
                     alert('해당 이메일을 찾지 못했습니다.');
                 }
@@ -57,9 +63,6 @@
         });
     }
 
-    function showNotification(message) {
-        alert(message); // 간단한 알림 창 사용
-    }
 </script>
 </body>
 </html>

@@ -1,5 +1,6 @@
 package com.example.teamprojectbringiton.mail;
 
+import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
 import com.example.teamprojectbringiton.mail.dto.request.EmailCheckDTO;
 import com.example.teamprojectbringiton.mail.dto.request.EmailRequestDTO;
 import com.example.teamprojectbringiton.user.User;
@@ -46,12 +47,13 @@ public class MailController {
         }
     }
 
-    @ResponseBody
+
     @PostMapping("/password-find")
     public ResponseEntity<?> passwordFind(PasswordFindDTO dto) {
-        System.out.println("패스워드 찾기 컨트롤러 : " + dto.getEmail());
+        System.out.println("패스워드 확인 한다?");
         mailService.passwordEmail(dto.getEmail());
         User user = mailService.passwordUpdate(dto.getEmail());
-        return ResponseEntity.ok(user.getUserEmail());
+        return ResponseEntity.ok("성공");
     }
+
 }
