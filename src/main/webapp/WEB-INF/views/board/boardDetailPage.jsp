@@ -57,12 +57,20 @@
         </div>
     </div>
 
-    <div class="d-flex justify-content-end">
-        <a class="btn btn-warning me-1" href="/board-update/${dto.id}">수정</a>
-        <form action="/board-delete/${dto.id}" method="get">
-            <button type="submit" class="btn btn-danger">삭제</button>
-        </form>
-    </div>
+    <c:choose>
+        <c:when test="${dto.userId == sessionUser.id}">
+            <div class="d-flex justify-content-end">
+                <a class="btn btn-warning me-1" href="/board-update/${dto.id}">수정</a>
+                <form action="/board-delete/${dto.id}" method="get">
+                    <button type="submit" class="btn btn-danger">삭제</button>
+                </form>
+            </div>
+        </c:when>
+        <c:otherwise>
+            <!-- 다른 사용자의 경우에는 다른 HTML을 넣을 수 있음 -->
+        </c:otherwise>
+    </c:choose>
+
 
     <div class="board_write_sub">
         <div>댓글목록</div>
@@ -88,20 +96,34 @@
                             </div>
                         </div>
                     </div>
+                    <c:choose>
+                        <c:when test="${reply.userId == sessionUser.id}">
+                            <div class="d-flex justify-content-end">
+                                <form action="/reply-delete/${reply.id}" method="get">
+                                    <button type="submit" class="btn btn-danger">삭제</button>
+                                </form>
+                            </div>
+                        </c:when>
+                        <c:otherwise>
+                            <!-- 다른 사용자의 경우에는 다른 HTML을 넣을 수 있음 -->
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </c:forEach>
         </c:if>
         <c:if test="${noReplies}">
             <div class="no-reply-message">댓글이 없습니다.</div>
         </c:if>
-
-        <div class="mb-5 mt-3">
-            <textarea class="mt-3 form-control" rows="2" name="text"
+        <form action="/reply-write" method="post">
+            <div class="mb-5 mt-3">
+                <input type="hidden" value="${dto.id}" name="boardId">
+            <textarea class="mt-3 form-control" rows="2" name="comment"
                       placeholder="댓글을 입력해 주세요"></textarea>
-        </div>
-        <div class="mt-3" style="padding-bottom: 20px;">
-            <button type="button" class="btn btn-outline-success float-end">댓글쓰기</button>
-        </div>
+            </div>
+            <div class="mt-3" style="padding-bottom: 20px;">
+                <button type="submit" class="btn btn-outline-success float-end">댓글쓰기</button>
+            </div>
+        </form>
     </div>
 
 </div>

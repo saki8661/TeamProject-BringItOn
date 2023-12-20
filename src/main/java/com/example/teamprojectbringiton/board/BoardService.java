@@ -55,6 +55,7 @@ public class BoardService {
     }
 
     public int deleteById(Integer id) {
+
         int boardDelete = boardRepository.deleteById(id);
         if (boardDelete != 1) {
             throw new CustomRestfullException("게시글 삭제 실패", HttpStatus.INTERNAL_SERVER_ERROR);
