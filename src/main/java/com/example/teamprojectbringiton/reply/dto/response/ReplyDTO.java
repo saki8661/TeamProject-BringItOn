@@ -13,4 +13,5 @@ public class ReplyDTO {
     private Timestamp createdAt; // 댓글 생성 일자
     private Integer userId;
     private String nickName;
+    private Integer boardId;
 }

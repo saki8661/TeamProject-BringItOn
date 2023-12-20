@@ -34,15 +34,16 @@
 
 <div class="frame">
     <div class="container mt-3" style="padding-top: 50px;">
-        <form action="/action_page.php">
+        <form action="/board-update/${boardDTO.id}" method="post">
             <div class="mb-5 mt-3">
-                <input type="text" class="form-control form-control-lg mb-5" placeholder="제목을 입력해 주세요">
+                <input type="text" class="form-control form-control-lg mb-5" name="boardTitle" value="${boardDTO.boardTitle}">
                 <!-- Summernote를 적용할 텍스트 영역 -->
-                <textarea class="mt-3 form-control" rows="5" id="summernote" name="text"
-                          placeholder="내용을 입력해 주세요"></textarea>
+                <textarea class="mt-3 form-control" rows="5" id="summernote" name="boardContent">
+                    ${boardDTO.boardContent}
+                </textarea>
             </div>
             <div class="mt-3" style="padding-bottom: 20px;">
-                <button type="button" class="btn btn-outline-success float-end">수정하기</button>
+                <button type="submit" class="btn btn-outline-success float-end">수정하기</button>
             </div>
         </form>
     </div>
