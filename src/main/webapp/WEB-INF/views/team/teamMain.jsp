@@ -65,7 +65,7 @@
                         <%@ include file="../team/teamList.jsp" %>
                     </li>
                     <li>
-                        <%@ include file="../team/teamWrite.jsp" %>
+                        <%@ include file="teamCreate.jsp" %>
                     </li>
                 </ul>
             </div>
@@ -75,8 +75,8 @@
 
 <script>
     document.addEventListener("DOMContentLoaded", function () {
-        adminTabCg[0].classList.add("team_tab_active");
-        adminTab[0].classList.add("team_tab_active");
+        adminTabCg[1].classList.add("team_tab_active");
+        adminTab[1].classList.add("team_tab_active");
     });
 
     const adminTabCg = document.querySelectorAll(".team_main_link_category > li > a");
@@ -106,5 +106,6 @@
             event.preventDefault();
         });
     });
+
 </script>
 <%@ include file="../layout/footer.jsp" %>

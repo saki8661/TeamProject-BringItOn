@@ -1,5 +1,6 @@
 package com.example.teamprojectbringiton.team;
 
+import com.example.teamprojectbringiton.team.dto.response.TeamDetailDTO;
 import com.example.teamprojectbringiton.team.dto.response.TeamListDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -17,13 +18,17 @@ public class TeamService {
         return teamList;
     }
 
-    public Team findById(Integer id) {
-        Team team = teamRepository.findById(id);
+    public TeamDetailDTO findById(Integer id) {
+        TeamDetailDTO team = teamRepository.findById(id);
         return team;
     }
 
     public List<TeamListDTO> findAllJoinRegionAndSport() {
         List<TeamListDTO> teamList = teamRepository.findAllJoinRegionAndSport();
         return teamList;
+    }
+
+    public void insert(Team team) {
+        teamRepository.insert();
     }
 }

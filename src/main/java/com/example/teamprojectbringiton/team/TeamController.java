@@ -1,5 +1,6 @@
 package com.example.teamprojectbringiton.team;
 
+import com.example.teamprojectbringiton.team.dto.response.TeamDetailDTO;
 import com.example.teamprojectbringiton.team.dto.response.TeamListDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -23,8 +24,9 @@ public class TeamController {
     }
 
     @GetMapping("/team-detail/{id}")
-    public String teamDetailPage(@PathVariable Integer id){
-        teamService.findById(id);
+    public String teamDetailPage(@PathVariable Integer id, Model model){
+        TeamDetailDTO team = teamService.findById(id);
+        model.addAttribute("team", team);
         return "team/teamDetail";
     }
 
