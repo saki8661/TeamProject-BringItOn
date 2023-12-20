@@ -56,4 +56,7 @@ public interface UserRepository {
 
     public User findByUserEmail(String userEmail);
 
+    // 유저 이메일과 폰번호 일치하는 데이터 조회
+    public User findByEmailAndUserPhoneNumber(String userEmail, String userPhoneNumber);
+
 }

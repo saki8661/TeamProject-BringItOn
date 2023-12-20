@@ -466,8 +466,8 @@ input::placeholder {
     padding-left: 500px;
     padding-right: 500px;
     text-align: center;
-
 }
+
 
 .address_container {
     display: flex;
@@ -541,6 +541,10 @@ input::placeholder {
     font-weight: bolder;
 }
 
+.search_box {
+    display: flex;
+    justify-content: center;
+}
 
 .kakao_login_search_sign_in {
     padding-top: 40px;
@@ -3612,7 +3616,7 @@ EDIT ON
 }
 
 .check_pwd_text {
-    margin-top: 120px;
+    margin-top: 70px;
     text-align: center;
     font-size: 15px;
     color: #BFC3D2;
@@ -3656,6 +3660,14 @@ EDIT ON
     display: none;
 }
 
+.find_box {
+    margin-right: 100px;
+    margin-left: 100px;
+}
+
+.find_box input {
+    height: 50px;
+}
 
 /* board */
 
@@ -3699,6 +3711,7 @@ EDIT ON
     color: #7A7E98;
     font-weight: 400;
 }
+
 -------------------------------------------------------
 .board {
     margin-top: 100px;
@@ -3726,18 +3739,18 @@ EDIT ON
     justify-content: space-between;
 }
 
-.board_title{
+.board_title {
     font-size: 30px;
     font-weight: bold;
 
 }
 
-.board_desc{
+.board_desc {
     font-size: 20px;
 
 }
 
-.board_writer{
+.board_writer {
     padding-top: 30px;
     font-size: 20px;
 }
@@ -3830,7 +3843,6 @@ EDIT ON
 }
 
 -------------------------------------------------------
-
 .inquireMain_dropdown_btn {
     background-color: #ffffff; /* 배경 색상 */
     color: black; /* 글자 색상 */
@@ -3877,3 +3889,4 @@ EDIT ON
     color: white;
     margin-left: 10px;
 }
+

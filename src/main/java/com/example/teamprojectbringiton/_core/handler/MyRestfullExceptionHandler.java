@@ -21,7 +21,7 @@ public class MyRestfullExceptionHandler {
     public String basicException(CustomRestfullException e) {
         StringBuffer sb = new StringBuffer();
         sb.append("<script>");
-        sb.append("alert( '"+e.getMessage()+"');");
+        sb.append("alert( `" + e.getMessage() + "`);");
         sb.append("history.back();");
         sb.append("</script>");
         return sb.toString();
@@ -33,12 +33,11 @@ public class MyRestfullExceptionHandler {
     public String unAuthorizedException(UnAuthorizedException e) {
         StringBuffer sb = new StringBuffer();
         sb.append("<script>");
-        sb.append("alert( '"+e.getMessage()+"');");
+        sb.append("alert( '" + e.getMessage() + "');");
         sb.append("location.href='/kakao-login';");
         sb.append("</script>");
         return sb.toString();
     }
-
 
 
 }

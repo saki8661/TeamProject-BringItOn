@@ -2,11 +2,11 @@
 INSERT INTO user_tb (username, nickname, password, user_email, user_address, user_phone_number, user_pic_url,
                      user_division, account_number, account_name, created_at, bank_id, team_id)
 
-VALUES ('ssar', '대욱', 'password1', 'ssar@nate.com', '서울시 강남구', '010-1111-1111', 'default_profile.jpg', 'host',
+VALUES ('ssar', '대욱', 'password1', 'bbarkse1129@naver.com', '서울시 강남구', '010-1111-1111', 'default_profile.jpg', 'host',
         '123456789', '나의 계좌1', NOW(), 1, 1),
        ('cos', '세환', 'password', 'cos@nate.com', '서울시 마포구', '010-2222-2222', 'default_profile.jpg', 'general',
         '234567891', '나의 계좌2', NOW(), 2, 2),
-       ('love', '언약', 'password', 'love@nate.com', '서울시 남구', '010-3333-3333', 'default_profile.jpg', 'general',
+       ('love', '언약', 'password', '0106un@naver.com', '서울시 남구', '010-3333-3333', 'default_profile.jpg', 'general',
         '345678912', '나의 계좌3', NOW(), 1, 3),
        ('peace', '채빈', 'password', 'peace@nate.com', '서울시 강남구', '010-4444-4444', 'default_profile.jpg', 'host',
         '456789123', '나의 계좌4', NOW(), 3, 4),

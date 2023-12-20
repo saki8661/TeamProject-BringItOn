@@ -1,10 +1,7 @@
 package com.example.teamprojectbringiton.user;
 
 
-import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
-import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
-import com.example.teamprojectbringiton.user.dto.request.UserUpdateImageDTO;
-import com.example.teamprojectbringiton.user.dto.request.UserUpdatePasswordDTO;
+import com.example.teamprojectbringiton.user.dto.request.*;
 import com.example.teamprojectbringiton.user.dto.response.CheckPasswordDTO;
 import com.example.teamprojectbringiton.user.dto.response.KakaoProfile;
 import com.example.teamprojectbringiton.user.dto.response.UserPointDTO;
@@ -12,6 +9,7 @@ import com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -197,5 +195,23 @@ public class UserController {
     public String adminPage() {
         return "admin/admin";
     }
+
+    @GetMapping("/id-find")
+    public String idFindPage() {
+        return "user/userIdFind";
+    }
+
+    @ResponseBody
+    @PostMapping("/id-find")
+    public ResponseEntity<?> idFind(IdFindDTO dto) {
+        User user = userService.findByEmailAndUserPhoneNumber(dto);
+        return ResponseEntity.ok(user.getUsername());
+    }
+
+    @GetMapping("/password-find")
+    public String passwordFindPage() {
+        return "user/userPasswordFind";
+    }
+
 
 }
