@@ -44,31 +44,69 @@
     <div class="team_main_content">
         <div class="team_list">
             <c:forEach var="teamItem" items="${teamList}">
-
-                <div class="team_list_item">
-                    <div class="team_list_item_logo">
-                        <img width="100" height="100" src="./images/${teamItem.teamPicUrl}"
-                             alt="duolingo-logo"/>
-                    </div>
-                    <div class="team_list_item_content">
-                        <div class="team_list_item_firstLine">
-                            <div class="team_list_item_name">${teamItem.teamName}</div>
-                            <div class="team_list_item_capacity">
-                                <img width="15" height="15"
-                                     src="https://img.icons8.com/material-two-tone/15/user.png"
-                                     alt="user"/>
-                                    ${teamItem.teamCapacity}
+                <button type="button" class="" data-bs-toggle="modal" data-bs-target="#teamDetail-${teamItem.id}">
+                    <div class="team_list_item">
+                        <div class="team_list_item_logo">
+                            <img width="100" height="100" src="./images/${teamItem.teamPicUrl}"
+                                 alt="duolingo-logo"/>
+                        </div>
+                        <div class="team_list_item_content">
+                            <div class="team_list_item_firstLine">
+                                <div class="team_list_item_name">${teamItem.teamName}</div>
+                                <div class="team_list_item_capacity">
+                                    <img width="15" height="15"
+                                         src="https://img.icons8.com/material-two-tone/15/user.png"
+                                         alt="user"/>
+                                        ${teamItem.teamCapacity}
+                                </div>
                             </div>
+                            <div class="team_list_item_location">${teamItem.teamLocation}</div>
+                            <div class="team_list_item_tag">
+                                <div>남녀 모두</div>
+                                <div>${teamItem.sportName}</div>
+                                <div>20대~30대</div>
+                                <div>올라운드</div>
+                            </div>
+                            <div class="team_list_item_spacer"></div>
+                            <div class="team_list_item_etc">조회 1</div>
                         </div>
-                        <div class="team_list_item_location">${teamItem.teamLocation}</div>
-                        <div class="team_list_item_tag">
-                            <div>남녀 모두</div>
-                            <div>${teamItem.sportName}</div>
-                            <div>20대~30대</div>
-                            <div>올라운드</div>
+                    </div>
+                </button>
+            </c:forEach>
+            <c:forEach var="teamDetailItem" items="${teamDetail}">
+                <div class="modal " id="teamDetail-${teamDetailItem.id}">
+                    <div class="modal-dialog team_detail_container">
+                        <div class="modal-content team_detail_content">
+
+                            <!-- Modal Header -->
+                            <div class="modal-header">
+                                <div class="modal-title modal_detail_title">${teamDetailItem.teamName}</div>
+                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                            </div>
+
+                            <!-- Modal body -->
+                            <!-- 모달 바디 -->
+                            <div class="modal-body">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <!-- 왼쪽 컬럼 -->
+                                        <div class="col-md-3">
+                                                ${teamDetailItem.teamLocation}
+                                        </div>
+                                        <!-- 오른쪽 컬럼 -->
+                                        <div class="col-md-9">
+                                                ${teamDetailItem.teamIntroduce}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Modal footer -->
+                            <div class="modal-footer">
+                                <a href="team/apply/${teamItem.id}" class="team_detail_button">지원하기</a>
+                            </div>
+
                         </div>
-                        <div class="team_list_item_spacer"></div>
-                        <div class="team_list_item_etc">조회 1</div>
                     </div>
                 </div>
             </c:forEach>

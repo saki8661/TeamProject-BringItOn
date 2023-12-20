@@ -15,5 +15,7 @@ public interface TeamRepository {
 
     public TeamDetailDTO findById(Integer id);
 
-    public List<TeamListDTO> findAllJoinRegionAndSport();
+    public List<TeamListDTO> findAllJoinSport();
+
+    List<TeamDetailDTO> findAllJoin();
 }
