@@ -15,6 +15,11 @@
                     <li><a class="dropdown-item" href="#">야외 스포츠</a></li>
                 </ul>
             </li>
+
+            <li class="main_link">
+                <a href="/team-main">팀</a>
+            </li>
+
             <li class="main_link">
                 <a href="/matching-main">매칭</a>
             </li>
@@ -208,6 +213,7 @@
                     if (Array.isArray(data)) {
                         updatePagination(clickedPage);
                         updateMainLayout(data);
+                        console.log(data)
                     }
                 },
                 error: function () {
