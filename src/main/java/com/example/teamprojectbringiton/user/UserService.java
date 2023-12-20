@@ -65,6 +65,9 @@ public class UserService {
                 .userDivision(dto.getUserDivision())
                 .nickName(dto.getNickName())
                 .userPicUrl("default_profile.jpg")
+                .ageId(dto.getAgeId())
+                .genderId(dto.getGenderId())
+                .kakaoLogin(false)
                 .build();
         userRepository.insert(user);
     }
@@ -83,10 +86,13 @@ public class UserService {
                     .password(tencoKey)
                     .userEmail("kakao@naver.com")
                     .userPhoneNumber("010-0000-0000")
-                    .userAddress("")
+                    .userAddress("서울 강남구")
                     .userDivision("게스트")
                     .nickName(kakaoProfile.getProperties().getNickname())
                     .userPicUrl(kakaoProfile.getProperties().getProfileImage() != null ? kakaoProfile.getProperties().getProfileImage() : "default_profile.jpg")
+                    .genderId(1)
+                    .ageId(2)
+                    .kakaoLogin(true)
                     .build();
             userRepository.insert(user);
         }
@@ -245,5 +251,8 @@ public class UserService {
         return userCount;
     }
 
+    public UserUpdateDTO findByIdJoinGenderAndAge(Integer id) {
+        return userRepository.findByIdJoinGenderAndAge(id);
 
+    }
 }

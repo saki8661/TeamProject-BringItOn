@@ -1,11 +1,13 @@
 package com.example.teamprojectbringiton.user;
 
 
+import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
+import com.example.teamprojectbringiton.age.Age;
+import com.example.teamprojectbringiton.age.AgeService;
+import com.example.teamprojectbringiton.gender.Gender;
+import com.example.teamprojectbringiton.gender.GenderService;
 import com.example.teamprojectbringiton.user.dto.request.*;
-import com.example.teamprojectbringiton.user.dto.response.CheckPasswordDTO;
-import com.example.teamprojectbringiton.user.dto.response.KakaoProfile;
-import com.example.teamprojectbringiton.user.dto.response.UserPointDTO;
-import com.example.teamprojectbringiton.user.dto.response.UserTeamInfoDTO;
+import com.example.teamprojectbringiton.user.dto.response.*;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -15,11 +17,20 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @Controller
 public class UserController {
 
     @Autowired
     private UserService userService;
+
+    @Autowired
+    private AgeService ageService;
+
+    @Autowired
+    private GenderService genderService;
+
 
     @Autowired
     private HttpSession session;
@@ -39,7 +50,11 @@ public class UserController {
     }
 
     @GetMapping("/join")
-    public String join() {
+    public String join(Model model) {
+        System.out.println("Get요청 들어왔다");
+        List<Age> ageList = ageService.findAll();
+        System.out.println("age리스트 값 잘 오나? : " + ageList.get(0).getAge());
+        model.addAttribute("ageList", ageList);
         return "/user/joinPage";
     }
 
@@ -89,8 +104,10 @@ public class UserController {
         System.out.println("컨트롤러 나왔는대 값은 잘 있지? " + kakaoProfile.getProperties().getNickname());
         // 토큰 확인 후 회원가입 로직 호출
         userService.kakaoUserSave(kakaoProfile);
+        System.out.println("인서트 잘됨?");
         // 로그인 로직 처리를 위해 유저정보 조회
         User user = userService.findByUsername(kakaoProfile.getId());
+
         UserPointDTO userPointDTO = userService.findByIdJoinPoint(user.getId());
 
         // 공통된 패스워드 노출 안되게 하기 위해 null
@@ -119,7 +136,12 @@ public class UserController {
 
         // 인증 검사 (로그인 유무)
         User principal = (User) session.getAttribute("sessionUser");
-        model.addAttribute("user", principal);
+        if (principal.getId() != id) {
+            throw new UnAuthorizedException("권한이 없습니다.", HttpStatus.BAD_REQUEST);
+        }
+        UserUpdateDTO user = userService.findByIdJoinGenderAndAge(id);
+
+        model.addAttribute("user", user);
         return "user/userUpdate";
     }
 

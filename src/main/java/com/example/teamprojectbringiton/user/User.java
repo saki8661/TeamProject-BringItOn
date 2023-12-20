@@ -24,9 +24,13 @@ public class User {
     private Timestamp createdAt;
     private Integer teamId;
     private Integer bankId;
+    private Integer genderId;
+    private Integer ageId;
+    private Boolean kakaoLogin;
+
 
     @Builder
-    public User(Integer id, String username, String nickName, String password, String userEmail, String userAddress, String userPhoneNumber, String userPicUrl, String userDivision, String accountNumber, String accountName, Timestamp createdAt, Integer teamId, Integer bankId) {
+    public User(Integer id, String username, String nickName, String password, String userEmail, String userAddress, String userPhoneNumber, String userPicUrl, String userDivision, String accountNumber, String accountName, Timestamp createdAt, Integer teamId, Integer bankId, Integer genderId, Integer ageId, Boolean kakaoLogin) {
         this.id = id;
         this.username = username;
         this.nickName = nickName;
@@ -41,6 +45,10 @@ public class User {
         this.createdAt = createdAt;
         this.teamId = teamId;
         this.bankId = bankId;
+        this.genderId = genderId;
+        this.ageId = ageId;
+        this.kakaoLogin = kakaoLogin;
+
     }
 
     public void updatePassword(String password) {

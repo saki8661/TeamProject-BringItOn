@@ -7,9 +7,9 @@
 
     <insert id="insert">
         insert into user_tb(username, password, user_email, user_phone_number, user_address, user_pic_url, nickName,
-                            user_division, created_at)
+                            user_division, created_at, gender_id, age_id, kakao_login)
         values (#{username}, #{password}, #{userEmail}, #{userPhoneNumber}, #{userAddress}, #{userPicUrl}, #{nickName},
-                #{userDivision}, now());
+                #{userDivision}, now(), #{genderId}, #{ageId}, #{kakaoLogin});
     </insert>
 
     <update id="updateById">
@@ -185,6 +185,16 @@
                            on u.id = p.user_id
         where u.nickname like concat('%', #{keyword}, '%')
           and u.user_division = #{division}
+    </select>
+
+    <select id="findByIdJoinGenderAndAge" resultType="com.example.teamprojectbringiton.user.dto.response.UserUpdateDTO">
+        SELECT *
+        FROM USER_TB AS u
+                 JOIN AGE_TB AS a
+                      ON a.ID = u.AGE_ID
+                 JOIN GENDER_TB AS g
+                      ON g.ID = u.GENDER_ID
+        where u.id = #{id};
     </select>
 
     <select id="findAllCount" resultType="int">

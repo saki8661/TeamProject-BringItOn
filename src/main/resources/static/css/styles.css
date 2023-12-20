@@ -916,6 +916,13 @@ input::placeholder {
     margin: 20px 30px 20px;
 }
 
+.userUpdate_content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 20px 30px 20px;
+}
+
 .userUpdate_main_content_title {
     width: 150px;
 }
@@ -2957,7 +2964,7 @@ input::placeholder {
     width: 115px;
     text-align: center;
     color: black;
-    
+
 }
 
 .matching_box {
@@ -3911,4 +3918,20 @@ EDIT ON
     background-color: #19B357;
     color: white;
 }
+
+.join_option {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.userUpdate_content_two {
+    display: flex;
+}
+
+.userUpdate_content_two_two {
+    display: flex;
+    justify-content: start;
+    margin-right: 90px;
+}
+
 
