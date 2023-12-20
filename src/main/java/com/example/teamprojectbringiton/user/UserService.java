@@ -51,17 +51,14 @@ public class UserService {
     @Transactional
     public void userSave(JoinDTO dto) {
 
-        String address = AddressParer.parseCity(dto.getUserAddress());
         String phoneNuber = PhoneNumberFormatter.formatPhoneNumber(dto.getUserPhoneNumber());
-        System.out.println("주소 어떻게 파싱해? : " + address);
-        System.out.println("번호 어떻게 변경해? : " + phoneNuber);
         //회원가입 db에 insert
         User user = User.builder()
                 .username(dto.getUsername())
                 .password(dto.getPassword())
                 .userEmail(dto.getEmail())
                 .userPhoneNumber(phoneNuber)
-                .userAddress(address)
+                .userAddress(dto.getUserAddress())
                 .userDivision(dto.getUserDivision())
                 .nickName(dto.getNickName())
                 .userPicUrl("default_profile.jpg")

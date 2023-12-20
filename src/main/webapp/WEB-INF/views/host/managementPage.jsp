@@ -20,8 +20,17 @@
             <a href="">시설이용내역</a>
         </li>
 
+<<<<<<< HEAD
         <li class="host_main_link">
             <a href="">고객센터</a>
+=======
+        <li class="main_link">
+            <a href="/board-main">게시판</a>
+        </li>
+
+        <li class="main_link">
+            <a href="/notice-main">고객센터</a>
+>>>>>>> dev
         </li>
     </ul>
 </div>

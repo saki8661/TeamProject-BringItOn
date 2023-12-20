@@ -122,11 +122,18 @@
 
             <div class="inquire_write_list">
                 <div class="inquireMain_update_delete_btn">
+                    <c:choose>
+                        <c:when test="${inquire.userId == sessionUser.id}">
+                            <button type="button" class="inquireMain_update_btn" data-bs-toggle="modal"
+                                    data-bs-target="#updateModal${inquire.id}">
+                                수정하기
+                            </button>
+                        </c:when>
+                        <c:otherwise>
+                            <!-- 다른 사용자의 경우에는 다른 HTML을 넣을 수 있음 -->
+                        </c:otherwise>
+                    </c:choose>
 
-                    <button type="button" class="inquireMain_update_btn" data-bs-toggle="modal"
-                            data-bs-target="#updateModal${inquire.id}">
-                        수정하기
-                    </button>
 
                     <!-- 수정된 부분: 모달 ID를 고유하게 만들어 주세요 -->
                     <div class="modal" id="updateModal${inquire.id}">
@@ -176,10 +183,17 @@
                             </div>
                         </div>
                     </div>
+                    <c:choose>
+                        <c:when test="${inquire.userId == sessionUser.id}">
+                            <form action="/inquire-delete/${inquire.id}" , method="get">
+                                <button class="inquireMain_delete_btn">삭제하기</button>
+                            </form>
+                        </c:when>
+                        <c:otherwise>
+                            <!-- 다른 사용자의 경우에는 다른 HTML을 넣을 수 있음 -->
+                        </c:otherwise>
+                    </c:choose>
 
-                    <form action="/inquire-delete/${inquire.id}" , method="get">
-                        <button class="inquireMain_delete_btn">삭제하기</button>
-                    </form>
                 </div>
 
             </div>

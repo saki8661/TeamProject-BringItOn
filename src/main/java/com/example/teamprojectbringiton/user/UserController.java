@@ -51,9 +51,7 @@ public class UserController {
 
     @GetMapping("/join")
     public String join(Model model) {
-        System.out.println("Get요청 들어왔다");
         List<Age> ageList = ageService.findAll();
-        System.out.println("age리스트 값 잘 오나? : " + ageList.get(0).getAge());
         model.addAttribute("ageList", ageList);
         return "/user/joinPage";
     }

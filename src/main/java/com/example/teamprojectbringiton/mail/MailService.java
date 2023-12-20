@@ -101,9 +101,13 @@ public class MailService {
 
 
     public void passwordEmail(String email) {
+        System.out.println("email이 존재할까?");
         User user = userRepository.findByUserEmail(email);
         System.out.println("유저 정보가 왜 조회가 안되?" + user);
-        if (user != null) {
+        if (user == null) {
+            System.out.println("쓰로우 전");
+            throw new CustomRestfullException("없는 이메일 입니다.", HttpStatus.BAD_REQUEST);
+        } else {
             makeRandomNumber();
             String setFrom = "djsdir0106@gmail.com"; // email-config에 설정한 자신의 이메일 주소를 입력
             String toMail = email;
@@ -115,8 +119,6 @@ public class MailService {
                             "<br>" +
                             "비밀번호를 입력하시고 개인정보 수정에서 수정해주세요"; //이메일 내용 삽입
             mailSend(setFrom, toMail, title, content);
-        } else {
-            throw new CustomRestfullException("없는 이메일 입니다.", HttpStatus.BAD_REQUEST);
         }
 
     }

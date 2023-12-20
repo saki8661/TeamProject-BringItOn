@@ -1,5 +1,6 @@
 package com.example.teamprojectbringiton.board;
 
+import com.example.teamprojectbringiton.board.dto.response.BoardDTO;
 import com.example.teamprojectbringiton.board.dto.response.BoardDetailDTO;
 import com.example.teamprojectbringiton.board.dto.response.BoardListDTO;
 import org.apache.ibatis.annotations.Mapper;
@@ -19,4 +20,8 @@ public interface BoardRepository {
     public int boardInsert(Board board);
 
     public int deleteById(Integer id);
+    
+    public  int updateById(Board board);
+
+    public BoardDTO findById(Integer id);
 }

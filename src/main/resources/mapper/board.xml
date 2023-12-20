@@ -37,5 +37,16 @@
         where id = ${id}
     </delete>
 
+    <select id="findById" resultType="com.example.teamprojectbringiton.board.dto.response.BoardDTO">
+        select * from board_tb where id = #{id}
+    </select>
+
+    <update id="updateById" parameterType="com.example.teamprojectbringiton.board.dto.request.BoardUpdateDTO">
+        UPDATE board_tb
+        SET board_title   = #{boardTitle},
+            board_content = #{boardContent},
+            created_at    = now()
+        WHERE id = #{id}
+    </update>
 
 </mapper>

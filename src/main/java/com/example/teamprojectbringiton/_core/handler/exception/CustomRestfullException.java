@@ -11,7 +11,7 @@ public class CustomRestfullException extends RuntimeException {
     public CustomRestfullException(String message, HttpStatus httpStatus) {
         super(message); // 부모 생성자 호출
         this.status = httpStatus;
-        System.out.println("Custom 진입 : " + message);
+        System.out.println("Custom 진입 : " + httpStatus);
     }
-
+    
 }
