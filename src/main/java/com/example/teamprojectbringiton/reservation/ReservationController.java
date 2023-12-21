@@ -2,16 +2,12 @@ package com.example.teamprojectbringiton.reservation;
 
 import com.example.teamprojectbringiton.reservation.dto.response.UserReservationListDTO;
 import com.example.teamprojectbringiton.reservation.response.ReservationDTO;
-import com.example.teamprojectbringiton.space.dto.response.SpaceDetailDTO;
-import com.example.teamprojectbringiton.space.dto.response.SpaceReviewDTO;
-import com.example.teamprojectbringiton.spaceInquire.request.SpaceInquireDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -42,7 +38,6 @@ public class ReservationController {
         System.out.println("+++dto 담김 reservation:" + dto.getPersonnel());
         System.out.println("+++dto 담김 reservation:" + dto.getToHost());
         System.out.println("+++dto 담김 reservation: " + dto.isMatching());
-
         return "redirect:/reservation/" + id;
     }
 
