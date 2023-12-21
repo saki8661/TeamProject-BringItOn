@@ -1,7 +1,7 @@
 package com.example.teamprojectbringiton.matching;
 
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
-import com.example.teamprojectbringiton.matching.dto.response.MatchingListDTO;
+import com.example.teamprojectbringiton.matching.dto.request.MatchingDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -12,9 +12,9 @@ public class MatchingService {
     @Autowired
     MatchingRepository matchingRepository;
 
-    public void matchingApply(MatchingListDTO dto) {
-
+    public void matchingApply(MatchingDTO dto) {
         Matching matching = Matching.builder()
+                .id(dto.getId())
                 .matchUserId(dto.getMatchUserId())
                 .matchingStatus("매칭완료")
                 .reservationId(dto.getReservationId())

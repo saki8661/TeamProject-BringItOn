@@ -1,6 +1,6 @@
 package com.example.teamprojectbringiton.matching;
 
-import com.example.teamprojectbringiton.matching.dto.response.MatchingListDTO;
+import com.example.teamprojectbringiton.matching.dto.request.MatchingDTO;
 import com.example.teamprojectbringiton.region.Region;
 import com.example.teamprojectbringiton.reservation.ReservationService;
 import com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO;
@@ -42,7 +42,7 @@ public class MatchingController {
 
 
     @PostMapping("/matching-apply/{id}")
-    public String matchingApply(@PathVariable Integer id, MatchingListDTO dto){
+    public String matchingApply(@PathVariable Integer id, MatchingDTO dto){
         User sessionUser = (User) session.getAttribute("sessionUser");
         dto.setMatchUserId(sessionUser.getId());
         System.out.println("pathVariable"+id);

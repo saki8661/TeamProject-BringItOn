@@ -14,7 +14,7 @@
         values (#{matchingStatus}, #{reservationId}, #{matchUserId});
     </insert>
 
-    <update id="updateMatching">
+    <update id="updateMatching" useGeneratedKeys="true" keyProperty="id">
         update matching_tb
         set matching_status = #{matchingStatus},
             reservation_id = #{reservationId},
