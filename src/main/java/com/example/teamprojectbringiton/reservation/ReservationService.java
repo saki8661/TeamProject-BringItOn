@@ -5,11 +5,10 @@ import com.example.teamprojectbringiton.region.Region;
 import com.example.teamprojectbringiton.region.RegionRepository;
 import com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO;
 import com.example.teamprojectbringiton.reservation.dto.response.UserReservationListDTO;
-import com.example.teamprojectbringiton.reservation.response.ReservationDTO;
+import com.example.teamprojectbringiton.reservation.request.ReservationReqDTO;
+import com.example.teamprojectbringiton.reservation.response.ReservationRespDTO;
 import com.example.teamprojectbringiton.space.Space;
 import com.example.teamprojectbringiton.space.SpaceRepository;
-import com.example.teamprojectbringiton.space.dto.response.SpaceReviewDTO;
-import com.example.teamprojectbringiton.spaceInquire.SpaceInquire;
 import com.example.teamprojectbringiton.team.Team;
 import com.example.teamprojectbringiton.team.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -75,16 +74,16 @@ public class ReservationService {
     }
 
 
-    public ReservationDTO reservationFindBySpaceId(Integer id) {
+    public ReservationRespDTO reservationFindBySpaceId(Integer id) {
         System.out.println("예약하기 서비스 진입" + id);
-        ReservationDTO reservation = reservationRepository.findByIdReservSpaceAndSpacePic(id);
+        ReservationRespDTO reservation = reservationRepository.findByIdReservSpaceAndSpacePic(id);
         System.out.println("+++++++++++++++++레파지토리++++++++++++++");
         return reservation;
 
     }
 
     @Transactional
-    public void reservationSave(com.example.teamprojectbringiton.reservation.request.ReservationDTO dto) {
+    public void reservationSave(ReservationReqDTO dto) {
         System.out.println("++++예약하기 insert진입++++");
         Reservation reservation = Reservation.builder()
                 .personnel(dto.getPersonnel())

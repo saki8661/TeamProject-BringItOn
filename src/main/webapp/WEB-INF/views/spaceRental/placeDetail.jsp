@@ -59,6 +59,7 @@
                 <div class="place_detail_listbox">
                     <div class="scroll1_place_detail_info" id="scroll1_place_detail_info">
                         ${spaceDetail.description}
+                        <div id="map" style="width:500px;height:400px;"></div>
                     </div>
                     <div class="scroll2_place_detail_caution" id="scroll2_place_detail_caution">
                         <div class="scroll2_place_detail_caution_title">
@@ -213,7 +214,8 @@
                         서울 성북구 삼선교로16길 116
                     </div>
                     <div class="place_detail_stick_area_menu_location_copy">
-                        <a href="" style="padding-right: 20px; text-decoration: underline; color: #8A8A8A">주소 복사</a>
+                        <a href="#" onclick="copyAddress()"
+                           style="padding-right: 20px; text-decoration: underline; color: #8A8A8A">주소 복사</a>
                         <a href="" style="text-decoration: underline;color: #8A8A8A">지도 보기</a>
                     </div>
                     <div class="place_detail_stick_area_menu_location_cost">
@@ -314,6 +316,15 @@
             answerContent.style.display = "none"; // 숨기기
         }
     }
+
+    var container = document.getElementById('map'); //지도를 담을 영역의 DOM 레퍼런스
+    var options = { //지도를 생성할 때 필요한 기본 옵션
+        center: new kakao.maps.LatLng(33.450701, 126.570667), //지도의 중심좌표.
+        level: 3 //지도의 레벨(확대, 축소 정도)
+    };
+
+    var map = new kakao.maps.Map(container, options); //지도 생성 및 객체 리턴
+
 
 </script>
 

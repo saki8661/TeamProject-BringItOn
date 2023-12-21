@@ -1692,6 +1692,7 @@ input::placeholder {
 .re_time_choice {
     display: flex;
     flex-direction: column;
+    display: none;
 
 }
 
@@ -3008,6 +3009,11 @@ input::placeholder {
     padding-right: 10%;
     padding-left: 10%;
 }
+.place_detail_map{
+    width:500px; height:400px;
+}
+#map {width:500px; height:400px;}
+
 
 .place_detail_stick_menu_container {
     display: flex;
