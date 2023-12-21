@@ -9,8 +9,6 @@
         from reservation_tb resv
                  join team_tb t
                       on resv.user_id = t.id
-                 join region_tb r
-                      on t.region_id = r.id
                  join space_tb s
                       on resv.space_id = s.id
                  join space_pic_tb sp

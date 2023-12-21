@@ -1,9 +1,5 @@
 package com.example.teamprojectbringiton.gender;
 
-import com.example.teamprojectbringiton.age.Age;
-import com.example.teamprojectbringiton.board.Board;
-import com.example.teamprojectbringiton.board.dto.response.BoardDetailDTO;
-import com.example.teamprojectbringiton.board.dto.response.BoardListDTO;
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;

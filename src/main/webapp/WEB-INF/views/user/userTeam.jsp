@@ -32,7 +32,7 @@
                                 위치
                             </div>
                             <div>
-                                ${teamInfo.regionName}
+                                ${teamInfo.teamLocation}
                             </div>
                         </div>
                         <hr>

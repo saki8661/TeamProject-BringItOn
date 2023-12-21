@@ -95,8 +95,6 @@
         from user_tb u
                  join team_tb t
                       on u.team_id = t.id
-                 join region_tb r
-                      on t.region_id = r.id
                  join sport_tb s
                       on t.sport_id = s.id
         where u.id = #{id}
@@ -120,7 +118,7 @@
                t.team_name,
                t.team_introduce,
                t.level,
-               r.region_name,
+               t.team_location,
                sp.sport_name,
                rt.reservation_date,
                rt.start_time,
@@ -130,8 +128,6 @@
         FROM user_tb u
                  LEFT JOIN team_tb t
                            ON u.team_id = t.id
-                 LEFT JOIN region_tb r
-                           ON t.region_id = r.id
                  LEFT JOIN sport_tb sp
                            ON sp.id = t.sport_id
                  LEFT JOIN reservation_tb rt
