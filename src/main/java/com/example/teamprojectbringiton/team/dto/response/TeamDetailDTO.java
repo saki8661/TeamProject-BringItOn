@@ -10,12 +10,13 @@ public class TeamDetailDTO {
     private String teamName;
     private String teamCapacity;
     private String teamLocation;
-    private String  teamPicUrl;
-    private String  teamIntroduce;
+    private String teamPicUrl;
+    private String teamIntroduce;
     private String level;
     private String age;
     private String gender;
     private String position;
     private String sport;
+    private String userId;
     private Timestamp createdAt;
 }

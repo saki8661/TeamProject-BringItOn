@@ -103,7 +103,12 @@
 
                             <!-- Modal footer -->
                             <div class="modal-footer">
-                                <a href="team/apply/${teamItem.id}" class="team_detail_button">지원하기</a>
+                                <form action="/team-apply/${teamDetailItem.id}" method="POST">
+                                    <input type="hidden" value="${teamDetailItem.userId}" name="captainUserId">
+                                    <button type="submit" class="team_detail_button">
+                                        지원하기
+                                    </button>
+                                </form>
                             </div>
 
                         </div>

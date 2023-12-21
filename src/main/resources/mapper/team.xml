@@ -5,9 +5,11 @@
 <mapper
         namespace="com.example.teamprojectbringiton.team.TeamRepository">
 
-    <insert id="insert">
-        INSERT INTO team_tb (team_name, team_location, team_capacity, team_introduce, team_pic_url, age_id, gender_id, position_id, sport_id, created_at)
-        VALUES (#{teamName}, #{teamLocation}, #{teamCapacity}, #{teamIntroduce}, #{teamPicUrl}, #{ageId}, #{genderId}, #{positionId}, #{sportId}, now())
+    <insert id="insert" parameterType="com.example.teamprojectbringiton.team.Team" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO team_tb (team_name, team_location, team_capacity, team_introduce, team_pic_url, age_id, gender_id,
+        position_id, sport_id, created_at)
+        VALUES (#{teamName}, #{teamLocation}, #{teamCapacity}, #{teamIntroduce}, #{teamPicUrl}, #{ageId}, #{genderId},
+        #{positionId}, #{sportId}, now())
     </insert>
 
     <select id="findAll" resultType="com.example.teamprojectbringiton.team.Team">
@@ -39,5 +41,7 @@
                       on t.gender_id = g.id
                  join position_tb p
                       on t.position_id = p.id
+                 join captain_tb c
+                      on c.team_id = t.id
     </select>
 </mapper>

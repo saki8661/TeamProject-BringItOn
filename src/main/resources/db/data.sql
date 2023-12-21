@@ -27,7 +27,8 @@ VALUES ('ssar', '대욱', 'password1', 'bbarkse1129@naver.com', '서울시 강�
         '109876543', '나의 계좌10', NOW(), 1, 11, 1, 4, false);
 
 -- 팀 더미 데이터
-INSERT INTO team_tb (team_name, team_capacity, team_location, team_pic_url, team_introduce, level, age_id, gender_id, position_id, sport_id,
+INSERT INTO team_tb (team_name, team_capacity, team_location, team_pic_url, team_introduce, level, age_id, gender_id,
+                     position_id, sport_id,
                      created_at)
 VALUES ('축구Team 1', '10', '서울', 'psg.jpg', '즐거운 축구팀', '상', 1, 1, 1, 1, NOW()),
        ('축구Team 2', '10', '경기', 'psg.jpg', '행복한 축구팀', '중', 2, 1, 1, 2, NOW()),
@@ -652,3 +653,19 @@ VALUES ('신청합니다!', NOW(), 2, 1),
        ('ㅁㄴ이ㅡㅁ르ㅜㅏㅣ무', NOW(), 6, 4),
        ('축구 드르와', NOW(), 8, 4),
        ('내가 제일 잘함 ㅅㄱ', NOW(), 9, 4);
+
+
+INSERT INTO captain_tb (user_id, team_id)
+values (1, 1),
+       (2, 2),
+       (3, 3),
+       (4, 4),
+       (5, 5),
+       (6, 6),
+       (7, 7),
+       (8, 8),
+       (9, 9),
+       (10, 10);
+
+INSERT INTO apply_tb(team_id, captain_user_id, personal_user_id)
+values (1, 1, 3)
