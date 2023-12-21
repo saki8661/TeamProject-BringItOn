@@ -4277,3 +4277,27 @@ EDIT ON
     height: 50px;
 }
 
+.modal_detail_title{
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.team_detail_container{
+    width: 1000px;
+    height: 500px;
+}
+
+.team_detail_content{
+    height: 100%;
+}
+
+.team_detail_button{
+    background-color: #19B357;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    border-radius: 15px;
+}
+

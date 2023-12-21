@@ -21,10 +21,23 @@
         where id = #{id}
     </select>
 
-    <select id="findAllJoinRegionAndSport" resultType="com.example.teamprojectbringiton.team.dto.response.TeamListDTO">
+    <select id="findAllJoinSport" resultType="com.example.teamprojectbringiton.team.dto.response.TeamListDTO">
         select *
         from team_tb t
         join sport_tb s
         on t.sport_id = s.id
+    </select>
+
+    <select id="findAllJoin" resultType="com.example.teamprojectbringiton.team.dto.response.TeamDetailDTO">
+        select *
+        from team_tb t
+                 join sport_tb s
+                      on t.sport_id = s.id
+                 join age_tb a
+                      on t.age_id = a.id
+                 join gender_tb g
+                      on t.gender_id = g.id
+                 join position_tb p
+                      on t.position_id = p.id
     </select>
 </mapper>

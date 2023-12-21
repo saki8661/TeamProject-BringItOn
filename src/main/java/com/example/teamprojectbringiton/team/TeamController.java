@@ -20,8 +20,11 @@ public class TeamController {
 
     @GetMapping("/team-main")
     public String teamMainPage(Model model) {
-        List<TeamListDTO> teamList = teamService.findAllJoinRegionAndSport();
+        List<TeamListDTO> teamList = teamService.findAllJoinSport();
+        List<TeamDetailDTO> teamDetail = teamService.findAllJoin();
+        System.out.println(teamList.get(3) );
         model.addAttribute("teamList", teamList);
+        model.addAttribute("teamDetail", teamDetail);
         return "team/teamMain";
     }
 
@@ -38,7 +41,7 @@ public class TeamController {
                 .teamName(dto.getTeamName())
                 .teamLocation(dto.getTeamLocation())
                 .teamPicUrl("psg.jpg")
-                .teamIntroduce(dto.getTeamDescription())
+                .teamIntroduce(dto.getTeamIntroduce())
                 .ageId(dto.getAgeId())
                 .genderId(dto.getGenderId())
                 .sportId(dto.getSportId())

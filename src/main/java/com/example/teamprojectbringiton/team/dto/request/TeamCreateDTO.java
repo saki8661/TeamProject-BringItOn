@@ -7,7 +7,7 @@ public class TeamCreateDTO {
     private Integer id;
     private String teamName;
     private String teamLocation;
-    private String teamDescription;
+    private String teamIntroduce;
     private String teamCapacity;
     private Integer sportId;
     private Integer genderId;

@@ -23,12 +23,17 @@ public class TeamService {
         return team;
     }
 
-    public List<TeamListDTO> findAllJoinRegionAndSport() {
-        List<TeamListDTO> teamList = teamRepository.findAllJoinRegionAndSport();
+    public List<TeamListDTO> findAllJoinSport() {
+        List<TeamListDTO> teamList = teamRepository.findAllJoinSport();
         return teamList;
     }
 
     public void insert(Team team) {
         teamRepository.insert(team);
+    }
+
+    public List<TeamDetailDTO> findAllJoin() {
+       List<TeamDetailDTO> teamList = teamRepository.findAllJoin();
+        return teamList;
     }
 }
