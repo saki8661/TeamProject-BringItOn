@@ -208,7 +208,7 @@
                             <ul class="dropdown-menu sub_navbar_style">
                                 <c:forEach var="region" items="${regionList}">
                                     <li>
-                                        <a class="dropdown-item region-option" href="#" data-region-id="${region.id+1}">
+                                        <a class="dropdown-item region-option" href="#" data-region-name="${region.regionName}">
                                                 ${region.regionName}
                                         </a>
                                     </li>
@@ -219,11 +219,11 @@
                 </div>
                 <div class="manual_box" id="matchingListContainer">
                     <c:forEach var="matching" items="${matchings}">
-                        <div class="manual_card region-${matching.teamLocation}" data-region-id="${matching.teamLocation}">
+                        <div class="manual_card region-${matching.teamLocation}" data-region-name="${matching.teamLocation}">
                             <div class="matching_list">
                                 <div class="matching_detail">
                                     <div class="manual_tit">
-                                            ${matching.reservationDate}/
+                                            ${matching.reservationDate} /
                                     </div>
                                     <div class="manual_tit">
                                             ${matching.startTime}~
@@ -360,19 +360,19 @@
         regionOptions.forEach(option => {
             option.addEventListener("click", function (e) {
                 e.preventDefault();
-                const selectedRegionId = this.getAttribute("data-region-id");
-                const selectedRegionName = this.innerText;
+                const selectedRegionName = this.getAttribute("data-region-name");
+                const selectedTeamLocation = this.innerText;
                 // 선택한 지역에 해당하는 매칭만 표시하기
                 matchingCards.forEach(card => {
-                    const regionId = card.getAttribute("data-region-id");
-                    if (regionId === selectedRegionId || selectedRegionId === "all") {
+                    const regionName = card.getAttribute("data-region-name");
+                    if (regionName === selectedRegionName || selectedRegionName === "all") {
                         card.style.display = "block";
                     } else {
                         card.style.display = "none";
                     }
                 });
                 // 선택한 지역명으로 드롭다운 버튼 내용 변경
-                selectedRegionSpan.innerText = selectedRegionName;
+                selectedRegionSpan.innerText = selectedTeamLocation;
             });
         });
     });
