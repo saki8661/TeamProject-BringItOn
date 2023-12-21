@@ -4,7 +4,6 @@ import com.example.teamprojectbringiton.matching.dto.response.MatchingListDTO;
 import com.example.teamprojectbringiton.region.Region;
 import com.example.teamprojectbringiton.reservation.ReservationService;
 import com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO;
-import com.example.teamprojectbringiton.team.Team;
 import com.example.teamprojectbringiton.user.User;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,27 +32,29 @@ public class MatchingController {
         System.out.println("controller 진입");
         List<MatchingReservationDTO> matchings = reservationService.matchingReservationList();
         System.out.println("-============================"+matchings.size());
-        List<Team> teamList = reservationService.teamList();
         List<Region> regionList = reservationService.regionList();
         System.out.println("매칭신청 예약 리스트 입니다"+matchings.get(0).getTeamName());
         model.addAttribute("matchings", matchings);
-        model.addAttribute("teamList", teamList);
         model.addAttribute("regionList", regionList);
+        System.out.println("매칭아이디"+matchings.get(2).getMatchingId());
         return "matching/matchingPage";
     }
 
-    @PostMapping("/matching-apply")
-    public String matchingApply(MatchingListDTO dto){
+
+    @PostMapping("/matching-apply/{id}")
+    public String matchingApply(@PathVariable Integer id, MatchingListDTO dto){
         User sessionUser = (User) session.getAttribute("sessionUser");
-        matchingService.matchigApply(dto, sessionUser.getId());
+        dto.setMatchUserId(sessionUser.getId());
+        System.out.println("pathVariable"+id);
+        matchingService.matchingApply(dto);
         return "redirect:/matching-main";
     }
 
-    @GetMapping("/matching-myMatch/{id}")
-    public String myMatchPage(@PathVariable Integer id){
-        User sessionUser = (User) session.getAttribute("sessionUser");
-        matchingService.findByMyApplyMatch(sessionUser.getId());
-        return "redirect:/matching-main";
-    }
+//    @GetMapping("/matching-myMatch/{id}")
+//    public String myMatchPage(@PathVariable Integer id){
+//        User sessionUser = (User) session.getAttribute("sessionUser");
+//        matchingService.findByMyApplyMatch(sessionUser.getId());
+//        return "redirect:/matching-main";
+//    }
 
 }

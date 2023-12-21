@@ -13,8 +13,7 @@ public class UserTeamInfoDTO {
     private String teamPicUrl;
     private String teamCapacity;
     private String teamIntroduce;
-    private Integer regionId;
-    private String regionName;
+    private String teamLocation;
     private Integer sportId;
     private String sportName;
 }

@@ -7,9 +7,8 @@ public class TeamListDTO {
     private Integer id;
     private String teamName;
     private String teamPicUrl;
+    private String teamLocation;
     private Integer teamCapacity;
-    private Integer regionId;
-    private String regionName;
     private Integer sportId;
     private String sportName;
 }

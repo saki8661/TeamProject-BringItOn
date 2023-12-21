@@ -31,7 +31,7 @@
     <select id="findByMyApplyMatch">
         select *
         from matching_tb
-        where user_id = #{principalId}
+        where user_id = #{userId}
     </select>
 
 

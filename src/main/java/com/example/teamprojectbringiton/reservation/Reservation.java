@@ -22,10 +22,10 @@ public class Reservation {
     private Timestamp createdAt;
     private Integer userId;
     private Integer spaceId;
+    private Integer matchingId;
 
     @Builder
-    public Reservation(Integer id, Date reservationDate,Integer personnel, Time startTime, Time endTime, String toHost, String status, boolean matching, Timestamp createdAt, Integer userId, Integer spaceId) {
-
+    public Reservation(Integer id, Date reservationDate, Integer personnel, Time startTime, Time endTime, String toHost, String status, boolean matching, Timestamp createdAt, Integer userId, Integer spaceId, Integer matchingId) {
         this.id = id;
         this.reservationDate = reservationDate;
         this.personnel = personnel;
@@ -37,5 +37,6 @@ public class Reservation {
         this.createdAt = createdAt;
         this.userId = userId;
         this.spaceId = spaceId;
+        this.matchingId = matchingId;
     }
 }
