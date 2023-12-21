@@ -1792,12 +1792,14 @@ input::placeholder {
     padding: 10px; /* 내부 여백 설정 */
     margin: 10px; /* 외부 여백 설정 */
     background-color: #FFFFFF;
-    height: 100px;
+    width: 500px;
+    height: 300px;
 }
 
 .re_host_send_container_txt {
     width: 100%;
     height: 100%;
+    resize: none;
     color: #FFFFFF;
 }
 
@@ -3736,6 +3738,7 @@ EDIT ON
     font-weight: 400;
 }
 
+
 .board {
     margin-top: 100px;
     padding-bottom: 30px;
@@ -4129,5 +4132,4 @@ EDIT ON
     background-color: white;
 }
 
->>> >>> > dev
->>>>>>> dev
+

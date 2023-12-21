@@ -225,7 +225,7 @@
                     <div class="place_detail_stick_area_menu_bottom">
                         <i class="fas fa-heart fa-2x" id="heartIcon" style="padding-right: 10px"
                            onclick="toggleHeartColor()"></i>
-                        <a href="http://localhost/reservation">
+                        <a href="http://localhost/reservation/${spaceDetail.id}">
                             <button class="place_detail_stick_area_menu_button">예약하기</button>
                         </a>
                     </div>

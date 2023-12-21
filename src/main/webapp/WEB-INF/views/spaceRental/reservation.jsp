@@ -15,140 +15,137 @@
 
 
 <div class="reservation_background">
+    <form method="post" action="/reservation/${reservationName.spaceId}">
+        <div class="reservation_container">
 
-    <div class="reservation_container">
-
-        <div class="re_acception">
-            <div class="re_acception_letter">
-                <h3>예약 접수</h3>
+            <div class="re_acception">
+                <div class="re_acception_letter">
+                    <h3>예약 접수</h3>
+                </div>
+                <div class="re_choice_place">
+                    <div class="re_choice_letter"><h3> 선택한 공간 </h3></div>
+                    <hr class="reservation_line">
+                    <div class="re_choice_place_detail">
+                        <div class="re_place_image">
+                            <img src="/images/${reservationName.spacePic}">
+                        </div>
+                        <div class="re_choice_place_letter">
+                            <div class="re_choice_place_letter_name">
+                                <h3>${reservationName.spaceName}</h3>
+                            </div>
+                            <div class="re_choice_place_letter_field">
+                                <h3>${reservationName.spaceLocation}</h3>
+                            </div>
+                            <div class="re_choice_place_letter_time">
+                                <h2>낮대관(12~17시)</h2>
+                            </div>
+                            <div class="re_choice_place_letter_cost">
+                                <h2>${reservationName.pricePerHour}</h2>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="re_choice_place">
-                <div class="re_choice_letter"><h3> 선택한 공간 </h3></div>
+            <div class="re_calendar">
+                <div class="re_calendar_letter">
+                    <h3>날짜 선택</h3>
+                </div>
                 <hr class="reservation_line">
-
-                <div class="re_choice_place_detail">
-                    <div class="re_place_image">
-                        <img src="/images/reservation_place.png">
-                    </div>
-                    <div class="re_choice_place_letter">
-                        <div class="re_choice_place_letter_name">
-                            <h3>한성 대학교</h3>
-                        </div>
-                        <div class="re_choice_place_letter_field">
-                            <h3>포인트, 숲길 2호점</h3>
-                        </div>
-                        <div class="re_choice_place_letter_time">
-                            <h2>낮대관(12~17시)</h2>
-                        </div>
-                        <div class="re_choice_place_letter_cost">
-                            <h2>120,000원~/패키지[5시간]</h2>
-                        </div>
-                    </div>
-
+                <div class="re_calendar_detail">
+                    <table class="re_calendar_real">
+                        <thead>
+                        <tr>
+                            <td onClick="prevCalendar();" style="cursor:pointer;">&#60;</td>
+                            <td colspan="5">
+                                <span id="calYear"></span>년
+                                <span id="calMonth"></span>월
+                            </td>
+                            <td onClick="nextCalendar();" style="cursor:pointer;">&#62;</td>
+                        </tr>
+                        <tr>
+                            <td>일</td>
+                            <td>월</td>
+                            <td>화</td>
+                            <td>수</td>
+                            <td>목</td>
+                            <td>금</td>
+                            <td>토</td>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        </tbody>
+                    </table>
                 </div>
             </div>
-        </div>
-        <div class="re_calendar">
-            <div class="re_calendar_letter">
-                <h3>날짜 선택</h3>
-            </div>
-            <hr class="reservation_line">
-            <div class="re_calendar_detail">
-                <table class="re_calendar_real">
-                    <thead>
-                    <tr>
-                        <td onClick="prevCalendar();" style="cursor:pointer;">&#60;</td>
-                        <td colspan="5">
-                            <span id="calYear"></span>년
-                            <span id="calMonth"></span>월
-                        </td>
-                        <td onClick="nextCalendar();" style="cursor:pointer;">&#62;</td>
-                    </tr>
-                    <tr>
-                        <td>일</td>
-                        <td>월</td>
-                        <td>화</td>
-                        <td>수</td>
-                        <td>목</td>
-                        <td>금</td>
-                        <td>토</td>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    </tbody>
-                </table>
-            </div>
-        </div>
-        <div class="re_time_choice">
-            <div class="re_choice_letter">
-                이용 시간 선택
-            </div>
-            <hr class="reservation_line">
-            <div class="re_time_choice_caution">
-                <h2>대관 운영 시간 </h2>
-                <img width="18" height="18" src="https://img.icons8.com/color/48/spam.png" alt="spam"/>
-                <div class="re_time_choice_caution_red">
-                    <h2>00:00~23:59</h2>
-                </div>
-            </div>
-            <form>
-                <p><input type="time"></p>
-                <p><input type="submit" value="Submit"></p>
-            </form>
-
-            <form class="re_time_choice_radio">
-                <label>
-                    <input type="radio" name="time" value="time" id="radioButton">
-                </label>
-                <h3>180,000 / 5시간</h3>
-            </form>
-        </div>
-        <div class="re_person_choice">
-            <div class="re_choice_letter">
-                인원 선택
-            </div>
-            <hr class="reservation_line">
-            <div class="re_person_caution">
-                <h2>2명 초과부터 1명당 20,000원이 추가됩니다.</h2>
-                <h2>공간의 최대 인원은 6명입니다.</h2>
-            </div>
-            <div class="re_person_count">
-                <input type='button'
-                       onclick='count("minus")'
-                       value='-'/>
-                <div class="re_count_number" id='result'>0</div>
-                <input type='button'
-                       onclick='count("plus")' value='+'/>
-            </div>
-
-        </div>
-        <div class="re_host_send">
-            <div class="re_host_title">
+            <div class="re_time_choice">
                 <div class="re_choice_letter">
-                    호스트 전달 내용
+                    이용 시간 선택
                 </div>
-                <div class="re_choice_letter_blue">
-                    * 개인 연락저 전달 불가
+                <hr class="reservation_line">
+                <div class="re_time_choice_caution">
+                    <h2>대관 운영 시간 </h2>
+                    <img width="18" height="18" src="https://img.icons8.com/color/48/spam.png" alt="spam"/>
+                    <div class="re_time_choice_caution_red">
+                        <h2>00:00~23:59</h2>
+                    </div>
+                </div>
+                <form>
+                    <p><input type="time"></p>
+                    <p><input type="submit" value="Submit"></p>
+                </form>
+            </div>
+            <div class="re_person_choice">
+                <div class="re_choice_letter">
+                    인원 선택
+                </div>
+                <hr class="reservation_line">
+                <div class="re_person_caution">
+                    <h2>2명 초과부터 1명당 20,000원이 추가됩니다.</h2>
+                    <h2>공간의 최대 인원은 6명입니다.</h2>
+                </div>
+                <input type="hidden" name="personnel" id="personnel">
+                <div class="re_person_count" id="personnelId">
+                    <input type='button'
+                           onclick='count("minus")'
+                           value='-'/>
+                    <div class="re_count_number" id='result'>0</div>
+                    <input type='button'
+                           onclick='count("plus")' value='+'/>
+                </div>
+
+            </div>
+            <div class="re_host_send">
+                <div class="re_host_title">
+                    <div class="re_choice_letter">
+                        호스트 전달 내용
+                    </div>
+                    <div class="re_choice_letter_blue">
+                        * 개인 연락저 전달 불가
+                    </div>
+                </div>
+                <hr class="reservation_line">
+                <div class="re_host_send_container">
+                    <input type="hidden">
+                    <textarea class="re_host_send_container_txt" name="toHost" id="to_host"
+                              placeholder="호스트에게 전달하고 싶은 내용을 적어주세요." style="color: black"></textarea>
                 </div>
             </div>
-            <hr class="reservation_line">
-            <div class="re_host_send_container">
-                <textarea class="re_host_send_container_txt" name="" id=""
-                          placeholder="호스트에게 전달하고 싶은 내용을 적어주세요."></textarea>
+            <div class="re_matching_check">
+                <input type="radio" name="matching" id="matchingCheckboxTrue" class="matchingCheckbox" value="true">
+                <label for="matchingCheckboxTrue">매칭 할래요.</label>
+                <input type="radio" name="matching" id="matchingCheckboxFalse" class="matchingCheckbox" value="false">
+                <label for="matchingCheckboxFalse">매칭 안할래요.</label>
             </div>
+            <input type="hidden" name="spaceId" value="${reservationName.spaceId}">
+            <input type="hidden" name="userId" value="${sessionUser.id}">
+            <div class="reservation_button">
+                <button class="reservation_button_detail" type="submit">
+                    예약하기
+                </button>
+            </div>
+
         </div>
-        <div class="re_matching_check">
-            <input type="radio" name="checkbox" id="matchingCheckboxTrue" class="matchingCheckbox" onclick="toggleCheckboxes(this)">
-            <label for="matchingCheckboxTrue">매칭 할래요.</label>
-            <input type="radio" name="checkbox" id="matchingCheckboxFalse" class="matchingCheckbox" onclick="toggleCheckboxes(this)">
-            <label for="matchingCheckboxFalse">매칭 안할래요.</label>
-        </div>
-        <div class="reservation_button">
-            <button class="reservation_button_detail">
-                예약하기
-            </button>
-        </div>
-    </div>
+    </form>
 
     <script>
         window.onload = function () {
@@ -249,13 +246,18 @@
             // 더하기/빼기
             if (type === 'plus' && number < 6) {
                 number = number + 1;
+
             } else if (type === 'minus' && number > 0) {
                 number = number - 1;
+
             }
 
             // 결과 출력
             resultElement.innerText = number;
+            console.log("number:" + number);
+            document.getElementById("personnel").value = number;
         }
+
 
         // 라디오 버튼 언체크 함수
         function uncheckRadio() {
@@ -284,5 +286,7 @@
                 }
             }
         }
+
+
     </script>
 <%@ include file="../layout/footer.jsp" %>
