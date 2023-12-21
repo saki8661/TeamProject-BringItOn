@@ -20,29 +20,19 @@
             <a href="">시설이용내역</a>
         </li>
 
-<<<<<<< HEAD
         <li class="host_main_link">
             <a href="">고객센터</a>
-=======
-        <li class="main_link">
-            <a href="/board-main">게시판</a>
-        </li>
-
-        <li class="main_link">
-            <a href="/notice-main">고객센터</a>
->>>>>>> dev
         </li>
     </ul>
 </div>
 <hr class="nav_hr_below"/>
 
 <div class="frame">
-    <div class="row">
-        <div class="col-md-9 box">
+    <div class="row host_managementPage">
+        <div class="col-md-9  box">
             <div class="d-flex pe-3 my-3">
                 <div class="userInfo_title">내 시설</div>
             </div>
-
             <div>
                 <div class="matching_box">
                     <div class="league_matching_table_title">
@@ -67,18 +57,9 @@
                         <div class="league_matching_content"> 0 : 0 (무)</div>
                         <button class="host_button host_btn_style" type="button" data-bs-toggle="modal"
                                 data-bs-target="#myModal_two">상세보기
-                    </div>
-                    <div class="league_matching_table_content">
-                        <div class="league_matching_content_team_name"><img src="/images/reservation_place.png">
-                            <div>실내축구공간2</div>
-                        </div>
-                        <div class="league_matching_content-date">2023-06-01 18:00</div>
-                        <div class="league_matching_content-date"> 부산 준타스 풋볼 아레나</div>
-                        <div class="league_matching_content"> 0 : 0 (무)</div>
-                        <button class="host_button host_btn_style" type="button" data-bs-toggle="modal"
-                                data-bs-target="#myModal_two">상세보기
                         </button>
                     </div>
+                    
                 </div>
                 <div class="league_matching_button">
 

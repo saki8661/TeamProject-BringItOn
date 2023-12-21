@@ -178,9 +178,7 @@ public class UserService {
     @Transactional
     public User userUpdateImage(UserUpdateImageDTO dto, User sessionUser) {
         User user = userRepository.findById(sessionUser.getId());
-
         String fileName = function.saveImage(dto.getPic());
-
         user.updateUserPicUrl(fileName);
         userRepository.userUpdateImage(user);
         return user;

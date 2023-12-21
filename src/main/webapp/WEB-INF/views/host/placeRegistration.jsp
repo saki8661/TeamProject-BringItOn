@@ -79,7 +79,7 @@
                 호스트의 대표 전화번호(대표자 또는 내선번호)를 적어주세요.
             </div>
             <div class="place_resistration_tel_number_container">
-                 <textarea class="place_resistration_tel_number" style="resize: none"></textarea>
+                <textarea class="place_resistration_tel_number" style="resize: none"></textarea>
             </div>
         </div>
 
@@ -105,10 +105,6 @@
                 대관 운영 시간
             </div>
             <hr class="reservation_line">
-            <div class="place_resistration_rent_time_check">
-                <input type="checkbox" id="rent_time_checkBox1" name="time1">
-                <label for="rent_time_checkBox1" style="padding-left: 10px">24시간 영업</label>
-            </div>
             <div class="place_resistration_rent_time_menu">
                 <select id="place_resistration_rent_time_dropdown1">
                     <!-- 옵션 요소로 드롭다운 항목을 추가 -->

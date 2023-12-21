@@ -4129,4 +4129,7 @@ EDIT ON
     background-color: white;
 }
 
->>> >>> > dev
+.host_managementPage {
+    justify-content: center;
+}
+

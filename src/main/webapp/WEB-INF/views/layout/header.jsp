@@ -55,7 +55,7 @@
                         </button>
                     </div>
                 </form>
-                <a class="nav_add" href="javascript:void(0)">시설등록</a>
+                <a class="nav_add" href="/place-registration">시설등록</a>
                 <div class="header_auth">
                     <c:choose>
                         <c:when test="${empty sessionUser}">
