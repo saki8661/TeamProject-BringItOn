@@ -17,7 +17,7 @@ public class UserReservationListDTO {
     private String spaceName;
     private Integer pricePerHour;
     private String spaceLocation;
+    private Integer spacePic;
     private String sector;
-    private String spacePic;
 
 }

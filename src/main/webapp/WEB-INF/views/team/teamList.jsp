@@ -34,10 +34,10 @@
         <label for="team_filter_age"></label>
         <select name="age" id="team_filter_age">
             <option value="teen">10대 ~ 20대</option>
-            <option value="man">20대 ~ 30대</option>
-            <option value="women">30대 ~ 40대</option>
-            <option value="women">40대 ~ 50대</option>
-            <option value="women">50대 이상</option>
+            <option value="twenties">20대 ~ 30대</option>
+            <option value="thirties">30대 ~ 40대</option>
+            <option value="forties">40대 ~ 50대</option>
+            <option value="others">50대 이상</option>
         </select>
     </div>
 
@@ -60,7 +60,7 @@
                                     ${teamItem.teamCapacity}
                             </div>
                         </div>
-                        <div class="team_list_item_location">${teamItem.regionName}</div>
+                        <div class="team_list_item_location">${teamItem.teamLocation}</div>
                         <div class="team_list_item_tag">
                             <div>남녀 모두</div>
                             <div>${teamItem.sportName}</div>

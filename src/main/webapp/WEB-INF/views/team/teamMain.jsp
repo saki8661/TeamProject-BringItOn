@@ -65,7 +65,7 @@
                         <%@ include file="../team/teamList.jsp" %>
                     </li>
                     <li>
-                        <%@ include file="../team/teamWrite.jsp" %>
+                        <%@ include file="teamCreate.jsp" %>
                     </li>
                 </ul>
             </div>
@@ -106,5 +106,6 @@
             event.preventDefault();
         });
     });
+
 </script>
 <%@ include file="../layout/footer.jsp" %>

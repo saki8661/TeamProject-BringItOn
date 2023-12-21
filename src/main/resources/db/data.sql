@@ -27,42 +27,58 @@ VALUES ('ssar', '대욱', 'password1', 'bbarkse1129@naver.com', '서울시 강�
         '109876543', '나의 계좌10', NOW(), 1, 11, 1, 4, false);
 
 -- 팀 더미 데이터
-INSERT INTO team_tb (team_name, team_capacity, team_pic_url, team_introduce, level, region_id, sport_id)
-VALUES ('축구Team 1', '10', 'psg.jpg', '즐거운 축구팀', '상', 1, 1),
-       ('축구Team 2', '10', 'psg.jpg', '행복한 축구팀', '중', 2, 1),
-       ('축구Team 3', '10', 'psg.jpg', '밝은 축구팀', '상', 1, 1),
-       ('축구Team 4', '10', 'psg.jpg', '기운넘치는 축구팀', '하', 1, 1),
-       ('축구Team 5', '10', 'psg.jpg', '폼미친 축구팀', '중', 2, 1),
-       ('축구Team 6', '10', 'psg.jpg', '예능 축구팀', '증', 3, 1),
-       ('축구Team 7', '10', 'psg.jpg', '초보자 축구팀', '하', 1, 1),
-       ('축구Team 8', '10', 'psg.jpg', '초보탈출 축구팀', '하', 1, 1),
-       ('축구Team 9', '10', 'psg.jpg', '세모발 축구팀', '하', 1, 1),
-       ('축구Team 10', '10', 'psg.jpg', '능력자 축구팀', '상', 2, 1);
+INSERT INTO team_tb (team_name, team_capacity, team_location, team_pic_url, team_introduce, level, age_id, gender_id, position_id, sport_id,
+                     created_at)
+VALUES ('축구Team 1', '10', '서울', 'psg.jpg', '즐거운 축구팀', '상', 1, 1, 1, 1, NOW()),
+       ('축구Team 2', '10', '경기', 'psg.jpg', '행복한 축구팀', '중', 2, 1, 1, 2, NOW()),
+       ('축구Team 3', '10', '인천', 'psg.jpg', '밝은 축구팀', '상', 1, 2, 2, 1, NOW()),
+       ('축구Team 4', '10', '부산', 'psg.jpg', '기운넘치는 축구팀', '하', 1, 3, 2, 1, NOW()),
+       ('축구Team 5', '10', '부산', 'psg.jpg', '폼미친 축구팀', '중', 2, 3, 1, 1, NOW()),
+       ('축구Team 6', '10', '대전', 'psg.jpg', '예능 축구팀', '증', 1, 2, 1, 1, NOW()),
+       ('축구Team 7', '10', '경남', 'psg.jpg', '초보자 축구팀', '하', 1, 2, 1, 2, NOW()),
+       ('축구Team 8', '10', '강원', 'psg.jpg', '초보탈출 축구팀', '하', 1, 1, 1, 2, NOW()),
+       ('축구Team 9', '10', '경북', 'psg.jpg', '세모발 축구팀', '하', 1, 2, 2, 2, NOW()),
+       ('축구Team 10', '10', '제주', 'psg.jpg', '능력자 축구팀', '상', 2, 1, 2, 2, NOW());
 
 -- 지역 더미 데이터
 INSERT INTO region_tb (region_name)
 VALUES ('서울'),
-       ('경기'),
+       ('부산'),
        ('인천'),
-       ('충청도'),
-       ('전라도'),
-       ('경상도'),
-       ('강원도'),
-       ('제주도');
+       ('대전'),
+       ('대구'),
+       ('울산'),
+       ('광주'),
+       ('경기'),
+       ('강원'),
+       ('충남'),
+       ('충북'),
+       ('전남'),
+       ('전북'),
+       ('경남'),
+       ('경북'),
+       ('제주');
 
--- 지역 더미 데이터
+-- 성별 더미 데이터
 INSERT INTO gender_tb (gender)
 VALUES ('남자'),
-       ('여자');
+       ('여자'),
+       ('남녀 모두');
 
 
--- 지역 더미 데이터
+-- 나이 더미 데이터
 INSERT INTO age_tb (age)
 VALUES ('10대'),
        ('20대'),
        ('30대'),
        ('40대'),
        ('50대');
+
+-- 포지션 더미데이터
+INSERT INTO position_tb (position)
+VALUES ('공격'),
+       ('수비'),
+       ('올라운드');
 
 -- 운동 종목 더미 데이터
 INSERT INTO sport_tb (sport_name)
