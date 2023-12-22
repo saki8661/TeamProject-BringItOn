@@ -42,6 +42,8 @@
     <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
     <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 
+    <!--지도 api 라이브러리-->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7ba34bd55504b76a82b2071b1bbc61da&libraries=services"></script>
 </head>
 
 
