@@ -1555,8 +1555,8 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 9%;
+    padding-right: 9%;
     padding-bottom: 180px;
 }
 
@@ -1759,8 +1759,8 @@ input::placeholder {
     padding-right: 20px;
     padding-top: 20px;
     justify-content: center;
-
 }
+
 
 .re_person_auto_count {
     display: flex;
@@ -1810,6 +1810,9 @@ input::placeholder {
     font-weight: bolder;
 }
 
+.re_matching_check input {
+    margin-top: 20px;
+}
 
 .re_matching_check label {
     padding: 20px;
@@ -4132,10 +4135,10 @@ EDIT ON
     background-color: white;
 }
 
-<<<<<<< HEAD
 .host_managementPage {
     justify-content: center;
-=======
+}
+
 /* team create */
 
 
@@ -4207,7 +4210,7 @@ EDIT ON
     gap: 20px;
 }
 
-.team_create_item_logo_input > img{
+.team_create_item_logo_input > img {
     width: 150px;
     height: 150px;
     border-radius: 25px;
@@ -4279,6 +4282,6 @@ EDIT ON
     background-color: palegreen;
     width: 100%;
     height: 50px;
->>>>>>> dev
 }
+
 

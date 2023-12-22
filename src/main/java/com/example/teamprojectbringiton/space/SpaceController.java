@@ -1,7 +1,9 @@
 package com.example.teamprojectbringiton.space;
 
 
+import com.example.teamprojectbringiton._core.utils.Function;
 import com.example.teamprojectbringiton._core.utils.PageVO;
+import com.example.teamprojectbringiton.space.dto.request.SaveDTO;
 import com.example.teamprojectbringiton.space.dto.response.SpaceDTO;
 import com.example.teamprojectbringiton.space.dto.response.SpaceDetailDTO;
 import com.example.teamprojectbringiton.space.dto.response.SpaceReviewDTO;
@@ -12,9 +14,7 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -30,6 +30,20 @@ public class SpaceController {
     @Autowired
     private HttpSession session;
 
+    @Autowired
+    private Function function;
+
+
+    @PostMapping("/space/space-save")
+    public String spaceSave(SaveDTO saveDTO) {
+        // 유저 id를 추가하기 위한 로직
+        User user = (User) session.getAttribute("sessionUser");
+        saveDTO.setUserId(1);
+        String pic = function.saveImage(saveDTO.getFile());
+        spaceService.save(saveDTO.toEntity(), pic);
+
+        return "redirect:/management-main";
+    }
 
     @GetMapping("/space-detail/{id}")
     public String placeDetailPage(@PathVariable Integer id, Model model) {
@@ -44,7 +58,7 @@ public class SpaceController {
         return "/spaceRental/placeDetail";
     }
 
-    @GetMapping({"/","home"})
+    @GetMapping({"/", "home"})
     public String spaceMainPage(@RequestParam(name = "currentPage", defaultValue = "1") int currentPage,
                                 @RequestParam(name = "pageSize", defaultValue = "8") int pageSize,
                                 Model model) {
@@ -61,6 +75,10 @@ public class SpaceController {
         pageVO.setPageSize(8); // 기본값 설정
         pageVO.setCountSize(5);
 
+        spaces.get(0).getSpaceLocation();
+        spaces.get(0).getSpaceName();
+        spaces.get(0).getSector();
+        spaces.get(0).getSpaceName();
         model.addAttribute("spaces", spaces);
         model.addAttribute("pageVO", pageVO);
         // 페이징 정보를 모델에 추가

@@ -95,7 +95,7 @@
                     <c:forEach var="item" items="${spaces}">
                         <div>
                             <div class="inside_content">
-                                <a href="/space-detail/${item.id}"><img src="/images/${item.spacePic}"></a>
+                                <a href="/space-detail/${item.id}"><img src="/img/${item.spacePic}"></a>
                             </div>
 
                             <div class="main_content_title m-2">
@@ -103,13 +103,13 @@
                             </div>
                             <div class="main_content_category m-2">
                                 [${item.sector}/${item.sportName}]
-                                    ${item.isInside() ? '실내 체육관' : '실외 체육관'}
+                                    ${item.isInside ? '실내 체육관' : '실외 체육관'}
                             </div>
                             <div class="main_content_location m-2">
-                                    ${item.regionName}
+                                    ${item.spaceLocation}
                             </div>
                             <div class="main_content_price m-2 mb-4">
-                                    ${item.pricePerHour}원 ~
+                                    ${item.price}원 ~
                             </div>
                         </div>
                     </c:forEach>

@@ -42,7 +42,7 @@
                         <div class="league_matching_title">시설명</div>
                         <div class="league_matching_title">전화번호</div>
                         <div class="league_matching_title">주소</div>
-                        <div class="league_matching_title">간단소개</div>
+                        <div class="league_matching_title">제한인원</div>
                         <div></div>
                         <div></div>
 
@@ -59,7 +59,7 @@
                                 data-bs-target="#myModal_two">상세보기
                         </button>
                     </div>
-                    
+
                 </div>
                 <div class="league_matching_button">
 

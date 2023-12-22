@@ -1,10 +1,14 @@
 package com.example.teamprojectbringiton.space;
 
 
+import com.example.teamprojectbringiton._core.utils.Function;
+import com.example.teamprojectbringiton.space.dto.request.SaveDTO;
 import com.example.teamprojectbringiton.space.dto.response.SpaceDTO;
 import com.example.teamprojectbringiton.space.dto.response.SpaceDetailDTO;
 import com.example.teamprojectbringiton.space.dto.response.SpaceListDTO;
 import com.example.teamprojectbringiton.space.dto.response.SpaceReviewDTO;
+import com.example.teamprojectbringiton.space.spacePic.SpacePic;
+import com.example.teamprojectbringiton.space.spacePic.SpacePicRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -15,6 +19,13 @@ public class SpaceService {
 
     @Autowired
     private SpaceRepository spaceRepository;
+
+    @Autowired
+    private Function function;
+
+    @Autowired
+    private SpacePicRepository spacePicRepository;
+
 
     public List<SpaceListDTO> findAll() {
         List<SpaceListDTO> spaces = spaceRepository.findAllJoinSportAndRegion();
@@ -48,4 +59,20 @@ public class SpaceService {
         return spaceRepository.findAllCount();
     }
 
+    public void save(Space space, String pic) {
+
+        // 공간 등록
+
+        spaceRepository.insert(space);
+
+        // 이미지 등록
+        System.out.println("id 가져오나? " + space.getId());
+
+        SpacePic spacePic = SpacePic.builder()
+                .spaceId(space.getId())
+                .spacePic(pic)
+                .build();
+        spacePicRepository.insert(spacePic);
+        
+    }
 }

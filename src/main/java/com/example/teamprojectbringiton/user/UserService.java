@@ -53,20 +53,7 @@ public class UserService {
 
         String phoneNuber = PhoneNumberFormatter.formatPhoneNumber(dto.getUserPhoneNumber());
         //회원가입 db에 insert
-        User user = User.builder()
-                .username(dto.getUsername())
-                .password(dto.getPassword())
-                .userEmail(dto.getEmail())
-                .userPhoneNumber(phoneNuber)
-                .userAddress(dto.getUserAddress())
-                .userDivision(dto.getUserDivision())
-                .nickName(dto.getNickName())
-                .userPicUrl("default_profile.jpg")
-                .ageId(dto.getAgeId())
-                .genderId(dto.getGenderId())
-                .kakaoLogin(false)
-                .build();
-        userRepository.insert(user);
+        userRepository.insert(dto.toEntity());
     }
 
     // 카카오 회원가입

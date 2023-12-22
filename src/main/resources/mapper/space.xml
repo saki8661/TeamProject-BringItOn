@@ -4,9 +4,12 @@
 
 <mapper namespace="com.example.teamprojectbringiton.space.SpaceRepository">
 
-    <insert id="insert">
-        insert into space_tb()
-        values ();
+    <insert id="insert" parameterType="com.example.teamprojectbringiton.space.Space"
+            useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO space_tb (space_name, description, capacity, price, biz_start_time, biz_end_time, space_location,
+                              space_phone_Number, sector, is_inside, created_at, user_id, sport_id)
+        VALUES (#{spaceName}, #{description}, #{capacity}, #{price}, #{bizStartTime}, #{bizEndTime}, #{spaceLocation},
+                #{spacePhoneNumber}, #{sector}, #{isInside}, NOW(), #{userId}, #{sportId});
     </insert>
 
     <update id="updateById">
@@ -53,8 +56,6 @@
         from space_tb space
             left join sport_tb sport
         on space.sport_id = sport.id
-            left join region_tb r
-            on space.region_id = r.id
             left join space_pic_tb pic
             on space.id = pic.space_id
         order by space.id desc

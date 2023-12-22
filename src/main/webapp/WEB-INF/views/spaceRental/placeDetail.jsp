@@ -7,9 +7,9 @@
             <div class="place_detail_description">
                 <div class="slider-container">
                     <div class="slider">
-                        <img src="/images/${spaceDetail.spacePic}" alt="Image 1">
-                        <img src="/images/${spaceDetail.spacePic}" alt="Image 2">
-                        <img src="/images/${spaceDetail.spacePic}" alt="Image 3">
+                        <img src="/img/${spaceDetail.spacePic}" alt="Image 1">
+                        <img src="/img/${spaceDetail.spacePic}" alt="Image 2">
+                        <img src="/img/${spaceDetail.spacePic}" alt="Image 3">
                         <!-- Add more images as needed -->
                     </div>
                     <div class="place_detail_slider_button">
