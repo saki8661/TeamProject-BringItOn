@@ -44,7 +44,13 @@ public class SpaceController {
         return "/spaceRental/placeDetail";
     }
 
-    @GetMapping({"/","home"})
+//    @GetMapping("/space-map")
+//    public String placeMap() {
+//        System.out.println("++++지도 컨트롤러 때리기++++");
+//        return "/spaceRental/placeDetail";
+//    }
+
+    @GetMapping({"/", "home"})
     public String spaceMainPage(@RequestParam(name = "currentPage", defaultValue = "1") int currentPage,
                                 @RequestParam(name = "pageSize", defaultValue = "8") int pageSize,
                                 Model model) {
