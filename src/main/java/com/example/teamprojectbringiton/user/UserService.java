@@ -51,24 +51,9 @@ public class UserService {
 
     @Transactional
     public void userSave(JoinDTO dto) {
-
-        String phoneNuber = PhoneNumberFormatter.formatPhoneNumber(dto.getUserPhoneNumber());
         //회원가입 db에 insert
-        User user = User.builder()
-                .username(dto.getUsername())
-                .password(dto.getPassword())
-                .userEmail(dto.getEmail())
-                .userPhoneNumber(phoneNuber)
-                .userAddress(dto.getUserAddress())
-                .userDivision(dto.getUserDivision())
-                .nickName(dto.getNickName())
-                .userPicUrl("default_profile.jpg")
-                .ageId(dto.getAgeId())
-                .genderId(dto.getGenderId())
-                .kakaoLogin(false)
-                .isCaptain(false)
-                .build();
-        userRepository.insert(user);
+        userRepository.insert(dto.toEntity());
+
     }
 
     // 카카오 회원가입
@@ -181,9 +166,7 @@ public class UserService {
     @Transactional
     public User userUpdateImage(UserUpdateImageDTO dto, User sessionUser) {
         User user = userRepository.findById(sessionUser.getId());
-
         String fileName = function.saveImage(dto.getPic());
-
         user.updateUserPicUrl(fileName);
         userRepository.userUpdateImage(user);
         return user;
@@ -257,10 +240,10 @@ public class UserService {
     }
 
     public void userUpdateIsCaptain(User user) {
-       userRepository.userUpdateIsCaptain(user);
+        userRepository.userUpdateIsCaptain(user);
     }
 
-    public void userUpdateTeamId(User user, UpdateTeamIdDTO dto){
+    public void userUpdateTeamId(User user, UpdateTeamIdDTO dto) {
         user.updateTeamId(dto.getTeamId());
         userRepository.userUpdateTeamId(user);
     }
