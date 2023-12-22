@@ -1,15 +1,16 @@
 package com.example.teamprojectbringiton.reservation;
 
+import com.example.teamprojectbringiton.matching.Matching;
+import com.example.teamprojectbringiton.matching.MatchingRepository;
 import com.example.teamprojectbringiton.matching.MatchingService;
 import com.example.teamprojectbringiton.region.Region;
 import com.example.teamprojectbringiton.region.RegionRepository;
 import com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO;
 import com.example.teamprojectbringiton.reservation.dto.response.UserReservationListDTO;
-import com.example.teamprojectbringiton.reservation.response.ReservationDTO;
+import com.example.teamprojectbringiton.reservation.request.ReservationReqDTO;
+import com.example.teamprojectbringiton.reservation.response.ReservationRespDTO;
 import com.example.teamprojectbringiton.space.Space;
 import com.example.teamprojectbringiton.space.SpaceRepository;
-import com.example.teamprojectbringiton.space.dto.response.SpaceReviewDTO;
-import com.example.teamprojectbringiton.spaceInquire.SpaceInquire;
 import com.example.teamprojectbringiton.team.Team;
 import com.example.teamprojectbringiton.team.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,9 @@ public class ReservationService {
     @Autowired
     MatchingService matchingService;
 
+    @Autowired
+    MatchingRepository matchingRepository;
+
     public List<Team> teamList() {
 
         return teamRepository.findAll();
@@ -58,7 +62,7 @@ public class ReservationService {
     }
 
     public List<UserReservationListDTO> findByUserId(Integer id) {
-        List<UserReservationListDTO> dto =  reservationRepository.findByUserId(id);
+        List<UserReservationListDTO> dto = reservationRepository.findByUserId(id);
         for (UserReservationListDTO reservationListDTO : dto) {
             reservationListDTO.setStartTime(formatTime(reservationListDTO.getStartTime()));
             reservationListDTO.setEndTime(formatTime(reservationListDTO.getEndTime()));
@@ -75,16 +79,16 @@ public class ReservationService {
     }
 
 
-    public ReservationDTO reservationFindBySpaceId(Integer id) {
+    public ReservationRespDTO reservationFindBySpaceId(Integer id) {
         System.out.println("예약하기 서비스 진입" + id);
-        ReservationDTO reservation = reservationRepository.findByIdReservSpaceAndSpacePic(id);
+        ReservationRespDTO reservation = reservationRepository.findByIdReservSpaceAndSpacePic(id);
         System.out.println("+++++++++++++++++레파지토리++++++++++++++");
         return reservation;
 
     }
 
     @Transactional
-    public void reservationSave(com.example.teamprojectbringiton.reservation.request.ReservationDTO dto) {
+    public void reservationSave(ReservationReqDTO dto) {
         System.out.println("++++예약하기 insert진입++++");
         Reservation reservation = Reservation.builder()
                 .personnel(dto.getPersonnel())
@@ -96,8 +100,14 @@ public class ReservationService {
         System.out.println("insert해따요" + dto.getUserId());
         reservationRepository.reservInsert(reservation);
 
+        if (dto.isMatching()) {
+            Matching matching = Matching.builder()
+                    .reservationId(reservation.getId())
+                    .matchingStatus("매칭대기중")
+                    .build();
+            System.out.println(reservation.getId()+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+            matchingRepository.insertMatching(matching);
+        }
     }
-
-
 
 }
