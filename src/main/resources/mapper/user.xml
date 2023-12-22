@@ -12,6 +12,18 @@
                 #{userDivision}, now(), #{genderId}, #{ageId}, #{kakaoLogin});
     </insert>
 
+    <update id="userUpdateIsCaptain">
+        update user_tb
+        set is_captain = #{isCaptain}
+        where id = #{id}
+    </update>
+
+    <update id="userUpdateTeamId">
+        update user_tb
+        set team_id = #{teamId}
+        where id = #{id}
+    </update>
+
     <update id="updateById">
         update user_tb
         set password     = #{username},

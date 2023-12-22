@@ -16,8 +16,8 @@ CREATE TABLE user_tb
     team_id           INT,
     gender_id         INT,
     age_id            INT,
-    kakao_login       BOOLEAN
-
+    kakao_login       BOOLEAN,
+    is_captain        BOOLEAN
 );
 
 -- 팀 테이블
@@ -384,5 +384,18 @@ CREATE TABLE order_tb
     created_at        TIMESTAMP
 );
 
+CREATE TABLE captain_tb
+(
+    id      INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    team_id INT
+);
 
+CREATE TABLE apply_tb
+(
+    id               INT AUTO_INCREMENT PRIMARY KEY,
+    team_id          INT,
+    captain_user_id  INT,
+    personal_user_id INT
+);
 

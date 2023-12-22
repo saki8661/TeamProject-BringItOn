@@ -27,13 +27,19 @@
                             <span>나의 팀</span>
                         </div>
                     </a>
-                    <a href="">
-                        <div>
-                            <img width="25" height="25" src="https://img.icons8.com/emoji/48/page-facing-up.png"
-                                 alt="page-facing-up"/>
-                            <span>팀 신청 내역</span>
-                        </div>
-                    </a>
+                    <c:choose>
+                        <c:when test="${sessionUser.isCaptain eq true}">
+                            <a href="/user/team-apply/${sessionUser.id}">
+                                <div>
+                                    <img width="25" height="25" src="https://img.icons8.com/emoji/48/page-facing-up.png" alt="page-facing-up"/>
+                                    <span>팀 신청 내역</span>
+                                </div>
+                            </a>
+                        </c:when>
+                        <c:otherwise>
+                            <!-- Captain is true, do nothing or show other content -->
+                        </c:otherwise>
+                    </c:choose>
                     <a href="/user/bookmark/${sessionUser.id}">
                         <div>
                             <img width="25" height="25" src="https://img.icons8.com/fluency/25/bookmark.png"
