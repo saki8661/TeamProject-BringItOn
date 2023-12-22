@@ -23,4 +23,12 @@ public class ReviewService {
         reviewRepository.insert(review);
 
     }
+
+    public int addReviewAndCommentCount(Review review) {
+        // 리뷰 추가
+        reviewRepository.insert(review);
+        int updatedCount = reviewRepository.getCommentCount(review.getSpaceId());
+        return updatedCount;
+    }
+
 }

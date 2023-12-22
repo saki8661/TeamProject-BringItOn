@@ -36,7 +36,7 @@
                         </div>
                         <div class="separated_line"></div>
                         <div class="place_detail_review">
-                            후기(22)
+                            후기${commentCount}
                         </div>
 
                     </div>
