@@ -78,6 +78,8 @@
         </div>
     </div>
 </div>
+<script src="/resources/static/script/notification.js"></script>
+<script src="/resources/static/script/firebase-messaging-sw.js"></script>
 
 </body>
 </html>
