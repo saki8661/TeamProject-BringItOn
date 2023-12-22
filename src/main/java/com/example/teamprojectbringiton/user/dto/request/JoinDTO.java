@@ -1,5 +1,6 @@
 package com.example.teamprojectbringiton.user.dto.request;
 
+import com.example.teamprojectbringiton.user.PhoneNumberFormatter;
 import com.example.teamprojectbringiton.user.User;
 import lombok.Data;
 
@@ -20,7 +21,7 @@ public class JoinDTO {
                 .username(username)
                 .password(password)
                 .userEmail(email)
-                .userPhoneNumber(userPhoneNumber)
+                .userPhoneNumber(PhoneNumberFormatter.formatPhoneNumber(userPhoneNumber))
                 .userAddress(userAddress)
                 .userDivision(userDivision)
                 .nickName(nickName)

@@ -5,6 +5,7 @@ import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedExce
 import com.example.teamprojectbringiton._core.utils.Function;
 import com.example.teamprojectbringiton.admin.dto.response.UserCountRespDTO;
 import com.example.teamprojectbringiton.admin.dto.response.UserSearchRespDTO;
+import com.example.teamprojectbringiton.team.dto.request.UpdateTeamIdDTO;
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
 import com.example.teamprojectbringiton.user.dto.response.*;
@@ -50,10 +51,9 @@ public class UserService {
 
     @Transactional
     public void userSave(JoinDTO dto) {
-
-        String phoneNuber = PhoneNumberFormatter.formatPhoneNumber(dto.getUserPhoneNumber());
         //회원가입 db에 insert
         userRepository.insert(dto.toEntity());
+
     }
 
     // 카카오 회원가입
@@ -77,6 +77,7 @@ public class UserService {
                     .genderId(1)
                     .ageId(2)
                     .kakaoLogin(true)
+                    .isCaptain(false)
                     .build();
             userRepository.insert(user);
         }
@@ -236,5 +237,14 @@ public class UserService {
     public UserUpdateDTO findByIdJoinGenderAndAge(Integer id) {
         return userRepository.findByIdJoinGenderAndAge(id);
 
+    }
+
+    public void userUpdateIsCaptain(User user) {
+        userRepository.userUpdateIsCaptain(user);
+    }
+
+    public void userUpdateTeamId(User user, UpdateTeamIdDTO dto) {
+        user.updateTeamId(dto.getTeamId());
+        userRepository.userUpdateTeamId(user);
     }
 }

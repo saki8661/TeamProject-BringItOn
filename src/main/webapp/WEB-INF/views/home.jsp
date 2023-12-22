@@ -80,7 +80,6 @@
                     <div class="dropdown-content">
                         <a href="#">인기순</a>
                         <a href="#">최신순</a>
-                        <a href="#">관심순</a>
                     </div>
                 </div>
                 <div class="main_filter">
