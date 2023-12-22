@@ -199,6 +199,11 @@ public class UserController {
         return "user/userSetting";
     }
 
+    @GetMapping("/user/team-apply/{id}")
+    public String userTeamApplyPage(){
+        return "user/userTeamApply";
+    }
+
     @GetMapping("/user/check-password/{id}")
     public String userCheckPasswordPage(@PathVariable Integer id) {
         User user = userService.findById(id);

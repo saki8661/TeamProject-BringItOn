@@ -9,4 +9,9 @@
         values (#{teamId}, #{captainUserId} , #{personalUserId});
     </insert>
 
+    <delete id="deleteById">
+        delete
+        from apply_tb
+        where id = #{id}
+    </delete>
 </mapper>

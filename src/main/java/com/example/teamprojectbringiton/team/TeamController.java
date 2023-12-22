@@ -5,9 +5,11 @@ import com.example.teamprojectbringiton.team.apply.Apply;
 import com.example.teamprojectbringiton.team.apply.ApplyRepository;
 import com.example.teamprojectbringiton.team.dto.request.TeamApplyDTO;
 import com.example.teamprojectbringiton.team.dto.request.TeamCreateDTO;
+import com.example.teamprojectbringiton.team.dto.request.UpdateTeamIdDTO;
 import com.example.teamprojectbringiton.team.dto.response.TeamDetailDTO;
 import com.example.teamprojectbringiton.team.dto.response.TeamListDTO;
 import com.example.teamprojectbringiton.user.User;
+import com.example.teamprojectbringiton.user.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,6 +27,8 @@ public class TeamController {
     @Autowired
     private TeamService teamService;
 
+    @Autowired
+    private UserService userService;
 
     @Autowired
     private HttpSession session;
@@ -53,8 +57,7 @@ public class TeamController {
         // 1. 인증 체크
         if (sessionUser == null) {
             throw new UnAuthorizedException("로그인을 해주세요", HttpStatus.UNAUTHORIZED);
-        }
-        ;
+        };
 
         Team team = Team.builder()
                 .teamName(dto.getTeamName())
@@ -68,6 +71,10 @@ public class TeamController {
                 .teamCapacity(dto.getTeamCapacity())
                 .build();
         teamService.insert(team, sessionUser.getId());
+        User user = userService.findById(sessionUser.getId());
+        System.out.println(user.getNickName());
+        user.updateCaptain(true);
+        userService.userUpdateIsCaptain(user);
         return "redirect:/team-main";
     }
 
@@ -77,21 +84,11 @@ public class TeamController {
         if (sessionUser == null) {
             throw new UnAuthorizedException("로그인 먼저 해주세요", HttpStatus.UNAUTHORIZED);
         }
-        System.out.println("=========================================");
-        System.out.println(dto.getTeamId());
-        System.out.println(dto.getCaptainUserId());
-        System.out.println(dto.getPersonalUserId());
-        System.out.println("=========================================");
         Apply apply = Apply.builder()
                 .teamId(id)
                 .captainUserId(dto.getCaptainUserId())
                 .personalUserId(sessionUser.getId())
                 .build();
-        System.out.println("==========================================");
-        System.out.println(apply.getTeamId());
-        System.out.println(apply.getCaptainUserId());
-        System.out.println(apply.getPersonalUserId());
-        System.out.println("==========================================");
 
         teamService.teamApply(apply);
         return "redirect:/team-main";
@@ -101,6 +98,22 @@ public class TeamController {
     public String teamUpdatePage() {
         return "team/teamUpdate";
     }
+
+    @PostMapping("/team-apply-approve/{id}")
+    public String applyApprove(@PathVariable Integer id, UpdateTeamIdDTO dto){
+        User user = userService.findById(dto.getUserId());
+        userService.userUpdateTeamId(user, dto);
+        teamService.applyApprove(id);
+        return "redirect:/user/team-apply/{id}";
+    }
+
+    @GetMapping("/team-apply-refuse/{id}")
+    public String applyRefuse(@PathVariable Integer id) {
+        teamService.applyRefuse(id);
+        return "redirect:/user/team-apply/{id}";
+    }
+
+
 
 
 }

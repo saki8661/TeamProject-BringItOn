@@ -1,30 +1,30 @@
 -- user_tb
 INSERT INTO user_tb (username, nickname, password, user_email, user_address, user_phone_number, user_pic_url,
                      user_division, account_number, account_name, created_at, bank_id, team_id, gender_id, age_id,
-                     kakao_login)
+                     kakao_login, is_captain)
 
 VALUES ('ssar', '대욱', 'password1', 'bbarkse1129@naver.com', '서울시 강남구', '010-1111-1111', 'default_profile.jpg', 'host',
-        '123456789', '나의 계좌1', NOW(), 1, 1, 1, 2, false),
+        '123456789', '나의 계좌1', NOW(), 1, 1, 1, 2, false, true),
        ('cos', '세환', 'password', 'cos@nate.com', '서울시 마포구', '010-2222-2222', 'default_profile.jpg', 'general',
-        '234567891', '나의 계좌2', NOW(), 2, 2, 1, 3, false),
+        '234567891', '나의 계좌2', NOW(), 2, 2, 1, 3, false, true),
        ('love', '언약', 'password', '0106u@naver.com', '서울시 남구', '010-3333-3333', 'default_profile.jpg', 'general',
-        '345678912', '나의 계좌3', NOW(), 1, 3, 1, 2, false),
+        '345678912', '나의 계좌3', NOW(), 1, 3, 1, 2, false, true),
        ('peace', '채빈', 'password', 'peace@nate.com', '서울시 강남구', '010-4444-4444', 'default_profile.jpg', 'host',
-        '456789123', '나의 계좌4', NOW(), 3, 4, 2, 2, false),
+        '456789123', '나의 계좌4', NOW(), 3, 4, 2, 2, false, true),
        ('ssar1', '길동', 'password', 'ssar1@nate.com', '서울시 강남구', '010-5555-5555', 'default_profile.jpg', 'general',
-        '567891234', '나의 계좌5', NOW(), 1, 5, 1, 5, false),
+        '567891234', '나의 계좌5', NOW(), 1, 5, 1, 5, false, true),
        ('ssar2', '보고', 'password', 'ssar2@nate.com', '서울시 강남구', '010-6666-6666', 'default_profile.jpg', 'general',
-        '67891234', '나의 계좌6', NOW(), 1, 6, 1, 5, false),
+        '67891234', '나의 계좌6', NOW(), 1, 6, 1, 5, false, true),
        ('ssar3', '꺽정', 'password', 'ssar3@nate.com', '서울시 강남구', '010-7777-7777', 'default_profile.jpg', 'general',
-        '789123456', '나의 계좌7', NOW(), 1, 7, 1, 5, false),
+        '789123456', '나의 계좌7', NOW(), 1, 7, 1, 5, false, true),
        ('ssar4', '허준', 'password', 'ssar@nate.com', '서울시 강남구', '010-8888-8888', 'default_profile.jpg', 'general',
-        '891234567', '나의 계좌8', NOW(), 1, 8, 1, 2, false),
+        '891234567', '나의 계좌8', NOW(), 1, 8, 1, 2, false, true),
        ('ssa5', '민수', 'password', 'ssar@nate.com', '서울시 강남구', '010-9999-9999', 'default_profile.jpg', 'general',
-        '912345678', '나의 계좌9', NOW(), 1, 9, 1, 1, false),
+        '912345678', '나의 계좌9', NOW(), 1, 9, 1, 1, false, true),
        ('ssar6', '영희', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', 'general',
-        '109876543', '나의 계좌10', NOW(), 1, 10, 2, 1, false),
+        '109876543', '나의 계좌10', NOW(), 1, null, 2, 1, false, false),
        ('bbarkse', '관리자', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', 'admin',
-        '109876543', '나의 계좌10', NOW(), 1, 11, 1, 4, false);
+        '109876543', '나의 계좌10', NOW(), 1, 11, 1, 4, false, true);
 
 -- 팀 더미 데이터
 INSERT INTO team_tb (team_name, team_capacity, team_location, team_pic_url, team_introduce, level, age_id, gender_id,
@@ -664,8 +664,8 @@ values (1, 1),
        (6, 6),
        (7, 7),
        (8, 8),
-       (9, 9),
-       (10, 10);
+       (9, 9);
+
 
 INSERT INTO apply_tb(team_id, captain_user_id, personal_user_id)
-values (1, 1, 3)
+values (1, 1, 10);

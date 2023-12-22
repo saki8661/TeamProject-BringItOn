@@ -7,6 +7,8 @@ import com.example.teamprojectbringiton.team.captain.CaptainRepository;
 import com.example.teamprojectbringiton.team.dto.request.TeamApplyDTO;
 import com.example.teamprojectbringiton.team.dto.response.TeamDetailDTO;
 import com.example.teamprojectbringiton.team.dto.response.TeamListDTO;
+import com.example.teamprojectbringiton.user.User;
+import com.example.teamprojectbringiton.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
@@ -25,6 +27,9 @@ public class TeamService {
 
     @Autowired
     private ApplyRepository applyRepository;
+
+    @Autowired
+    private UserRepository userRepository;
 
     public List<Team> findAll() {
         List<Team> teamList = teamRepository.findAll();
@@ -61,5 +66,14 @@ public class TeamService {
 
     public void teamApply(Apply apply) {
         applyRepository.insert(apply);
+    }
+
+    public void applyRefuse(Integer id) {
+        applyRepository.deleteById(id);
+    }
+
+    public void applyApprove(Integer id) {
+
+        applyRepository.deleteById(id);
     }
 }

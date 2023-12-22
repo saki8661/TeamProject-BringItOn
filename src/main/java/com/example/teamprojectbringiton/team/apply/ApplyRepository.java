@@ -7,4 +7,6 @@ import org.apache.ibatis.annotations.Mapper;
 public interface ApplyRepository {
 
     void insert(Apply apply);
+
+    void deleteById(Integer id);
 }
