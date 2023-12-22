@@ -6,7 +6,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 @Data
 public class SaveDTO {
-    private Integer id;
     private String spaceName;
     private String description;
     private Integer capacity;

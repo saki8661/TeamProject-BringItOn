@@ -1692,8 +1692,15 @@ input::placeholder {
 .re_time_choice {
     display: flex;
     flex-direction: column;
+    display: none;
+}
+
+.re_time_choice_two {
+    display: flex;
+    flex-direction: column;
 
 }
+
 
 .re_choice_letter {
     font-weight: bolder;
@@ -2145,6 +2152,7 @@ input::placeholder {
     font-size: 16px;
     text-align: center;
 }
+
 
 .league_matching_button {
     display: flex;
@@ -2781,8 +2789,15 @@ input::placeholder {
     height: 100%;
     padding-bottom: 20px;
     padding-left: 20px;
-    padding-right: 20px;
 }
+
+.place_resistration_thumbnail_container_two {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 20px;
+    margin-top: 10px;
+}
+
 
 .place_resistration_thumbnail_label {
     background-color: #3498db; /* 배경색 설정 */
@@ -2899,6 +2914,13 @@ input::placeholder {
     border-top-right-radius: 5px;
 }
 
+.league_matchin {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 30px;
+}
+
 .league_matching_table_sub_title {
     display: flex;
     justify-content: space-around;
@@ -2966,7 +2988,7 @@ input::placeholder {
 
 
 .league_matching_content-date {
-    width: 115px;
+    width: 120px;
     text-align: center;
     color: black;
 
@@ -2984,6 +3006,12 @@ input::placeholder {
     width: 55%;
 }
 
+.spoace_detail_button {
+
+    align-items: center;
+    gap: 10px;
+}
+
 .matching_my_score_box {
     height: 30px;
 }
@@ -2999,6 +3027,9 @@ input::placeholder {
 }
 
 .matching_my_score_title {
+    display: flex;
+    justify-content: end;
+
 }
 
 /*placeDetail*/
@@ -3011,6 +3042,17 @@ input::placeholder {
     padding-right: 10%;
     padding-left: 10%;
 }
+
+.place_detail_map {
+    width: 500px;
+    height: 400px;
+}
+
+#map {
+    width: 500px;
+    height: 400px;
+}
+
 
 .place_detail_stick_menu_container {
     display: flex;
@@ -3279,7 +3321,14 @@ EDIT ON
 .scroll1_place_detail_info {
     width: 100%;
     height: 100%;
+    padding-bottom: 20px;
+    text-align: start;
+    font-weight: bolder;
 
+}
+
+.scroll1_place_detail_map {
+    padding-top: 20px;
 }
 
 .scroll2_place_detail_caution {
@@ -3927,6 +3976,16 @@ EDIT ON
     margin-right: 20px;
 }
 
+.host_btn_style_red {
+    border-radius: 5px;
+    height: 30px;
+    width: 80px;
+    font-size: 16px;
+    text-align: center;
+    margin-right: 20px;
+    background-color: #f44336;
+}
+
 .host_button {
     background-color: #19B357;
     color: white;
@@ -4284,4 +4343,8 @@ EDIT ON
     height: 50px;
 }
 
-
+.img_size {
+    width: 110px;
+    height: 100px;
+    border-radius: 5px;
+}

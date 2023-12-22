@@ -8,6 +8,7 @@ public class SpaceDetailDTO {
     private Integer id;
     private String spaceName;
     private String description;
+    private String spaceLocation;
     private String sector;
     private boolean isInside;
     private String pricePerHour;

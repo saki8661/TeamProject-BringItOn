@@ -18,5 +18,10 @@ public class SpacePic {
         this.spacePic = spacePic;
         this.spaceId = spaceId;
     }
+
+    public void UpdateSpacePic(String spacePic) {
+        this.spacePic = spacePic;
+    }
+
 }
 

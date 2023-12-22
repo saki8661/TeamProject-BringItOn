@@ -3,12 +3,11 @@ package com.example.teamprojectbringiton.space;
 
 import com.example.teamprojectbringiton._core.utils.Function;
 import com.example.teamprojectbringiton.space.dto.request.SaveDTO;
-import com.example.teamprojectbringiton.space.dto.response.SpaceDTO;
-import com.example.teamprojectbringiton.space.dto.response.SpaceDetailDTO;
-import com.example.teamprojectbringiton.space.dto.response.SpaceListDTO;
-import com.example.teamprojectbringiton.space.dto.response.SpaceReviewDTO;
+import com.example.teamprojectbringiton.space.dto.request.UpdateDTO;
+import com.example.teamprojectbringiton.space.dto.response.*;
 import com.example.teamprojectbringiton.space.spacePic.SpacePic;
 import com.example.teamprojectbringiton.space.spacePic.SpacePicRepository;
+import com.example.teamprojectbringiton.user.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -73,6 +72,27 @@ public class SpaceService {
                 .spacePic(pic)
                 .build();
         spacePicRepository.insert(spacePic);
-        
+
+    }
+
+    public void update(UpdateDTO updateDTO, String pic) {
+        spaceRepository.updateById(updateDTO.toEntity());
+        SpacePic spacePic = spacePicRepository.findBySpaceId(updateDTO.getId());
+        spacePic.UpdateSpacePic(pic);
+    }
+
+    // 공간 정보 조회
+    public Space findById(Integer id) {
+        return spaceRepository.findById(id);
+    }
+
+    public List<SpaceUserIdPicJoinDTO> findAllJoinUserIdAndSpacePicId(Integer id) {
+        return spaceRepository.findAllJoinUserIdAndSpacePicId(id);
+
+    }
+
+    public void deleteById(Integer id) {
+        System.out.println("서비스 왔따 : " + id);
+        spaceRepository.deleteById(id);
     }
 }

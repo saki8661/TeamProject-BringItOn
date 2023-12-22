@@ -10,5 +10,11 @@
         VALUES (#{spacePic}, #{spaceId})
     </insert>
 
+    <select id="findBySpaceId" resultType="com.example.teamprojectbringiton.space.spacePic.SpacePic">
+        select *
+        from space_pic_tb
+        where space_id = #{spaceId}
+    </select>
+
 
 </mapper>

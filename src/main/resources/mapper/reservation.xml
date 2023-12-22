@@ -4,19 +4,21 @@
 
 <mapper namespace="com.example.teamprojectbringiton.reservation.ReservationRepository">
 
-    <select id="findApplyMatchingResv" resultType="com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO">
-        select *
-        from reservation_tb resv
-                 join team_tb t
-                      on resv.user_id = t.id
-                 join space_tb s
-                      on resv.space_id = s.id
-                 join space_pic_tb sp
-                      on s.id = sp.space_id
-        where resv.matching = true
+    <select id="findApplyMatchingResv" resultType="com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO" >
+        select *,m.id  matchingId
+        from reservation_tb r
+                 left join team_tb t
+                           on r.user_id = t.id
+                 left join space_tb s
+                           on r.space_id = s.id
+                 left join space_pic_tb sp
+                           on s.id = sp.space_id
+                 left join matching_tb m
+                           on r.id = m.reservation_id
+        where r.matching = true
     </select>
 
-    <select id="findByUserId" resultType="com.example.teamprojectbringiton.reservation.dto.response.UserReservationListDTO">
+    <select id="findByUserId"  resultSets="" resultType="com.example.teamprojectbringiton.reservation.dto.response.UserReservationListDTO">
         select *
         from reservation_tb r
                  join user_tb u
@@ -29,7 +31,7 @@
     </select>
 
     <select id="findByIdReservSpaceAndSpacePic"
-            resultType="com.example.teamprojectbringiton.reservation.response.ReservationDTO">
+            resultType="com.example.teamprojectbringiton.reservation.response.ReservationRespDTO">
         select space_id, space_name, space_location, space_pic, price_per_hour
         from space_tb as space
              join space_pic_tb as pic
@@ -38,7 +40,7 @@
     </select>
 
 
-    <insert id="reservInsert">
+    <insert id="reservInsert" useGeneratedKeys="true" keyProperty="id">
         insert into reservation_tb(personnel, to_host, matching,user_id,space_id, created_at)
         values (#{personnel}, #{toHost}, #{matching}, #{userId}, #{spaceId}, now());
     </insert>

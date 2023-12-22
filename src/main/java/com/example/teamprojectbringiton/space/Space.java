@@ -41,5 +41,10 @@ public class Space {
         this.sportId = sportId;
         this.spacePhoneNumber = spacePhoneNumber;
     }
+
+    public void updateSportId(Integer sportId) {
+        this.sportId = sportId;
+    }
+
 }
 

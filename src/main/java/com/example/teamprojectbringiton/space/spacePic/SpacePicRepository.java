@@ -38,4 +38,5 @@ public interface SpacePicRepository {
 
     public int findAllCount();
 
+    public SpacePic findBySpaceId(Integer id);
 }

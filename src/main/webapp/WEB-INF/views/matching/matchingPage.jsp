@@ -309,9 +309,9 @@
                                 <div class="userPayment_modal_footer">
                                     <div>
                                         <div style="height: 10px"></div>
-                                        <form action="/matching-apply", method="post">
+                                        <form action="/matching-apply/${matching.matchingId}" method="post">
                                             <input type="hidden" value="${matching.id}" name="reservationId">
-                                            <button class="inquireMain_delete_btn">매칭 신청</button>
+                                            <button type="submit" class="inquireMain_delete_btn">매칭 신청</button>
                                         </form>
                                     </div>
                                 </div>
@@ -376,26 +376,6 @@
             });
         });
     });
-
-    // 매칭 여부에 따라 버튼 스타일 변경
-    function updateButtonStyle(matchingStatus) {
-        const button = document.getElementById('yourButtonId'); // 버튼의 ID를 지정해주세요.
-
-        if (matchingStatus === '매칭완료') {
-            button.classList.remove('matching_btn_style');
-            button.classList.add('matched_btn_style');
-            button.disabled = true; // 클릭 비활성화
-        } else {
-            button.classList.remove('matched_btn_style');
-            button.classList.add('matching_btn_style');
-            button.disabled = false; // 클릭 활성화
-        }
-    }
-
-    // 매칭 상태를 가져와서 버튼 스타일 업데이트
-    const matchingStatus = '매칭완료'; // 매칭 상태를 가져와야 합니다.
-    updateButtonStyle(matchingStatus);
-
 
 
 </script>

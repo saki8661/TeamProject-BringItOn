@@ -16,5 +16,10 @@ import java.util.List;
 @Service
 public class SpacePicService {
 
-   
+    @Autowired
+    private SpacePicRepository spacePicRepository;
+
+    public SpacePic findBySpaceId(Integer id) {
+        return spacePicRepository.findBySpaceId(id);
+    }
 }

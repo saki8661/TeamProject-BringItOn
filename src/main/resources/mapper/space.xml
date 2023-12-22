@@ -14,7 +14,19 @@
 
     <update id="updateById">
         update space_tb
-        set where id = #{id}
+        set space_name         = #{spaceName},
+            description        = #{description},
+            capacity           = #{capacity},
+            price              = #{price},
+            biz_start_time     = #{bizStartTime},
+            biz_end_time       = #{bizEndTime},
+            space_location     = #{spaceLocation},
+            space_phone_Number = #{spacePhoneNumber},
+            sector             = #{sector},
+            is_inside          = #{isInside},
+            user_id            = #{userId},
+            sport_id           = #{sportId}
+        where id = #{id}
     </update>
 
     <delete id="deleteById">
@@ -27,6 +39,21 @@
         select *
         from space_tb
         where id = #{id}
+    </select>
+
+    <select id="findAllByUserId" resultType="com.example.teamprojectbringiton.space.Space">
+        select *
+        from space_tb
+        where user_id = #{user_id}
+    </select>
+
+    <select id="findAllJoinUserIdAndSpacePicId"
+            resultType="com.example.teamprojectbringiton.space.dto.response.SpaceUserIdPicJoinDTO">
+        SELECT *
+        FROM SPACE_TB as s
+                 LEFT JOIN USER_TB as u ON u.id = s.user_id
+                 LEFT JOIN SPACE_PIC_TB as sp ON sp.space_id = s.id
+        where u.id = #{user_id}
     </select>
 
     <select id="findAll" resultType="com.example.teamprojectbringiton.space.Space">

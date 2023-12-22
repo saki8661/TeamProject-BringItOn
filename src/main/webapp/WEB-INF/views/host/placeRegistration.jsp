@@ -31,7 +31,7 @@
                     </div>
                 </div>
             </div>
-            <div class="re_time_choice">
+            <div class="re_time_choice_two">
                 <div class="re_choice_letter">
                     <h3>간단한 소개</h3>
                 </div>
@@ -95,7 +95,7 @@
                     호스트의 대표 전화번호(대표자 또는 내선번호)를 적어주세요.
                 </div>
                 <div class="place_resistration_tel_number_container">
-                    <input class="place_resistration_tel_number" name="spacePhoneNumber">
+                    <input class="place_resistration_tel_number" name="spacePhoneNumber" placeholder="01000000000">
                 </div>
 
             </div>
@@ -108,7 +108,7 @@
                     시간별 대관 금액을 입력해주세요
                 </div>
                 <div class="place_resistration_tel_number_container">
-                    <input class="place_resistration_tel_number" style="resize: none" name="price">
+                    <input class="place_resistration_tel_number" style="resize: none" name="price" placeholder="10000">
                 </div>
             </div>
             <div class="place_resistration_tel_container">
@@ -120,7 +120,8 @@
                     사용자에게 불리기 쉬운 별칭을 정해주세요.
                 </div>
                 <div class="place_resistration_tel_number_container">
-                    <input class="place_resistration_tel_number" style="resize: none" name="sector">
+                    <input class="place_resistration_tel_number" style="resize: none" name="sector"
+                           placeholder="사하 풋살장 -> 사풋">
                 </div>
             </div>
 

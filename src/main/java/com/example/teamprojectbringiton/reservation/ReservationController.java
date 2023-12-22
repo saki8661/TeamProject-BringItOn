@@ -1,17 +1,15 @@
 package com.example.teamprojectbringiton.reservation;
 
 import com.example.teamprojectbringiton.reservation.dto.response.UserReservationListDTO;
-import com.example.teamprojectbringiton.reservation.response.ReservationDTO;
-import com.example.teamprojectbringiton.space.dto.response.SpaceDetailDTO;
-import com.example.teamprojectbringiton.space.dto.response.SpaceReviewDTO;
-import com.example.teamprojectbringiton.spaceInquire.request.SpaceInquireDTO;
+
+import com.example.teamprojectbringiton.reservation.request.ReservationReqDTO;
+import com.example.teamprojectbringiton.reservation.response.ReservationRespDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 
@@ -25,7 +23,7 @@ public class ReservationController {
     @GetMapping("/reservation/{id}")
     public String reservationPage(@PathVariable Integer id, Model model) {
         System.out.println("예약하기 컨트롤러 진입" + id);
-        ReservationDTO reservationName = reservationService.reservationFindBySpaceId(id);
+        ReservationRespDTO reservationName = reservationService.reservationFindBySpaceId(id);
         model.addAttribute("reservationName", reservationName);
         System.out.println("모델에 담긴 데이터 SpaceName :" + reservationName.getSpaceName());
         System.out.println("모델에 담긴 데이터 SpaceId :" + reservationName.getSpaceId());
@@ -35,7 +33,7 @@ public class ReservationController {
     }
 
     @PostMapping("/reservation/{id}")
-    public String reservationProc(@PathVariable Integer id, com.example.teamprojectbringiton.reservation.request.ReservationDTO dto) {
+    public String reservationProc(@PathVariable Integer id, ReservationReqDTO dto) {
         System.out.println("+++리뷰컨트롤러 진입 reservation" + dto.getSpaceId());
         System.out.println("+++dto 담김 reservation:" + dto.getPersonnel());
         reservationService.reservationSave(dto);
@@ -43,7 +41,7 @@ public class ReservationController {
         System.out.println("+++dto 담김 reservation:" + dto.getToHost());
         System.out.println("+++dto 담김 reservation: " + dto.isMatching());
 
-        return "redirect:/reservation/" + id;
+        return "redirect:/space-detail/" + id;
     }
 
 
