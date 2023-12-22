@@ -7,10 +7,9 @@ public class SpaceDTO {
     private Integer id;
     private String spaceName;
     private String sector;
-    private boolean isInside;
-    private String pricePerHour;
-    private Integer regionId;
-    private String regionName;
+    private Boolean isInside;
+    private String price;
+    private String spaceLocation;
     private Integer sportId;
     private String sportName;
     private Integer spacePicId;

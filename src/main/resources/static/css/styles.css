@@ -1555,8 +1555,8 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 9%;
+    padding-right: 9%;
     padding-bottom: 180px;
 }
 
@@ -1693,8 +1693,14 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     display: none;
+}
+
+.re_time_choice_two {
+    display: flex;
+    flex-direction: column;
 
 }
+
 
 .re_choice_letter {
     font-weight: bolder;
@@ -1760,8 +1766,8 @@ input::placeholder {
     padding-right: 20px;
     padding-top: 20px;
     justify-content: center;
-
 }
+
 
 .re_person_auto_count {
     display: flex;
@@ -1811,6 +1817,9 @@ input::placeholder {
     font-weight: bolder;
 }
 
+.re_matching_check input {
+    margin-top: 20px;
+}
 
 .re_matching_check label {
     padding: 20px;
@@ -2143,6 +2152,7 @@ input::placeholder {
     font-size: 16px;
     text-align: center;
 }
+
 
 .league_matching_button {
     display: flex;
@@ -2779,8 +2789,15 @@ input::placeholder {
     height: 100%;
     padding-bottom: 20px;
     padding-left: 20px;
-    padding-right: 20px;
 }
+
+.place_resistration_thumbnail_container_two {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 20px;
+    margin-top: 10px;
+}
+
 
 .place_resistration_thumbnail_label {
     background-color: #3498db; /* 배경색 설정 */
@@ -2897,6 +2914,13 @@ input::placeholder {
     border-top-right-radius: 5px;
 }
 
+.league_matchin {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 30px;
+}
+
 .league_matching_table_sub_title {
     display: flex;
     justify-content: space-around;
@@ -2964,7 +2988,7 @@ input::placeholder {
 
 
 .league_matching_content-date {
-    width: 115px;
+    width: 120px;
     text-align: center;
     color: black;
 
@@ -2982,6 +3006,12 @@ input::placeholder {
     width: 55%;
 }
 
+.spoace_detail_button {
+
+    align-items: center;
+    gap: 10px;
+}
+
 .matching_my_score_box {
     height: 30px;
 }
@@ -2997,6 +3027,9 @@ input::placeholder {
 }
 
 .matching_my_score_title {
+    display: flex;
+    justify-content: end;
+
 }
 
 /*placeDetail*/
@@ -3943,6 +3976,16 @@ EDIT ON
     margin-right: 20px;
 }
 
+.host_btn_style_red {
+    border-radius: 5px;
+    height: 30px;
+    width: 80px;
+    font-size: 16px;
+    text-align: center;
+    margin-right: 20px;
+    background-color: #f44336;
+}
+
 .host_button {
     background-color: #19B357;
     color: white;
@@ -4151,6 +4194,10 @@ EDIT ON
     background-color: white;
 }
 
+.host_managementPage {
+    justify-content: center;
+}
+
 /* team create */
 
 
@@ -4222,7 +4269,7 @@ EDIT ON
     gap: 20px;
 }
 
-.team_create_item_logo_input > img{
+.team_create_item_logo_input > img {
     width: 150px;
     height: 150px;
     border-radius: 25px;
@@ -4296,21 +4343,28 @@ EDIT ON
     height: 50px;
 }
 
-.modal_detail_title{
+
+.img_size {
+    width: 110px;
+    height: 100px;
+    border-radius: 5px;
+}
+
+.modal_detail_title {
     font-size: 32px;
     font-weight: bold;
 }
 
-.team_detail_container{
+.team_detail_container {
     width: 1000px;
     height: 500px;
 }
 
-.team_detail_content{
+.team_detail_content {
     height: 100%;
 }
 
-.team_detail_button{
+.team_detail_button {
     background-color: #19B357;
     width: 100px;
     height: 50px;
@@ -4319,4 +4373,5 @@ EDIT ON
     color: white;
     border-radius: 15px;
 }
+
 
