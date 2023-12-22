@@ -5,13 +5,17 @@
 <mapper
         namespace="com.example.teamprojectbringiton.team.TeamRepository">
 
+    <insert id="insert">
+        INSERT INTO team_tb (team_name, team_location, team_capacity, team_introduce, team_pic_url, age_id, gender_id, position_id, sport_id, created_at)
+        VALUES (#{teamName}, #{teamLocation}, #{teamCapacity}, #{teamIntroduce}, #{teamPicUrl}, #{ageId}, #{genderId}, #{positionId}, #{sportId}, now())
+    </insert>
 
     <select id="findAll" resultType="com.example.teamprojectbringiton.team.Team">
         select *
         from team_tb
     </select>
 
-    <select id="findById" resultType="com.example.teamprojectbringiton.team.Team">
+    <select id="findById" resultType="com.example.teamprojectbringiton.team.dto.response.TeamDetailDTO">
         select *
         from team_tb
         where id = #{id}
@@ -20,8 +24,6 @@
     <select id="findAllJoinRegionAndSport" resultType="com.example.teamprojectbringiton.team.dto.response.TeamListDTO">
         select *
         from team_tb t
-        Join region_tb r
-        on t.region_id = r.id
         join sport_tb s
         on t.sport_id = s.id
     </select>

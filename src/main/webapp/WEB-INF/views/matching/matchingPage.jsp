@@ -208,7 +208,7 @@
                             <ul class="dropdown-menu sub_navbar_style">
                                 <c:forEach var="region" items="${regionList}">
                                     <li>
-                                        <a class="dropdown-item region-option" href="#" data-region-id="${region.id+1}">
+                                        <a class="dropdown-item region-option" href="#" data-region-name="${region.regionName}">
                                                 ${region.regionName}
                                         </a>
                                     </li>
@@ -219,11 +219,11 @@
                 </div>
                 <div class="manual_box" id="matchingListContainer">
                     <c:forEach var="matching" items="${matchings}">
-                        <div class="manual_card region-${matching.regionId}" data-region-id="${matching.regionId}">
+                        <div class="manual_card region-${matching.teamLocation}" data-region-name="${matching.teamLocation}">
                             <div class="matching_list">
                                 <div class="matching_detail">
                                     <div class="manual_tit">
-                                            ${matching.reservationDate}/
+                                            ${matching.reservationDate} /
                                     </div>
                                     <div class="manual_tit">
                                             ${matching.startTime}~
@@ -246,7 +246,7 @@
                                 </button>
                             </div>
                         </div>
-                        <hr class="matchingPage_manual_box region-${matching.regionId}">
+                        <hr class="matchingPage_manual_box region-${matching.teamLocation}">
                     </c:forEach>
                 </div>
 
@@ -309,9 +309,9 @@
                                 <div class="userPayment_modal_footer">
                                     <div>
                                         <div style="height: 10px"></div>
-                                        <form action="/matching-apply", method="post">
+                                        <form action="/matching-apply/${matching.matchingId}" method="post">
                                             <input type="hidden" value="${matching.id}" name="reservationId">
-                                            <button class="inquireMain_delete_btn">매칭 신청</button>
+                                            <button type="submit" class="inquireMain_delete_btn">매칭 신청</button>
                                         </form>
                                     </div>
                                 </div>
@@ -360,42 +360,22 @@
         regionOptions.forEach(option => {
             option.addEventListener("click", function (e) {
                 e.preventDefault();
-                const selectedRegionId = this.getAttribute("data-region-id");
-                const selectedRegionName = this.innerText;
+                const selectedRegionName = this.getAttribute("data-region-name");
+                const selectedTeamLocation = this.innerText;
                 // 선택한 지역에 해당하는 매칭만 표시하기
                 matchingCards.forEach(card => {
-                    const regionId = card.getAttribute("data-region-id");
-                    if (regionId === selectedRegionId || selectedRegionId === "all") {
+                    const regionName = card.getAttribute("data-region-name");
+                    if (regionName === selectedRegionName || selectedRegionName === "all") {
                         card.style.display = "block";
                     } else {
                         card.style.display = "none";
                     }
                 });
                 // 선택한 지역명으로 드롭다운 버튼 내용 변경
-                selectedRegionSpan.innerText = selectedRegionName;
+                selectedRegionSpan.innerText = selectedTeamLocation;
             });
         });
     });
-
-    // 매칭 여부에 따라 버튼 스타일 변경
-    function updateButtonStyle(matchingStatus) {
-        const button = document.getElementById('yourButtonId'); // 버튼의 ID를 지정해주세요.
-
-        if (matchingStatus === '매칭완료') {
-            button.classList.remove('matching_btn_style');
-            button.classList.add('matched_btn_style');
-            button.disabled = true; // 클릭 비활성화
-        } else {
-            button.classList.remove('matched_btn_style');
-            button.classList.add('matching_btn_style');
-            button.disabled = false; // 클릭 활성화
-        }
-    }
-
-    // 매칭 상태를 가져와서 버튼 스타일 업데이트
-    const matchingStatus = '매칭완료'; // 매칭 상태를 가져와야 합니다.
-    updateButtonStyle(matchingStatus);
-
 
 
 </script>

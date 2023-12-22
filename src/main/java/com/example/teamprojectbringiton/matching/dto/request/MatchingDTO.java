@@ -5,10 +5,9 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class MatchingApplyDTO {
+public class MatchingDTO {
     private Integer id;
     private Integer matchUserId;
     private Integer reservationId;
     private String matchingStatus;
-
 }
