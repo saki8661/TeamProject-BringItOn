@@ -2,9 +2,13 @@ package com.example.teamprojectbringiton.matching;
 
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
 import com.example.teamprojectbringiton.matching.dto.request.MatchingDTO;
+import com.example.teamprojectbringiton.matching.dto.response.MyMatchingApplyListDTO;
+import com.example.teamprojectbringiton.matching.dto.response.MyMatchingListDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+
+import java.util.List;
 
 @Service
 public class MatchingService {
@@ -15,6 +19,7 @@ public class MatchingService {
     public void matchingApply(MatchingDTO dto) {
         Matching matching = Matching.builder()
                 .id(dto.getId())
+                .userId(dto.getUserId())
                 .matchUserId(dto.getMatchUserId())
                 .matchingStatus("매칭완료")
                 .reservationId(dto.getReservationId())
@@ -31,6 +36,15 @@ public class MatchingService {
         }
     }
 
+    // 내가 요청한 매칭
+    public List<MyMatchingListDTO> myMatchingList() {
+        return matchingRepository.findMyMatchingList();
+    }
+
+    // 내가 지원한 매칭
+    public List<MyMatchingApplyListDTO> myApplyMatchingList() {
+        return matchingRepository.findMyApplyMatchingList();
+    }
 
 //    public int findByMyApplyMatch(Integer principalId) {
 //        int findByMyApplyMatch = matchingRepository.findByMyApplyMatch(principalId);

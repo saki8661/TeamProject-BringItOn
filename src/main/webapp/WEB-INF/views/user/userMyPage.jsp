@@ -36,10 +36,12 @@
                         <div>예약 상태</div>
                     </div>
                     <div class="myPage_test_4">
-                        <div class="userMyPage_title">최근경기</div>
+                        <div class="userMyPage_title">매칭 요청 리스트</div>
+                        <div>나에게 신청한 매칭 리스트를 볼 수 있습니다 확인해볼까요?</div>
                     </div>
                     <div class="myPage_test_5">
-                        <div class="userMyPage_title">다음경기</div>
+                        <div class="userMyPage_title">매칭 지원 리스트</div>
+                        <div>내가 신청한 매칭 리스트를 볼 수 있습니다 확인해볼까요?</div>
                     </div>
                 </div>
             </div>

@@ -82,7 +82,7 @@ CREATE TABLE age_tb
 -- 포지션 테이블
 CREATE TABLE position_tb
 (
-    id  INT AUTO_INCREMENT PRIMARY KEY,
+    id       INT AUTO_INCREMENT PRIMARY KEY,
     position VARCHAR
 );
 
@@ -132,6 +132,7 @@ CREATE TABLE review_tb
 CREATE TABLE matching_tb
 (
     id              INT AUTO_INCREMENT PRIMARY KEY,
+    user_id         INT,
     reservation_id  INT,
     match_user_id   INT,
     matching_status VARCHAR

@@ -7,6 +7,7 @@ import lombok.Setter;
 @Setter
 public class MatchingDTO {
     private Integer id;
+    private Integer userId;
     private Integer matchUserId;
     private Integer reservationId;
     private String matchingStatus;

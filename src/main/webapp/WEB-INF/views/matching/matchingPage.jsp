@@ -103,8 +103,11 @@
                                     </div>
                                 </div>
                                 <button class="matching_button matching_btn_style" type="button" data-bs-toggle="modal"
-                                        data-bs-target="#matchingModal-${matching.id}">매칭하기
+                                        data-bs-target="#matchingModal-${matching.id}"
+                                    ${matching.matchingStatus == '매칭완료' ? 'disabled' : ''}>
+                                        ${matching.matchingStatus}
                                 </button>
+
                             </div>
                         </div>
                         <hr class="matchingPage_manual_box region-${matching.teamLocation}">
