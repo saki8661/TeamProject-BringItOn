@@ -36,7 +36,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
 
     <!--지도 api 라이브러리-->
-    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7ba34bd55504b76a82b2071b1bbc61da"></script>
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7ba34bd55504b76a82b2071b1bbc61da&libraries=services"></script>
 
 </head>
 
