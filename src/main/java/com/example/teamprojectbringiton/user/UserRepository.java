@@ -65,4 +65,6 @@ public interface UserRepository {
     public void userUpdateIsCaptain(User user);
 
     void userUpdateTeamId(User user);
+
+    public void kakaoUserUpdate(User user);
 }
