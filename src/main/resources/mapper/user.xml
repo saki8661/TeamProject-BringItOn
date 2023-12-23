@@ -7,9 +7,9 @@
 
     <insert id="insert">
         insert into user_tb(username, password, user_email, user_phone_number, user_address, user_pic_url, nickName,
-                            user_division, created_at, gender_id, age_id, kakao_login)
+                            user_division, created_at, gender_id, age_id, kakao_login, is_captain)
         values (#{username}, #{password}, #{userEmail}, #{userPhoneNumber}, #{userAddress}, #{userPicUrl}, #{nickName},
-                #{userDivision}, now(), #{genderId}, #{ageId}, #{kakaoLogin});
+                #{userDivision}, now(), #{genderId}, #{ageId}, #{kakaoLogin}, #{isCaptain});
     </insert>
 
     <update id="userUpdateIsCaptain">
@@ -29,6 +29,17 @@
         set password     = #{username},
             user_pic_url = #{password},
             fullname     = #{fullname}
+        where id = #{id}
+    </update>
+
+    <update id="kakaoUserUpdate">
+        update user_tb
+        set user_email=#{userEmail},
+            user_phone_number=#{userPhoneNumber},
+            user_address=#{userAddress},
+            user_division=#{userDivision},
+            gender_id=#{genderId},
+            age_id=#{ageId}
         where id = #{id}
     </update>
 

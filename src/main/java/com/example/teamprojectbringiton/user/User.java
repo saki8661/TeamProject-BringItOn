@@ -56,6 +56,28 @@ public class User {
         this.password = password;
     }
 
+    public void updateUserEmail(String userEmail) {
+        this.userEmail = userEmail;
+    }
+
+    public void updateUserAddress(String userAddress) {
+        this.userAddress = userAddress;
+    }
+
+    public void updateUserPhoneNumber(String userPhoneNumber) {
+        this.userPhoneNumber = userPhoneNumber;
+    }
+
+    public void updateUserDivision(String userDivision) {
+        this.userDivision = userDivision;
+    }
+
+    public void updateGenderId(Integer genderId) {
+        this.genderId = genderId;
+    }
+    public void updateAgeId(Integer ageId) {
+        this.ageId = ageId;
+    }
 
     public void updateUserPicUrl(String userPicUrl) {
         this.userPicUrl = userPicUrl;
