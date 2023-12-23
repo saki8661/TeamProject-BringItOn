@@ -542,13 +542,13 @@ VALUES (4, '좋아요!', 1, 2, CURRENT_TIMESTAMP),
        (5, '다음에 또 올래요!', 2, 5, CURRENT_TIMESTAMP);
 
 -- 매칭 더미 데이터
-INSERT INTO matching_tb (reservation_id, match_user_id, matching_status)
-VALUES (1, null, '매칭대기'),
-       (2, null, '매칭대기'),
-       (3, 3, '매칭완료'),
-       (4, 4, '매칭완료'),
-       (5, 5, '매칭완료'),
-       (6, 6, '매칭취소');
+INSERT INTO matching_tb (user_id, reservation_id, match_user_id, matching_status)
+VALUES (2, 1, null, '매칭대기'),
+       (5, 2, null, '매칭대기'),
+       (6, 3, 3, '매칭완료'),
+       (2, 4, 4, '매칭완료'),
+       (1, 5, 5, '매칭완료'),
+       (1, 6, 6, '매칭취소');
 
 INSERT INTO space_option_tb (option_id, space_id)
 VALUES (1, 1),

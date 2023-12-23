@@ -132,6 +132,7 @@ CREATE TABLE review_tb
 CREATE TABLE matching_tb
 (
     id              INT AUTO_INCREMENT PRIMARY KEY,
+    user_id         INT,
     reservation_id  INT,
     match_user_id   INT,
     matching_status VARCHAR

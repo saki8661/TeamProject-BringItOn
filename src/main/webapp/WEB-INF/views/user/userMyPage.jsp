@@ -36,16 +36,22 @@
                         <div>예약 상태</div>
                     </div>
                     <div class="myPage_test_4">
-                        <div class="userMyPage_title">최근경기</div>
-                    </div>
-                    <div class="myPage_test_5">
-                        <div class="userMyPage_title">다음경기</div>
+                        <div class="userMyPage_title">매칭 요청 리스트</div>
+                        <br>
+                        <div class="userMyPage_option">
+                            <div>나의 매칭 리스트와 현황을 볼 수 있습니다 확인해볼까요?</div>
+                            <form action="/matching-myMatch" method="get">
+                                <input type="hidden" name="id" value="${sessionUser.id}">
+                                <button class="myMatching_button myMatching_btn_style" type="submit">
+                                    상세보기
+                                </button>
+                            </form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
 
 <%@ include file="../layout/footer.jsp" %>
