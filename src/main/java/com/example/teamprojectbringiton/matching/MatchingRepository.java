@@ -14,8 +14,8 @@ public interface MatchingRepository {
 
     public int insertMatching(Matching matching);
 
-    public List<MyMatchingListDTO> findMyMatchingList();
-    public List<MyMatchingApplyListDTO> findMyApplyMatchingList();
+    public List<MyMatchingListDTO> findMyMatchingList(Integer userId);
+    public List<MyMatchingApplyListDTO> findMyApplyMatchingList(Integer userId);
 
 
 //    public int findByMyApplyMatch(Integer principalId);

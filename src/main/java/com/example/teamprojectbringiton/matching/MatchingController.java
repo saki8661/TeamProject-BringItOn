@@ -55,11 +55,11 @@ public class MatchingController {
     @GetMapping("/matching-myMatch")
     public String myMatchPage(Model model) {
         User sessionUser = (User) session.getAttribute("sessionUser");
-        List<MyMatchingListDTO> myMatchings = matchingService.myMatchingList();
-        List<MyMatchingApplyListDTO> myApplyMatchings = matchingService.myApplyMatchingList();
+        List<MyMatchingListDTO> myMatchings = matchingService.myMatchingList(sessionUser.getId());
+        List<MyMatchingApplyListDTO> myApplyMatchings = matchingService.myApplyMatchingList(sessionUser.getId());
         model.addAttribute("myMatchings", myMatchings);
         model.addAttribute("myApplyMatchings", myApplyMatchings);
-        return "user/userMyPage";
+        return "user/userMyMatchingPage";
     }
 
 }

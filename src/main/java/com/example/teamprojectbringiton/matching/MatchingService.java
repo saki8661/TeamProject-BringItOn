@@ -37,13 +37,13 @@ public class MatchingService {
     }
 
     // 내가 요청한 매칭
-    public List<MyMatchingListDTO> myMatchingList() {
-        return matchingRepository.findMyMatchingList();
+    public List<MyMatchingListDTO> myMatchingList(Integer userId) {
+        return matchingRepository.findMyMatchingList(userId);
     }
 
     // 내가 지원한 매칭
-    public List<MyMatchingApplyListDTO> myApplyMatchingList() {
-        return matchingRepository.findMyApplyMatchingList();
+    public List<MyMatchingApplyListDTO> myApplyMatchingList(Integer userId) {
+        return matchingRepository.findMyApplyMatchingList(userId);
     }
 
 //    public int findByMyApplyMatch(Integer principalId) {
