@@ -74,7 +74,11 @@
                         </button>
                     </div>
                 </form>
-                <a class="nav_add" href="/place-registration">시설등록</a>
+                <c:choose>
+                    <c:when test="${sessionUser.userDivision eq 'host'}">
+                    <a class="nav_add" href="/host/place-registration">시설등록</a>
+                    </c:when>
+                </c:choose>
                 <div class="header_auth">
                     <c:choose>
                         <c:when test="${empty sessionUser}">
