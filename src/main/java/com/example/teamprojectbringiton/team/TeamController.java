@@ -101,16 +101,18 @@ public class TeamController {
 
     @PostMapping("/team-apply-approve/{id}")
     public String applyApprove(@PathVariable Integer id, UpdateTeamIdDTO dto){
+        User sessionUser = (User) session.getAttribute("sessionUser");
         User user = userService.findById(dto.getUserId());
         userService.userUpdateTeamId(user, dto);
         teamService.applyApprove(id);
-        return "redirect:/user/team-apply/{id}";
+        return "redirect:/user/team-apply/" + sessionUser.getId();
     }
 
     @GetMapping("/team-apply-refuse/{id}")
     public String applyRefuse(@PathVariable Integer id) {
+        User sessionUser = (User) session.getAttribute("sessionUser");
         teamService.applyRefuse(id);
-        return "redirect:/user/team-apply/{id}";
+        return "redirect:/user/team-apply/"+ sessionUser.getId();
     }
 
 

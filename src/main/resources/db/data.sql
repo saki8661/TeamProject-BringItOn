@@ -23,8 +23,14 @@ VALUES ('ssar', '대욱', 'password1', 'bbarkse1129@naver.com', '서울시 강�
         '912345678', '나의 계좌9', NOW(), 1, 9, 1, 1, false, true),
        ('ssar6', '영희', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', 'general',
         '109876543', '나의 계좌10', NOW(), 1, null, 2, 1, false, false),
+       ('ssar7', '철수', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', 'general',
+        '109876543', '나의 계좌10', NOW(), 1, null, 1, 1, false, false),
+       ('ssar8', '광수', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', 'general',
+        '109876543', '나의 계좌10', NOW(), 1, null, 1, 1, false, false),
+       ('ssar9', '허수', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', 'general',
+        '109876543', '나의 계좌10', NOW(), 1, null, 1, 1, false, false),
        ('bbarkse', '관리자', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', 'admin',
-        '109876543', '나의 계좌10', NOW(), 1, 11, 1, 4, false, true);
+        '109876543', '나의 계좌10', NOW(), 1, null, 1, 4, false, true);
 
 -- 팀 더미 데이터
 INSERT INTO team_tb (team_name, team_capacity, team_location, team_pic_url, team_introduce, level, age_id, gender_id,
@@ -713,4 +719,10 @@ values (1, 1),
 
 
 INSERT INTO apply_tb(team_id, captain_user_id, personal_user_id)
-values (1, 1, 10);
+values (1, 1, 10),
+       (1, 1, 11),
+       (2, 2, 12),
+       (1, 1, 13),
+       (2, 2, 13),
+       (3, 3, 13),
+       (1, 1, 12);
