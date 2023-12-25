@@ -86,6 +86,16 @@ CREATE TABLE position_tb
     position VARCHAR
 );
 
+
+-- 예약 시간
+CREATE TABLE reservation_time_tb
+(
+    id                 INT AUTO_INCREMENT PRIMARY KEY,
+    start_time         TIME,
+    end_time           TIME
+);
+
+
 -- 시설 공간 예약 테이블
 CREATE TABLE reservation_tb
 (

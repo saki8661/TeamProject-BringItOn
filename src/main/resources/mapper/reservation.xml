@@ -32,7 +32,7 @@
 
     <select id="findByIdReservSpaceAndSpacePic"
             resultType="com.example.teamprojectbringiton.reservation.response.ReservationRespDTO">
-        select space_id, space_name, space_location, space_pic, price_per_hour
+        select space_id, space_name, space_location, space_pic, price
         from space_tb as space
              join space_pic_tb as pic
         on space.id= pic.space_id
