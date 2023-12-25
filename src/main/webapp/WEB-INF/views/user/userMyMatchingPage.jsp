@@ -19,6 +19,7 @@
                             <th>시작시간</th>
                             <th>종료시간</th>
                             <th>신청자명</th>
+                            <th>매칭상태</th>
                         </tr>
                         </thead>
                         <tbody>
@@ -28,6 +29,7 @@
                                 <td>${matching.startTime}</td>
                                 <td>${matching.endTime}</td>
                                 <td>${matching.nickName}</td>
+                                <td>${matching.matchingStatus}</td>
                             </tr>
                         </c:forEach>
                         </tbody>

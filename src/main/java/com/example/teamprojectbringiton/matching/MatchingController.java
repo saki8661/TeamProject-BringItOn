@@ -52,8 +52,8 @@ public class MatchingController {
         return "redirect:/matching-main";
     }
 
-    @GetMapping("/matching-myMatch")
-    public String myMatchPage(Model model) {
+    @GetMapping("/matching-myMatch/{id}")
+    public String myMatchPage(@PathVariable Integer id, Model model) {
         User sessionUser = (User) session.getAttribute("sessionUser");
         List<MyMatchingListDTO> myMatchings = matchingService.myMatchingList(sessionUser.getId());
         List<MyMatchingApplyListDTO> myApplyMatchings = matchingService.myApplyMatchingList(sessionUser.getId());

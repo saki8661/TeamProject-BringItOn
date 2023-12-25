@@ -38,6 +38,7 @@
                  left join user_tb u
                            on m.match_user_id = u.id
         where m.user_id = #{userId}
+        order by r.reservation_date desc;
     </select>
 
 
@@ -50,6 +51,7 @@
                  left join user_tb u
                            on m.user_id = u.id
         where m.match_user_id = #{userId}
+        order by r.reservation_date desc;
     </select>
 
 

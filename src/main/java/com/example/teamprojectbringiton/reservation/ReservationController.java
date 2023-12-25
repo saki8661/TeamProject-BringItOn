@@ -2,8 +2,8 @@ package com.example.teamprojectbringiton.reservation;
 
 import com.example.teamprojectbringiton.reservation.dto.response.UserReservationListDTO;
 
-import com.example.teamprojectbringiton.reservation.request.ReservationReqDTO;
-import com.example.teamprojectbringiton.reservation.response.ReservationRespDTO;
+import com.example.teamprojectbringiton.reservation.dto.request.ReservationReqDTO;
+import com.example.teamprojectbringiton.reservation.dto.response.ReservationRespDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
