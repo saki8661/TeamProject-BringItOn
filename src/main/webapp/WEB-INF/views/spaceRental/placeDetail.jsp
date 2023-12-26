@@ -36,7 +36,7 @@
                         </div>
                         <div class="separated_line"></div>
                         <div class="place_detail_review">
-                            후기(22)
+                            후기${commentCount}
                         </div>
 
                     </div>
@@ -61,7 +61,7 @@
                     <div class="scroll1_place_detail_info" id="scroll1_place_detail_info">
                         ${spaceDetail.description}
                         <div class="scroll1_place_detail_map">
-                        <div id="map" style="width:500px;height:400px;"></div>
+                            <div id="map" style="width:500px;height:400px;"></div>
                         </div>
                     </div>
                     <div class="scroll2_place_detail_caution" id="scroll2_place_detail_caution">
@@ -146,7 +146,7 @@
                             </div>
                             <div class="scroll4_place_detail_qna_type">
                                 <label for="inquireType">문의유형:</label>
-                                <select id="inquireType" name="inquireType+">
+                                <select id="inquireType" name="inquireType">
                                     <option value="공간문의">공간문의</option>
                                     <option value="가격문의">가격문의</option>
                                 </select>
@@ -154,11 +154,12 @@
                         </div>
                         <div class="scroll4_place_detail_qna_container">
                             <div class="scroll4_place_detail_qna_textarea">
-                                <textarea class="scroll4_place_detail_qna_textarea" id="inquire_comment"
-                                          name="inquire_comment"
+                                <textarea class="scroll4_place_detail_qna_textarea" id="inquireContent"
+                                          name="inquireContent"
                                           placeholder="문의를 작성해주세요"></textarea>
                             </div>
                             <input type="hidden" name="spaceId" value="${spaceDetail.id}">
+                            <input type="hidden" name="userId" value="${sessionUser.id}">
 
                             <button class="scroll4_place_detail_qna_container_button" type="submit">
                                 문의하기
@@ -166,8 +167,10 @@
                         </div>
                     </form>
 
+
                     <div class="scroll4_place_detail_qna_list">
                         <c:forEach var="spaceInquireList" items="${spaceInquireList}" varStatus="loop">
+
                             <div class="scroll4_place_detail_qna_list_total">
                                 <div class="scroll4_place_detail_review_list_container">
                                     <div class="scroll4_place_detail_qna_username">${spaceInquireList.username}</div>
@@ -187,6 +190,7 @@
                             </div>
                         </c:forEach>
                     </div>
+
                     <div class="scroll5_return_rule" id="scroll5_return_rule">
                         <h1 style="font-size: 20px; font-weight: bolder; padding-top: 20px; padding-bottom: 20px">
                             환불
@@ -263,12 +267,6 @@
         xhr.open("POST", "/space-bookmark", true);
         xhr.setRequestHeader("Content-Type", "application/json");
 
-        xhr.onreadystatechange = function () {
-            if (xhr.readyState == 4 && xhr.status == 200) {
-                // 서버에서의 응답 처리
-                console.log(xhr.responseText);
-            }
-        };
 
         var data = {
             spaceId: spaceId,
@@ -278,8 +276,23 @@
 
         xhr.send(JSON.stringify(data));
 
-        // 색상 클래스를 토글합니다.
-        heartIcon.classList.toggle('heart-filled');
+        // onreadystatechange << xhr객체의 readyState가 처음에 0
+        // 1, 2, 3을 거쳐서 4가 됨
+        // 숫자가 바뀔때 마다 인식하고 onreadystatechange가 function() 실행
+        xhr.onreadystatechange = function () {
+            //4 : 데이터를 전부 받은 상태
+            if (xhr.readyState == 4 && xhr.status == 404) {
+                // HttpStatus가 BAD_REQUEST인 경우
+                alert('로그인을 먼저 해주세요.');
+            }
+            if (xhr.readyState == 4 && xhr.status == 200) {
+                // 서버에서의 응답 처리
+
+                // 색상 클래스를 토글
+                heartIcon.classList.toggle('heart-filled');
+            }
+        };
+
     }
 
     document.addEventListener("DOMContentLoaded", function () {
@@ -354,7 +367,7 @@
     }
 
     // 주소로 좌표를 검색합니다
-    geocoder.addressSearch('${spaceDetail.spaceLocation}' , function(result, status) {
+    geocoder.addressSearch('${spaceDetail.spaceLocation}', function (result, status) {
         console.log(result, status);
 
         // 정상적으로 검색이 완료됐으면
@@ -379,6 +392,5 @@
         }
     });
 </script>
-
 
 <%@ include file="../layout/footer.jsp" %>

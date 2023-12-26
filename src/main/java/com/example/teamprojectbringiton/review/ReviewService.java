@@ -23,4 +23,10 @@ public class ReviewService {
         reviewRepository.insert(review);
 
     }
+
+    public int addReviewAndCommentCount(Integer spaceId) {
+        int countComment = reviewRepository.getCommentCount(spaceId);
+        return countComment;
+    }
+
 }
