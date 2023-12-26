@@ -24,8 +24,6 @@ public class ReviewController {
     public String placeReviewProc(SpaceReviewDTO dto, Review review, Model model) {
         System.out.println("+++리뷰컨트롤러 진입" + dto.getSpaceId());
         reviewService.reviewSave(dto);
-        int commentCount = reviewService.addReviewAndCommentCount(review);
-        model.addAttribute("commentCount", commentCount);
         System.out.println("+++dto잘담김" + dto);
         return "redirect:/space-detail/" + dto.getSpaceId();
     }

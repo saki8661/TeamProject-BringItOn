@@ -24,11 +24,9 @@ public class ReviewService {
 
     }
 
-    public int addReviewAndCommentCount(Review review) {
-        // 리뷰 추가
-        reviewRepository.insert(review);
-        int updatedCount = reviewRepository.getCommentCount(review.getSpaceId());
-        return updatedCount;
+    public int addReviewAndCommentCount(Integer spaceId) {
+        int countComment = reviewRepository.getCommentCount(spaceId);
+        return countComment;
     }
 
 }

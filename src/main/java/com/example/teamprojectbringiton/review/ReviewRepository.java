@@ -9,7 +9,6 @@ import java.util.List;
 public interface ReviewRepository {
     public void insert(Review review);
    public int getCommentCount(@Param("spaceId") Integer spaceId);
-  //public  void updateCommentCount(@Param("spaceId") Integer spaceId, @Param("commentCount") Integer commentCount);
 
 
 }

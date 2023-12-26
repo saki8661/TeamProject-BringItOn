@@ -283,7 +283,7 @@
             //4 : 데이터를 전부 받은 상태
             if (xhr.readyState == 4 && xhr.status == 404) {
                 // HttpStatus가 BAD_REQUEST인 경우
-                alert('저리가 ');
+                alert('로그인을 먼저 해주세요.');
             }
             if (xhr.readyState == 4 && xhr.status == 200) {
                 // 서버에서의 응답 처리
