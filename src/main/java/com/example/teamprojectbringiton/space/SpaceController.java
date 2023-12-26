@@ -102,6 +102,7 @@ public class SpaceController {
 
         // 추가: 페이징 정보 설정
         PageVO pageVO = new PageVO();
+
         pageVO.setCurrentPage(currentPage);
         pageVO.setCountPerPage(pageSize);
         pageVO.setLastPage((int) Math.ceil((double) totalItems / pageSize));
@@ -109,10 +110,7 @@ public class SpaceController {
         pageVO.setPageSize(8); // 기본값 설정
         pageVO.setCountSize(5);
 
-        spaces.get(0).getSpaceLocation();
-        spaces.get(0).getSpaceName();
-        spaces.get(0).getSector();
-        spaces.get(0).getSpaceName();
+
         model.addAttribute("spaces", spaces);
         model.addAttribute("pageVO", pageVO);
         // 페이징 정보를 모델에 추가

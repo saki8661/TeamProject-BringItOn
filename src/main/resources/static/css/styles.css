@@ -4374,4 +4374,32 @@ EDIT ON
     border-radius: 15px;
 }
 
+.userTeamApply_container {
+    width: 100%
+}
 
+.userTeamAPPly_empty_box {
+
+}
+
+.userTeamApply_items {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px;
+    border-bottom: 1px solid #19B357;
+    padding: 10px
+}
+
+.userTeamApply_items > img {
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+}
+
+.userTeamApply_item_empty {
+    display: flex;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+}
