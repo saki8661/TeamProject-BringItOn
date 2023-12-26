@@ -23,8 +23,14 @@ VALUES ('ssar', '대욱', 'password1', 'bbarkse1129@naver.com', '서울시 강�
         '912345678', '나의 계좌9', NOW(), 1, 9, 1, 1, false, true),
        ('ssar6', '영희', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', 'general',
         '109876543', '나의 계좌10', NOW(), 1, null, 2, 1, false, false),
+       ('ssar7', '철수', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', 'general',
+        '109876543', '나의 계좌10', NOW(), 1, null, 1, 1, false, false),
+       ('ssar8', '광수', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', 'general',
+        '109876543', '나의 계좌10', NOW(), 1, null, 1, 1, false, false),
+       ('ssar9', '진수', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', 'general',
+        '109876543', '나의 계좌10', NOW(), 1, null, 1, 1, false, false),
        ('bbarkse', '관리자', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', 'admin',
-        '109876543', '나의 계좌10', NOW(), 1, 11, 1, 4, false, true);
+        '109876543', '나의 계좌10', NOW(), 1, null, 1, 4, false, true);
 
 -- 팀 더미 데이터
 INSERT INTO team_tb (team_name, team_capacity, team_location, team_pic_url, team_introduce, level, age_id, gender_id,
@@ -554,7 +560,7 @@ VALUES (4, '좋아요!', 1, 2, CURRENT_TIMESTAMP),
        (5, '편해요!', 1, 3, CURRENT_TIMESTAMP),
        (4, '다음에도 이용할래요!', 1, 4, CURRENT_TIMESTAMP),
        (5, 'Nice space!', 1, 5, CURRENT_TIMESTAMP),
-       (5, '상태가 좋아요!', 2, 1, CURRENT_TIMESTAMP),
+       (5, '상태가 좋아요!', 2, 6, CURRENT_TIMESTAMP),
        (4, '축구해요!', 2, 2, CURRENT_TIMESTAMP),
        (4, '잔디좋아!', 2, 3, CURRENT_TIMESTAMP),
        (5, '다음에 또 올래요!', 2, 5, CURRENT_TIMESTAMP);
@@ -593,8 +599,8 @@ VALUES (1, 1),
 
 -- 공간대여 문의 더미 데이터 ( 시설문의, 가격문의 )
 INSERT INTO space_inquire_tb (inquire_type, inquire_content, inquire_answer, user_id, space_id, created_at)
-VALUES ('시설문의', '근처에 주차공간 여유롭나요?', '주차는 건너편 길가에 해주세여', 1, 1, CURRENT_TIMESTAMP),
-       ('가격문의', '충전 없이는 예약 불가능 하나요?', '프로그램 지침상 충전을 꼭 해주셔야 합니다', 1, 1, CURRENT_TIMESTAMP),
+VALUES ('시설문의', '근처에 주차공간 여유롭나요?', '주차는 건너편 길가에 해주세여', 1, 108, CURRENT_TIMESTAMP),
+       ('가격문의', '충전 없이는 예약 불가능 하나요?', '프로그램 지침상 충전을 꼭 해주셔야 합니다', 1, 108, CURRENT_TIMESTAMP),
        ('시설문의', '근처에 맛집있나여???', '근처 대방어 맛집 있습니다', 2, 1, CURRENT_TIMESTAMP),
        ('가격문의', '6명 단체 예약인데 따로 할인은 없나요?', '죄송합니다 할인은 불가능 합니다', 6, 2, CURRENT_TIMESTAMP),
        ('시설문의', '잔디 관리 잘돼있나요?', '인조 잔디라서 불편함은 따로 없을듯여', 7, 2, CURRENT_TIMESTAMP);
@@ -731,4 +737,10 @@ values (1, 1),
 
 
 INSERT INTO apply_tb(team_id, captain_user_id, personal_user_id)
-values (1, 1, 10);
+values (1, 1, 10),
+       (1, 1, 11),
+       (2, 2, 12),
+       (1, 1, 13),
+       (2, 2, 13),
+       (3, 3, 13),
+       (1, 1, 12);

@@ -213,12 +213,25 @@
                       ON a.ID = u.AGE_ID
                  JOIN GENDER_TB AS g
                       ON g.ID = u.GENDER_ID
-        where u.id = #{id};
+        where u.id = #{id}
     </select>
 
     <select id="findAllCount" resultType="int">
         select count(*)
-        from user_tb;
+        from user_tb
+    </select>
+
+    <select id="findByIdJoinApply" resultType="com.example.teamprojectbringiton.user.dto.response.UserApplyListDTO">
+        select *, a.id as apply_id, a.team_id as apply_team_id
+        from user_tb u
+                 join apply_tb a
+                      on u.id = a.personal_user_id
+                 join age_tb age
+                      on u.age_id = age.id
+                 join gender_tb g
+                      on u.gender_id = g.id
+        where a.captain_user_id = #{id}
+
     </select>
 
 </mapper>

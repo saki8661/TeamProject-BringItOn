@@ -4,6 +4,7 @@ package com.example.teamprojectbringiton.space;
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
 import com.example.teamprojectbringiton._core.utils.Function;
 import com.example.teamprojectbringiton._core.utils.PageVO;
+import com.example.teamprojectbringiton.review.ReviewService;
 import com.example.teamprojectbringiton.space.dto.request.SaveDTO;
 import com.example.teamprojectbringiton.space.dto.request.UpdateDTO;
 import com.example.teamprojectbringiton.space.dto.response.SpaceDTO;
@@ -36,6 +37,10 @@ public class SpaceController {
     @Autowired
     private HttpSession session;
 
+    @Autowired
+    private ReviewService reviewService;
+
+  
     @Autowired
     private Function function;
 
@@ -111,6 +116,12 @@ public class SpaceController {
         List<SpaceInquireDTO> spaceInquireList = spaceInquireService.spaceInqFindById(id);
         model.addAttribute("spaceInquireList", spaceInquireList);
         System.out.println("모델에 담겼나마루치아라치");
+        int commentCount = reviewService.addReviewAndCommentCount(id);
+        model.addAttribute("commentCount", commentCount);
+
+        double starAvg = reviewService.ratingStarAvg(id);
+        model.addAttribute("starAvg", starAvg);
+
         return "/spaceRental/placeDetail";
     }
 
@@ -124,6 +135,7 @@ public class SpaceController {
 
         // 추가: 페이징 정보 설정
         PageVO pageVO = new PageVO();
+
         pageVO.setCurrentPage(currentPage);
         pageVO.setCountPerPage(pageSize);
         pageVO.setLastPage((int) Math.ceil((double) totalItems / pageSize));
@@ -131,10 +143,7 @@ public class SpaceController {
         pageVO.setPageSize(8); // 기본값 설정
         pageVO.setCountSize(5);
 
-        spaces.get(0).getSpaceLocation();
-        spaces.get(0).getSpaceName();
-        spaces.get(0).getSector();
-        spaces.get(0).getSpaceName();
+
         model.addAttribute("spaces", spaces);
         model.addAttribute("pageVO", pageVO);
         // 페이징 정보를 모델에 추가
