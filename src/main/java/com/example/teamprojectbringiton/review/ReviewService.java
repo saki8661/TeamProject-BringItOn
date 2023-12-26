@@ -34,5 +34,10 @@ public class ReviewService {
         return countComment;
     }
 
+    public double ratingStarAvg(Integer spaceId){
+        double ratingAvg = reviewRepository.ratingAvg(spaceId);
+        return ratingAvg;
+    }
+
 
 }

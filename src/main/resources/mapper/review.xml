@@ -13,4 +13,10 @@
         select count(comment) , space_id from review_tb where space_id = #{spaceId};
     </select>
 
+    <select id="ratingAvg" resultType="double">
+        select ifnull(avg(rating),0.0) rating_avg
+    FROM review_tb
+    WHERE space_id = #{spaceId};
+    </select>
+
 </mapper>
