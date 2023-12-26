@@ -39,6 +39,7 @@ public class SpaceController {
     @Autowired
     private ReviewService reviewService;
 
+  
     @Autowired
     private Function function;
 
@@ -102,7 +103,6 @@ public class SpaceController {
 
         return "redirect:/management-main/" + user.getId();
     }
-
 
     @GetMapping("/space-detail/{id}")
     public String placeDetailPage(@PathVariable Integer id, Model model) {

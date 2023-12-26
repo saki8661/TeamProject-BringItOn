@@ -36,7 +36,7 @@
                         </div>
                         <div class="separated_line"></div>
                         <div class="place_detail_review">
-                            후기${commentCount}
+                            후기 ${commentCount}
                         </div>
 
                     </div>
@@ -288,6 +288,7 @@
                 // HttpStatus가 BAD_REQUEST인 경우
                 alert('로그인을 먼저 해주세요.');
 
+
             }
             if (xhr.readyState == 4 && xhr.status == 200) {
                 // 서버에서의 응답 처리
@@ -371,8 +372,10 @@
     }
 
     // 주소로 좌표를 검색합니다
-    geocoder.addressSearch('${spaceDetail.spaceLocation}', function (result, status) {
 
+
+
+    geocoder.addressSearch('${spaceDetail.spaceLocation}', function (result, status) {
         console.log(result, status);
 
         // 정상적으로 검색이 완료됐으면

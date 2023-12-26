@@ -30,14 +30,18 @@ public class ReviewService {
     }
 
     public int addReviewAndCommentCount(Integer spaceId) {
+
+
         int countComment = reviewRepository.getCommentCount(spaceId);
         return countComment;
     }
+
 
     public double ratingStarAvg(Integer spaceId){
         double ratingAvg = reviewRepository.ratingAvg(spaceId);
         return ratingAvg;
     }
+
 
 
 }

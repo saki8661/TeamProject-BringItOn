@@ -9,6 +9,7 @@ import java.util.List;
 @Mapper
 public interface ReviewRepository {
     public void insert(Review review);
+
    public int getCommentCount(@Param("spaceId") Integer spaceId);
 
    public  double ratingAvg(@Param("spaceId") Integer spaceId);
