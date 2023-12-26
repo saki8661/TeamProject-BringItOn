@@ -529,8 +529,8 @@ VALUES (1, 1),
 
 -- 공간대여 문의 더미 데이터 ( 시설문의, 가격문의 )
 INSERT INTO space_inquire_tb (inquire_type, inquire_content, inquire_answer, user_id, space_id, created_at)
-VALUES ('시설문의', '근처에 주차공간 여유롭나요?', '주차는 건너편 길가에 해주세여', 1, 1, CURRENT_TIMESTAMP),
-       ('가격문의', '충전 없이는 예약 불가능 하나요?', '프로그램 지침상 충전을 꼭 해주셔야 합니다', 1, 1, CURRENT_TIMESTAMP),
+VALUES ('시설문의', '근처에 주차공간 여유롭나요?', '주차는 건너편 길가에 해주세여', 1, 108, CURRENT_TIMESTAMP),
+       ('가격문의', '충전 없이는 예약 불가능 하나요?', '프로그램 지침상 충전을 꼭 해주셔야 합니다', 1, 108, CURRENT_TIMESTAMP),
        ('시설문의', '근처에 맛집있나여???', '근처 대방어 맛집 있습니다', 2, 1, CURRENT_TIMESTAMP),
        ('가격문의', '6명 단체 예약인데 따로 할인은 없나요?', '죄송합니다 할인은 불가능 합니다', 6, 2, CURRENT_TIMESTAMP),
        ('시설문의', '잔디 관리 잘돼있나요?', '인조 잔디라서 불편함은 따로 없을듯여', 7, 2, CURRENT_TIMESTAMP);

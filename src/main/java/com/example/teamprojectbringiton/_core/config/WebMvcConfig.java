@@ -3,6 +3,7 @@ package com.example.teamprojectbringiton._core.config;
 
 import com.example.teamprojectbringiton._core.handler.AuthInterceptor;
 import com.example.teamprojectbringiton._core.interceptor.LoginInterceptor;
+import com.example.teamprojectbringiton._core.interceptor.ReservationInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -27,6 +28,13 @@ public class WebMvcConfig implements WebMvcConfigurer {
     public void addInterceptors(InterceptorRegistry registry) {
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/user/**");
+
+        registry.addInterceptor(new ReservationInterceptor())
+                // addPathPatterns( "해당 주소로 갈때" )
+                .addPathPatterns("/reservation/**");
+        // .excludePathPatterns ( "해당주소로 갈때는 예외적 허용" )
+        // .excludePathPatterns("/board/{id:[0-9]+}");
+
 
     }
 

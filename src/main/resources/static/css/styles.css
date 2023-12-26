@@ -3409,8 +3409,8 @@ EDIT ON
 
 .scroll4_place_detail_qna_container {
     display: flex;
-    padding-top: 20px;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .scroll4_place_detail_qna_container_button {
@@ -4222,7 +4222,7 @@ EDIT ON
     gap: 20px;
 }
 
-.team_create_item_logo_input > img{
+.team_create_item_logo_input > img {
     width: 150px;
     height: 150px;
     border-radius: 25px;
