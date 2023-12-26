@@ -19,9 +19,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.sql.Date;
+import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
+import java.util.UUID;
 
 @Service
 public class ReservationService {
@@ -94,25 +97,40 @@ public class ReservationService {
     @Transactional
     public void reservationSave(ReservationReqDTO dto) {
         User sessionUser = (User) session.getAttribute("sessionUser");
-        System.out.println("++++예약하기 insert진입++++");
+        // date 타입으로 변환
+        LocalDate localDate = LocalDate.parse(dto.getReservationDate(), DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+        Date reservationDate = Date.valueOf(localDate);
+
+        // - 빼기
+        String formattedDate = dto.getReservationDate();
+        String formattedText = formattedDate.replaceAll("-", "");
+
+        String reservationNumber = formattedText + dto.getSpaceId() + dto.getReservationTimeId();
+
+        System.out.println("예약번호 : " + reservationNumber);
+
         Reservation reservation = Reservation.builder()
+                .reservationNumber(reservationNumber)
+                .reservationDate(reservationDate)
                 .personnel(dto.getPersonnel())
+                .status("예약진행중")
                 .toHost(dto.getToHost())
                 .userId(dto.getUserId())
                 .spaceId(dto.getSpaceId())
-                .matching(dto.isMatching())
+                .matching(dto.getMatching())
+                .reservationTimeId(dto.getReservationTimeId())
                 .build();
         System.out.println("insert해따요" + dto.getUserId());
         reservationRepository.reservInsert(reservation);
 
-        if (dto.isMatching()) {
+        if (dto.getMatching()) {
             Matching matching = Matching.builder()
                     .userId(sessionUser.getId())
                     .reservationId(reservation.getId())
                     .matchingStatus("매칭대기중")
                     .build();
-            System.out.println(sessionUser.getId()+"세션유저 담김?????????????여긴 레절베이션");
-            System.out.println(reservation.getId()+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
+            System.out.println(sessionUser.getId() + "세션유저 담김?????????????여긴 레절베이션");
+            System.out.println(reservation.getId() + "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
             matchingRepository.insertMatching(matching);
         }
     }

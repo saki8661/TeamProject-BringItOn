@@ -86,22 +86,31 @@ CREATE TABLE position_tb
     position VARCHAR
 );
 
+-- 예약 시간
+CREATE TABLE reservation_time_tb
+(
+    id                 INT AUTO_INCREMENT PRIMARY KEY,
+    start_time         TIME,
+    end_time           TIME
+);
+
 -- 시설 공간 예약 테이블
 CREATE TABLE reservation_tb
 (
     id                 INT AUTO_INCREMENT PRIMARY KEY,
-    reservation_number INT,
+    reservation_number VARCHAR(25),
     reservation_date   DATE,
     personnel          INT,
-    start_time         TIME,
-    end_time           TIME,
     status             VARCHAR(50),
     to_host            VARCHAR(255),
     matching           BOOLEAN,
     created_at         TIMESTAMP,
     user_id            INT,
-    space_id           INT
+    space_id           INT,
+    reservation_time_id INT
 );
+
+
 
 -- 지역 테이블 (코드)
 CREATE TABLE region_tb
