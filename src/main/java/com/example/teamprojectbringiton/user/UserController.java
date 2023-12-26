@@ -222,7 +222,9 @@ public class UserController {
     }
 
     @GetMapping("/user/team-apply/{id}")
-    public String userTeamApplyPage(){
+    public String userTeamApplyPage(@PathVariable Integer id, Model model){
+        List<User> applyUser = userService.searchTeamApplyList(id);
+        model.addAttribute("applyUser", applyUser);
         return "user/userTeamApply";
     }
 

@@ -4397,13 +4397,17 @@ EDIT ON
     border-radius: 15px;
 }
 
-.userMyPage_option{
+.userTeamApply_container {
+    width: 100%;
+}
+
+.userMyPage_option {
     display: flex;
     justify-content: space-between;
 }
 
 .myMatching_button {
-    background-color:  #19B357;
+    background-color: #19B357;
     color: white;
 }
 
@@ -4413,6 +4417,31 @@ EDIT ON
     height: 40px;
     width: 120px;
     font-size: 20px;
-    text-align: center;
+    text-align: center
 }
 
+.userTeamAPPly_empty_box {
+
+}
+
+.userTeamApply_items {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px;
+    border-bottom: 1px solid #19B357;
+    padding: 10px
+}
+
+.userTeamApply_items > img {
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+}
+
+.userTeamApply_item_empty {
+    display: flex;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+}

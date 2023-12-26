@@ -3,12 +3,12 @@
 <div class="col-md-4">
     <div class="userInfo_aside">
         <div class="userInfo_image">
-            <img src="/images/sh_profile.jpg">
+            <img src="/images/${sessionUser.userPicUrl}">
         </div>
         <div class="userInformation">
             <div>
-                <div class="userInfo_point_nickname">박세환</div>
-                <div class="userInfo_point_username">cos</div>
+                <div class="userInfo_point_nickname">${sessionUser.nickName}</div>
+                <div class="userInfo_point_username">${sessionUser.username}</div>
             </div>
             <div class="userInfo_profile_button">
                 <button>
