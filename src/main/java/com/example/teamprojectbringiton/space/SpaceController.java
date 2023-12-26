@@ -36,11 +36,10 @@ public class SpaceController {
 
     @Autowired
     private HttpSession session;
-    @Autowired
-    private ReviewService reviewService;
 
     @Autowired
     private ReviewService reviewService;
+
   
     @Autowired
     private Function function;
