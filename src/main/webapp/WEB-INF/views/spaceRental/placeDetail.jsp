@@ -372,7 +372,6 @@
 
     // 주소로 좌표를 검색합니다
     geocoder.addressSearch('${spaceDetail.spaceLocation}', function (result, status) {
-
         console.log(result, status);
 
         // 정상적으로 검색이 완료됐으면

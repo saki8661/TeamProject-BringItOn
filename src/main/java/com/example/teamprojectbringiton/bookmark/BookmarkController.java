@@ -25,7 +25,6 @@ public class BookmarkController {
     @Autowired
     HttpSession session;
 
-
     @PostMapping("/space-bookmark")
     public ApiUtils<?> spaceInquireProc(@RequestBody BookmarkDTO dto) {
         User user = (User) session.getAttribute("sessionUser");

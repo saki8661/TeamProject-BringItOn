@@ -30,14 +30,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .addPathPatterns("/user/**")
                 .addPathPatterns("/space/**")
                 .addPathPatterns("/host/**");
-
-
-        registry.addInterceptor(new ReservationInterceptor())
-                // addPathPatterns( "해당 주소로 갈때" )
-                .addPathPatterns("/reservation/**");
-        // .excludePathPatterns ( "해당주소로 갈때는 예외적 허용" )
-        // .excludePathPatterns("/board/{id:[0-9]+}");
-
         registry.addInterceptor(new ReservationInterceptor())
                 // addPathPatterns( "해당 주소로 갈때" )
                 .addPathPatterns("/reservation/**");

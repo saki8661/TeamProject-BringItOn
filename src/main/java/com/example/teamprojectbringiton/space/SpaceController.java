@@ -40,6 +40,9 @@ public class SpaceController {
     private ReviewService reviewService;
 
     @Autowired
+    private ReviewService reviewService;
+  
+    @Autowired
     private Function function;
 
     @Autowired
@@ -116,8 +119,10 @@ public class SpaceController {
         System.out.println("모델에 담겼나마루치아라치");
         int commentCount = reviewService.addReviewAndCommentCount(id);
         model.addAttribute("commentCount", commentCount);
+
         double starAvg = reviewService.ratingStarAvg(id);
         model.addAttribute("starAvg", starAvg);
+
         return "/spaceRental/placeDetail";
     }
 

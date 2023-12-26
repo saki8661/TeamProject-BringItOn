@@ -1,15 +1,10 @@
 package com.example.teamprojectbringiton.bookmark;
 
 import com.example.teamprojectbringiton.bookmark.request.BookmarkDTO;
-import com.example.teamprojectbringiton.review.Review;
-import com.example.teamprojectbringiton.review.ReviewRepository;
-import com.example.teamprojectbringiton.review.reqDTO.SpaceReviewDTO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.xml.transform.Source;
 
 @Service
 public class BookmarkService {

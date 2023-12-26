@@ -9,9 +9,17 @@ import java.util.List;
 @Mapper
 public interface ReviewRepository {
     public void insert(Review review);
+  
    public int getCommentCount(@Param("spaceId") Integer spaceId);
 
    public  double ratingAvg(@Param("spaceId") Integer spaceId);
+
+    List<Review> findByUserId(Integer id, @Param("pageSize") int pageSize, @Param("offset") int offset);
+
+    int findByUserIdCount(Integer id);
+
+   public int getCommentCount(@Param("spaceId") Integer spaceId);
+
 
 
 }
