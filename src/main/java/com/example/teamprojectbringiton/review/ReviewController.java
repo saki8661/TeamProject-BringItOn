@@ -24,10 +24,12 @@ public class ReviewController {
     private HttpSession session;
 
     @PostMapping("/space-review")
-    public String placeReviewProc(SpaceReviewDTO dto) {
+    public String placeReviewProc(SpaceReviewDTO dto, Review review, Model model) {
+        System.out.println("+++리뷰컨트롤러 진입" + dto.getSpaceId());
         reviewService.reviewSave(dto);
         return "redirect:/space-detail/" + dto.getSpaceId();
     }
+
 
     @GetMapping("/user/review/{id}")
     public String userReviewPage(@RequestParam(name = "currentPage", defaultValue = "1") int currentPage,
@@ -48,4 +50,5 @@ public class ReviewController {
         model.addAttribute("pageVO", pageVO);
         return "user/userReview";
     }
+
 }

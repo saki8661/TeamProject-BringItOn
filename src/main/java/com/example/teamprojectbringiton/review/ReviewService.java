@@ -39,4 +39,10 @@ public class ReviewService {
         System.out.println("reviewCount: "+reviewCount);
         return reviewCount;
     }
+
+    public int addReviewAndCommentCount(Integer spaceId) {
+        int countComment = reviewRepository.getCommentCount(spaceId);
+        return countComment;
+    }
+
 }

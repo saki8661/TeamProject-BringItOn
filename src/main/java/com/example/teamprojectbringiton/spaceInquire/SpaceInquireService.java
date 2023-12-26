@@ -26,10 +26,12 @@ public class SpaceInquireService {
         SpaceInquire spaceInquire = SpaceInquire.builder()
                 .inquireType(dto.getInquireType())
                 .inquireContent(dto.getInquireContent())
+                .inquireAnswer(dto.getInquireAnswer())
                 .userId(dto.getUserId())
                 .spaceId(dto.getSpaceId())
                 .build();
         System.out.println("insert해따요" + dto.getUserId());
+        System.out.println("---content왜 안받아짐"+ dto.getInquireContent());
         spaceInquireRepository.spaceInqInsert(spaceInquire);
 
     }

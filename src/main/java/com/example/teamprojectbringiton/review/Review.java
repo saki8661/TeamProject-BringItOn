@@ -25,4 +25,5 @@ public class Review {
         this.userId = userId;
         this.createdAt = createdAt;
     }
+
 }

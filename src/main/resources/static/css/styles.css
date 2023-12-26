@@ -3483,8 +3483,8 @@ EDIT ON
 
 .scroll4_place_detail_qna_container {
     display: flex;
-    padding-top: 20px;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .scroll4_place_detail_qna_container_button {
@@ -3515,11 +3515,14 @@ EDIT ON
 .scroll4_place_detail_qna_big_title {
     display: flex;
     flex-direction: row;
+    padding-bottom: 20px;
 }
 
 .scroll4_place_detail_qna_textarea {
-    width: 100%;
-    height: 100%;
+    width: 350px;
+    height: 35px;
+    resize: none;
+
 }
 
 .scroll4_place_detail_qna_list_total {
