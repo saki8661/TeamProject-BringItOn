@@ -8,6 +8,7 @@ import java.sql.Timestamp;
 public class SpaceInquireDTO {
     private String inquireType;
     private String inquireContent;
+    private String inquireAnswer;
     private Timestamp createdAt;
     private Integer userId;
     private Integer spaceId;

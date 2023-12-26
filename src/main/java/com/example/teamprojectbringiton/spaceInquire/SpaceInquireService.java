@@ -1,9 +1,5 @@
 package com.example.teamprojectbringiton.spaceInquire;
 
-import com.example.teamprojectbringiton.review.Review;
-import com.example.teamprojectbringiton.review.reqDTO.SpaceReviewDTO;
-import com.example.teamprojectbringiton.space.SpaceRepository;
-import com.example.teamprojectbringiton.space.dto.response.SpaceDetailDTO;
 import com.example.teamprojectbringiton.spaceInquire.response.SpaceInquireDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -30,10 +26,12 @@ public class SpaceInquireService {
         SpaceInquire spaceInquire = SpaceInquire.builder()
                 .inquireType(dto.getInquireType())
                 .inquireContent(dto.getInquireContent())
+                .inquireAnswer(dto.getInquireAnswer())
                 .userId(dto.getUserId())
                 .spaceId(dto.getSpaceId())
                 .build();
         System.out.println("insert해따요" + dto.getUserId());
+        System.out.println("---content왜 안받아짐"+ dto.getInquireContent());
         spaceInquireRepository.spaceInqInsert(spaceInquire);
 
     }

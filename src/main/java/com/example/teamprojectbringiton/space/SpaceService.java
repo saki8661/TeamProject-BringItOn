@@ -52,6 +52,7 @@ public class SpaceService {
         System.out.println("페이징 서비스 진입 : " + currentPage);
         int offset = currentPage * pageSize - pageSize;
         return spaceRepository.findAllJoinSportAndRegion(pageSize, offset);
+
     }
 
     public int getTotalItemCount() {

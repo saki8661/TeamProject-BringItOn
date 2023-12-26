@@ -31,6 +31,7 @@ public class NoticeService {
         return noticeRepository.findAllJoinCategory();
     }
 
+
     public List<NoticeCategory> noticeCategoryList() {
         return noticeCategoryRepository.findAll();
     }

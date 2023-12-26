@@ -243,9 +243,15 @@ public class UserService {
         userRepository.userUpdateIsCaptain(user);
     }
 
+    @Transactional
     public void userUpdateTeamId(User user, UpdateTeamIdDTO dto) {
         user.updateTeamId(dto.getTeamId());
         userRepository.userUpdateTeamId(user);
+    }
+
+    public List<User> searchTeamApplyList(Integer id) {
+        List<User> applyUser = userRepository.findByIdJoinApply(id);
+        return applyUser;
     }
 
     public void kakaoUserUpdate(KakaoLoginDTO dto) {

@@ -194,12 +194,6 @@ public class UserController {
         return "user/userBookmark";
     }
 
-    @GetMapping("/user/review/{id}")
-    public String userReviewManagementPage(@PathVariable Integer id) {
-        return "user/userReview";
-    }
-
-
     @GetMapping("/user/payment/{id}")
     public String userPaymentPage(@PathVariable Integer id) {
         return "user/userPayment";
@@ -222,7 +216,9 @@ public class UserController {
     }
 
     @GetMapping("/user/team-apply/{id}")
-    public String userTeamApplyPage(){
+    public String userTeamApplyPage(@PathVariable Integer id, Model model){
+        List<User> applyUser = userService.searchTeamApplyList(id);
+        model.addAttribute("applyUser", applyUser);
         return "user/userTeamApply";
     }
 

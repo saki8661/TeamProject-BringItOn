@@ -673,6 +673,7 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: auto;
 }
 
 .userInfo_body {
@@ -1001,12 +1002,17 @@ input::placeholder {
     height: 30px;
 }
 
+.userReview_container{
+    height: 750px;
+    width: 100%;
+}
+
 .userReview_review_box {
     border-bottom: #d9d9d9 1px solid;
     width: 100%;
     height: auto;
-    padding-top: 30px;
-    padding-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .userReview_teamname {
@@ -1014,13 +1020,26 @@ input::placeholder {
     font-weight: bold;
     border-right: black 2px solid;
     padding-right: 5px;
-    line-height: 1.3;
+}
+.userReview_item_tile{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
 }
 
 .userReview_created_at {
     font-size: 18px;
     font-weight: bold;
     padding-left: 5px;
+}
+.userReview_rating{
+    font-size: 18px;
+    font-weight: bold;
+    padding-left: 5px;
+}
+
+.userReview_item_separation{
+    display: flex;
 }
 
 .userReview_place {
@@ -1035,6 +1054,7 @@ input::placeholder {
     font-size: 20px;
     font-weight: bold;
     color: #555555;
+    margin: 20px;
 }
 
 .userReview_button {
@@ -3463,8 +3483,8 @@ EDIT ON
 
 .scroll4_place_detail_qna_container {
     display: flex;
-    padding-top: 20px;
     flex-direction: row;
+    justify-content: space-between;
 }
 
 .scroll4_place_detail_qna_container_button {
@@ -3495,11 +3515,14 @@ EDIT ON
 .scroll4_place_detail_qna_big_title {
     display: flex;
     flex-direction: row;
+    padding-bottom: 20px;
 }
 
 .scroll4_place_detail_qna_textarea {
-    width: 100%;
-    height: 100%;
+    width: 350px;
+    height: 35px;
+    resize: none;
+
 }
 
 .scroll4_place_detail_qna_list_total {
@@ -3560,8 +3583,10 @@ EDIT ON
 }
 
 .place_detail_stick_area_menu_date {
+    display: flex;
     font-size: 20px;
     padding-bottom: 20px;
+    flex-direction: row;
 }
 
 .place_detail_stick_area_menu_place {
@@ -4397,13 +4422,17 @@ EDIT ON
     border-radius: 15px;
 }
 
-.userMyPage_option{
+.userTeamApply_container {
+    width: 100%;
+}
+
+.userMyPage_option {
     display: flex;
     justify-content: space-between;
 }
 
 .myMatching_button {
-    background-color:  #19B357;
+    background-color: #19B357;
     color: white;
 }
 
@@ -4413,7 +4442,7 @@ EDIT ON
     height: 40px;
     width: 120px;
     font-size: 20px;
-    text-align: center;
+    text-align: center
 }
 
 .admin_frame{
@@ -4432,4 +4461,30 @@ EDIT ON
     font-size: 30px;
     font-weight: 600;
     padding-bottom: 10px;
+}
+
+.userTeamAPPly_empty_box {
+
+}
+
+.userTeamApply_items {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px;
+    border-bottom: 1px solid #19B357;
+    padding: 10px
+}
+
+.userTeamApply_items > img {
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+}
+
+.userTeamApply_item_empty {
+    display: flex;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
 }

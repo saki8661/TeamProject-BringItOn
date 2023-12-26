@@ -9,13 +9,13 @@ import com.example.teamprojectbringiton.notice.dto.response.NoticeListDTO;
 import com.example.teamprojectbringiton.notice.noticeCategory.NoticeCategory;
 import com.example.teamprojectbringiton.user.User;
 import jakarta.servlet.http.HttpSession;
+import org.jsoup.Jsoup;
+import org.jsoup.safety.Whitelist;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -80,6 +80,9 @@ public class NoticeController {
             throw new CustomRestfullException("내용을 입력해주세요",
                     HttpStatus.BAD_REQUEST);
         }
+        // HTML 태그 제거
+        String plainText = Jsoup.clean(dto.getNoticeContent(), Whitelist.none());
+        dto.setNoticeContent(plainText);
         noticeService.noticeUpdate(dto, sessionUser.getId());
         return "redirect:/notice-main";
 
@@ -95,6 +98,19 @@ public class NoticeController {
         noticeService.deleteById(id);
         System.out.println("@@@@@@@@@@@@@컨트롤러 호출됨");
         return "redirect:/notice-main";
+    }
+
+    @RequestMapping("/getNoticeCategories")
+    @ResponseBody
+    public List<NoticeCategory> noticeWrite() {
+        List<NoticeCategory> noticeCategories = noticeService.noticeCategoryList();
+        return noticeCategories;
+    }
+
+    @GetMapping("/getNoticeList")
+    @ResponseBody
+    public List<NoticeListDTO> getNoticeList() {
+        return noticeService.noticeList();
     }
 
 }
