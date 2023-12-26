@@ -5,7 +5,6 @@ import com.example.teamprojectbringiton.review.dto.request.SpaceReviewDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
 import java.util.List;
 
 @Service
@@ -27,6 +26,18 @@ public class ReviewService {
 
     }
 
+
+    public int addReviewAndCommentCount(Integer spaceId) {
+        int countComment = reviewRepository.getCommentCount(spaceId);
+        return countComment;
+    }
+
+    public double ratingStarAvg(Integer spaceId){
+        double ratingAvg = reviewRepository.ratingAvg(spaceId);
+        return ratingAvg;
+    }
+
+
     public List<Review> findByUserId(Integer id, Integer currentPage, Integer pageSize) {
         int offset = currentPage * pageSize - pageSize;
         List<Review> reviewList =  reviewRepository.findByUserId(id, pageSize, offset);
@@ -44,5 +55,6 @@ public class ReviewService {
         int countComment = reviewRepository.getCommentCount(spaceId);
         return countComment;
     }
+
 
 }

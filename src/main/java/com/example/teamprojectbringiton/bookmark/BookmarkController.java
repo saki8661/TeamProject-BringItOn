@@ -39,5 +39,4 @@ public class BookmarkController {
         return new ApiUtils<String>(true, "성공");
     }
 
-
 }

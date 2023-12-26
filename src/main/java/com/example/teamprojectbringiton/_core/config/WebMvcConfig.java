@@ -30,7 +30,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .addPathPatterns("/user/**")
                 .addPathPatterns("/space/**")
                 .addPathPatterns("/host/**");
-
         registry.addInterceptor(new ReservationInterceptor())
                 // addPathPatterns( "해당 주소로 갈때" )
                 .addPathPatterns("/reservation/**");
@@ -48,6 +47,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .setCachePeriod(10) // 10 (초) (초단위)
                 .resourceChain(true) // 안중요함 생각없이 걸면됨
                 .addResolver(new PathResourceResolver());
+
     }
 
     @Bean // Ioc 관리 대상 처리 - 싱글톤

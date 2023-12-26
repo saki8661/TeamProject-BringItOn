@@ -9,6 +9,7 @@
         values (#{rating}, #{comment}, #{spaceId}, #{userId}, now())
     </insert>
 
+
     <select id="findByUserId" resultType="com.example.teamprojectbringiton.review.dto.response.ReviewListDTO">
         select r.id,
                r.rating,
@@ -47,10 +48,17 @@
            or su.id = #{id}
     </select>
 
+
     <select id="getCommentCount" resultType="int">
         select count(comment) , space_id from review_tb where space_id = #{spaceId};
     </select>
 
+
+    <select id="ratingAvg" resultType="double">
+        select ifnull(avg(rating),0.0) rating_avg
+    FROM review_tb
+    WHERE space_id = #{spaceId};
+    </select>
 
 
 </mapper>

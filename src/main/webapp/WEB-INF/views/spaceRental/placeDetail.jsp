@@ -131,7 +131,7 @@
                                     <div class="rated_star_date">${spaceReview.createdAt}</div>
                                 </div>
                                 <div class="scroll3_place_detail_review_content_container">
-                                    <h3>>${spaceReview.comment}</h3>
+                                    <h3>${spaceReview.comment}</h3>
                                 </div>
                             </c:forEach>
                         </div>
@@ -212,7 +212,10 @@
             <div id="container" class="place_detail_stick_area">
                 <div class="place_detail_stick_area_menu">
                     <div class="place_detail_stick_area_menu_date">
-                        12월 4일
+                        <i class="fas fa-star text-warning" style="padding-right: 10px"></i>
+                        <h2>평점</h2>
+                        <div class="star_avg" style="padding-left: 10px">${starAvg}</div>
+
                     </div>
                     <div class="place_detail_stick_area_menu_place">
                         <h2>${spaceDetail.spaceName}</h2>
@@ -284,6 +287,7 @@
             if (xhr.readyState == 4 && xhr.status == 404) {
                 // HttpStatus가 BAD_REQUEST인 경우
                 alert('로그인을 먼저 해주세요.');
+
             }
             if (xhr.readyState == 4 && xhr.status == 200) {
                 // 서버에서의 응답 처리
