@@ -34,4 +34,5 @@ public class ReviewService {
         int countComment = reviewRepository.getCommentCount(spaceId);
         return countComment;
     }
+
 }

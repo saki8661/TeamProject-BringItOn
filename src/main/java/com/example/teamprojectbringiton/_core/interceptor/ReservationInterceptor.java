@@ -1,6 +1,5 @@
 package com.example.teamprojectbringiton._core.interceptor;
 
-import com.example.teamprojectbringiton._core.utils.ApiUtils;
 import com.example.teamprojectbringiton._core.utils.Script;
 import com.example.teamprojectbringiton.user.User;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -23,7 +22,7 @@ public class ReservationInterceptor implements HandlerInterceptor {
             System.out.println("어드민인터셉터 : 웹 권한없음");
             response.setHeader("Content-Type", "text/html; charset=utf-8");
             PrintWriter out = response.getWriter();
-            out.println(Script.back("저리가."));
+            out.println(Script.back("로그인을 먼저 해주세요."));
             return false;
         }
         return true;

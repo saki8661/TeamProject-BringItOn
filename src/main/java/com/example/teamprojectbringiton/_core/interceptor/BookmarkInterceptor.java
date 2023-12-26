@@ -1,6 +1,4 @@
 package com.example.teamprojectbringiton._core.interceptor;
-
-
 import java.io.PrintWriter;
 
 import org.springframework.http.HttpStatus;

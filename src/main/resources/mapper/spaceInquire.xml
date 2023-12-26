@@ -14,8 +14,8 @@
 
 
     <insert id="spaceInqInsert">
-        insert into space_inquire_tb(inquire_type, inquire_content, user_id, space_id, created_at)
-        values (#{inquireType}, #{inquireContent}, #{userId}, #{spaceId}, now());
+        insert into space_inquire_tb(inquire_type, inquire_content,inquire_answer,user_id, space_id, created_at)
+        values (#{inquireType}, #{inquireContent},#{inquireAnswer} ,#{userId}, #{spaceId}, now());
     </insert>
 
 </mapper>
