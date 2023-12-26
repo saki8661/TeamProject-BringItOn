@@ -25,23 +25,20 @@ public class ReservationController {
         System.out.println("예약하기 컨트롤러 진입" + id);
         ReservationRespDTO reservationName = reservationService.reservationFindBySpaceId(id);
         model.addAttribute("reservationName", reservationName);
-        System.out.println("모델에 담긴 데이터 SpaceName :" + reservationName.getSpaceName());
-        System.out.println("모델에 담긴 데이터 SpaceId :" + reservationName.getSpaceId());
-        System.out.println("모델에 담긴 데이터 SpaceLocation :" + reservationName.getSpaceLocation());
-        System.out.println("예약 공간이 모델에 담겼다");
         return "/spaceRental/reservation";
     }
 
-    @PostMapping("/reservation/{id}")
-    public String reservationProc(@PathVariable Integer id, ReservationReqDTO dto) {
-        System.out.println("+++리뷰컨트롤러 진입 reservation" + dto.getSpaceId());
-        System.out.println("+++dto 담김 reservation:" + dto.getPersonnel());
-        reservationService.reservationSave(dto);
+    @PostMapping("/reservation")
+    public String reservationProc(ReservationReqDTO dto) {
+        System.out.println("+++리뷰컨트롤러 진입 reservation" + dto.getReservationDate());
         System.out.println("+++dto 담김 reservation:" + dto.getPersonnel());
         System.out.println("+++dto 담김 reservation:" + dto.getToHost());
-        System.out.println("+++dto 담김 reservation: " + dto.isMatching());
-
-        return "redirect:/space-detail/" + id;
+        System.out.println("+++dto 담김 reservation:" + dto.getSpaceId());
+        System.out.println("+++dto 담김 reservation: " + dto.getUserId());
+        System.out.println("+++dto 담김 reservation: " + dto.getMatching());
+        System.out.println("+++dto 담김 reservation: " + dto.getReservationTimeId());
+        reservationService.reservationSave(dto);
+        return "redirect:/space-detail/" + dto.getSpaceId();
     }
 
 

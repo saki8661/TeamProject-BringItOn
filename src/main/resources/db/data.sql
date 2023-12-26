@@ -524,17 +524,34 @@ VALUES (1, 'inside1.png'),
        (107, 'outside1.png'),
        (108, 'outside2.png');
 
--- 시설 공간 예약 더미 데이터
-INSERT INTO reservation_tb (reservation_number, reservation_date, personnel, start_time, end_time, to_host, status,
-                            matching, created_at,
-                            user_id, space_id)
-VALUES (2023121801, '2024-01-01', 6, '10:00', '12:00', '장비대여 되나요?', '예약진행중', true, CURRENT_TIMESTAMP, 2, 1),
-       (2023121802, '2024-01-02', 2, '14:00', '16:00', '장비대여 되나요?', '예약완료', false, CURRENT_TIMESTAMP, 3, 2),
-       (2023121803, '2024-01-01', 3, '12:00', '14:00', '장비대여 되나요?', '예약완료', true, CURRENT_TIMESTAMP, 5, 5),
-       (2023121804, '2024-01-02', 4, '10:00', '12:00', '장비대여 되나요?', '예약진행중', true, CURRENT_TIMESTAMP, 6, 6),
-       (2023121805, '2024-01-02', 2, '18:00', '20:00', '장비대여 되나요?', '예약진행중', false, CURRENT_TIMESTAMP, 7, 7),
-       (2023121806, '2024-01-01', 5, '19:00', '21:00', '장비대여 되나요?', '예약진행중', false, CURRENT_TIMESTAMP, 8, 8);
+-- 예약 시간 테이블
+INSERT INTO reservation_time_tb (start_time, end_time)
+VALUES ('08:00', '09:00'),
+       ('09:00', '10:00'),
+       ('10:00', '11:00'),
+       ('11:00', '12:00'),
+       ('12:00', '13:00'),
+       ('13:00', '14:00'),
+       ('14:00', '15:00'),
+       ('15:00', '16:00'),
+       ('16:00', '17:00'),
+       ('17:00', '18:00'),
+       ('18:00', '19:00'),
+       ('19:00', '20:00'),
+       ('20:00', '21:00'),
+       ('21:00', '22:00'),
+       ('22:00', '23:00');
 
+-- 시설 공간 예약 더미 데이터
+INSERT INTO reservation_tb (reservation_number, reservation_date, personnel, to_host, status,
+                            matching, created_at,
+                            user_id, space_id, reservation_time_id)
+VALUES (2023121801, '2024-01-01', 6, '장비대여 되나요?', '예약진행중', true, CURRENT_TIMESTAMP, 2, 1, 2),
+       (2023121802, '2024-01-02', 2, '장비대여 되나요?', '예약완료', false, CURRENT_TIMESTAMP, 3, 2, 2),
+       (2023121803, '2024-01-01', 3, '장비대여 되나요?', '예약완료', true, CURRENT_TIMESTAMP, 5, 5, 3),
+       (2023121804, '2024-01-02', 4, '장비대여 되나요?', '예약진행중', true, CURRENT_TIMESTAMP, 6, 6, 4),
+       (2023121805, '2024-01-02', 2, '장비대여 되나요?', '예약진행중', false, CURRENT_TIMESTAMP, 7, 7, 5),
+       (2023121806, '2024-01-01', 5, '장비대여 되나요?', '예약진행중', false, CURRENT_TIMESTAMP, 8, 8, 6);
 
 -- 한줄리뷰 더미 데이터
 INSERT INTO review_tb (rating, comment, space_id, user_id, created_at)
