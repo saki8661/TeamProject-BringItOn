@@ -1,9 +1,5 @@
 package com.example.teamprojectbringiton.spaceInquire;
 
-import com.example.teamprojectbringiton.review.Review;
-import com.example.teamprojectbringiton.review.reqDTO.SpaceReviewDTO;
-import com.example.teamprojectbringiton.space.SpaceRepository;
-import com.example.teamprojectbringiton.space.dto.response.SpaceDetailDTO;
 import com.example.teamprojectbringiton.spaceInquire.response.SpaceInquireDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

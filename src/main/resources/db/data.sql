@@ -27,7 +27,7 @@ VALUES ('ssar', '대욱', 'password1', 'bbarkse1129@naver.com', '서울시 강�
         '109876543', '나의 계좌10', NOW(), 1, null, 1, 1, false, false),
        ('ssar8', '광수', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', 'general',
         '109876543', '나의 계좌10', NOW(), 1, null, 1, 1, false, false),
-       ('ssar9', '허수', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', 'general',
+       ('ssar9', '진수', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', 'general',
         '109876543', '나의 계좌10', NOW(), 1, null, 1, 1, false, false),
        ('bbarkse', '관리자', 'password', 'ssar@nate.com', '서울시 강남구', '010-1010-1010', 'default_profile.jpg', 'admin',
         '109876543', '나의 계좌10', NOW(), 1, null, 1, 4, false, true);
@@ -542,7 +542,7 @@ VALUES (4, '좋아요!', 1, 2, CURRENT_TIMESTAMP),
        (5, '편해요!', 1, 3, CURRENT_TIMESTAMP),
        (4, '다음에도 이용할래요!', 1, 4, CURRENT_TIMESTAMP),
        (5, 'Nice space!', 1, 5, CURRENT_TIMESTAMP),
-       (5, '상태가 좋아요!', 2, 1, CURRENT_TIMESTAMP),
+       (5, '상태가 좋아요!', 2, 6, CURRENT_TIMESTAMP),
        (4, '축구해요!', 2, 2, CURRENT_TIMESTAMP),
        (4, '잔디좋아!', 2, 3, CURRENT_TIMESTAMP),
        (5, '다음에 또 올래요!', 2, 5, CURRENT_TIMESTAMP);

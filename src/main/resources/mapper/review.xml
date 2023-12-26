@@ -6,7 +6,45 @@
 
     <insert id="insert">
         insert into review_tb(rating, comment, space_id, user_id, created_at)
-        values (#{rating}, #{comment}, #{spaceId}, #{userId}, now());
+        values (#{rating}, #{comment}, #{spaceId}, #{userId}, now())
     </insert>
+
+    <select id="findByUserId" resultType="com.example.teamprojectbringiton.review.dto.response.ReviewListDTO">
+        select r.id,
+               r.rating,
+               r.comment,
+               r.space_id,
+               r.user_id,
+               u.username,
+               u.nickname,
+               u.user_division,
+               s.space_name,
+               r.created_at as review_created_at
+        from review_tb r
+                 left join user_tb u
+                           on u.id = r.user_id
+                 left join space_tb s
+                           on s.id = r.space_id
+                 left join user_tb su
+                           on s.user_id = su.id
+        where u.id = #{id}
+           or su.id = #{id}
+        order by r.id desc
+            limit #{pageSize}
+        offset #{offset}
+    </select>
+
+    <select id="findByUserIdCount" resultType="int">
+        select count(*)
+        from review_tb r
+                 left join user_tb u
+                           on u.id = r.user_id
+                 left join space_tb s
+                           on s.id = r.space_id
+                 left join user_tb su
+                           on s.user_id = su.id
+        where u.id = #{id}
+           or su.id = #{id}
+    </select>
 
 </mapper>

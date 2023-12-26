@@ -273,8 +273,8 @@
                     '<div class="main_content_title m-2">' + item.spaceName + '</div>' +
                     '<div class="main_content_category m-2">[' + item.sector + '/' + item.sportName + ']' +
                     '</div>' +
-                    '<div class="main_content_location m-2">' + item.regionName + '</div>' +
-                    '<div class="main_content_price m-2 mb-4">' + item.pricePerHour + '원 ~</div>' +
+                    '<div class="main_content_location m-2">' + item.spaceName + '</div>' +
+                    '<div class="main_content_price m-2 mb-4">' + item.price + '원 ~</div>' +
                     '</div>';
             });
             $(".main_layout").append(htmlString);
