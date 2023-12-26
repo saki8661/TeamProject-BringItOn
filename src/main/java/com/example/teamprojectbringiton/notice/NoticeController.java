@@ -6,6 +6,7 @@ import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedExce
 import com.example.teamprojectbringiton.notice.dto.request.NoticeUpdateDTO;
 import com.example.teamprojectbringiton.notice.dto.request.NoticeWriteDTO;
 import com.example.teamprojectbringiton.notice.dto.response.NoticeListDTO;
+import com.example.teamprojectbringiton.notice.noticeCategory.NoticeCategory;
 import com.example.teamprojectbringiton.user.User;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -28,11 +29,16 @@ public class NoticeController {
     @Autowired
     private NoticeService noticeService;
 
+    @Autowired
+    private NoticeRepository noticeRepository;
+
     @GetMapping("/notice-main")
     public String noticePage(Model model) {
         List<NoticeListDTO> notices = noticeService.noticeList();
+        List<NoticeCategory> noticeCategories = noticeService.noticeCategoryList();
         System.out.println("담김?" + notices.get(0).getNoticeTitle());
         model.addAttribute("notices", notices);
+        model.addAttribute("noticeCategories", noticeCategories);
         return "customer/noticeMain";
     }
 
@@ -51,11 +57,15 @@ public class NoticeController {
             throw new CustomRestfullException("내용을 입력해주세요",
                     HttpStatus.BAD_REQUEST);
         }
-        noticeService.noticeWrite(dto);
+        noticeService.noticeWrite(dto, sessionUser.getId());
+        System.out.println(dto.getNoticeContent()+"공지글@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        System.out.println(dto.getNoticeTitle()+"공지제목@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        System.out.println(dto.getNoticeCategoryId()+"공지카테고리@@@@@@@@@@@@@@@@@@@@@@@@@@");
+        System.out.println(sessionUser.getId()+"작성아이디@@@@@@@@@@@@@@@@@@@@@@@@@@");
         return "redirect:/notice-main";
     }
 
-    @PostMapping("/notice-update")
+    @PostMapping("/notice-update/{id}")
     public String noticeUpdate(NoticeUpdateDTO dto) {
         User sessionUser = (User) session.getAttribute("sessionUser");
         if (sessionUser == null) {
@@ -70,7 +80,7 @@ public class NoticeController {
             throw new CustomRestfullException("내용을 입력해주세요",
                     HttpStatus.BAD_REQUEST);
         }
-        noticeService.noticeUpdate(dto);
+        noticeService.noticeUpdate(dto, sessionUser.getId());
         return "redirect:/notice-main";
 
     }

@@ -527,7 +527,11 @@ VALUES (2023121801, '2024-01-01', 6, '10:00', '12:00', '장비대여 되나요?'
        (2023121803, '2024-01-01', 3, '12:00', '14:00', '장비대여 되나요?', '예약완료', true, CURRENT_TIMESTAMP, 5, 5),
        (2023121804, '2024-01-02', 4, '10:00', '12:00', '장비대여 되나요?', '예약진행중', true, CURRENT_TIMESTAMP, 6, 6),
        (2023121805, '2024-01-02', 2, '18:00', '20:00', '장비대여 되나요?', '예약진행중', false, CURRENT_TIMESTAMP, 7, 7),
-       (2023121806, '2024-01-01', 5, '19:00', '21:00', '장비대여 되나요?', '예약진행중', false, CURRENT_TIMESTAMP, 8, 8);
+       (2023121806, '2024-01-01', 5, '19:00', '21:00', '장비대여 되나요?', '예약진행중', false, CURRENT_TIMESTAMP, 8, 8),
+       (2023122007, '2023-12-25', 3, '12:00', '14:00', '장비대여 되나요?', '예약진행중', true, CURRENT_TIMESTAMP, 5, 5),
+       (2023122008, '2023-12-26', 3, '12:00', '14:00', '장비대여 되나요?', '예약진행중', true, CURRENT_TIMESTAMP, 5, 5),
+       (2023122009, '2023-12-27', 3, '12:00', '14:00', '장비대여 되나요?', '예약진행중', true, CURRENT_TIMESTAMP, 5, 5);
+
 
 
 -- 한줄리뷰 더미 데이터
@@ -613,12 +617,12 @@ values ('정기'),
 
 -- 공지사항 더미 데이터
 
-INSERT INTO notice_tb (notice_category_id, notice_title, notice_content, created_at)
-VALUES (1, '공지1', '공지1 입니다', NOW()),
-       (2, '공지2', '공지2 입니다', NOW()),
-       (3, '공지3', '공지3 입니다', NOW()),
-       (1, '공지4', '공지4 입니다', NOW()),
-       (2, '공지5', '공지5 입니다', NOW());
+INSERT INTO notice_tb (notice_category_id, notice_title, notice_content, user_id, created_at)
+VALUES (1, '공지1', '공지1 입니다', 11, NOW()),
+       (2, '공지2', '공지2 입니다', 11, NOW()),
+       (3, '공지3', '공지3 입니다', 11, NOW()),
+       (1, '공지4', '공지4 입니다', 11, NOW()),
+       (2, '공지5', '공지5 입니다', 11, NOW());
 
 -- inquire_category_tb 테이블
 insert into inquire_category_tb (inquire_category)

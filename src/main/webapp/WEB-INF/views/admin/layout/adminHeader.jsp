@@ -30,6 +30,12 @@
     <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
     <script integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="></script>
     <script crossorigin="anonymous"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+    <!-- Summernote CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.css">
+    <!-- Summernote JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.18/summernote-bs4.min.js"></script>
 </head>
 <body>
 <div class="admin_header">
@@ -65,7 +71,7 @@
         <li><a href="#">회원 관리</a></li>
         <li><a href="#">시설 관리</a></li>
         <li><a href="#">상품 관리</a></li>
-        <li><a href="#">주문 관리</a></li>
+        <li><a href="#">공지 관리</a></li>
         <li><a href="#">고객 지원</a></li>
     </ul>
 </div>

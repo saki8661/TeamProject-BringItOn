@@ -48,6 +48,12 @@ input:focus {
     outline: none;
 }
 
+.admin_frame {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+}
+
 .admin_header {
     background: var(--admin_primary_01);
     display: flex;
@@ -343,4 +349,26 @@ input:focus {
     border-top: 1px solid #bbbbbb;
     margin: 0 0 50px 0;
     width: 100%;
+}
+
+
+/* admin-customer*/
+.customer_dropdown_btn {
+    background-color: #ffffff; /* 배경 색상 */
+    color: black; /* 글자 색상 */
+    padding: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    border-radius: 10px;
+    border: 1px #BFC3D1 solid;
+
+}
+
+.customer_dropdown_btn:hover {
+    border-color: #6c757d;
+}
+
+.customer_dropdown_btn:focus {
+    border-color: #80bdff;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
