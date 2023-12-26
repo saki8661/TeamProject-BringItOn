@@ -31,7 +31,6 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .addPathPatterns("/space/**")
                 .addPathPatterns("/host/**");
 
-
         registry.addInterceptor(new ReservationInterceptor())
                 // addPathPatterns( "해당 주소로 갈때" )
                 .addPathPatterns("/reservation/**");

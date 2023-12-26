@@ -104,6 +104,7 @@ public class SpaceController {
         return "redirect:/management-main/" + user.getId();
     }
 
+
     @GetMapping("/space-detail/{id}")
     public String placeDetailPage(@PathVariable Integer id, Model model) {
         System.out.println("컨트롤러 진입" + id);
@@ -116,6 +117,10 @@ public class SpaceController {
         System.out.println("모델에 담겼나마루치아라치");
         int commentCount = reviewService.addReviewAndCommentCount(id);
         model.addAttribute("commentCount", commentCount);
+
+        double starAvg = reviewService.ratingStarAvg(id);
+        model.addAttribute("starAvg", starAvg);
+
         return "/spaceRental/placeDetail";
     }
 

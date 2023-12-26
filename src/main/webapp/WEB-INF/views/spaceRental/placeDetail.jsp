@@ -36,11 +36,9 @@
                         </div>
                         <div class="separated_line"></div>
                         <div class="place_detail_review">
-<<<<<<< HEAD
+
                             후기 ${commentCount}
-=======
-                            후기${commentCount}
->>>>>>> 309683709d5564e72bd7339ccbcadd44588487f0
+
                         </div>
 
                     </div>
@@ -135,7 +133,7 @@
                                     <div class="rated_star_date">${spaceReview.createdAt}</div>
                                 </div>
                                 <div class="scroll3_place_detail_review_content_container">
-                                    <h3>>${spaceReview.comment}</h3>
+                                    <h3>${spaceReview.comment}</h3>
                                 </div>
                             </c:forEach>
                         </div>
@@ -216,7 +214,10 @@
             <div id="container" class="place_detail_stick_area">
                 <div class="place_detail_stick_area_menu">
                     <div class="place_detail_stick_area_menu_date">
-                        12월 4일
+                        <i class="fas fa-star text-warning" style="padding-right: 10px"></i>
+                        <h2>평점</h2>
+                        <div class="star_avg" style="padding-left: 10px">${starAvg}</div>
+
                     </div>
                     <div class="place_detail_stick_area_menu_place">
                         <h2>${spaceDetail.spaceName}</h2>
@@ -254,7 +255,7 @@
         $(".scroll_move").click(function (event) {
             console.log(".scroll_move");
             event.preventDefault();
-            $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 500);
+            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 500);
         });
 
     });
@@ -287,11 +288,8 @@
             //4 : 데이터를 전부 받은 상태
             if (xhr.readyState == 4 && xhr.status == 404) {
                 // HttpStatus가 BAD_REQUEST인 경우
-<<<<<<< HEAD
-                alert('저리가 ');
-=======
-                alert('로그인을 먼저 해주세요.');
->>>>>>> 309683709d5564e72bd7339ccbcadd44588487f0
+      alert('로그인을 먼저 해주세요.');
+
             }
             if (xhr.readyState == 4 && xhr.status == 200) {
                 // 서버에서의 응답 처리
@@ -375,7 +373,6 @@
     }
 
     // 주소로 좌표를 검색합니다
-
 
     geocoder.addressSearch('${spaceDetail.spaceLocation}', function (result, status) {
         console.log(result, status);

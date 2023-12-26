@@ -8,9 +8,8 @@ public class SpaceListDTO {
     private String spaceName;
     private String sector;
     private boolean isInside;
-    private String pricePerHour;
-    private Integer regionId;
-    private String regionName;
+    private String price;
+    private String spaceLocation;
     private Integer sportId;
     private String sportName;
 
