@@ -8,9 +8,9 @@
             <div class="place_detail_description">
                 <div class="slider-container">
                     <div class="slider">
-                        <img src="/images/${spaceDetail.spacePic}" alt="Image 1">
-                        <img src="/images/${spaceDetail.spacePic}" alt="Image 2">
-                        <img src="/images/${spaceDetail.spacePic}" alt="Image 3">
+                        <img src="/img/${spaceDetail.spacePic}" alt="Image 1">
+                        <img src="/img/${spaceDetail.spacePic}" alt="Image 2">
+                        <img src="/img/${spaceDetail.spacePic}" alt="Image 3">
                         <!-- Add more images as needed -->
                     </div>
                     <div class="place_detail_slider_button">
@@ -250,7 +250,7 @@
         $(".scroll_move").click(function (event) {
             console.log(".scroll_move");
             event.preventDefault();
-            $('html,body').animate({scrollTop: $(this.hash).offset().top}, 500);
+            $('html,body').animate({ scrollTop: $(this.hash).offset().top }, 500);
         });
 
     });
@@ -284,6 +284,7 @@
             if (xhr.readyState == 4 && xhr.status == 404) {
                 // HttpStatus가 BAD_REQUEST인 경우
                 alert('로그인을 먼저 해주세요.');
+
             }
             if (xhr.readyState == 4 && xhr.status == 200) {
                 // 서버에서의 응답 처리
@@ -368,6 +369,7 @@
 
     // 주소로 좌표를 검색합니다
     geocoder.addressSearch('${spaceDetail.spaceLocation}', function (result, status) {
+
         console.log(result, status);
 
         // 정상적으로 검색이 완료됐으면

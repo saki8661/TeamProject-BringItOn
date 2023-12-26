@@ -16,8 +16,8 @@ CREATE TABLE user_tb
     team_id           INT,
     gender_id         INT,
     age_id            INT,
-    kakao_login       BOOLEAN
-
+    kakao_login       BOOLEAN,
+    is_captain        BOOLEAN
 );
 
 -- 팀 테이블
@@ -45,13 +45,13 @@ CREATE TABLE space_tb
     space_name     VARCHAR(255),
     description    TEXT,
     capacity       INT,
-    price_per_hour INT,
+    price INT,
     biz_start_time VARCHAR(255),
     biz_end_time   VARCHAR(255),
     space_location VARCHAR(255),
+    space_phone_Number VARCHAR(20),
     sector         VARCHAR,
     is_inside      BOOLEAN,
-    region_id      INT,
     created_at     TIMESTAMP,
     user_id        INT,
     sport_id       INT
@@ -82,7 +82,7 @@ CREATE TABLE age_tb
 -- 포지션 테이블
 CREATE TABLE position_tb
 (
-    id  INT AUTO_INCREMENT PRIMARY KEY,
+    id       INT AUTO_INCREMENT PRIMARY KEY,
     position VARCHAR
 );
 
@@ -132,6 +132,7 @@ CREATE TABLE review_tb
 CREATE TABLE matching_tb
 (
     id              INT AUTO_INCREMENT PRIMARY KEY,
+    user_id         INT,
     reservation_id  INT,
     match_user_id   INT,
     matching_status VARCHAR
@@ -383,5 +384,18 @@ CREATE TABLE order_tb
     created_at        TIMESTAMP
 );
 
+CREATE TABLE captain_tb
+(
+    id      INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    team_id INT
+);
 
+CREATE TABLE apply_tb
+(
+    id               INT AUTO_INCREMENT PRIMARY KEY,
+    team_id          INT,
+    captain_user_id  INT,
+    personal_user_id INT
+);
 

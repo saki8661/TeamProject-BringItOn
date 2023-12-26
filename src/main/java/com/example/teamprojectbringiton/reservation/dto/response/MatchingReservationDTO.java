@@ -10,6 +10,7 @@ import java.sql.Time;
 @Setter
 public class MatchingReservationDTO {
     private Integer id;
+    private Integer userId;
     private boolean matching;
     private Integer personnel;
     private String status;
@@ -25,4 +26,5 @@ public class MatchingReservationDTO {
     private String spacePic;
     private String pricePerHour;
     private Integer matchingId;
+    private String matchingStatus;
 }

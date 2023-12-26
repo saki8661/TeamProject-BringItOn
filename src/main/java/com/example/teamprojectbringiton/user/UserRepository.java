@@ -61,4 +61,12 @@ public interface UserRepository {
     public User findByEmailAndUserPhoneNumber(String userEmail, String userPhoneNumber);
 
     public UserUpdateDTO findByIdJoinGenderAndAge(Integer id);
+
+    public void userUpdateIsCaptain(User user);
+
+    void userUpdateTeamId(User user);
+
+    List<User> findByIdJoinApply(Integer id);
+
+    public void kakaoUserUpdate(User user);
 }

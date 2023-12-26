@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.example.teamprojectbringiton.team.apply.ApplyRepository">
+
+    <insert id="insert">
+        insert into apply_tb(team_id, captain_user_id, personal_user_id)
+        values (#{teamId}, #{captainUserId} , #{personalUserId});
+    </insert>
+
+    <delete id="deleteById">
+        delete
+        from apply_tb
+        where id = #{id}
+    </delete>
+</mapper>

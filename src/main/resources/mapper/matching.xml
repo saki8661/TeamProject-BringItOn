@@ -2,25 +2,26 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper
-        namespace="com.example.teamprojectbringiton.matching.MatchingRepository">
+<mapper namespace="com.example.teamprojectbringiton.matching.MatchingRepository">
 
-    <select id="findAllMatching">
-        select * from matching_tb
-    </select>
 
     <insert id="insertMatching">
-        insert into matching_tb(matching_status, reservation_id, match_user_id)
-        values (#{matchingStatus}, #{reservationId}, #{matchUserId});
+        insert into matching_tb(user_id, matching_status, reservation_id, match_user_id)
+        values (#{userId}, #{matchingStatus}, #{reservationId}, #{matchUserId});
     </insert>
 
     <update id="updateMatching" useGeneratedKeys="true" keyProperty="id">
         update matching_tb
         set matching_status = #{matchingStatus},
-            reservation_id = #{reservationId},
-            match_user_id = #{matchUserId}
+            reservation_id  = #{reservationId},
+            match_user_id   = #{matchUserId}
         where id = #{id}
     </update>
+
+    <select id="findAllMatching">
+        select *
+        from matching_tb
+    </select>
 
     <select id="getMatchingStatus" resultType="java.lang.String" parameterType="java.lang.Long">
         SELECT matchingStatus
@@ -28,12 +29,30 @@
         WHERE id = #{Id}
     </select>
 
-    <select id="findByMyApplyMatch">
+    <!-- 내게 매칭 요청 -->
+    <select id="findMyMatchingList" resultType="com.example.teamprojectbringiton.matching.dto.response.MyMatchingListDTO">
         select *
-        from matching_tb
-        where user_id = #{userId}
+        from matching_tb m
+                 left join reservation_tb r
+                           on m.user_id = r.user_id
+                 left join user_tb u
+                           on m.match_user_id = u.id
+        where m.user_id = #{userId}
+        order by r.reservation_date desc;
     </select>
 
+
+    <!-- 내가 매칭 신청 -->
+    <select id="findMyApplyMatchingList" resultType="com.example.teamprojectbringiton.matching.dto.response.MyMatchingApplyListDTO">
+        select *
+        from matching_tb m
+                 left join reservation_tb r
+                           on m.user_id = r.user_id
+                 left join user_tb u
+                           on m.user_id = u.id
+        where m.match_user_id = #{userId}
+        order by r.reservation_date desc;
+    </select>
 
 
 </mapper>

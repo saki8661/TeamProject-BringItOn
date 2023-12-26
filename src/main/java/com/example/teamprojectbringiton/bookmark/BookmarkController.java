@@ -25,6 +25,7 @@ public class BookmarkController {
     @Autowired
     HttpSession session;
 
+
     @PostMapping("/space-bookmark")
     public ApiUtils<?> spaceInquireProc(@RequestBody BookmarkDTO dto) {
         User user = (User) session.getAttribute("sessionUser");
@@ -38,6 +39,5 @@ public class BookmarkController {
         // 성공하면 ApiUtils에 프론트에서 필요한 데이터 담아서 줌
         return new ApiUtils<String>(true, "성공");
     }
-
 
 }

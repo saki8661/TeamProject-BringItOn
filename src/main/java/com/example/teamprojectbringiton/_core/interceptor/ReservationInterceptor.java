@@ -23,6 +23,7 @@ public class ReservationInterceptor implements HandlerInterceptor {
             response.setHeader("Content-Type", "text/html; charset=utf-8");
             PrintWriter out = response.getWriter();
             out.println(Script.back("로그인을 먼저 해주세요."));
+
             return false;
         }
         return true;

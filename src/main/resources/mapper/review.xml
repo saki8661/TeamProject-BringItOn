@@ -13,5 +13,4 @@
         select count(comment) , space_id from review_tb where space_id = #{spaceId};
     </select>
 
-
 </mapper>
