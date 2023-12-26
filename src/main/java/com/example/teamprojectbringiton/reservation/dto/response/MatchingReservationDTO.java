@@ -24,7 +24,7 @@ public class MatchingReservationDTO {
     private String spaceName;
     private String spaceLocation;
     private String spacePic;
-    private String pricePerHour;
+    private String price;
     private Integer matchingId;
     private String matchingStatus;
 }

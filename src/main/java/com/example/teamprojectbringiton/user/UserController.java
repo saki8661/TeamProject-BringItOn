@@ -188,12 +188,6 @@ public class UserController {
         return "user/userTeam";
     }
 
-    @GetMapping("/user/bookmark/{id}")
-
-    public String userBookmarkManagementPage(@PathVariable Integer id) {
-        return "user/userBookmark";
-    }
-
     @GetMapping("/user/payment/{id}")
     public String userPaymentPage(@PathVariable Integer id) {
         return "user/userPayment";

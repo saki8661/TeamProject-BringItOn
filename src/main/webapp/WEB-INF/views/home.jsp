@@ -47,19 +47,24 @@
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
             </div>
 
             <!-- The slideshow/carousel -->
             <div class="carousel-inner">
-                <div class="carousel-item active">
+                <div class="carousel-item active ">
                     <img src="/images/BasketballMainBanner2.png" alt="Los Angeles" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
                     <img src="/images/SoccerMainBanner2.png" alt="Chicago" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
-                    <img src="/images/FutsalMainBanner2.png" alt="New York" class="d-block w-100">
+                    <img src="/images/futsal_main_banner.png" alt="New York" class="d-block w-100">
                 </div>
+                <div class="carousel-item">
+                    <img src="/images/basketball_main_banner.png" alt="New York" class="d-block w-100">
+                </div>
+
             </div>
 
             <!-- Left and right controls/icons -->
@@ -96,7 +101,6 @@
                             <div class="inside_content">
                                 <a href="/space-detail/${item.id}"><img src="/img/${item.spacePic}"></a>
                             </div>
-
                             <div class="main_content_title m-2">
                                     ${item.spaceName}
                             </div>

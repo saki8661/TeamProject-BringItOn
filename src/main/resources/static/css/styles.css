@@ -18,7 +18,6 @@
 
 .wrap {
     border-bottom: 1px solid var(--primary_01);
-
 }
 
 html {
@@ -344,6 +343,10 @@ input::placeholder {
     width: 100%;
 }
 
+.common_frame{
+    width: 100%;
+}
+
 /* Main */
 
 .main_link {
@@ -407,6 +410,19 @@ input::placeholder {
     margin-bottom: 50px;
 }
 
+.carousel-item {
+    position: relative;
+    overflow: hidden;
+    width: 1200px;
+    height: 300px;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .matchingPage_banner {
     width: 100%;
     max-width: 1200px;
@@ -468,9 +484,10 @@ input::placeholder {
 }
 
 .user_container {
-    padding-left: 500px;
-    padding-right: 500px;
+    width: 100%;
+    max-width: 1200px;
     text-align: center;
+    margin: 0 auto;
 }
 
 
@@ -538,7 +555,6 @@ input::placeholder {
 .join_form_company {
     padding-right: 20px;
 }
-
 
 .login_search_sign_in {
     padding-top: 40px;
@@ -1002,7 +1018,7 @@ input::placeholder {
     height: 30px;
 }
 
-.userReview_container{
+.userReview_container {
     height: 750px;
     width: 100%;
 }
@@ -1021,7 +1037,8 @@ input::placeholder {
     border-right: black 2px solid;
     padding-right: 5px;
 }
-.userReview_item_tile{
+
+.userReview_item_tile {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -1032,13 +1049,14 @@ input::placeholder {
     font-weight: bold;
     padding-left: 5px;
 }
-.userReview_rating{
+
+.userReview_rating {
     font-size: 18px;
     font-weight: bold;
     padding-left: 5px;
 }
 
-.userReview_item_separation{
+.userReview_item_separation {
     display: flex;
 }
 
@@ -1566,13 +1584,22 @@ input::placeholder {
 }
 
 .userBookmark_content {
+    position: relative;
     padding: 0;
 }
 
 .userBookmark_content img {
+    display: block;
     border-radius: 15px;
     width: 232px;
     height: auto;
+}
+
+.userBookmark_content > div {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
 }
 
 /* reservation*/
@@ -4482,7 +4509,7 @@ EDIT ON
     height: 30px;
 }
 
-.userTeamApply_item_empty {
+.userInfo_item_empty {
     display: flex;
     height: 600px;
     justify-content: center;
