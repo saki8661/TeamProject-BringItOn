@@ -13,33 +13,38 @@ public class Space {
     private String spaceName;
     private String description;
     private Integer capacity;
-    private Integer pricePerHour;
+    private Integer price;
     private String bizStartTime;
     private String bizEndTime;
     private String spaceLocation;
+    private String spacePhoneNumber;
     private String sector;
-    private boolean isInside;
-    private Integer regionId;
+    private Boolean isInside;
     private Timestamp createdAt;
     private Integer userId;
     private Integer sportId;
 
     @Builder
-    public Space(Integer id, String spaceName, String description, Integer capacity, Integer pricePerHour, String bizStartTime, String bizEndTime, String spaceLocation, String sector, boolean isInside, Integer regionId, Timestamp createdAt, Integer userId, Integer sportId) {
+    public Space(Integer id, String spaceName, String description, Integer capacity, Integer price, String bizStartTime, String bizEndTime, String spaceLocation, String sector, Boolean isInside, Timestamp createdAt, Integer userId, Integer sportId, String spacePhoneNumber) {
         this.id = id;
         this.spaceName = spaceName;
         this.description = description;
         this.capacity = capacity;
-        this.pricePerHour = pricePerHour;
+        this.price = price;
         this.bizStartTime = bizStartTime;
         this.bizEndTime = bizEndTime;
         this.spaceLocation = spaceLocation;
         this.sector = sector;
         this.isInside = isInside;
-        this.regionId = regionId;
         this.createdAt = createdAt;
         this.userId = userId;
         this.sportId = sportId;
+        this.spacePhoneNumber = spacePhoneNumber;
     }
+
+    public void updateSportId(Integer sportId) {
+        this.sportId = sportId;
+    }
+
 }
 

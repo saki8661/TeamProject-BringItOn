@@ -98,21 +98,43 @@ public class UserController {
 
         // 토큰 요청 서비스 호출
         KakaoProfile kakaoProfile = userService.tokenRequest(code);
-        System.out.println("컨트롤러 나왔는대 값은 잘 있지? " + kakaoProfile.getProperties().getNickname());
         // 토큰 확인 후 회원가입 로직 호출
         userService.kakaoUserSave(kakaoProfile);
-        System.out.println("인서트 잘됨?");
         // 로그인 로직 처리를 위해 유저정보 조회
         User user = userService.findByUsername(kakaoProfile.getId());
-
+        System.out.println("이메일 정보 어떻게 조회됨? : " + user.getUserEmail());
+        if (user.getUserEmail().equals("") || user.getUserEmail() == null) {
+            return "redirect:/kakao-login-input/" + user.getId();
+        }
         UserPointDTO userPointDTO = userService.findByIdJoinPoint(user.getId());
-
         // 공통된 패스워드 노출 안되게 하기 위해 null
         user.updatePassword("");
         session.setAttribute("sessionUser", user);
         session.setAttribute("userPoint", userPointDTO);
         return "redirect:/home";
     }
+
+    @GetMapping("/kakao-login-input/{id}")
+    public String kakaoLoginInputPage(@PathVariable Integer id, Model model) {
+        System.out.println("카카오 인풋 진입했다");
+        List<Age> ageList = ageService.findAll();
+        model.addAttribute("userId", id);
+        model.addAttribute("ageList", ageList);
+        return "user/kakaoLoginInputPage";
+    }
+
+    @PostMapping("/kakao-login-input")
+    public String kakaoLoginInput(KakaoLoginDTO dto) {
+        userService.kakaoUserUpdate(dto);
+        UserPointDTO userPointDTO = userService.findByIdJoinPoint(dto.getId());
+        User user = userService.findById(dto.getId());
+        // 공통된 패스워드 노출 안되게 하기 위해 null
+        user.updatePassword("");
+        session.setAttribute("sessionUser", user);
+        session.setAttribute("userPoint", userPointDTO);
+        return "redirect:/home";
+    }
+
 
     @GetMapping("/user/logout")
     public String logout() {
@@ -197,6 +219,13 @@ public class UserController {
     @GetMapping("/user/setting/{id}")
     public String userSettingPage(){
         return "user/userSetting";
+    }
+
+    @GetMapping("/user/team-apply/{id}")
+    public String userTeamApplyPage(@PathVariable Integer id, Model model){
+        List<User> applyUser = userService.searchTeamApplyList(id);
+        model.addAttribute("applyUser", applyUser);
+        return "user/userTeamApply";
     }
 
     @GetMapping("/user/check-password/{id}")
