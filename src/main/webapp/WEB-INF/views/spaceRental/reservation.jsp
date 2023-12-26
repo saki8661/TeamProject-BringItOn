@@ -261,16 +261,17 @@
             nowColumn.classList.add("choiceDay");           // 선택된 날짜에 "choiceDay" class 추가
 
             var spaceId = `${reservationName.spaceId}`; // 템플릿 리터럴로 감싸기
+            var reservationDate = getSelectedDate();
             console.log(spaceId);
             console.log("showTimeChoice 호출")
             // 날짜를 선택하면 시간 선택 부분을 표시
-            showTimeChoice(spaceId);
+            showTimeChoice(spaceId, reservationDate);
         }
 
-        function showTimeChoice(spaceId) {
+        function showTimeChoice(spaceId, date) {
 
             $.ajax({
-                url: '/time-list-find/' + spaceId,
+                url: '/time-list-find/' + spaceId + "/" + date,
                 type: 'GET',
                 success: function (response) {
                     console.log(response);

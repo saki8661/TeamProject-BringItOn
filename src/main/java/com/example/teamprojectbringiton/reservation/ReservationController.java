@@ -38,7 +38,6 @@ public class ReservationController {
         System.out.println("+++dto 담김 reservation: " + dto.getMatching());
         System.out.println("+++dto 담김 reservation: " + dto.getReservationTimeId());
         reservationService.reservationSave(dto);
-
         return "redirect:/space-detail/" + dto.getSpaceId();
     }
 

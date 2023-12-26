@@ -48,6 +48,14 @@
         where space.id = #{id}
     </select>
 
+    <select id="findByspaceIdAndreservationDate"
+            resultType="com.example.teamprojectbringiton.reservation.Reservation">
+        select *
+        from reservation_tb
+        where space_id = #{spaceId}
+          AND reservation_date = #{reservationDate}
+    </select>
+
 
     <insert id="reservInsert" useGeneratedKeys="true" keyProperty="id">
         insert into reservation_tb(reservation_number, reservation_date, personnel, to_host, status, matching, user_id,

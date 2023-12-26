@@ -1,5 +1,6 @@
 package com.example.teamprojectbringiton.reservationTime;
 
+import com.example.teamprojectbringiton.reservationTime.dto.response.ReservationTimeDTO;
 import com.example.teamprojectbringiton.space.Space;
 import com.example.teamprojectbringiton.space.SpaceService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,12 +21,12 @@ public class ReservationTimeController {
     SpaceService spaceService;
 
 
-    @GetMapping("/time-list-find/{id}")
-    public ResponseEntity<?> timeListFind(@PathVariable Integer id) {
+    @GetMapping("/time-list-find/{id}/{reservationDate}")
+    public ResponseEntity<?> timeListFind(@PathVariable Integer id, @PathVariable String reservationDate) {
         Space space = spaceService.findById(id);
-        List<ReservationTime> reservationTimeList = reservationTimeService.spaceReservationTimeFind(space);
+        ReservationTimeDTO reservationTimeList = reservationTimeService.spaceReservationTimeFind(space, reservationDate);
         System.out.println("리턴한다.");
-        return ResponseEntity.ok().body(reservationTimeList);
+        return ResponseEntity.ok().body(reservationTimeList.getTimeDTOList());
     }
 
 

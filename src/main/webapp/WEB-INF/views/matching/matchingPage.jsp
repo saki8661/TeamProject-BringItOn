@@ -15,9 +15,9 @@
         <li class="main_link">
             <a href="/matching-main">매칭</a>
         </li>
-<%--        <li class="main_link">--%>
-<%--            <a href="/league-main">리그</a>--%>
-<%--        </li>--%>
+        <%--        <li class="main_link">--%>
+        <%--            <a href="/league-main">리그</a>--%>
+        <%--        </li>--%>
         <li class="main_link">
             <a href="/board-main">게시판</a>
         </li>
@@ -161,7 +161,7 @@
                                                         <td>${matching.personnel}</td>
                                                         <br>
                                                         <th>가격</th>
-                                                        <td>1인 : ${matching.pricePerHour} 원</td>
+                                                        <td>1인 : ${matching.price} 원</td>
                                                     </tr>
                                                 </div>
                                             </Table>
