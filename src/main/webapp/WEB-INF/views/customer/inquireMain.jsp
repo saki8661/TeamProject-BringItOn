@@ -49,7 +49,7 @@
             <div class="modal-content">
                 <!-- Modal Header -->
                 <div class="userReservation_modal_header">
-                    <h2 style="width: 100%; text-align: center; font-weight: bold; font-size: x-large;">문의등록</h2>
+                    <h2 style="width: 100%; text-align: center; font-weight: bold; font-size: x-large;">문의등록</h2>e
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
                 <!-- Modal body -->
@@ -118,8 +118,6 @@
                     </div>
                 </div>
             </button>
-
-
             <div class="inquire_write_list">
                 <div class="inquireMain_update_delete_btn">
                     <c:choose>
@@ -193,12 +191,8 @@
                             <!-- 다른 사용자의 경우에는 다른 HTML을 넣을 수 있음 -->
                         </c:otherwise>
                     </c:choose>
-
                 </div>
-
             </div>
-
-
         </div>
     </c:forEach>
 

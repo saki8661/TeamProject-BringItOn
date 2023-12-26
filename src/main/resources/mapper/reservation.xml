@@ -16,7 +16,9 @@
                            on s.id = sp.space_id
                  left join matching_tb m
                            on r.id = m.reservation_id
-        where r.matching = true
+        WHERE r.matching = true
+          AND r.reservation_date >= CURRENT_DATE
+        ORDER BY r.reservation_date ASC;
     </select>
 
     <select id="findByUserId" resultSets=""

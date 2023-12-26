@@ -8,6 +8,6 @@ import lombok.Setter;
 public class NoticeWriteDTO {
     private String noticeTitle;
     private String noticeContent;
-    private Integer categoryId;
+    private Integer noticeCategoryId;
 
 }

@@ -636,12 +636,12 @@ values ('정기'),
 
 -- 공지사항 더미 데이터
 
-INSERT INTO notice_tb (notice_category_id, notice_title, notice_content, created_at)
-VALUES (1, '공지1', '공지1 입니다', NOW()),
-       (2, '공지2', '공지2 입니다', NOW()),
-       (3, '공지3', '공지3 입니다', NOW()),
-       (1, '공지4', '공지4 입니다', NOW()),
-       (2, '공지5', '공지5 입니다', NOW());
+INSERT INTO notice_tb (notice_category_id, notice_title, notice_content, user_id, created_at)
+VALUES (1, '공지1', '공지1 입니다', 11, NOW()),
+       (2, '공지2', '공지2 입니다', 11, NOW()),
+       (3, '공지3', '공지3 입니다', 11, NOW()),
+       (1, '공지4', '공지4 입니다', 11, NOW()),
+       (2, '공지5', '공지5 입니다', 11, NOW());
 
 -- inquire_category_tb 테이블
 insert into inquire_category_tb (inquire_category)
