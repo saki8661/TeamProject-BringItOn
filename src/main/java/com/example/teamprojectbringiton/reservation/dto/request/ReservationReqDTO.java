@@ -1,4 +1,4 @@
-package com.example.teamprojectbringiton.reservation.request;
+package com.example.teamprojectbringiton.reservation.dto.request;
 
 import lombok.Data;
 

@@ -46,6 +46,10 @@
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdn.jsdelivr.net/npm/flatpickr/dist/l10n/ko.js"></script>
     <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/material_green.css">
+
+    <script src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+
     <!--지도 api 라이브러리-->
     <script type="text/javascript"
             src="//dapi.kakao.com/v2/maps/sdk.js?appkey=7ba34bd55504b76a82b2071b1bbc61da&libraries=services"></script>
@@ -70,7 +74,11 @@
                         </button>
                     </div>
                 </form>
-                <a class="nav_add" href="/place-registration">시설등록</a>
+                <c:choose>
+                    <c:when test="${sessionUser.userDivision eq 'host'}">
+                    <a class="nav_add" href="/host/place-registration">시설등록</a>
+                    </c:when>
+                </c:choose>
                 <div class="header_auth">
                     <c:choose>
                         <c:when test="${empty sessionUser}">

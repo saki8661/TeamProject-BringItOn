@@ -67,4 +67,6 @@ public interface UserRepository {
     void userUpdateTeamId(User user);
 
     List<User> findByIdJoinApply(Integer id);
+
+    public void kakaoUserUpdate(User user);
 }

@@ -11,6 +11,7 @@
 
     <div class="reservation_container">
         <form action="/space/space-save" method="post" enctype="multipart/form-data">
+            <input type="hidden" name="userId" value="${user.id}">
             <div class="re_acception">
                 <div class="re_acception_letter">
                     <h3>시설 등록</h3>

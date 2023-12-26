@@ -7,12 +7,14 @@ import com.example.teamprojectbringiton.region.Region;
 import com.example.teamprojectbringiton.region.RegionRepository;
 import com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO;
 import com.example.teamprojectbringiton.reservation.dto.response.UserReservationListDTO;
-import com.example.teamprojectbringiton.reservation.request.ReservationReqDTO;
-import com.example.teamprojectbringiton.reservation.response.ReservationRespDTO;
+import com.example.teamprojectbringiton.reservation.dto.request.ReservationReqDTO;
+import com.example.teamprojectbringiton.reservation.dto.response.ReservationRespDTO;
 import com.example.teamprojectbringiton.space.Space;
 import com.example.teamprojectbringiton.space.SpaceRepository;
 import com.example.teamprojectbringiton.team.Team;
 import com.example.teamprojectbringiton.team.TeamRepository;
+import com.example.teamprojectbringiton.user.User;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -23,6 +25,8 @@ import java.util.List;
 
 @Service
 public class ReservationService {
+    @Autowired
+    HttpSession session;
 
     @Autowired
     ReservationRepository reservationRepository;
@@ -89,6 +93,7 @@ public class ReservationService {
 
     @Transactional
     public void reservationSave(ReservationReqDTO dto) {
+        User sessionUser = (User) session.getAttribute("sessionUser");
         System.out.println("++++예약하기 insert진입++++");
         Reservation reservation = Reservation.builder()
                 .personnel(dto.getPersonnel())
@@ -102,9 +107,11 @@ public class ReservationService {
 
         if (dto.isMatching()) {
             Matching matching = Matching.builder()
+                    .userId(sessionUser.getId())
                     .reservationId(reservation.getId())
                     .matchingStatus("매칭대기중")
                     .build();
+            System.out.println(sessionUser.getId()+"세션유저 담김?????????????여긴 레절베이션");
             System.out.println(reservation.getId()+"@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@");
             matchingRepository.insertMatching(matching);
         }

@@ -24,9 +24,9 @@
                 <a href="/matching-main">매칭</a>
             </li>
 
-            <li class="main_link">
-                <a href="/league-main">리그</a>
-            </li>
+<%--            <li class="main_link">--%>
+<%--                <a href="/league-main">리그</a>--%>
+<%--            </li>--%>
 
             <li class="main_link">
                 <a href="/board-main">게시판</a>

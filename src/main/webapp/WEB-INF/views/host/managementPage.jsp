@@ -65,95 +65,12 @@
                                         type="button"><a href="/space/space-update/${spaces.id}"
                                                          style="color: white">수정하기</a>
                                 </button>
-                                <button class="matching_button host_btn_style_red" type="button" id="deleteButton"
-                                        data-space-id="${spaces.id}">
+                                <button class="matching_button host_btn_style_red deleteButton" type="button" data-space-id="${spaces.id}">
                                     삭제하기
                                 </button>
                             </div>
                         </div>
                     </c:forEach>
-
-
-                </div>
-                <div class="league_matching_button">
-
-                </div>
-                <div class="modal" id="myModal_two">
-                    <div class="modal-dialog">
-                        <div class="modal_test modal-content">
-
-                            <!-- Modal Header -->
-                            <div class="userReservation_modal_header">
-                                <h2>총 전적</h2>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                            </div>
-
-                            <!-- Modal body -->
-                            <div class="modal-body mt-2">
-                                <div class="modal_body">
-                                    <div>
-                                        <div class="matching_my_score_title">
-                                            <div class="spoace_detail_button">
-                                                <button class="matching_button league_matching_btn_style"
-                                                        type="button"><a href="/space/space-update/{id}"
-                                                                         style="color: white">수정하기</a>
-                                                </button>
-                                                <button class="matching_button league_matching_btn_style_red"
-                                                        type="button">
-                                                    <a href="#" style="color: white">삭제하기</a>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="matching_my_score_box"></div>
-
-
-                                    <div class="league_matching_table_sub_title">
-                                        <div class="league_matching_title">팀명</div>
-                                        <div class="league_matching_title">경기일</div>
-                                        <div class="league_matching_title">경기장</div>
-                                        <div class="league_matching_title">경기결과</div>
-                                        <div class="league_matching_title">상태</div>
-                                    </div>
-                                    <!--내 매칭 등록 해놓은 현황(매칭상태가 대기중인거)을 리스트로 뿌릴꺼임.-->
-                                    <div class="league_matching_table_content">
-                                        <div class="league_matching_content_team_name"><img src="/images/psg.jpg">
-                                            <div>FC 세환</div>
-                                        </div>
-                                        <div class="league_matching_content-date">2023-06-01 18:00</div>
-                                        <div class="league_matching_content-date"> 부산 준타스 풋볼 아레나</div>
-                                        <div class="league_matching_content"> 0 : 0 (무)</div>
-                                        <div class="league_matching_content">경기 종료</div>
-                                    </div>
-                                    <div class="league_matching_table_content">
-                                        <div class="league_matching_content_team_name"><img src="/images/psg.jpg">
-                                            <div>FC 세환</div>
-                                        </div>
-                                        <div class="league_matching_content-date">2023-06-01 18:00</div>
-                                        <div class="league_matching_content-date"> 부산 준타스 풋볼 아레나</div>
-                                        <div class="league_matching_content"> 0 : 0 (무)</div>
-                                        <div class="league_matching_content">경기 종료</div>
-                                    </div>
-                                    <div class="league_matching_table_content">
-                                        <div class="league_matching_content_team_name"><img src="/images/psg.jpg">
-                                            <div>FC 세환</div>
-                                        </div>
-                                        <div class="league_matching_content-date">2023-06-01 18:00</div>
-                                        <div class="league_matching_content-date"> 부산 준타스 풋볼 아레나</div>
-                                        <div class="league_matching_content"> 0 : 0 (무)</div>
-                                        <div class="league_matching_content">경기 종료</div>
-                                    </div>
-                                    <div class="mt-5 d-flex justify-content-center">
-                                        <ul class="pagination">
-                                            <li class="page-item"><a class="page-link" href="#"><</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                            <li class="page-item"><a class="page-link" href="#">></a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -162,7 +79,7 @@
 
 <script>
     $(document).ready(function () {
-        $("#deleteButton").on("click", function () {
+        $(".deleteButton").on("click", function () {
             // 클릭 시 DELETE 요청 보내기
             var spaceId = $(this).data("space-id");
 

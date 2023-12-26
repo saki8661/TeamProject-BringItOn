@@ -68,14 +68,14 @@ public class UserService {
             User user = User.builder()
                     .username(kakaoProfile.getId())
                     .password(tencoKey)
-                    .userEmail("kakao@naver.com")
-                    .userPhoneNumber("010-0000-0000")
-                    .userAddress("서울 강남구")
-                    .userDivision("게스트")
+                    .userEmail("")
+                    .userPhoneNumber("")
+                    .userAddress("")
+                    .userDivision("")
                     .nickName(kakaoProfile.getProperties().getNickname())
                     .userPicUrl(kakaoProfile.getProperties().getProfileImage() != null ? kakaoProfile.getProperties().getProfileImage() : "default_profile.jpg")
-                    .genderId(1)
-                    .ageId(2)
+                    .genderId(null)
+                    .ageId(null)
                     .kakaoLogin(true)
                     .isCaptain(false)
                     .build();
@@ -252,5 +252,16 @@ public class UserService {
     public List<User> searchTeamApplyList(Integer id) {
         List<User> applyUser = userRepository.findByIdJoinApply(id);
         return applyUser;
+    }
+
+    public void kakaoUserUpdate(KakaoLoginDTO dto) {
+        User user = userRepository.findById(dto.getId());
+        user.updateUserEmail(dto.getEmail());
+        user.updateUserPhoneNumber(PhoneNumberFormatter.formatPhoneNumber(dto.getUserPhoneNumber()));
+        user.updateUserAddress(dto.getUserAddress());
+        user.updateUserDivision(dto.getUserDivision());
+        user.updateGenderId(dto.getGenderId());
+        user.updateAgeId(dto.getAgeId());
+        userRepository.kakaoUserUpdate(user);
     }
 }

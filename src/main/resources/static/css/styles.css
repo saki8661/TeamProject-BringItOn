@@ -1315,7 +1315,7 @@ input::placeholder {
 
 .manual_tab .manual_category {
     display: flex;
-    padding: 12px 20px 12px;
+    padding: 10px 20px 10px;
     flex-wrap: nowrap;
     background-color: white;
     width: 100%;
@@ -1331,26 +1331,42 @@ input::placeholder {
 
 .manual_tab .manual_category a {
     border-radius: 35px;
-    color: black;
-    border: 1px solid white;
     display: inline-block;
     width: 100px;
     padding: 18px 0px;
     text-align: center;
 }
 
-.manual_tab .manual_category a.manual_active {
-    background-color: #19B357;
-    color: white;
-
-    border: none;
+.manual_tab .manual_category div.manual_active {
+    width: 100px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 35px;
 }
 
-.manual_tab .manual_category a:hover,
-.manual_tab .manual_category a:hover {
-    background-color: #19B357;
-
+.manual_tab .manual_category div.manual_active {
+    background-color: #19B357 !important;
+    color: white !important;
+    border: none !important;
 }
+
+/*.manual_tab .manual_category a:active,*/
+/*.manual_tab .manual_category a:active {*/
+/*    background-color: #19B357;*/
+
+/*}*/
+
+/*.manual_tab .manual_category a.manual_active {*/
+/*    background-color: #19B357 !important;*/
+/*    color: white !important;*/
+/*    border: none !important;*/
+/*}*/
+
+/*.manual_tab .manual_category a:active,*/
+/*.manual_tab .manual_category a:active {*/
+/*    background-color: #19B357;*/
+
+/*}*/
 
 .matching_team {
 }
@@ -2116,6 +2132,11 @@ input::placeholder {
 .matching_button {
     background-color: #19B357;
     color: white;
+}
+
+.matching_btn_style[disabled] {
+    background-color: grey;
+    /* 추가적인 스타일링을 원하는대로 설정하세요 */
 }
 
 
@@ -3572,7 +3593,7 @@ EDIT ON
     height: auto;
     width: auto;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 350px 200px 200px;
+    grid-template-rows: 350px 200px 100px 100px;
     gap: 10px;
 }
 
@@ -3607,15 +3628,17 @@ EDIT ON
 }
 
 .myPage_test_4 {
+    border-radius: 15px;
+    border: 1px solid #19B357;
     grid-row: 3 / span 1;
-    grid-column: 1 / span 1;
-    background: #19B357;
+    grid-column: 1 / span 2;
 }
 
 .myPage_test_5 {
-    grid-row: 3 / span 1;
-    grid-column: 2 / span 1;
-    background: #19B357;
+    border-radius: 15px;
+    border: 1px solid #19B357;
+    grid-row: 4 / span 1;
+    grid-column: 1 / span 2;
 }
 
 .myBring_link {
@@ -4375,7 +4398,26 @@ EDIT ON
 }
 
 .userTeamApply_container {
-    width: 100%
+    width: 100%;
+}
+
+.userMyPage_option {
+    display: flex;
+    justify-content: space-between;
+}
+
+.myMatching_button {
+    background-color: #19B357;
+    color: white;
+}
+
+.myMatching_btn_style {
+    margin-right: 20px;
+    border-radius: 5px;
+    height: 40px;
+    width: 120px;
+    font-size: 20px;
+    text-align: center
 }
 
 .userTeamAPPly_empty_box {

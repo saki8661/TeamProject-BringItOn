@@ -1,6 +1,7 @@
 package com.example.teamprojectbringiton.space;
 
 
+import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
 import com.example.teamprojectbringiton._core.utils.Function;
 import com.example.teamprojectbringiton._core.utils.PageVO;
 import com.example.teamprojectbringiton.space.dto.request.SaveDTO;
@@ -13,8 +14,10 @@ import com.example.teamprojectbringiton.space.spacePic.SpacePicService;
 import com.example.teamprojectbringiton.spaceInquire.SpaceInquireService;
 import com.example.teamprojectbringiton.spaceInquire.response.SpaceInquireDTO;
 import com.example.teamprojectbringiton.user.User;
+import com.example.teamprojectbringiton.user.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -39,42 +42,61 @@ public class SpaceController {
     @Autowired
     private SpacePicService spacePicService;
 
+    @Autowired
+    private UserService userService;
 
+
+    // 시설 등록
     @PostMapping("/space/space-save")
     public String spaceSave(SaveDTO saveDTO) {
+
+        User user = userService.findById(saveDTO.getUserId());
+        if (!user.getUserDivision().equals("host")) {
+            throw new CustomRestfullException("권한이 없습니다.", HttpStatus.BAD_REQUEST);
+        }
         // 유저 id를 추가하기 위한 로직
-        User user = (User) session.getAttribute("sessionUser");
-        saveDTO.setUserId(user.getId());
         String pic = function.saveImage(saveDTO.getFile());
         spaceService.save(saveDTO.toEntity(), pic);
 
-        return "redirect:/management-main/" + user.getId();
+        return "redirect:/host/management-main/" + user.getId();
     }
 
+    // 시설 정보 변경페이지
     @GetMapping("/space/space-update/{id}")
     public String spaceUpdatePage(@PathVariable Integer id, Model model) {
+        User user = (User) session.getAttribute("sessionUser");
         Space space = spaceService.findById(id);
+        if (user.getId() != space.getUserId()) {
+            throw new CustomRestfullException("권한이 없습니다.", HttpStatus.BAD_REQUEST);
+        }
         SpacePic spacePic = spacePicService.findBySpaceId(space.getId());
         model.addAttribute("space", space);
         model.addAttribute("spacePic", spacePic);
         return "/host/placeRegistrationUpdate";
     }
 
+    // 시설 정보 변경하기
     @PostMapping("/space/space-update")
-    public String spaceUpdate(UpdateDTO updateDTO) {
-        System.out.println("DTO 안에 값 잘오나? : " + updateDTO.getUserId());
-        System.out.println("DTO 안에 값 잘오나? : " + updateDTO.getId());
+    public String spaceUpdate(UpdateDTO dto) {
         User user = (User) session.getAttribute("sessionUser");
-        String pic = function.saveImage(updateDTO.getFile());
-        spaceService.update(updateDTO, pic);
+        if (user.getId() != dto.getUserId()) {
+            throw new CustomRestfullException("권한이 없습니다.", HttpStatus.BAD_REQUEST);
+        }
+        String pic = function.saveImage(dto.getFile());
+        spaceService.update(dto, pic);
         return "redirect:/management-main/" + user.getId();
     }
 
+    // 시설 삭제하기
     @DeleteMapping("/space/space-delete/{id}")
     public String spaceDelete(@PathVariable Integer id) {
-        System.out.println("삭제하기 들어왔음");
+        Space space = spaceService.findById(id);
         User user = (User) session.getAttribute("sessionUser");
+        if (user.getId() != space.getUserId()) {
+            throw new CustomRestfullException("권한이 없습니다.", HttpStatus.BAD_REQUEST);
+        }
         spaceService.deleteById(id);
+
         return "redirect:/management-main/" + user.getId();
     }
 
