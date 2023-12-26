@@ -5,6 +5,7 @@ import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedExce
 import com.example.teamprojectbringiton._core.utils.Function;
 import com.example.teamprojectbringiton.admin.dto.response.UserCountRespDTO;
 import com.example.teamprojectbringiton.admin.dto.response.UserSearchRespDTO;
+import com.example.teamprojectbringiton.team.dto.request.UpdateTeamIdDTO;
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
 import com.example.teamprojectbringiton.user.dto.response.*;
@@ -50,23 +51,9 @@ public class UserService {
 
     @Transactional
     public void userSave(JoinDTO dto) {
-
-        String phoneNuber = PhoneNumberFormatter.formatPhoneNumber(dto.getUserPhoneNumber());
         //회원가입 db에 insert
-        User user = User.builder()
-                .username(dto.getUsername())
-                .password(dto.getPassword())
-                .userEmail(dto.getEmail())
-                .userPhoneNumber(phoneNuber)
-                .userAddress(dto.getUserAddress())
-                .userDivision(dto.getUserDivision())
-                .nickName(dto.getNickName())
-                .userPicUrl("default_profile.jpg")
-                .ageId(dto.getAgeId())
-                .genderId(dto.getGenderId())
-                .kakaoLogin(false)
-                .build();
-        userRepository.insert(user);
+        userRepository.insert(dto.toEntity());
+
     }
 
     // 카카오 회원가입
@@ -81,15 +68,16 @@ public class UserService {
             User user = User.builder()
                     .username(kakaoProfile.getId())
                     .password(tencoKey)
-                    .userEmail("kakao@naver.com")
-                    .userPhoneNumber("010-0000-0000")
-                    .userAddress("서울 강남구")
-                    .userDivision("게스트")
+                    .userEmail("")
+                    .userPhoneNumber("")
+                    .userAddress("")
+                    .userDivision("")
                     .nickName(kakaoProfile.getProperties().getNickname())
                     .userPicUrl(kakaoProfile.getProperties().getProfileImage() != null ? kakaoProfile.getProperties().getProfileImage() : "default_profile.jpg")
-                    .genderId(1)
-                    .ageId(2)
+                    .genderId(null)
+                    .ageId(null)
                     .kakaoLogin(true)
+                    .isCaptain(false)
                     .build();
             userRepository.insert(user);
         }
@@ -178,9 +166,7 @@ public class UserService {
     @Transactional
     public User userUpdateImage(UserUpdateImageDTO dto, User sessionUser) {
         User user = userRepository.findById(sessionUser.getId());
-
         String fileName = function.saveImage(dto.getPic());
-
         user.updateUserPicUrl(fileName);
         userRepository.userUpdateImage(user);
         return user;
@@ -251,5 +237,31 @@ public class UserService {
     public UserUpdateDTO findByIdJoinGenderAndAge(Integer id) {
         return userRepository.findByIdJoinGenderAndAge(id);
 
+    }
+
+    public void userUpdateIsCaptain(User user) {
+        userRepository.userUpdateIsCaptain(user);
+    }
+
+    @Transactional
+    public void userUpdateTeamId(User user, UpdateTeamIdDTO dto) {
+        user.updateTeamId(dto.getTeamId());
+        userRepository.userUpdateTeamId(user);
+    }
+
+    public List<User> searchTeamApplyList(Integer id) {
+        List<User> applyUser = userRepository.findByIdJoinApply(id);
+        return applyUser;
+    }
+
+    public void kakaoUserUpdate(KakaoLoginDTO dto) {
+        User user = userRepository.findById(dto.getId());
+        user.updateUserEmail(dto.getEmail());
+        user.updateUserPhoneNumber(PhoneNumberFormatter.formatPhoneNumber(dto.getUserPhoneNumber()));
+        user.updateUserAddress(dto.getUserAddress());
+        user.updateUserDivision(dto.getUserDivision());
+        user.updateGenderId(dto.getGenderId());
+        user.updateAgeId(dto.getAgeId());
+        userRepository.kakaoUserUpdate(user);
     }
 }

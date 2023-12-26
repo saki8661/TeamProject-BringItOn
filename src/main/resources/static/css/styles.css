@@ -1315,7 +1315,7 @@ input::placeholder {
 
 .manual_tab .manual_category {
     display: flex;
-    padding: 12px 20px 12px;
+    padding: 10px 20px 10px;
     flex-wrap: nowrap;
     background-color: white;
     width: 100%;
@@ -1331,26 +1331,42 @@ input::placeholder {
 
 .manual_tab .manual_category a {
     border-radius: 35px;
-    color: black;
-    border: 1px solid white;
     display: inline-block;
     width: 100px;
     padding: 18px 0px;
     text-align: center;
 }
 
-.manual_tab .manual_category a.manual_active {
-    background-color: #19B357;
-    color: white;
-
-    border: none;
+.manual_tab .manual_category div.manual_active {
+    width: 100px;
+    display: inline-block;
+    text-align: center;
+    border-radius: 35px;
 }
 
-.manual_tab .manual_category a:hover,
-.manual_tab .manual_category a:hover {
-    background-color: #19B357;
-
+.manual_tab .manual_category div.manual_active {
+    background-color: #19B357 !important;
+    color: white !important;
+    border: none !important;
 }
+
+/*.manual_tab .manual_category a:active,*/
+/*.manual_tab .manual_category a:active {*/
+/*    background-color: #19B357;*/
+
+/*}*/
+
+/*.manual_tab .manual_category a.manual_active {*/
+/*    background-color: #19B357 !important;*/
+/*    color: white !important;*/
+/*    border: none !important;*/
+/*}*/
+
+/*.manual_tab .manual_category a:active,*/
+/*.manual_tab .manual_category a:active {*/
+/*    background-color: #19B357;*/
+
+/*}*/
 
 .matching_team {
 }
@@ -1555,8 +1571,8 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding-left: 10%;
-    padding-right: 10%;
+    padding-left: 9%;
+    padding-right: 9%;
     padding-bottom: 180px;
 }
 
@@ -1692,8 +1708,15 @@ input::placeholder {
 .re_time_choice {
     display: flex;
     flex-direction: column;
+    display: none;
+}
+
+.re_time_choice_two {
+    display: flex;
+    flex-direction: column;
 
 }
+
 
 .re_choice_letter {
     font-weight: bolder;
@@ -1759,8 +1782,8 @@ input::placeholder {
     padding-right: 20px;
     padding-top: 20px;
     justify-content: center;
-
 }
+
 
 .re_person_auto_count {
     display: flex;
@@ -1810,6 +1833,9 @@ input::placeholder {
     font-weight: bolder;
 }
 
+.re_matching_check input {
+    margin-top: 20px;
+}
 
 .re_matching_check label {
     padding: 20px;
@@ -2108,6 +2134,11 @@ input::placeholder {
     color: white;
 }
 
+.matching_btn_style[disabled] {
+    background-color: grey;
+    /* 추가적인 스타일링을 원하는대로 설정하세요 */
+}
+
 
 .matching_btn_style {
     margin-top: 20px;
@@ -2142,6 +2173,7 @@ input::placeholder {
     font-size: 16px;
     text-align: center;
 }
+
 
 .league_matching_button {
     display: flex;
@@ -2778,8 +2810,15 @@ input::placeholder {
     height: 100%;
     padding-bottom: 20px;
     padding-left: 20px;
-    padding-right: 20px;
 }
+
+.place_resistration_thumbnail_container_two {
+    width: 100%;
+    height: 100%;
+    padding-bottom: 20px;
+    margin-top: 10px;
+}
+
 
 .place_resistration_thumbnail_label {
     background-color: #3498db; /* 배경색 설정 */
@@ -2896,6 +2935,13 @@ input::placeholder {
     border-top-right-radius: 5px;
 }
 
+.league_matchin {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 30px;
+}
+
 .league_matching_table_sub_title {
     display: flex;
     justify-content: space-around;
@@ -2963,7 +3009,7 @@ input::placeholder {
 
 
 .league_matching_content-date {
-    width: 115px;
+    width: 120px;
     text-align: center;
     color: black;
 
@@ -2981,6 +3027,12 @@ input::placeholder {
     width: 55%;
 }
 
+.spoace_detail_button {
+
+    align-items: center;
+    gap: 10px;
+}
+
 .matching_my_score_box {
     height: 30px;
 }
@@ -2996,6 +3048,9 @@ input::placeholder {
 }
 
 .matching_my_score_title {
+    display: flex;
+    justify-content: end;
+
 }
 
 /*placeDetail*/
@@ -3008,6 +3063,17 @@ input::placeholder {
     padding-right: 10%;
     padding-left: 10%;
 }
+
+.place_detail_map {
+    width: 500px;
+    height: 400px;
+}
+
+#map {
+    width: 500px;
+    height: 400px;
+}
+
 
 .place_detail_stick_menu_container {
     display: flex;
@@ -3276,7 +3342,14 @@ EDIT ON
 .scroll1_place_detail_info {
     width: 100%;
     height: 100%;
+    padding-bottom: 20px;
+    text-align: start;
+    font-weight: bolder;
 
+}
+
+.scroll1_place_detail_map {
+    padding-top: 20px;
 }
 
 .scroll2_place_detail_caution {
@@ -3520,7 +3593,7 @@ EDIT ON
     height: auto;
     width: auto;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: 350px 200px 200px;
+    grid-template-rows: 350px 200px 100px 100px;
     gap: 10px;
 }
 
@@ -3555,15 +3628,17 @@ EDIT ON
 }
 
 .myPage_test_4 {
+    border-radius: 15px;
+    border: 1px solid #19B357;
     grid-row: 3 / span 1;
-    grid-column: 1 / span 1;
-    background: #19B357;
+    grid-column: 1 / span 2;
 }
 
 .myPage_test_5 {
-    grid-row: 3 / span 1;
-    grid-column: 2 / span 1;
-    background: #19B357;
+    border-radius: 15px;
+    border: 1px solid #19B357;
+    grid-row: 4 / span 1;
+    grid-column: 1 / span 2;
 }
 
 .myBring_link {
@@ -3924,6 +3999,16 @@ EDIT ON
     margin-right: 20px;
 }
 
+.host_btn_style_red {
+    border-radius: 5px;
+    height: 30px;
+    width: 80px;
+    font-size: 16px;
+    text-align: center;
+    margin-right: 20px;
+    background-color: #f44336;
+}
+
 .host_button {
     background-color: #19B357;
     color: white;
@@ -4132,6 +4217,10 @@ EDIT ON
     background-color: white;
 }
 
+.host_managementPage {
+    justify-content: center;
+}
+
 /* team create */
 
 
@@ -4203,7 +4292,7 @@ EDIT ON
     gap: 20px;
 }
 
-.team_create_item_logo_input > img{
+.team_create_item_logo_input > img {
     width: 150px;
     height: 150px;
     border-radius: 25px;
@@ -4278,3 +4367,81 @@ EDIT ON
 }
 
 
+.img_size {
+    width: 110px;
+    height: 100px;
+    border-radius: 5px;
+}
+
+.modal_detail_title {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.team_detail_container {
+    width: 1000px;
+    height: 500px;
+}
+
+.team_detail_content {
+    height: 100%;
+}
+
+.team_detail_button {
+    background-color: #19B357;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    line-height: 50px;
+    color: white;
+    border-radius: 15px;
+}
+
+.userTeamApply_container {
+    width: 100%;
+}
+
+.userMyPage_option {
+    display: flex;
+    justify-content: space-between;
+}
+
+.myMatching_button {
+    background-color: #19B357;
+    color: white;
+}
+
+.myMatching_btn_style {
+    margin-right: 20px;
+    border-radius: 5px;
+    height: 40px;
+    width: 120px;
+    font-size: 20px;
+    text-align: center
+}
+
+.userTeamAPPly_empty_box {
+
+}
+
+.userTeamApply_items {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 10px;
+    border-bottom: 1px solid #19B357;
+    padding: 10px
+}
+
+.userTeamApply_items > img {
+    border-radius: 15px;
+    width: 30px;
+    height: 30px;
+}
+
+.userTeamApply_item_empty {
+    display: flex;
+    height: 600px;
+    justify-content: center;
+    align-items: center;
+}

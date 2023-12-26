@@ -12,12 +12,12 @@
                 </div>
                 <hr/>
                 <div class="myBring_link">
-                    <a href="/user/mypage/${sessionUser.id}">
+                    <a href="/matching-myMatch/${sessionUser.id}">
                         <div>
                             <img width="25" height="25"
                                  src="https://img.icons8.com/external-febrian-hidayat-flat-febrian-hidayat/25/external-information-ui-essential-febrian-hidayat-flat-febrian-hidayat.png"
                                  alt="external-information-ui-essential-febrian-hidayat-flat-febrian-hidayat"/>
-                            <span>나의 정보</span>
+                            <span>나의 매칭</span>
                         </div>
                     </a>
                     <a href="/user/team/${sessionUser.id}">
@@ -27,13 +27,19 @@
                             <span>나의 팀</span>
                         </div>
                     </a>
-                    <a href="">
-                        <div>
-                            <img width="25" height="25" src="https://img.icons8.com/emoji/48/page-facing-up.png"
-                                 alt="page-facing-up"/>
-                            <span>팀 신청 내역</span>
-                        </div>
-                    </a>
+                    <c:choose>
+                        <c:when test="${sessionUser.isCaptain eq true}">
+                            <a href="/user/team-apply/${sessionUser.id}">
+                                <div>
+                                    <img width="25" height="25" src="https://img.icons8.com/emoji/48/page-facing-up.png" alt="page-facing-up"/>
+                                    <span>팀 신청 내역</span>
+                                </div>
+                            </a>
+                        </c:when>
+                        <c:otherwise>
+                            <!-- Captain is true, do nothing or show other content -->
+                        </c:otherwise>
+                    </c:choose>
                     <a href="/user/bookmark/${sessionUser.id}">
                         <div>
                             <img width="25" height="25" src="https://img.icons8.com/fluency/25/bookmark.png"
@@ -72,11 +78,11 @@
                             </span>
                         </div>
                     </a>
-                    <a href="/user/setting/${sessionUser.id}">
+                    <a href="/user/logout">
                         <div>
                             <img width="25" height="25" src="https://img.icons8.com/emoji/48/gear-emoji.png"
                                  alt="gear-emoji"/>
-                            <span> 설정</span>
+                            <span>로그아웃</span>
                         </div>
                     </a>
                 </div>

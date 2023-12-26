@@ -1,10 +1,7 @@
 package com.example.teamprojectbringiton.space;
 
 
-import com.example.teamprojectbringiton.space.dto.response.SpaceDTO;
-import com.example.teamprojectbringiton.space.dto.response.SpaceDetailDTO;
-import com.example.teamprojectbringiton.space.dto.response.SpaceListDTO;
-import com.example.teamprojectbringiton.space.dto.response.SpaceReviewDTO;
+import com.example.teamprojectbringiton.space.dto.response.*;
 
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
@@ -38,4 +35,7 @@ public interface SpaceRepository {
 
     public int findAllCount();
 
+    public List<Space> findAllByUserId(Integer id);
+
+    public List<SpaceUserIdPicJoinDTO> findAllJoinUserIdAndSpacePicId(Integer id);
 }

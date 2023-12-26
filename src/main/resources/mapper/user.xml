@@ -7,16 +7,39 @@
 
     <insert id="insert">
         insert into user_tb(username, password, user_email, user_phone_number, user_address, user_pic_url, nickName,
-                            user_division, created_at, gender_id, age_id, kakao_login)
+                            user_division, created_at, gender_id, age_id, kakao_login, is_captain)
         values (#{username}, #{password}, #{userEmail}, #{userPhoneNumber}, #{userAddress}, #{userPicUrl}, #{nickName},
-                #{userDivision}, now(), #{genderId}, #{ageId}, #{kakaoLogin});
+                #{userDivision}, now(), #{genderId}, #{ageId}, #{kakaoLogin}, #{isCaptain});
     </insert>
+
+    <update id="userUpdateIsCaptain">
+        update user_tb
+        set is_captain = #{isCaptain}
+        where id = #{id}
+    </update>
+
+    <update id="userUpdateTeamId">
+        update user_tb
+        set team_id = #{teamId}
+        where id = #{id}
+    </update>
 
     <update id="updateById">
         update user_tb
         set password     = #{username},
             user_pic_url = #{password},
             fullname     = #{fullname}
+        where id = #{id}
+    </update>
+
+    <update id="kakaoUserUpdate">
+        update user_tb
+        set user_email=#{userEmail},
+            user_phone_number=#{userPhoneNumber},
+            user_address=#{userAddress},
+            user_division=#{userDivision},
+            gender_id=#{genderId},
+            age_id=#{ageId}
         where id = #{id}
     </update>
 
@@ -190,12 +213,25 @@
                       ON a.ID = u.AGE_ID
                  JOIN GENDER_TB AS g
                       ON g.ID = u.GENDER_ID
-        where u.id = #{id};
+        where u.id = #{id}
     </select>
 
     <select id="findAllCount" resultType="int">
         select count(*)
-        from user_tb;
+        from user_tb
+    </select>
+
+    <select id="findByIdJoinApply" resultType="com.example.teamprojectbringiton.user.dto.response.UserApplyListDTO">
+        select *, a.id as apply_id, a.team_id as apply_team_id
+        from user_tb u
+                 join apply_tb a
+                      on u.id = a.personal_user_id
+                 join age_tb age
+                      on u.age_id = age.id
+                 join gender_tb g
+                      on u.gender_id = g.id
+        where a.captain_user_id = #{id}
+
     </select>
 
 </mapper>

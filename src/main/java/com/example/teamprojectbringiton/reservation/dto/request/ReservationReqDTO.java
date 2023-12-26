@@ -1,13 +1,11 @@
-package com.example.teamprojectbringiton.reservation.request;
+package com.example.teamprojectbringiton.reservation.dto.request;
 
 import lombok.Data;
 
-import java.sql.Date;
-import java.sql.Time;
 import java.sql.Timestamp;
 
 @Data
-public class ReservationDTO {
+public class ReservationReqDTO {
 
     private Integer personnel;
     private String toHost;
