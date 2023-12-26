@@ -553,7 +553,6 @@ VALUES (2023121801, '2024-01-01', 6, '장비대여 되나요?', '예약진행중
        (2023121805, '2024-01-02', 2, '장비대여 되나요?', '예약진행중', false, CURRENT_TIMESTAMP, 7, 7, 5),
        (2023121806, '2024-01-01', 5, '장비대여 되나요?', '예약진행중', false, CURRENT_TIMESTAMP, 8, 8, 6);
 
-
 -- 한줄리뷰 더미 데이터
 INSERT INTO review_tb (rating, comment, space_id, user_id, created_at)
 VALUES (4, '좋아요!', 1, 2, CURRENT_TIMESTAMP),

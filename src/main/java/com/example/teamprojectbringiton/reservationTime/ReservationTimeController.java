@@ -9,7 +9,6 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 
-import java.util.List;
 
 @Controller
 public class ReservationTimeController {
@@ -28,6 +27,5 @@ public class ReservationTimeController {
         System.out.println("리턴한다.");
         return ResponseEntity.ok().body(reservationTimeList.getTimeDTOList());
     }
-
-
+    
 }
