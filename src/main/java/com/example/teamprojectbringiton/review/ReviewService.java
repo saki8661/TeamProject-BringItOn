@@ -5,6 +5,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
+
 @Service
 public class ReviewService {
 
@@ -22,5 +27,11 @@ public class ReviewService {
         System.out.println("insert해따요");
         reviewRepository.insert(review);
 
+    }
+
+    public int addReviewAndCommentCount(Integer spaceId) {
+
+        int countComment = reviewRepository.getCommentCount(spaceId);
+        return countComment;
     }
 }

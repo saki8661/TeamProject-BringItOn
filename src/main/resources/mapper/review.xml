@@ -9,4 +9,8 @@
         values (#{rating}, #{comment}, #{spaceId}, #{userId}, now());
     </insert>
 
+    <select id="getCommentCount" resultType="int">
+        select count(comment) , space_id from review_tb where space_id = #{spaceId};
+    </select>
+
 </mapper>

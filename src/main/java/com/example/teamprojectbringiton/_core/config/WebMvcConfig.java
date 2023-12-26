@@ -3,6 +3,7 @@ package com.example.teamprojectbringiton._core.config;
 
 import com.example.teamprojectbringiton._core.handler.AuthInterceptor;
 import com.example.teamprojectbringiton._core.interceptor.LoginInterceptor;
+import com.example.teamprojectbringiton._core.interceptor.ReservationInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,6 +29,13 @@ public class WebMvcConfig implements WebMvcConfigurer {
         registry.addInterceptor(new LoginInterceptor())
                 .addPathPatterns("/user/**");
 
+
+        registry.addInterceptor(new ReservationInterceptor())
+                // addPathPatterns( "해당 주소로 갈때" )
+                .addPathPatterns("/reservation/**");
+        // .excludePathPatterns ( "해당주소로 갈때는 예외적 허용" )
+        // .excludePathPatterns("/board/{id:[0-9]+}");
+
     }
 
     @Override
@@ -38,6 +46,7 @@ public class WebMvcConfig implements WebMvcConfigurer {
                 .setCachePeriod(10) // 10 (초) (초단위)
                 .resourceChain(true) // 안중요함 생각없이 걸면됨
                 .addResolver(new PathResourceResolver());
+
     }
 
     @Bean // Ioc 관리 대상 처리 - 싱글톤

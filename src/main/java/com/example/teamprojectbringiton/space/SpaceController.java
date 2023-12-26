@@ -2,6 +2,7 @@ package com.example.teamprojectbringiton.space;
 
 
 import com.example.teamprojectbringiton._core.utils.PageVO;
+import com.example.teamprojectbringiton.review.ReviewService;
 import com.example.teamprojectbringiton.space.dto.response.SpaceDTO;
 import com.example.teamprojectbringiton.space.dto.response.SpaceDetailDTO;
 import com.example.teamprojectbringiton.space.dto.response.SpaceReviewDTO;
@@ -29,6 +30,8 @@ public class SpaceController {
 
     @Autowired
     private HttpSession session;
+    @Autowired
+    private ReviewService reviewService;
 
 
     @GetMapping("/space-detail/{id}")
@@ -41,10 +44,12 @@ public class SpaceController {
         List<SpaceInquireDTO> spaceInquireList = spaceInquireService.spaceInqFindById(id);
         model.addAttribute("spaceInquireList", spaceInquireList);
         System.out.println("모델에 담겼나마루치아라치");
+        int commentCount = reviewService.addReviewAndCommentCount(id);
+        model.addAttribute("commentCount", commentCount);
         return "/spaceRental/placeDetail";
     }
 
-    @GetMapping({"/","home"})
+    @GetMapping({"/", "home"})
     public String spaceMainPage(@RequestParam(name = "currentPage", defaultValue = "1") int currentPage,
                                 @RequestParam(name = "pageSize", defaultValue = "8") int pageSize,
                                 Model model) {
