@@ -4122,9 +4122,10 @@ EDIT ON
 }
 
 .team_filter_area {
-    text-align: center;
-    padding: 10px;
+    text-align: end;
+    padding: 0 40px;
     margin: 10px;
+
 }
 
 .team_filter_area > select {
@@ -4134,8 +4135,8 @@ EDIT ON
     appearance: none;
     border: 1px solid #19B357;
     width: 100px;
-    height: 50px;
-    border-radius: 25px;
+    height: 30px;
+    border-radius: 20px;
     text-align: center;
 }
 
@@ -4144,7 +4145,8 @@ EDIT ON
 }
 
 .team_main_content {
-    padding: 50px;
+    padding: 0 50px;
+    text-align: end;
 }
 
 .team_list {

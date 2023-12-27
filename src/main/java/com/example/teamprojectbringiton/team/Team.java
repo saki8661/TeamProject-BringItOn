@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 public class Team {
     private Integer id;
     private String teamName;
-    private String teamCapacity;
+    private Integer teamCapacity;
     private String teamPicUrl;
     private String teamIntroduce;
     private String teamLocation;
@@ -23,7 +23,7 @@ public class Team {
     private Timestamp createdAt;
 
     @Builder
-    public Team(Integer id, String teamName, String teamCapacity, String teamPicUrl, String teamIntroduce, String teamLocation, String level, Integer ageId, Integer genderId, Integer positionId, Integer sportId, Timestamp createdAt) {
+    public Team(Integer id, String teamName, Integer teamCapacity, String teamPicUrl, String teamIntroduce, String teamLocation, String level, Integer ageId, Integer genderId, Integer positionId, Integer sportId, Timestamp createdAt) {
         this.id = id;
         this.teamName = teamName;
         this.teamCapacity = teamCapacity;
