@@ -69,7 +69,7 @@
                             <div class="league_matching_modal modal-content">
 
                                 <!-- Modal Header -->
-                                <div class="userReservation_modal_header">
+                                <div class="modal-header">
                                     <h2>매칭 상세</h2>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                 </div>

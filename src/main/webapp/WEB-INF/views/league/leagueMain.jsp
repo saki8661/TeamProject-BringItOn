@@ -115,7 +115,7 @@
                                 <div class="modal-content">
 
                                     <!-- Modal Header -->
-                                    <div class="leagueMain_modal_header">
+                                    <div class="modal-header">
                                         <h2 style="width: 100%; text-align: center; font-weight: bold; font-size: x-large;">
                                             2024년 상반기 Bring It On리그</h2>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>

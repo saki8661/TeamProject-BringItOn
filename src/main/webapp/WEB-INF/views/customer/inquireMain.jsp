@@ -48,7 +48,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <!-- Modal Header -->
-                <div class="userReservation_modal_header">
+                <div class="modal-header">
                     <h2 style="width: 100%; text-align: center; font-weight: bold; font-size: x-large;">문의등록</h2>e
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
