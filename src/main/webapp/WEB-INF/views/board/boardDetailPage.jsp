@@ -79,10 +79,11 @@
     <div class="frame_sub">
         <!-- 댓글 목록 표시 -->
         <c:if test="${not empty dto.replies}">
-            <c:forEach var="reply" items="${dto.replies}">
+            <c:forEach var="reply" items="${dto.replies}" varStatus="loopStatus">
                 <div class="board_list">
                     <div class="board_layout">
                         <div class="board_commnet_item">
+                            <div>${dto.replies.size() - loopStatus.index}.</div>
                             <div>
                                     ${reply.nickName}
                             </div>
@@ -94,31 +95,32 @@
                             <div class="board_date">
                                     ${reply.createdAt}
                             </div>
+                            <c:choose>
+                                <c:when test="${reply.userId == sessionUser.id}">
+                                    <div class="d-flex justify-content-end">
+                                        <form action="/reply-delete/${reply.id}" method="get">
+                                            <button type="submit" class="btn btn-danger">삭제</button>
+                                        </form>
+                                    </div>
+                                </c:when>
+                                <c:otherwise>
+                                    <!-- 다른 사용자의 경우에는 다른 HTML을 넣을 수 있음 -->
+                                </c:otherwise>
+                            </c:choose>
                         </div>
                     </div>
-                    <c:choose>
-                        <c:when test="${reply.userId == sessionUser.id}">
-                            <div class="d-flex justify-content-end">
-                                <form action="/reply-delete/${reply.id}" method="get">
-                                    <button type="submit" class="btn btn-danger">삭제</button>
-                                </form>
-                            </div>
-                        </c:when>
-                        <c:otherwise>
-                            <!-- 다른 사용자의 경우에는 다른 HTML을 넣을 수 있음 -->
-                        </c:otherwise>
-                    </c:choose>
                 </div>
             </c:forEach>
         </c:if>
+
         <c:if test="${noReplies}">
             <div class="no-reply-message">댓글이 없습니다.</div>
         </c:if>
         <form action="/reply-write" method="post">
             <div class="mb-5 mt-3">
                 <input type="hidden" value="${dto.id}" name="boardId">
-            <textarea class="mt-3 form-control" rows="2" name="comment"
-                      placeholder="댓글을 입력해 주세요"></textarea>
+                <textarea class="mt-3 form-control" rows="2" name="comment"
+                          placeholder="댓글을 입력해 주세요"></textarea>
             </div>
             <div class="mt-3" style="padding-bottom: 20px;">
                 <button type="submit" class="btn btn-outline-success float-end">댓글쓰기</button>

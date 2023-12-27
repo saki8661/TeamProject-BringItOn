@@ -54,7 +54,6 @@ public class InquireService {
         System.out.println("inquire@@@@@@@@@@@@@@@@@@@@@@@@@@@@@" + principalId);
         if (inquireWrite != 1) {
             throw new CustomRestfullException("공지 등록 실패", HttpStatus.INTERNAL_SERVER_ERROR);
-
         }
     }
 

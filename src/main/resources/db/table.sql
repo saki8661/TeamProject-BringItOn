@@ -247,8 +247,10 @@ CREATE TABLE notice_tb
     notice_category_id INT,
     notice_title       VARCHAR(255),
     notice_content     TEXT,
+    user_id             INT,
     created_at         TIMESTAMP
 );
+
 
 CREATE TABLE inquire_category_tb
 (
