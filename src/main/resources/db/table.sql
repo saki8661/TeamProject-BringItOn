@@ -25,7 +25,7 @@ CREATE TABLE team_tb
 (
     id             INT AUTO_INCREMENT PRIMARY KEY,
     team_name      VARCHAR(250) NOT NULL,
-    team_capacity  VARCHAR,
+    team_capacity  INT,
     team_location  VARCHAR,
     team_pic_url   VARCHAR,
     team_introduce VARCHAR(250),

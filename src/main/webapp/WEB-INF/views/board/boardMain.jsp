@@ -14,17 +14,14 @@
             </ul>
         </li>
         <li class="main_link">
+            <a href="/team-main">팀</a>
+        </li>
+        <li class="main_link">
             <a href="/matching-main">매칭</a>
         </li>
-
-        <li class="main_link">
-            <a href="/league-main">리그</a>
-        </li>
-
         <li class="main_link">
             <a href="/board-main">게시판</a>
         </li>
-
         <li class="main_link">
             <a href="/notice-main">고객센터</a>
         </li>
@@ -45,25 +42,25 @@
     </div>
     <c:forEach var="board" items="${boards}">
         <a href="/board-detail/${board.id}">
-        <div class="board_list">
-            <button type="button" class="more_button">
-                <div class="board_layout">
-                    <div class="board_item">
-                        <div>
-                                ${board.nickName}
+            <div class="board_list">
+                <button type="button" class="more_button">
+                    <div class="board_layout">
+                        <div class="board_item">
+                            <div>
+                                    ${board.nickName}
+                            </div>
+                            <div>
+                                    ${board.boardTitle}
+                            </div>
                         </div>
-                        <div>
-                                ${board.boardTitle}
+                        <div class="d-flex">
+                            <div class="board_date">
+                                    ${board.createdAt}
+                            </div>
                         </div>
                     </div>
-                    <div class="d-flex">
-                        <div class="board_date">
-                                ${board.createdAt}
-                        </div>
-                    </div>
-                </div>
-            </button>
-        </div>
+                </button>
+            </div>
         </a>
     </c:forEach>
 </div>
