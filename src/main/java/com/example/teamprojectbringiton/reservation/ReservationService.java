@@ -70,10 +70,17 @@ public class ReservationService {
 
     public List<UserReservationListDTO> findByUserId(Integer id) {
         List<UserReservationListDTO> dto = reservationRepository.findByUserId(id);
-        for (UserReservationListDTO reservationListDTO : dto) {
-            reservationListDTO.setStartTime(formatTime(reservationListDTO.getStartTime()));
-            reservationListDTO.setEndTime(formatTime(reservationListDTO.getEndTime()));
-        }
+        System.out.println("dto에는 머가 있을까? getId : " + dto.get(0).getId());
+        System.out.println("dto에는 머가 있을까? getReservationDate : " + dto.get(0).getReservationDate());
+        System.out.println("dto에는 머가 있을까? getPrice : " + dto.get(0).getPrice());
+        System.out.println("dto에는 머가 있을까? getSpacePic : " + dto.get(0).getSpacePic());
+        System.out.println("dto에는 머가 있을까? getSector : " + dto.get(0).getSector());
+        System.out.println("dto에는 머가 있을까? getStatus : " + dto.get(0).getStatus());
+        System.out.println("dto에는 머가 있을까? getStartTime : " + dto.get(0).getStartTime());
+        System.out.println("dto에는 머가 있을까? getEndTime : " + dto.get(0).getEndTime());
+        System.out.println("dto에는 머가 있을까? getReservationNumber : " + dto.get(0).getReservationNumber());
+        System.out.println("dto에는 머가 있을까? getSpaceLocation : " + dto.get(0).getSpaceLocation());
+        System.out.println("dto에는 머가 있을까? getSpaceName : " + dto.get(0).getSpaceName());
         return dto;
 
     }
@@ -91,7 +98,6 @@ public class ReservationService {
         ReservationRespDTO reservation = reservationRepository.findByIdReservSpaceAndSpacePic(id);
         System.out.println("+++++++++++++++++레파지토리++++++++++++++");
         return reservation;
-
     }
 
     @Transactional

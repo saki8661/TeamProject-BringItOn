@@ -9,15 +9,14 @@ import java.text.SimpleDateFormat;
 @Data
 public class UserReservationListDTO {
     private Integer id;
-    private Integer reservationNumber;
+    private String reservationNumber;
     private Date reservationDate;
-    private String startTime;
-    private String endTime;
+    private Time startTime;
+    private Time endTime;
     private String status;
     private String spaceName;
     private Integer price;
     private String spaceLocation;
-    private Integer spacePic;
+    private String spacePic;
     private String sector;
-
 }

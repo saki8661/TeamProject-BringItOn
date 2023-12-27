@@ -18,6 +18,17 @@
         where user_id = #{user_id}
     </select>
 
+
+    <select id="findByUserIdJoinReservationTime"
+            resultType="com.example.teamprojectbringiton.reservation.dto.response.UserReservationListDTO">
+        SELECT *
+        FROM reservation_tb AS r
+                 JOIN reservation_time_tb AS rt
+                      ON r.reservation_time_id = rt.id
+        WHERE r.user_id = #{id};
+
+    </select>
+
     <select id="findAllJoinUserIdAndSpacePicId"
             resultType="com.example.teamprojectbringiton.space.dto.response.SpaceUserIdPicJoinDTO">
         SELECT *

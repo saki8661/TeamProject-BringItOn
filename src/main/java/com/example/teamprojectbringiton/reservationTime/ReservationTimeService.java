@@ -28,8 +28,8 @@ public class ReservationTimeService {
         LocalDate localDate = LocalDate.parse(date, DateTimeFormatter.ofPattern("yyyy-MM-dd"));
         Date reservationDate = Date.valueOf(localDate);
 
-        List<Reservation> reservationList = reservationRepository.findByspaceIdAndreservationDate(space.getId(), reservationDate);
-        List<ReservationTime> reservationTime = reservationTimeRepository.findBySpaceReservationTime(space.getBizStartTime(), space.getBizEndTime());
+        List<Reservation> reservationList = reservationRepository.findByspaceIdAndreservationDate(space.getId(), reservationDate); // 날짜 공간 기준 예약테이블 조회
+        List<ReservationTime> reservationTime = reservationTimeRepository.findBySpaceReservationTime(space.getBizStartTime(), space.getBizEndTime()); // 시간 코드 테이블
 
         System.out.println("서비스 지나감");
         return new ReservationTimeDTO(reservationList, reservationTime);
@@ -47,5 +47,5 @@ public class ReservationTimeService {
         System.out.println("데이터 잘 가져오나?" + response.get(6).getStartTime());
         System.out.println("데이터 잘 가져오나?" + response.get(7).getStartTime());
     }
-    
+
 }
