@@ -19,6 +19,7 @@ public interface ReservationRepository {
 
     public List<UserReservationListDTO> findByUserId(Integer id);
 
+
     public ReservationRespDTO findByIdReservSpaceAndSpacePic(@Param("id") Integer id);
 
     public void reservInsert(Reservation reservation);
