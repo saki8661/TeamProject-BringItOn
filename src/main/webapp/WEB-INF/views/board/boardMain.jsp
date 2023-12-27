@@ -44,6 +44,7 @@
         </div>
     </div>
     <c:forEach var="board" items="${boards}">
+        <a href="/board-detail/${board.id}">
         <div class="board_list">
             <button type="button" class="more_button">
                 <div class="board_layout">
@@ -59,15 +60,11 @@
                         <div class="board_date">
                                 ${board.createdAt}
                         </div>
-                        <div>
-                            <a href="/board-detail/${board.id}" class="more_button">
-                                <img src="/images/more.png" class="inquire_toggle_image">
-                            </a>
-                        </div>
                     </div>
                 </div>
             </button>
         </div>
+        </a>
     </c:forEach>
 </div>
 

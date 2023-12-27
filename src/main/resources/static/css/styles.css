@@ -1273,7 +1273,7 @@ input::placeholder {
 }
 
 .manual > li {
-    display: none;
+    /*display: none;*/
 }
 
 .manual > li.manual_active {
@@ -1374,12 +1374,16 @@ input::placeholder {
     padding: 18px 0px;
     text-align: center;
 }
+.manual_tab .manual_category a:active {
+    background-color: var(--primary_01);
+}
 
 .manual_tab .manual_category div.manual_active {
     width: 100px;
     display: inline-block;
     text-align: center;
     border-radius: 35px;
+
 }
 
 .manual_tab .manual_category div.manual_active {
@@ -1407,6 +1411,13 @@ input::placeholder {
 /*}*/
 
 .matching_team {
+}
+
+.matching_empty_box{
+    height: 300px;
+    text-align: center;
+    line-height: 5;
+    font-size: 30px;
 }
 
 .matching_detail {

@@ -566,8 +566,8 @@ VALUES (4, '좋아요!', 1, 2, CURRENT_TIMESTAMP),
 
 -- 매칭 더미 데이터
 INSERT INTO matching_tb (user_id, reservation_id, match_user_id, matching_status)
-VALUES (2, 1, null, '매칭대기'),
-       (5, 2, null, '매칭대기'),
+VALUES (2, 1, null, '매칭대기중'),
+       (5, 2, null, '매칭대기중'),
        (6, 3, 3, '매칭완료'),
        (2, 4, 4, '매칭완료'),
        (1, 5, 5, '매칭완료'),

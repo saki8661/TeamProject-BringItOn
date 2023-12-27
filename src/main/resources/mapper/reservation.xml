@@ -16,6 +16,8 @@
                            on s.id = sp.space_id
                  left join matching_tb m
                            on r.id = m.reservation_id
+                left join reservation_time_tb rt
+                            on r.reservation_time_id = rt.id
         WHERE r.matching = true
           AND r.reservation_date >= CURRENT_DATE
         ORDER BY r.reservation_date ASC;
@@ -68,4 +70,23 @@
                 #{spaceId}, #{reservationTimeId}, now());
     </insert>
 
+    <select id="findAllMatchingByDate"
+            resultType="com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO">
+        select *, m.id matchingId
+        from reservation_tb r
+                 left join team_tb t
+                           on r.user_id = t.id
+                 left join space_tb s
+                           on r.space_id = s.id
+                 left join space_pic_tb sp
+                           on s.id = sp.space_id
+                 left join matching_tb m
+                           on r.id = m.reservation_id
+                 left join reservation_time_tb rt
+                           on r.reservation_time_id = rt.id
+        WHERE r.matching = true
+          AND day(r.reservation_date) = #{date}
+          AND r.reservation_date >= CURRENT_DATE
+        ORDER BY r.reservation_date ASC;
+    </select>
 </mapper>

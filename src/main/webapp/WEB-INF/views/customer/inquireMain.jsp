@@ -118,7 +118,7 @@
                     </div>
                 </div>
             </button>
-            <div class="inquire_write_list">
+            <div>
                 <div class="inquireMain_update_delete_btn">
                     <c:choose>
                         <c:when test="${inquire.userId == sessionUser.id}">
@@ -235,6 +235,7 @@
             selectedValueInput.value = dropdown.value;
         });
     });
+
 
 </script>
 

@@ -5,10 +5,10 @@ import com.example.teamprojectbringiton.matching.MatchingRepository;
 import com.example.teamprojectbringiton.matching.MatchingService;
 import com.example.teamprojectbringiton.region.Region;
 import com.example.teamprojectbringiton.region.RegionRepository;
-import com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO;
-import com.example.teamprojectbringiton.reservation.dto.response.UserReservationListDTO;
 import com.example.teamprojectbringiton.reservation.dto.request.ReservationReqDTO;
+import com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO;
 import com.example.teamprojectbringiton.reservation.dto.response.ReservationRespDTO;
+import com.example.teamprojectbringiton.reservation.dto.response.UserReservationListDTO;
 import com.example.teamprojectbringiton.space.Space;
 import com.example.teamprojectbringiton.space.SpaceRepository;
 import com.example.teamprojectbringiton.team.Team;
@@ -24,7 +24,6 @@ import java.time.LocalDate;
 import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
-import java.util.UUID;
 
 @Service
 public class ReservationService {
@@ -141,4 +140,8 @@ public class ReservationService {
         }
     }
 
+    public List<MatchingReservationDTO> getAllMatching(Integer date) {
+        List<MatchingReservationDTO> matchings = reservationRepository.findAllMatchingByDate(date);
+        return matchings;
+    }
 }
