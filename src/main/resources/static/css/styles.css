@@ -1544,6 +1544,8 @@ input::placeholder {
     display: flex;
     flex-shrink: 0;
     align-items: center;
+    font-size: 20px;
+    font-weight: bold;
     justify-content: space-between;
     padding: 10px 10px;
     border-bottom: #dee2e6 1px solid;
@@ -2220,8 +2222,8 @@ input::placeholder {
 }
 
 .league_matching_modal {
-    width: 900px;
-    height: 500px;
+    width: 750px;
+    height: 450px;
 }
 
 .modal_test {
