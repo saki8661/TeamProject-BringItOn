@@ -33,6 +33,8 @@
                       on r.space_id = s.id
                  join space_pic_tb sp
                       on sp.space_id = s.id
+                 join reservation_time_tb rt
+                      on r.reservation_time_id = rt.id
         where u.id = #{id}
     </select>
 

@@ -14,14 +14,14 @@
                 <hr/>
                 <div class="userInfo_main">
 
-                    <div class="userReservation_tabbox">
+                    <%-- <div class="userReservation_tabbox">
                         <div class="userReservation_tab">
                             <a class="nav-link userReservation_link" href="#">전체()</a>
                             <a class="nav-link userReservation_link" href="#">진행중()</a>
                             <a class="nav-link userReservation_link" href="#">완료()</a>
                             <a class="nav-link userReservation_link" href="#">취소/환불()</a>
                         </div>
-                    </div>
+                        </div> --%>
                     <form class="d-flex">
                         <div class="userReservation_search">
                             <input class="form-control" type="text" placeholder="예약번호를 입력해주세요.">
@@ -60,29 +60,10 @@
                                 <td>${reservation.reservationDate} <br>
                                         ${reservation.startTime} ~ ${reservation.endTime}
                                 </td>
-                                <td>${reservation.pricePerHour}원</td>
+                                <td>${reservation.price}원</td>
                                 <td>${reservation.status}</td>
                             </tr>
                         </c:forEach>
-                        <%--                        <tr class="userReservation_table_tr">--%>
-                        <%--                            <td>16-12369</td>--%>
-                        <%--                            <td>--%>
-                        <%--                                <div class="userReservation_pic">--%>
-                        <%--                                    <img src="/images/stadium.png">--%>
-                        <%--                                </div>--%>
-                        <%--                            </td>--%>
-                        <%--                            <td>--%>
-                        <%--                                <div class="userReservation_detail">--%>
-                        <%--                                    <button type="button" data-bs-toggle="modal"--%>
-                        <%--                                            data-bs-target="#myModal">--%>
-                        <%--                                        부산 준타스 풋볼아레나--%>
-                        <%--                                    </button>--%>
-                        <%--                                </div>--%>
-                        <%--                            </td>--%>
-                        <%--                            <td>2023-12-06 (수) 13시 시작 <br> 2023-12-06 (수) 15시 종료</td>--%>
-                        <%--                            <td>30,000원</td>--%>
-                        <%--                            <td>결제 대기</td>--%>
-                        <%--                        </tr>--%>
                         </tbody>
                     </table>
 
@@ -93,7 +74,7 @@
                             <div class="modal-content">
 
                                 <!-- Modal Header -->
-                                <div class="userReservation_modal_header">
+                                <div class="modal-header">
                                     <h2 style="width: 100%; text-align: center">예약 상세</h2>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                 </div>

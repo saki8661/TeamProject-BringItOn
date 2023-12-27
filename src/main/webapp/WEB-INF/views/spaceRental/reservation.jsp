@@ -276,7 +276,7 @@
                 success: function (response) {
                     console.log(response);
                     $(document).ready(function () {
-                        updateTimeList(response);
+                        updateTimeList(response, date);
 
                     });
                 },
@@ -287,18 +287,59 @@
 
         }
 
-        function updateTimeList(response) {
+        function updateTimeList(response, date) {
             var timeChoiceSection = document.querySelector('.re_time_choice');
             timeChoiceSection.style.display = 'block';
-            console.log(response);
+
+            // 현재 시간을 얻습니다.
+            var formattedTime = getCurrentTimeFormatted();
+
             let tbody = document.querySelector('.re_time_choice #timeList');
-            console.log(tbody);
             tbody.innerHTML = "";
-            console.log(tbody.innerHTML);
+
             response.forEach(function (item) {
-                tbody.innerHTML += '<option value=' + item.id + '>' +
-                    item.startTime + "~" + item.endTime + '</option>';
+
+                console.log("날짜 : " + date);
+
+                // 선택된 날짜가 오늘인 경우에만 현재 시간과 비교
+                if (dateIsToday(date)) {
+                    if (item.startTime > formattedTime) {
+                        tbody.innerHTML += '<option value=' + item.id + '>' +
+                            item.startTime + "~" + item.endTime + '</option>';
+                    }
+                } else {
+                    // 선택된 날짜가 오늘이 아닌 경우에는 그냥 출력
+                    tbody.innerHTML += '<option value=' + item.id + '>' +
+                        item.startTime + "~" + item.endTime + '</option>';
+                }
             });
+        }
+
+        // 선택된 날짜가 오늘인지 확인하는 함수
+        function dateIsToday(selectedDate) {
+            var today = new Date();
+            var selected = new Date(selectedDate);
+            return (
+                today.getDate() === selected.getDate() &&
+                today.getMonth() === selected.getMonth() &&
+                today.getFullYear() === selected.getFullYear()
+            );
+        }
+
+        // 현재시간 -> 00:00:00 형식으로 변환
+        function getCurrentTimeFormatted() {
+            var currentTime = new Date();
+
+            var options = {
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+                hour12: false
+            };
+
+            var timeFormat = new Intl.DateTimeFormat('en-US', options);
+
+            return timeFormat.format(currentTime);
         }
 
         function count(type) {

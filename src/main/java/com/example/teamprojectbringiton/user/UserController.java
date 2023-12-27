@@ -140,7 +140,7 @@ public class UserController {
     public String logout() {
 
         session.invalidate();
-        return "redirect:/login";
+        return "redirect:/kakao-login";
     }
 
     @GetMapping("/user/mypage/{id}")
@@ -205,12 +205,12 @@ public class UserController {
     }
 
     @GetMapping("/user/setting/{id}")
-    public String userSettingPage(){
+    public String userSettingPage() {
         return "user/userSetting";
     }
 
     @GetMapping("/user/team-apply/{id}")
-    public String userTeamApplyPage(@PathVariable Integer id, Model model){
+    public String userTeamApplyPage(@PathVariable Integer id, Model model) {
         List<User> applyUser = userService.searchTeamApplyList(id);
         model.addAttribute("applyUser", applyUser);
         return "user/userTeamApply";

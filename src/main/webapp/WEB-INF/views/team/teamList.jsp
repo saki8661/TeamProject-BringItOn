@@ -89,14 +89,31 @@
                             <div class="modal-body">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <!-- 왼쪽 컬럼 -->
                                         <div class="col-md-3">
-                                                ${teamDetailItem.teamLocation}
+                                            <div class="team_detail_modal_logo">
+                                                <img src="/images/${teamDetailItem.teamPicUrl}">
+                                            </div>
                                         </div>
-                                        <!-- 오른쪽 컬럼 -->
                                         <div class="col-md-9">
-                                                ${teamDetailItem.teamIntroduce}
+                                            <div class="team_detail_modal_introduce">
+                                                    ${teamDetailItem.teamIntroduce}
+                                            </div>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="team_detail_modal_content">
+                                    <div class="col-md-6">
+                                        <div class="team_detail_modal_location">
+                                            활동 지역 : ${teamDetailItem.teamLocation}
+                                        </div>
+                                        <div class="team_detail_modal_sportname">
+                                            활동 스포츠 : ${teamDetailItem.sportName}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="team_detail_modal_capacity">인원
+                                            : ${teamDetailItem.teamCapacity}</div>
+                                        <div class="team_detail_modal_age">연령대 : ${teamDetailItem.age}</div>
                                     </div>
                                 </div>
                             </div>

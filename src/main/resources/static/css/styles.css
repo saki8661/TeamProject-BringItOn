@@ -1540,17 +1540,17 @@ input::placeholder {
     vertical-align: center;
 }
 
-.userReservation_modal_header {
-
+.modal-header {
     display: flex;
     flex-shrink: 0;
     align-items: center;
     justify-content: space-between;
     padding: 10px 10px;
     border-bottom: #dee2e6 1px solid;
+    background-color: #19B357;
+    color: white;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-
 }
 
 /* leagueRanking */
@@ -2025,16 +2025,6 @@ input::placeholder {
     justify-self: end;
 }
 
-.userReservation_modal_header {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 10px;
-    border-bottom: #dee2e6 1px solid;
-
-}
-
 .modal {
     text-align: center;
 }
@@ -2077,23 +2067,14 @@ input::placeholder {
     vertical-align: middle;
 }
 
-.userReservation_modal_header {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 10px;
-    border-bottom: #dee2e6 1px solid;
-    background-color: #19B357;
-    color: white;
-}
+
 
 .modal-body {
     padding-bottom: 0;
     width: 100%;
 }
 
-.userReservation_modal_header h2 {
+.modal-header h2 {
     width: 100%;
     text-align: center;
 }
@@ -4284,6 +4265,48 @@ EDIT ON
     justify-content: center;
 }
 
+
+
+.team_detail_modal_content{
+    display: flex;
+}
+.team_detail_modal_content > div{
+
+}
+
+.team_detail_modal_logo{
+    text-align: center;
+}
+
+.team_detail_modal_introduce{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.team_detail_modal_location{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 35px;
+
+}
+
+.team_detail_modal_sportname{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 35px;
+}
+
+.team_detail_modal_capacity{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 35px;
+}
+
+.team_detail_modal_age{
+    font-size: 20px;
+    font-weight: bold;
+    margin: 35px;
+}
 /* team create */
 
 
@@ -4442,8 +4465,8 @@ EDIT ON
 }
 
 .team_detail_container {
-    width: 1000px;
-    height: 500px;
+    width: 600px;
+    height: 475px;
 }
 
 .team_detail_content {

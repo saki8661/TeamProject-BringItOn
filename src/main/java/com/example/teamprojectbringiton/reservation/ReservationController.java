@@ -46,6 +46,7 @@ public class ReservationController {
 
     @GetMapping("/user/reservation/{id}")
     public String userReservationPage(@PathVariable Integer id, Model model) {
+        System.out.println("내 예약현황 접속");
         List<UserReservationListDTO> reservationList = reservationService.findByUserId(id);
         model.addAttribute("reservationList", reservationList);
         return "user/userReservation";
