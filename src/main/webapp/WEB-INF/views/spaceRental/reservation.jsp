@@ -136,7 +136,7 @@
             </div>
             <input type="hidden" name="spaceId" value="${reservationName.spaceId}">
             <input type="hidden" name="userId" value="${sessionUser.id}">
-            <input type="hidden" id="selectedDate" name="reservationDate" value="">
+            <input type="hidden" id="selectedDate" name="reservationDate">
             <div class="reservation_button">
                 <button class="reservation_button_detail" onclick="submitReservation()" type="submit">
                     예약하기

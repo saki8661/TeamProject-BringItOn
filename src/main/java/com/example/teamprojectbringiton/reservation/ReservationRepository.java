@@ -1,9 +1,8 @@
 package com.example.teamprojectbringiton.reservation;
 
 import com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO;
-import com.example.teamprojectbringiton.reservation.dto.response.UserReservationListDTO;
 import com.example.teamprojectbringiton.reservation.dto.response.ReservationRespDTO;
-import com.example.teamprojectbringiton.space.Space;
+import com.example.teamprojectbringiton.reservation.dto.response.UserReservationListDTO;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
@@ -25,4 +24,5 @@ public interface ReservationRepository {
 
     public List<Reservation> findByspaceIdAndreservationDate(Integer spaceId, Date reservationDate);
 
+    List<MatchingReservationDTO> findAllMatchingByDate(Integer date);
 }

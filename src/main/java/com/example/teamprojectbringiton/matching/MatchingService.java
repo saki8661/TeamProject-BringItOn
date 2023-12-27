@@ -46,6 +46,8 @@ public class MatchingService {
         return matchingRepository.findMyApplyMatchingList(userId);
     }
 
+
+
 //    public int findByMyApplyMatch(Integer principalId) {
 //        int findByMyApplyMatch = matchingRepository.findByMyApplyMatch(principalId);
 //        if (findByMyApplyMatch != 1) {

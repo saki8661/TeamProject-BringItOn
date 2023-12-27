@@ -5,11 +5,13 @@ import com.example.teamprojectbringiton.reservation.dto.response.UserReservation
 import com.example.teamprojectbringiton.reservation.dto.request.ReservationReqDTO;
 import com.example.teamprojectbringiton.reservation.dto.response.ReservationRespDTO;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.List;
 
@@ -48,6 +50,7 @@ public class ReservationController {
         model.addAttribute("reservationList", reservationList);
         return "user/userReservation";
     }
+
 
 
 }

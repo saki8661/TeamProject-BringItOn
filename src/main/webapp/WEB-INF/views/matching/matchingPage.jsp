@@ -53,7 +53,15 @@
                 <img src="/images/right_button.png" alt="">
             </div>
         </div>
+        <div class="selected-date"></div>
     </div>
+
+
+
+
+
+
+
 
     <div class="frame">
         <ul class="manual">
@@ -196,30 +204,110 @@
     // 변수 추가: 선택한 날짜를 저장할 변수
     var selectedDate = null;
 
-
     function getDayOfWeek(day) {
         var daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
         return daysOfWeek[day];
     }
 
-    function showMatchings(day) {
-        console.log('Selected Date:', day);
+    $(document).ready(function () {
+        // 날짜가 선택될 때마다 해당 날짜를 저장
+        $(".swiper-wrapper").on("click", ".swiper-slide", function () {
+            selectedDate = $(this).text();
 
-        // 선택한 날짜에 해당하는 스타일 적용
-        if (selectedDate !== null) {
-            // 이전에 선택한 날짜의 스타일 초기화
-            $('[data-date="' + selectedDate + '"]').removeClass('manual_active');
+            // 선택된 날짜에 대한 매칭 목록을 불러오고 화면에 업데이트
+            loadMatchings(selectedDate);
+        });
+
+        // 버튼 클릭 시 Ajax 통신 수행
+        $(".load-matching-btn").on("click", function () {
+            // 선택된 날짜를 서버에 전달하고, 매칭 목록을 받아옴
+            loadMatchings(selectedDate);
+        });
+
+        // 여기서 day 변수에 디코딩된 값을 할당
+        day = decodeURIComponent(selectedDate);
+
+    });
+
+
+    function loadMatchings(day) {
+        // 숫자만 추출
+        var resvDate = day.match(/\d+/)[0];
+
+        // 선택된 날짜를 서버에 전달하고, 매칭 목록을 받아옴
+        $.ajax({
+            type: "GET",
+            url: "/api/matching-main/ " + resvDate,
+            contentType: "json",
+            success: function (response) {
+                console.log(response)
+                updateMatchingList(response);
+            },
+            error: function (error) {
+            }
+        });
+    }
+
+    function updateMatchingList(response) {
+        // 매칭 목록을 받아와서 화면에 업데이트
+        let matchingListContainer = document.getElementById('matchingListContainer');
+        matchingListContainer.innerHTML = "";
+        let htmlData = "";
+
+        if (Array.isArray(response) && response.length > 0) {
+            response.forEach(function (matching) {
+                htmlData +=
+                    '<div class="manual_card region-' + matching.teamLocation + '" data-region-name="' + matching.teamLocation + '">' +
+                    '<div class="matching_list">' +
+                    '<div class="matching_detail">' +
+                    '<div class="manual_tit">' + matching.reservationDate + ' /</div>' +
+                    '<div class="manual_tit">' + matching.startTime + '~' + matching.endTime + '</div>' +
+                    '<div class="matchingPage_team_box">' +
+                    '<div class="matchingPage_team">' +
+                    '<div>' +
+                    '<span class="manual_tit">' + matching.teamName + '</span>' +
+                    '</div>' +
+                    '<div>' +
+                    '<span class="manual_tit">' + matching.personnel + ' vs ' + matching.personnel + ' 경기</span>' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="manual_num">' + matching.spaceName + '</div>' +
+                    '</div>' +
+                    '</div>' +
+                    '<button class="matching_button matching_btn_style" type="button" data-bs-toggle="modal" data-bs-target="#matchingModal-' + matching.id + '" ' + (matching.matchingStatus == '매칭완료' ? 'disabled' : '') + '>' +
+                    matching.matchingStatus +
+                    '</button>' +
+                    '</div>' +
+                    '</div>' +
+                    '<hr class="matchingPage_manual_box region-' + matching.teamLocation + '">';
+            });
+        } else {
+            // 매칭이 없는 경우 메시지를 표시
+            htmlData = '<div class="matching_empty_box">' +
+                '매칭할 팀이 없습니다.' +
+                '</div>';
         }
 
+        matchingListContainer.innerHTML = htmlData;
+
+        console.log(matchingListContainer.innerHTML);
+    }
+
+    function showMatchings(selectedDate) {
+        console.log('선택한 날짜:', selectedDate);
+
+        // 이전에 선택한 날짜의 스타일 초기화
+        $('.swiper-slide').removeClass('manual_active');
+
         // 선택한 날짜에 클래스 추가하여 스타일 변경
-        $('[data-date="' + day + '"]').addClass('manual_active');
+        $('[data-date="' + selectedDate + '"]').addClass('manual_active');
 
         // 선택한 날짜에 해당하는 탭에 스타일 적용
         const activeTabStyle = `
-            background-color: #19B357;
-            color: white;
-            border: none;
-        `;
+        background-color: #19B357;
+        color: white;
+        border: none;
+    `;
         $('.manual_tab .manual_category a.manual_active').attr('style', activeTabStyle);
 
         // 선택한 날짜 업데이트
@@ -259,6 +347,7 @@
             var dateList = $('#date-list');
             dateList.empty();
 
+
             for (var i = 0; i < selectedDates.length; i++) {
                 var date = selectedDates[i];
                 var isSelected = isToday(date) ? ' manual_active' : '';
@@ -285,29 +374,27 @@
         // 탭 및 슬라이더 초기화
         const manualCg = document.querySelectorAll(".manual_category > li > a");
         const manual = document.querySelectorAll(".manual > li");
+        const regionOptions = document.querySelectorAll(".region-option"); // 이 위치로 이동
+        const matchingCards = document.querySelectorAll(".manual_card"); // 이 위치로 이동
+        const selectedRegionSpan = document.getElementById("selectedRegion"); // 이 위치로 이동
 
         manualCg.forEach((tab, idex) => {
             tab.addEventListener("click", function () {
                 manual.forEach((inner) => {
                     inner.classList.remove("manual_active");
-                })
+                });
                 manualCg.forEach((item) => {
                     item.classList.remove("manual_active");
-                })
+                });
                 manualCg[idex].classList.add("manual_active");
                 manual[idex].classList.add("manual_active");
-            })
+            });
         });
-
-        const regionOptions = document.querySelectorAll(".region-option");
-        const matchingCards = document.querySelectorAll(".manual_card");
-        const selectedRegionSpan = document.getElementById("selectedRegion");
 
         regionOptions.forEach(option => {
             option.addEventListener("click", function (e) {
                 e.preventDefault();
-                const selectedRegionName = this.getAttribute("data-region-name");
-                const selectedTeamLocation = this.innerText;
+                e.stopPropagation(); // 이벤트 전파 중지
 
                 matchingCards.forEach(card => {
                     const regionName = card.getAttribute("data-region-name");
@@ -319,9 +406,13 @@
                 });
 
                 selectedRegionSpan.innerText = selectedTeamLocation;
+
+                // Dropdown이 열려있을 때 클릭하면 닫히도록 추가
+                $(".navbar-toggler").click();
             });
         });
     });
+
 </script>
 
 
