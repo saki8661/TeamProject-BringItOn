@@ -1,6 +1,8 @@
 package com.example.teamprojectbringiton.spaceInquire;
 
+import com.example.teamprojectbringiton.spaceInquire.request.SpaceInqUpdateDTO;
 import com.example.teamprojectbringiton.spaceInquire.request.SpaceInquireDTO;
+import com.example.teamprojectbringiton.spaceInquire.response.SpaceInqAnswerCountDTO;
 import com.example.teamprojectbringiton.user.User;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -30,4 +32,16 @@ public class SpaceInquireController {
     }
 
 
-}
+    @PostMapping("/updateInquireAnswer")
+    public String updateInquireAnswer(SpaceInqUpdateDTO spaceInqUpdateDTO) {
+        // 서비스 메서드 호출
+        spaceInquireService.updateSpaceInquireAnswer(spaceInqUpdateDTO);
+
+        return "redirect:/space-detail/" + spaceInqUpdateDTO.getSpaceId();
+    }
+
+    }
+
+
+
+

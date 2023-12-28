@@ -12,10 +12,25 @@
         order by sit.created_at desc;
     </select>
 
-
     <insert id="spaceInqInsert">
-        insert into space_inquire_tb(inquire_type, inquire_content,inquire_answer,user_id, space_id, created_at)
-        values (#{inquireType}, #{inquireContent},#{inquireAnswer} ,#{userId}, #{spaceId}, now());
+        insert into space_inquire_tb(inquire_type, inquire_content, inquire_answer,user_id, space_id, created_at)
+        values (#{inquireType}, #{inquireContent}, #{inquireAnswer},#{userId}, #{spaceId}, now());
     </insert>
 
+    <select id="getInquireCount" resultType="int">
+        select count(inquire_content) , space_id from space_inquire_tb where space_id = #{spaceId};
+    </select>
+
+    <select id="getHostAnswerCount" resultType="int">
+        SELECT COUNT(*) AS hostAnswerCount
+        FROM space_inquire_tb si
+                 JOIN user_tb u ON si.user_id = u.id
+        WHERE si.space_id = #{spaceId} AND si.user_id = #{userId} AND u.user_division = 'host'
+    </select>
+
+    <update id="updateSpaceInquireAnswer">
+        UPDATE space_inquire_tb
+        SET inquire_answer = #{newAnswer}
+        WHERE space_id = #{spaceId}
+    </update>
 </mapper>

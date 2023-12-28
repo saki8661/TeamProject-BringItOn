@@ -1,15 +1,10 @@
 package com.example.teamprojectbringiton.bookmark;
 
 import com.example.teamprojectbringiton.bookmark.request.BookmarkDTO;
-import com.example.teamprojectbringiton.review.Review;
-import com.example.teamprojectbringiton.review.ReviewRepository;
-import com.example.teamprojectbringiton.review.reqDTO.SpaceReviewDTO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import javax.xml.transform.Source;
 
 @Service
 public class BookmarkService {
@@ -20,7 +15,6 @@ public class BookmarkService {
     @Autowired
     private HttpSession session;
 
-
     @Transactional
     public void toggleBookmark(BookmarkDTO dto) {
         // 사용자 아이디, 공간 아이디, 혹은 다른 필요한 정보를 가져와서 적절히 처리
@@ -28,7 +22,7 @@ public class BookmarkService {
         Integer spaceId = dto.getSpaceId();
 
         // 북마크 토글
-        Bookmark existingBookmark = bookmarkRepository.findBySpaceIdAndUserId(spaceId,userId);
+        Bookmark existingBookmark = bookmarkRepository.findBySpaceIdAndUserId(spaceId, userId);
 
         System.out.println("디티오 뱉아내라" + existingBookmark);
         if (existingBookmark != null) {
@@ -48,4 +42,3 @@ public class BookmarkService {
     }
 
 }
-

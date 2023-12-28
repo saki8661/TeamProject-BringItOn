@@ -40,7 +40,7 @@
                                 <h2>낮대관(12~17시)</h2>
                             </div>
                             <div class="re_choice_place_letter_cost">
-                                <h2>${reservationName.pricePerHour}</h2>
+                                <h2>${reservationName.price}</h2>
                             </div>
                         </div>
                     </div>

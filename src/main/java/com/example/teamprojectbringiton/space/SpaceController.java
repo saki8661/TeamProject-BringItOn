@@ -23,6 +23,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -36,6 +38,7 @@ public class SpaceController {
 
     @Autowired
     private HttpSession session;
+
     @Autowired
     private ReviewService reviewService;
 
@@ -106,6 +109,7 @@ public class SpaceController {
 
     @GetMapping("/space-detail/{id}")
     public String placeDetailPage(@PathVariable Integer id, Model model) {
+      User user =(User) session.getAttribute("sessionUser");
         System.out.println("컨트롤러 진입" + id);
         SpaceDetailDTO spaceDetail = spaceService.spaceFindById(id);
         model.addAttribute("spaceDetail", spaceDetail);
@@ -114,10 +118,21 @@ public class SpaceController {
         List<SpaceInquireDTO> spaceInquireList = spaceInquireService.spaceInqFindById(id);
         model.addAttribute("spaceInquireList", spaceInquireList);
         System.out.println("모델에 담겼나마루치아라치");
+        // 현재 날짜 및 시간을 "분"까지만 포맷팅
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String currentTime = sdf.format(new Date());
+        // 현재 시간을 모델에 추가
+        model.addAttribute("currentTime", currentTime);
         int commentCount = reviewService.addReviewAndCommentCount(id);
         model.addAttribute("commentCount", commentCount);
         double starAvg = reviewService.ratingStarAvg(id);
         model.addAttribute("starAvg", starAvg);
+        int spaceInquireCount = spaceInquireService.inquireTotalCount(id);
+        model.addAttribute("spaceInquireCount", spaceInquireCount);
+
+        int spaceAnswerCount = spaceInquireService.inqAnswerCount(id,user.getId());//userId를 받으려면??
+        model.addAttribute("spaceAnswerCount", spaceAnswerCount);
+
         return "/spaceRental/placeDetail";
     }
 

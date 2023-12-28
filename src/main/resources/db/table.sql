@@ -171,13 +171,13 @@ CREATE TABLE bookmark_tb
 -- 공간대여 상세보기 문의 테이블
 CREATE TABLE space_inquire_tb
 (
-    id              INT AUTO_INCREMENT PRIMARY KEY,
+    inquire_id      INT AUTO_INCREMENT PRIMARY KEY,
     inquire_type    VARCHAR(50),
     inquire_content VARCHAR(255),
     inquire_answer  VARCHAR(255),
-    created_at      TIMESTAMP,
     user_id         INT,
-    space_id        INT
+    space_id        INT,
+    created_at      TIMESTAMP
 );
 
 -- 은행 이름 테
