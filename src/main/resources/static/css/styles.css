@@ -343,7 +343,7 @@ input::placeholder {
     width: 100%;
 }
 
-.common_frame{
+.common_frame {
     width: 100%;
 }
 
@@ -1629,8 +1629,8 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding-left: 9%;
-    padding-right: 9%;
+    padding-left: 5%;
+    padding-right: 5%;
     padding-bottom: 180px;
 }
 
@@ -1661,7 +1661,10 @@ input::placeholder {
     margin-top: 50px;
     font-weight: bolder;
     flex-direction: column;
+}
 
+.form_container {
+    width: 80%;
 }
 
 .re_acception_letter {
@@ -2979,6 +2982,7 @@ input::placeholder {
     justify-content: space-around;
     align-items: center;
     height: 30px;
+    border: 1px solid #F3F5F7;
 }
 
 .league_matching_table_sub_title {
@@ -3003,6 +3007,18 @@ input::placeholder {
     border: 1px solid #F3F5F7;
 }
 
+.hostPage_table_content {
+    display: flex;
+    justify-content: space-around;
+    height: 40px;
+    width: 100%;
+    background-color: white;
+    color: white;
+    align-items: center; /* 세로 중앙 정렬 */
+    border: 1px solid #F3F5F7;
+}
+
+
 .league_matching_checkbox {
     vertical-align: middle;
     border: 0;
@@ -3024,17 +3040,43 @@ input::placeholder {
     text-align: center;
 }
 
+.hostPage_title {
+    width: 20%;
+    text-align: center;
+}
+
+.hostPage_status_title {
+    width: 15%;
+    text-align: center;
+}
+
 .league_matching_content {
-    width: 125px;
+    width: 20%;
     text-align: center;
     color: black;
 }
+
+.host_content_data {
+    width: 15%;
+    text-align: center;
+    color: black;
+}
+
 
 .league_matching_content_team_name {
     display: flex;
     justify-content: center;
     align-items: center; /* 세로 중앙 정렬을 위한 스타일 추가 */
-    width: 135px;
+    width: 20%;
+    text-align: center;
+    color: black;
+}
+
+.host_content_team_name {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 세로 중앙 정렬을 위한 스타일 추가 */
+    width: 15%;
     text-align: center;
     color: black;
 }
@@ -3048,10 +3090,15 @@ input::placeholder {
 
 
 .league_matching_content-date {
-    width: 120px;
+    width: 20%;
     text-align: center;
     color: black;
+}
 
+.host_content-date {
+    width: 15%;
+    text-align: center;
+    color: black;
 }
 
 .matching_box {
@@ -3067,10 +3114,20 @@ input::placeholder {
 }
 
 .spoace_detail_button {
-
+    width: 20%;
     align-items: center;
     gap: 10px;
 }
+
+.host_button_two {
+    display: flex;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    gap: 10px;
+}
+
 
 .matching_my_score_box {
     height: 30px;
@@ -4043,6 +4100,15 @@ EDIT ON
     margin-right: 20px;
 }
 
+.host_btn_style_two {
+    border-radius: 5px;
+    height: 30px;
+    width: 70%;
+    font-size: 16px;
+    text-align: center;
+    margin-right: 20px;
+}
+
 .host_btn_style_red {
     border-radius: 5px;
     height: 30px;
@@ -4265,6 +4331,11 @@ EDIT ON
 
 .host_managementPage {
     justify-content: center;
+    width: 100%;
+}
+
+.hostPage_box {
+    width: 90%;
 }
 
 
@@ -4508,7 +4579,7 @@ EDIT ON
     text-align: center
 }
 
-.admin_frame{
+.admin_frame {
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -4517,7 +4588,6 @@ EDIT ON
     background: #BFC4D2;
     color: white;
 }
-
 
 
 .admin_frame div:nth-child(1) {

@@ -31,48 +31,59 @@
     <div class="row host_managementPage">
         <div class="col-md-9 box hostPage_box">
             <div class="d-flex pe-3 my-3">
-                <div class="userInfo_title">내 시설</div>
+                <div class="userInfo_title">예약 현황</div>
             </div>
             <div>
                 <div class="matching_box">
                     <div class="league_matching_table_title">
-                        시설목록
+                        예약 목록
                     </div>
                     <div class="league_matchin  g_table_sub_title">
-                        <div class="hostPage_title">시설명</div>
-                        <div class="hostPage_title">전화번호</div>
-                        <div class="hostPage_title">주소</div>
-                        <div class="hostPage_title">제한인원</div>
-                        <div class="hostPage_title"></div>
+                        <div class="hostPage_status_title">시설명</div>
+                        <div class="hostPage_status_title">예약자명</div>
+                        <div class="hostPage_status_title">인원수</div>
+                        <div class="hostPage_status_title">예약자 전화번호</div>
+                        <div class="hostPage_status_title">예약시간</div>
+                        <div class="hostPage_status_title">예약상태</div>
+                        <div class="hostPage_status_title">전하는말</div>
 
                     </div>
 
                     <!--내 매칭 등록 해놓은 현황(매칭상태가 대기중인거)을 리스트로 뿌릴꺼임.-->
                     <c:choose>
-                        <c:when test="${empty spacesList}">
+                        <c:when test="${empty spaceReservationList}">
                             <div class="hostPage_table_content">
                                 <p style="color: black"><a href="/host/place-registration">시설등록을 해주세요</a></p>
                             </div>
                         </c:when>
                         <c:otherwise>
-                            <c:forEach var="spaces" items="${spacesList}">
+                            <c:forEach var="reservationList" items="${spaceReservationList}">
                                 <div class="hostPage_table_content">
-                                    <div class="league_matching_content_team_name">
-                                        <img src="/img/${spaces.spacePic}">
-                                        <div>${spaces.spaceName}</div>
+                                    <div class="host_content_team_name">
+                                        <div>${reservationList.spaceName}</div>
                                     </div>
-                                    <div class="league_matching_content-date">${spaces.spacePhoneNumber}</div>
-                                    <div class="league_matching_content-date">${spaces.spaceLocation}</div>
-                                    <div class="league_matching_content">${spaces.capacity}</div>
-                                    <div class="spoace_detail_button">
-                                        <button class="matching_button host_btn_style" type="button">
-                                            <a href="/space/space-update/${spaces.id}" style="color: white">수정하기</a>
-                                        </button>
-                                        <button class="matching_button host_btn_style_red deleteButton" type="button"
-                                                data-space-id="${spaces.id}">
-                                            삭제하기
-                                        </button>
+                                    <div class="host_content-date">${reservationList.nickName}</div>
+                                    <div class="host_content-date">${reservationList.personnel}</div>
+                                    <div class="host_content_data">${reservationList.userPhoneNumber}</div>
+                                    <div class="host_content_data">
+                                        <div>
+                                                ${reservationList.reservationDate}
+                                        </div>
+                                        <div>
+                                                ${reservationList.startTime} ~ ${reservationList.endTime}
+                                        </div>
                                     </div>
+                                    <div class="host_content_data">
+                                            ${reservationList.status}
+
+                                    </div>
+                                    <div class="host_content_data">${reservationList.toHost}</div>
+
+                                        <%--                                    <div class="host_button_two">--%>
+                                        <%--                                        <button class="matching_button host_btn_style_two" type="button">--%>
+                                        <%--                                            예약목록보기--%>
+                                        <%--                                        </button>--%>
+                                        <%--                                    </div>--%>
                                 </div>
                             </c:forEach>
                         </c:otherwise>

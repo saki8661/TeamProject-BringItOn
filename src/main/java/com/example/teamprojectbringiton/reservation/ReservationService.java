@@ -139,7 +139,7 @@ public class ReservationService {
             matchingRepository.insertMatching(matching);
         }
     }
-
+    
     public List<MatchingReservationDTO> getAllMatching(Integer date) {
         List<MatchingReservationDTO> matchings = reservationRepository.findAllMatchingByDate(date);
         return matchings;
