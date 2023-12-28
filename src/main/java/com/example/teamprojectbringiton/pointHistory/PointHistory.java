@@ -1,4 +1,4 @@
-package com.example.teamprojectbringiton.point;
+package com.example.teamprojectbringiton.pointHistory;
 
 import lombok.Builder;
 import lombok.Getter;
@@ -12,8 +12,8 @@ import java.sql.Timestamp;
 public class PointHistory {
 
     private Integer id;
-    private Integer pointAmount;
-    private Integer chargePoint;
+    private Integer pointAmount; //
+    private Integer chargePoint; //
     private Integer usePoint;
     private Boolean refund;
     private Date refundDate;

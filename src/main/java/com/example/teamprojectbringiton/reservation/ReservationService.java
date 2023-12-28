@@ -68,20 +68,7 @@ public class ReservationService {
     }
 
     public List<UserReservationListDTO> findByUserId(Integer id) {
-        List<UserReservationListDTO> dto = reservationRepository.findByUserId(id);
-        System.out.println("dto에는 머가 있을까? getId : " + dto.get(0).getId());
-        System.out.println("dto에는 머가 있을까? getReservationDate : " + dto.get(0).getReservationDate());
-        System.out.println("dto에는 머가 있을까? getPrice : " + dto.get(0).getPrice());
-        System.out.println("dto에는 머가 있을까? getSpacePic : " + dto.get(0).getSpacePic());
-        System.out.println("dto에는 머가 있을까? getSector : " + dto.get(0).getSector());
-        System.out.println("dto에는 머가 있을까? getStatus : " + dto.get(0).getStatus());
-        System.out.println("dto에는 머가 있을까? getStartTime : " + dto.get(0).getStartTime());
-        System.out.println("dto에는 머가 있을까? getEndTime : " + dto.get(0).getEndTime());
-        System.out.println("dto에는 머가 있을까? getReservationNumber : " + dto.get(0).getReservationNumber());
-        System.out.println("dto에는 머가 있을까? getSpaceLocation : " + dto.get(0).getSpaceLocation());
-        System.out.println("dto에는 머가 있을까? getSpaceName : " + dto.get(0).getSpaceName());
-        return dto;
-
+        return reservationRepository.findByUserId(id);
     }
 
     private String formatTime(String time) {
@@ -139,9 +126,25 @@ public class ReservationService {
             matchingRepository.insertMatching(matching);
         }
     }
-    
+
     public List<MatchingReservationDTO> getAllMatching(Integer date) {
         List<MatchingReservationDTO> matchings = reservationRepository.findAllMatchingByDate(date);
         return matchings;
+    }
+
+    public void updateStatus(Integer reservationId) {
+        System.out.println("업데이트 하러 옴");
+        Reservation reservation = reservationRepository.findById(reservationId);
+        reservation.updateStatus("예약완료");
+        System.out.println("업데이트됨? status : " + reservation.getStatus());
+        reservationRepository.updateStatus(reservation);
+    }
+
+    public Reservation findById(Integer id) {
+        return reservationRepository.findById(id);
+    }
+
+    public void deleteById(Integer id) {
+        reservationRepository.deleteById(id);
     }
 }

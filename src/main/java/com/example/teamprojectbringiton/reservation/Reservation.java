@@ -38,4 +38,9 @@ public class Reservation {
         this.matchingId = matchingId;
         this.reservationTimeId = reservationTimeId;
     }
+
+    public void updateStatus(String status) {
+        this.status = status;
+    }
+
 }

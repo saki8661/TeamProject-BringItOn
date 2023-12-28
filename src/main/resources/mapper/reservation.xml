@@ -16,8 +16,8 @@
                            on s.id = sp.space_id
                  left join matching_tb m
                            on r.id = m.reservation_id
-                left join reservation_time_tb rt
-                            on r.reservation_time_id = rt.id
+                 left join reservation_time_tb rt
+                           on r.reservation_time_id = rt.id
         WHERE r.matching = true
           AND r.reservation_date >= CURRENT_DATE
         ORDER BY r.reservation_date ASC;
@@ -37,6 +37,19 @@
                       on r.reservation_time_id = rt.id
         where u.id = #{id}
     </select>
+
+    <select id="findById"
+            resultType="com.example.teamprojectbringiton.reservation.Reservation">
+        select *
+        from reservation_tb
+        where id = #{id}
+    </select>
+
+    <update id="updateStatus">
+        update reservation_tb
+        set status = #{status}
+        where id = #{id}
+    </update>
 
     <select id="findByIdReservSpaceAndSpacePic"
             resultType="com.example.teamprojectbringiton.reservation.dto.response.ReservationRespDTO">
@@ -85,8 +98,15 @@
                  left join reservation_time_tb rt
                            on r.reservation_time_id = rt.id
         WHERE r.matching = true
-          AND day(r.reservation_date) = #{date}
+            AND day (
+            r.reservation_date) = #{date}
           AND r.reservation_date >= CURRENT_DATE
         ORDER BY r.reservation_date ASC;
     </select>
+    <delete id="deleteById">
+        delete
+        from reservation_tb
+        where id = #{id}
+    </delete>
+
 </mapper>

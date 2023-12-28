@@ -89,7 +89,7 @@
                                         1,000,000원
                                     </button>
                                 </div>
-                                <div class="modal_charge_point">보유 포인트 : 0원</div>
+                                <div class="modal_charge_point">보유 포인트 : ${sessionScope.userPoint.myPoint}원</div>
                                 <div class="modal_charge_method">
                                     <div class="modal_charge_body_title">
                                         충전 방법
