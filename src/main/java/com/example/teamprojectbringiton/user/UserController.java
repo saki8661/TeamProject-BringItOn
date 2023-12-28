@@ -145,7 +145,7 @@ public class UserController {
     public String logout() {
 
         session.invalidate();
-        return "redirect:/login";
+        return "redirect:/kakao-login";
     }
 
     @GetMapping("/user/mypage/{id}")

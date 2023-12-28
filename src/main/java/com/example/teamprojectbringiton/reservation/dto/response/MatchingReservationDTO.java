@@ -15,6 +15,7 @@ public class MatchingReservationDTO {
     private Integer personnel;
     private String status;
     private Date reservationDate;
+    private Integer reservationTimeId;
     private Time startTime;
     private Time endTime;
     private Integer teamId;

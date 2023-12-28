@@ -13,11 +13,10 @@ import com.example.teamprojectbringiton.user.UserService;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -35,13 +34,39 @@ public class TeamController {
 
     @GetMapping("/team-main")
     public String teamMainPage(Model model) {
-        List<TeamListDTO> teamList = teamService.findAllJoinSport();
+        TeamService.TeamAndRegion result = teamService.findAllJoinSport();
         List<TeamDetailDTO> teamDetail = teamService.findAllJoin();
-        System.out.println(teamList.get(3));
-        model.addAttribute("teamList", teamList);
+        System.out.println("팀 네임" + result.teamList().get(3).getAge());
+        System.out.println("팀 네임" + result.teamList().get(3).getGender());
+        System.out.println("팀 네임" + result.teamList().get(3).getPosition());
+        System.out.println("지역 네임" + result.regionList().get(0).getRegionName());
+        model.addAttribute("teamList", result.teamList());
+        model.addAttribute("regionList", result.regionList());
         model.addAttribute("teamDetail", teamDetail);
         return "team/teamMain";
     }
+
+    @GetMapping("/api/team-location")
+    @ResponseBody
+    public ResponseEntity<?> teamLocation(@RequestParam String keyword) {
+        List<TeamListDTO> teamList = teamService.findAllByKeyword(keyword);
+        System.out.println(teamList.get(0).getTeamName());
+        return new ResponseEntity<>(teamList, HttpStatus.OK);
+    }
+
+    @GetMapping("/api/team-filter")
+    @ResponseBody
+    public ResponseEntity<?> teamFilter(@RequestParam String orderBy) {
+        if (orderBy.equals("capacity")) {
+            List<TeamListDTO> teamList = teamService.findAllByCapacity();
+            System.out.println(teamList.get(0).getTeamName());
+            return new ResponseEntity<>(teamList, HttpStatus.OK);
+        }
+
+            List<TeamListDTO> teamList = teamService.findAllByLatest();
+            return new ResponseEntity<>(teamList, HttpStatus.OK);
+    }
+
 
     @GetMapping("/team-detail/{id}")
     public String teamDetailPage(@PathVariable Integer id, Model model) {
@@ -57,7 +82,8 @@ public class TeamController {
         // 1. 인증 체크
         if (sessionUser == null) {
             throw new UnAuthorizedException("로그인을 해주세요", HttpStatus.UNAUTHORIZED);
-        };
+        }
+        ;
 
         Team team = Team.builder()
                 .teamName(dto.getTeamName())
@@ -100,7 +126,7 @@ public class TeamController {
     }
 
     @PostMapping("/team-apply-approve/{id}")
-    public String applyApprove(@PathVariable Integer id, UpdateTeamIdDTO dto){
+    public String applyApprove(@PathVariable Integer id, UpdateTeamIdDTO dto) {
         User sessionUser = (User) session.getAttribute("sessionUser");
         User user = userService.findById(dto.getUserId());
         userService.userUpdateTeamId(user, dto);
@@ -112,10 +138,8 @@ public class TeamController {
     public String applyRefuse(@PathVariable Integer id) {
         User sessionUser = (User) session.getAttribute("sessionUser");
         teamService.applyRefuse(id);
-        return "redirect:/user/team-apply/"+ sessionUser.getId();
+        return "redirect:/user/team-apply/" + sessionUser.getId();
     }
-
-
 
 
 }
