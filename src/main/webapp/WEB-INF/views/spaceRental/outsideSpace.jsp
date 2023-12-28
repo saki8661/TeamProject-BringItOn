@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 
-<%@ include file="layout/header.jsp" %>
+<%@ include file="../layout/header.jsp" %>
 
 
 <div>
@@ -34,52 +34,27 @@
         </ul>
     </div>
     <div class="frame">
-
-        <!-- Carousel -->
-        <div id="demo" class="carousel slide" data-bs-ride="carousel">
-
-            <!-- Indicators/dots -->
-            <div class="carousel-indicators">
-                <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
-                <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
-                <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
-                <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
-            </div>
-
-            <!-- The slideshow/carousel -->
-            <div class="carousel-inner">
-                <div class="carousel-item active ">
-                    <img src="/images/BasketballMainBanner2.png" alt="Los Angeles" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/SoccerMainBanner2.png" alt="Chicago" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/futsal_main_banner.png" alt="New York" class="d-block w-100">
-                </div>
-                <div class="carousel-item">
-                    <img src="/images/basketball_main_banner.png" alt="New York" class="d-block w-100">
-                </div>
-
-            </div>
-
-            <!-- Left and right controls/icons -->
-            <button class="carousel-control-prev" type="button" data-bs-target="#demo" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon"></span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#demo" data-bs-slide="next">
-                <span class="carousel-control-next-icon"></span>
-            </button>
-        </div>
-
         <div>
             <div class="main_search_filter">
-
+                <div class="dropdown">
+                    <button class="drop_btn">
+                        인기순
+                    </button>
+                    <div class="dropdown-content">
+                        <a href="#">인기순</a>
+                        <a href="#">최신순</a>
+                    </div>
+                </div>
+                <div class="main_filter">
+                    <button class="filter_button">
+                        <img src="/images/filter.png" width="20px" height="20px">
+                    </button>
+                </div>
             </div>
 
             <div class="container-fluid" style="height: 657px">
                 <div class="main_layout">
-                    <c:forEach var="item" items="${spaces}">
+                    <c:forEach var="item" items="${spaceList}">
                         <div>
                             <div class="inside_content">
                                 <a href="/space-detail/${item.id}"><img src="/img/${item.spacePic}"></a>
@@ -89,7 +64,7 @@
                             </div>
                             <div class="main_content_category m-2">
                                 [${item.sector}/${item.sportName}]
-                                    ${item.isInside ? '실내 체육관' : '실외 체육관'}
+                                    <%--                                    ${item.isInside ? '실내 체육관' : '실외 체육관'}--%>
                             </div>
                             <div class="main_content_location m-2">
                                     ${item.spaceLocation}
@@ -158,27 +133,27 @@
             'li.first_page_item:not(.disabled) a.first_page_link, ' +
             'li.last_page_item:not(.disabled) a.last_page_link',
             function (e) {
-            e.preventDefault();
+                e.preventDefault();
 
-            // 클릭한 페이지 번호 가져오기
-            var clickedPage = parseInt($(this).text());
+                // 클릭한 페이지 번호 가져오기
+                var clickedPage = parseInt($(this).text());
 
-            $.ajax({
-                url: "/homePaging?currentPage=" + clickedPage,
-                type: "GET",
-                contentType: "application/json",
-                success: function (data) {
-                    if (Array.isArray(data)) {
-                        updatePagination(clickedPage);
-                        updateMainLayout(data);
-                        console.log(data)
+                $.ajax({
+                    url: "/api/outsideSpace?currentPage=" + clickedPage,
+                    type: "GET",
+                    contentType: "application/json",
+                    success: function (data) {
+                        if (Array.isArray(data)) {
+                            updatePagination(clickedPage);
+                            updateMainLayout(data);
+                            console.log(data)
+                        }
+                    },
+                    error: function () {
+                        alert("AJAX 요청 중 오류가 발생했습니다.");
                     }
-                },
-                error: function () {
-                    alert("AJAX 요청 중 오류가 발생했습니다.");
-                }
+                });
             });
-        });
 
         // 페이지 갱신 로직
         function updatePagination(clickedPage) {
@@ -252,5 +227,5 @@
 
 </script>
 
-<%@ include file="layout/footer.jsp" %>
+<%@ include file="../layout/footer.jsp" %>
 

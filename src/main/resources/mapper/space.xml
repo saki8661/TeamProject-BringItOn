@@ -106,4 +106,30 @@
         from space_tb;
     </select>
 
+    <select id="findByInsideSpace" resultType="com.example.teamprojectbringiton.space.dto.response.SpaceListDTO">
+        select *
+        from space_tb space
+            left join sport_tb sport
+        on space.sport_id = sport.id
+            left join space_pic_tb pic
+            on space.id = pic.space_id
+        where space.is_inside = true
+        order by space.id desc
+            limit #{pageSize}
+        offset #{offset}
+    </select>
+
+    <select id="findByOutsideSpace" resultType="com.example.teamprojectbringiton.space.dto.response.SpaceListDTO">
+        select *
+        from space_tb space
+            left join sport_tb sport
+        on space.sport_id = sport.id
+            left join space_pic_tb pic
+            on space.id = pic.space_id
+        where space.is_inside = false
+        order by space.id desc
+            limit #{pageSize}
+        offset #{offset}
+    </select>
+
 </mapper>

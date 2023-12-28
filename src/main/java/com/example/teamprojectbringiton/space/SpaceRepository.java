@@ -40,4 +40,8 @@ public interface SpaceRepository {
     public List<SpaceUserIdPicJoinDTO> findAllJoinUserIdAndSpacePicId(Integer id);
 
     public List<MySpaceReservationListDTO> findAllUserIdJoinReservationId(Integer id);
+
+    List<SpaceListDTO> findByInsideSpace(@Param("pageSize") int pageSize, @Param("offset") int offset);
+
+    List<SpaceListDTO> findByOutsideSpace(@Param("pageSize") int pageSize, @Param("offset") int offset);
 }
