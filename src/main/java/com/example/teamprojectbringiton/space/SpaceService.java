@@ -103,4 +103,22 @@ public class SpaceService {
     public List<MySpaceReservationListDTO> findAllUserIdJoinReservationId(Integer userId) {
         return spaceRepository.findAllUserIdJoinReservationId(userId);
     }
+
+    public List<SpaceListDTO> insideSpace(int pageSize, int currentPage) {
+        int offset = currentPage * pageSize - pageSize;
+        System.out.println("offset:"+offset);
+        List<SpaceListDTO> spaceList = spaceRepository.findByInsideSpace(pageSize, offset);
+
+
+        return spaceList;
+    }
+
+    public List<SpaceListDTO> outsideSpace(int pageSize, int currentPage) {
+        int offset = currentPage * pageSize - pageSize;
+        System.out.println("offset:"+offset);
+        List<SpaceListDTO> spaceList = spaceRepository.findByOutsideSpace(pageSize, offset);
+
+
+        return spaceList;
+    }
 }

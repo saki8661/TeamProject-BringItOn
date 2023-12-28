@@ -8,8 +8,8 @@
                 공간 대여
             </a>
             <ul class="dropdown-menu sub_navbar_style">
-                <li><a class="dropdown-item" href="#">실내 스포츠</a></li>
-                <li><a class="dropdown-item" href="#">야외 스포츠</a></li>
+                <li><a class="dropdown-item" href="/insideSpace">실내 스포츠</a></li>
+                <li><a class="dropdown-item" href="/outsideSpace">야외 스포츠</a></li>
             </ul>
         </li>
         <li class="main_link">
