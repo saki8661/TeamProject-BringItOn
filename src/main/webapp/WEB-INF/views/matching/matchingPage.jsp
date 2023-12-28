@@ -8,8 +8,8 @@
                 공간 대여
             </a>
             <ul class="dropdown-menu sub_navbar_style">
-                <li><a class="dropdown-item" href="#">실내 스포츠</a></li>
-                <li><a class="dropdown-item" href="#">야외 스포츠</a></li>
+                <li><a class="dropdown-item" href="/insideSpace">실내 스포츠</a></li>
+                <li><a class="dropdown-item" href="/outsideSpace">야외 스포츠</a></li>
             </ul>
         </li>
         <li class="main_link">
@@ -196,6 +196,8 @@
 
     // 변수 추가: 선택한 날짜를 저장할 변수
     var selectedDate = null;
+    var selectedRegionName = null;
+    var selectedTeamLocation = null;
 
     function getDayOfWeek(day) {
         var daysOfWeek = ['일', '월', '화', '수', '목', '금', '토'];
@@ -404,8 +406,36 @@
                 $(".navbar-toggler").click();
             });
         });
-    });
+        regionOptions.forEach(option => {
+            option.addEventListener("click", function (e) {
+                e.preventDefault();
+                e.stopPropagation(); // 이벤트 전파 중지
 
+                // 선택한 지역 정보 업데이트
+                selectedRegionName = option.getAttribute("data-region-name");
+                selectedTeamLocation = selectedRegionName;  // 선택한 지역을 저장
+
+                // 매칭 카드 필터링
+                matchingCards.forEach(card => {
+                    const regionName = card.getAttribute("data-region-name");
+                    if (regionName === selectedRegionName || selectedRegionName === "all") {
+                        card.style.display = "block";
+                    } else {
+                        card.style.display = "none";
+                    }
+                });
+
+                // 선택한 지역을 표시하는 엘리먼트 업데이트
+                selectedRegionSpan.innerText = selectedTeamLocation;
+
+                // Dropdown이 열려있을 때 클릭하면 닫히도록 추가
+                $(".navbar-toggler").click();
+            });
+        });
+
+        // 초기화면에 대한 매칭 목록 로드
+        loadMatchings(selectedDate);
+    });
 </script>
 
 

@@ -19,4 +19,5 @@ public interface ReviewRepository {
 
     int findByUserIdCount(Integer id);
 
+    void deleteByReviewId(@Param("id") Integer id);
 }
