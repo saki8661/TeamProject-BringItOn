@@ -1,12 +1,10 @@
 package com.example.teamprojectbringiton.host;
 
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
-import com.example.teamprojectbringiton.region.Region;
-import com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO;
-import com.example.teamprojectbringiton.space.Space;
+import com.example.teamprojectbringiton.reservation.ReservationService;
 import com.example.teamprojectbringiton.space.SpaceService;
+import com.example.teamprojectbringiton.space.dto.response.MySpaceReservationListDTO;
 import com.example.teamprojectbringiton.space.dto.response.SpaceUserIdPicJoinDTO;
-import com.example.teamprojectbringiton.team.Team;
 import com.example.teamprojectbringiton.user.User;
 import com.example.teamprojectbringiton.user.UserService;
 import com.google.api.Http;
@@ -29,6 +27,9 @@ public class HostController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private ReservationService reservationService;
+
 
     @Autowired
     private HttpSession session;
@@ -37,7 +38,7 @@ public class HostController {
     @GetMapping("/host/place-registration")
     public String placeResistration(Model model) {
         User user = (User) session.getAttribute("sessionUser");
-        if (!user.getUserDivision().equals("host")){
+        if (!user.getUserDivision().equals("host")) {
             throw new CustomRestfullException("권한이 없습니다.", HttpStatus.BAD_REQUEST);
         }
         model.addAttribute("user", user);
@@ -55,5 +56,15 @@ public class HostController {
 
         model.addAttribute("spacesList", spacesList);
         return "host/managementPage";
+    }
+
+    @GetMapping("/host/reservation-status/{id}")
+    public String reservationStatus(@PathVariable Integer id, Model model) {
+        User user = (User) session.getAttribute("sessionUser");
+        List<MySpaceReservationListDTO> spaceReservationList = spaceService.findAllUserIdJoinReservationId(id);
+        model.addAttribute("spaceReservationList", spaceReservationList);
+        model.addAttribute("sessionUser", user);
+
+        return "host/reservationStatus";
     }
 }

@@ -12,4 +12,11 @@ public class TeamListDTO {
     private Integer teamCapacity;
     private Integer sportId;
     private String sportName;
+    private Integer genderId;
+    private String gender;
+    private Integer ageId;
+    private String age;
+    private Integer positionId;
+    private String position;
+
 }

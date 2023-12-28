@@ -26,8 +26,17 @@
     <select id="findAllJoinSport" resultType="com.example.teamprojectbringiton.team.dto.response.TeamListDTO">
         select *
         from team_tb t
-        join sport_tb s
-        on t.sport_id = s.id
+                 join sport_tb s
+                      on t.sport_id = s.id
+                 join age_tb a
+                      on t.age_id = a.id
+                 join gender_tb g
+                      on t.gender_id = g.id
+                 join position_tb p
+                      on t.position_id = p.id
+                 join captain_tb c
+                      on c.team_id = t.id
+        order by t.created_at asc
     </select>
 
     <select id="findAllJoin" resultType="com.example.teamprojectbringiton.team.dto.response.TeamDetailDTO">
@@ -43,5 +52,45 @@
                       on t.position_id = p.id
                  join captain_tb c
                       on c.team_id = t.id
+        order by t.created_at asc
+    </select>
+
+
+    <select id="findAllByKeyword" resultType="com.example.teamprojectbringiton.team.dto.response.TeamListDTO">
+        select *
+        from team_tb t
+                 join sport_tb s
+                      on t.sport_id = s.id
+                 join age_tb a
+                      on t.age_id = a.id
+                 join gender_tb g
+                      on t.gender_id = g.id
+                 join position_tb p
+                      on t.position_id = p.id
+        where t.team_location like concat('%', #{keyword}, '%')
+    </select>
+
+    <select id="findAllByLatest" resultType="com.example.teamprojectbringiton.team.dto.response.TeamListDTO">
+        select *
+        from team_tb t
+                 join sport_tb s
+                      on t.sport_id = s.id
+                 join age_tb a
+                      on t.age_id = a.id
+                 join gender_tb g
+                      on t.gender_id = g.id
+                 join position_tb p
+                      on t.position_id = p.id
+        order by t.created_at desc
+    </select>
+
+    <select id="findAllByCapacity" resultType="com.example.teamprojectbringiton.team.dto.response.TeamListDTO">
+        SELECT *
+        FROM team_tb t
+                 JOIN sport_tb s ON t.sport_id = s.id
+                 JOIN age_tb a ON t.age_id = a.id
+                 JOIN gender_tb g ON t.gender_id = g.id
+                 JOIN position_tb p ON t.position_id = p.id
+        ORDER BY t.team_capacity DESC;
     </select>
 </mapper>

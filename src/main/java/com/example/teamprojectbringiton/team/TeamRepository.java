@@ -19,4 +19,10 @@ public interface TeamRepository {
     public List<TeamListDTO> findAllJoinSport();
 
     List<TeamDetailDTO> findAllJoin();
+
+    List<TeamListDTO> findAllByKeyword(String keyword);
+
+    List<TeamListDTO> findAllByLatest();
+
+    List<TeamListDTO> findAllByCapacity();
 }

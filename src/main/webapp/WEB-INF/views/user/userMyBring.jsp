@@ -95,13 +95,6 @@
                 </c:when>
                 <c:otherwise>
                 <div class="myBring_link">
-                    <a href="/user/review/${sessionUser.id}">
-                        <div>
-                            <img width="25" height="25" src="https://img.icons8.com/bubbles/50/review.png"
-                                 alt="review"/>
-                            <span>후기 관리</span>
-                        </div>
-                    </a>
                     <a href="/user/check-password/${sessionUser.id}">
                         <div>
                             <img width="25" height="25"
