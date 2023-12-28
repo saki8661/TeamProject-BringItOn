@@ -665,38 +665,6 @@ VALUES (1, '답변1 입니다', NOW()),
        (4, '답변4 입니다', NOW()),
        (5, '답변5 입니다', NOW());
 
--- 결과 더미 데이터
-INSERT INTO result_tb (result_name)
-VALUES ('승'),
-       ('무'),
-       ('패');
-
-INSERT INTO sponsor_tb (sponsor_name)
-VALUES ('BringItOn'),
-       ('그린'),
-       ('국방부');
-
--- 리그 일정 더미 데이터
-INSERT INTO league_match_tb (league_id, league_match_date, league_match_time, home_team_id, away_team_id,
-                             score_home_team, score_away_team, winner_id)
-VALUES (1, '2024-02-01', '15:00:00', 1, 2, 2, 0, 1),
-       (1, '2023-02-02', '14:30:00', 2, 1, 1, 3, NULL);
-
--- 경기 기록 더미 데이터
-INSERT INTO record_tb (team_id, league_id, rank, get_goal, lose_goal, goal_difference)
-VALUES (1, 1, '1', '2', '1', '1'),
-       (2, 1, '2', '1', '2', '7');
-
--- 리그 더미 데이터
-INSERT INTO league_tb (league_name, apply_start, apply_end, competition_start, competition_end, location_id,
-                       sponsor_id, recruitment, recruitment_status)
-VALUES ('서울리그', '2023-01-10', '2023-01-20', '2024-02-01', '2023-06-01', 1, 'Sponsor 1', 10, 'Recruiting'),
-       ('경기리그', '2024-01-15', '2023-01-25', '2024-02-10', '2023-06-10', 2, 'Sponsor 2', 12, 'Closed');
-
--- 캠페인 더미 데이터
-INSERT INTO campaign_tb (campaign_pic, campaign_name, campaign_start, campaign_end, region_id)
-VALUES ('SoccerBanner1.png', '서울리그', '2023-04-01', '2023-12-01', 1),
-       ('SoccerBanner2.png', '경기리그', '2023-04-15', '2023-12-15', 2);
 
 INSERT INTO board_tb (board_title, board_content, created_at, user_id)
 VALUES ('서울지역 매칭 하실분?', '서울지역 경기 매칭할 사람 드루와', CURRENT_TIMESTAMP, 1),

@@ -144,4 +144,5 @@ public class ReservationService {
         List<MatchingReservationDTO> matchings = reservationRepository.findAllMatchingByDate(date);
         return matchings;
     }
+
 }

@@ -165,12 +165,6 @@ CREATE TABLE space_option_tb
     space_id  INT
 );
 
--- 주최 테이블 (보류)
-CREATE TABLE sponsor_tb
-(
-    id           INT AUTO_INCREMENT PRIMARY KEY,
-    sponsor_name VARCHAR(250) NOT NULL
-);
 
 -- 북마크 기능 테이블
 CREATE TABLE bookmark_tb
@@ -192,7 +186,7 @@ CREATE TABLE space_inquire_tb
     space_id        INT
 );
 
--- 은행 이름 테
+-- 은행 이름 테이블
 -- 이블 (코드 테이블) - 결재 하면서 새로 구상
 CREATE TABLE bank_tb
 (
@@ -284,66 +278,6 @@ CREATE TABLE result_tb
     result_name VARCHAR
 );
 
--- 결과 관계 테이블
-CREATE TABLE has_result_tb
-(
-    id        INT AUTO_INCREMENT PRIMARY KEY,
-    result_id INT,
-    league_id INT
-);
-
--- 리그 일정 테이블 (3차 기능)
-CREATE TABLE league_match_tb
-(
-    id                INT AUTO_INCREMENT PRIMARY KEY,
-    league_id         INT,
-    league_match_date DATE,
-    league_match_time TIME,
-    home_team_id      INT,
-    away_team_id      INT,
-    score_home_team   INT,
-    score_away_team   INT,
-    winner_id         INT
-);
-
--- 경기 기록 - 3차
-CREATE TABLE record_tb
-(
-    id              INT AUTO_INCREMENT PRIMARY KEY,
-    team_id         INT,
-    league_id       INT,
-    rank            INT NOT NULL,
-    get_goal        INT NOT NULL,
-    lose_goal       INT,
-    goal_difference INT NOT NULL
-);
-
--- 리그 테이블 (관리자 등록한 리그 정보 관리) - 3차
-CREATE TABLE league_tb
-(
-    id                 INT AUTO_INCREMENT PRIMARY KEY,
-    league_name        VARCHAR(255) NOT NULL,
-    apply_start        DATE,
-    apply_end          DATE,
-    competition_start  DATE,
-    competition_end    DATE,
-    location_id        INT,
-    sponsor_id         VARCHAR(255),
-    recruitment        INT,
-    recruitment_status VARCHAR(255)
-);
-
--- 리그 등록
-CREATE TABLE campaign_tb
-(
-    id             INT AUTO_INCREMENT PRIMARY KEY,
-    campaign_pic   VARCHAR(255),
-    campaign_name  VARCHAR(255),
-    campaign_start DATE,
-    campaign_end   DATE,
-    region_id      INT
-);
-
 CREATE TABLE board_tb
 (
     id            INT AUTO_INCREMENT PRIMARY KEY,
@@ -362,41 +296,6 @@ CREATE TABLE reply_tb
     board_id   INT
 );
 
-CREATE TABLE product_category_tb
-(
-    id                    INT AUTO_INCREMENT PRIMARY KEY,
-    product_category_name VARCHAR(255)
-);
-
-CREATE TABLE product_tb
-(
-    id                  INT AUTO_INCREMENT PRIMARY KEY,
-    product_name        VARCHAR(255),
-    product_pic         VARCHAR(255),
-    product_price       INT,
-    product_category_id INT,
-    created_at          TIMESTAMP
-);
-
-CREATE TABLE cart_tb
-(
-    id               INT AUTO_INCREMENT PRIMARY KEY,
-    quantity         INT,
-    product_id       INT,
-    user_id          INT,
-    cart_total_price INT,
-    created_at       TIMESTAMP
-);
-
-CREATE TABLE order_tb
-(
-    id                INT AUTO_INCREMENT PRIMARY KEY,
-    quantity          INT,
-    product_id        INT,
-    user_id           INT,
-    order_total_price INT,
-    created_at        TIMESTAMP
-);
 
 CREATE TABLE captain_tb
 (

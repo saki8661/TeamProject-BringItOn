@@ -243,6 +243,8 @@
         });
     }
 
+
+
     function updateMatchingList(response) {
         // 매칭 목록을 받아와서 화면에 업데이트
         let matchingListContainer = document.getElementById('matchingListContainer');
@@ -391,26 +393,6 @@
                 e.preventDefault();
                 e.stopPropagation(); // 이벤트 전파 중지
 
-                matchingCards.forEach(card => {
-                    const regionName = card.getAttribute("data-region-name");
-                    if (regionName === selectedRegionName || selectedRegionName === "all") {
-                        card.style.display = "block";
-                    } else {
-                        card.style.display = "none";
-                    }
-                });
-
-                selectedRegionSpan.innerText = selectedTeamLocation;
-
-                // Dropdown이 열려있을 때 클릭하면 닫히도록 추가
-                $(".navbar-toggler").click();
-            });
-        });
-        regionOptions.forEach(option => {
-            option.addEventListener("click", function (e) {
-                e.preventDefault();
-                e.stopPropagation(); // 이벤트 전파 중지
-
                 // 선택한 지역 정보 업데이트
                 selectedRegionName = option.getAttribute("data-region-name");
                 selectedTeamLocation = selectedRegionName;  // 선택한 지역을 저장
@@ -428,10 +410,11 @@
                 // 선택한 지역을 표시하는 엘리먼트 업데이트
                 selectedRegionSpan.innerText = selectedTeamLocation;
 
-                // Dropdown이 열려있을 때 클릭하면 닫히도록 추가
-                $(".navbar-toggler").click();
+                // 드롭다운 닫기 (Bootstrap 드롭다운 토글 메서드 사용)
+                $(option).closest('.dropdown').find('.dropdown-toggle').dropdown('toggle');
             });
         });
+
 
         // 초기화면에 대한 매칭 목록 로드
         loadMatchings(selectedDate);
