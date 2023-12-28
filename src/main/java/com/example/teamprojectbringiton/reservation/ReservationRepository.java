@@ -26,4 +26,10 @@ public interface ReservationRepository {
     public List<Reservation> findByspaceIdAndreservationDate(Integer spaceId, Date reservationDate);
 
     List<MatchingReservationDTO> findAllMatchingByDate(Integer date);
+
+    public Reservation findById(Integer reservationId);
+
+    public void updateStatus(Reservation reservation);
+
+    void deleteById(Integer id);
 }
