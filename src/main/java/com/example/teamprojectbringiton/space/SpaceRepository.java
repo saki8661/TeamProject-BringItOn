@@ -38,4 +38,6 @@ public interface SpaceRepository {
     public List<Space> findAllByUserId(Integer id);
 
     public List<SpaceUserIdPicJoinDTO> findAllJoinUserIdAndSpacePicId(Integer id);
+
+    public List<MySpaceReservationListDTO> findAllUserIdJoinReservationId(Integer id);
 }

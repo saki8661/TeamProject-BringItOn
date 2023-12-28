@@ -17,7 +17,7 @@
 <body>
 
 <div class="user_container">
-    <div><a href="/home"><img src="./images/logo.png" class="user_logo"></a></div>
+    <div><img src="./images/logo.png" class="user_logo"></div>
     <div class="div_box"></div>
 
 
