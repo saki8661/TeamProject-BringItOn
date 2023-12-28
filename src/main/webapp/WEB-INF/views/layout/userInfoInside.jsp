@@ -3,7 +3,7 @@
 <div class="col-md-4">
     <div class="userInfo_aside">
         <div class="userInfo_image">
-            <img src="/images/${sessionUser.userPicUrl}">
+            <img src="/img/${sessionUser.userPicUrl}">
         </div>
         <div class="userInformation">
             <div>
@@ -124,17 +124,17 @@
                 </div>
             </div>
         </div>
-<%--        <div class="userInfo_link">--%>
-<%--            <a class="nav-link userInfo_link_text" href="/user-mypage/${sessionUser.id}">나의 정보</a>--%>
-<%--            <a class="nav-link userInfo_link_text" href="/user-team/${sessionUser.id}">팀 관리</a>--%>
-<%--            <a class="nav-link userInfo_link_text" href="/user-bookmark">북마크</a>--%>
-<%--            <a class="nav-link userInfo_link_text" href="/user-reservation">예약 내역</a>--%>
-<%--            <a class="nav-link userInfo_link_text" href="/user-payment">결제 내역</a>--%>
-<%--            <a class="nav-link userInfo_link_text" href="/user-review">후기 관리</a>--%>
-<%--            <a class="nav-link userInfo_link_text" href="/user-update/${sessionUser.id}">개인정보--%>
-<%--                수정</a>--%>
-<%--            <a class="nav-link userInfo_link_text" href="/league-matching-page">리그/매칭 현황</a>--%>
-<%--        </div>--%>
+        <%--        <div class="userInfo_link">--%>
+        <%--            <a class="nav-link userInfo_link_text" href="/user-mypage/${sessionUser.id}">나의 정보</a>--%>
+        <%--            <a class="nav-link userInfo_link_text" href="/user-team/${sessionUser.id}">팀 관리</a>--%>
+        <%--            <a class="nav-link userInfo_link_text" href="/user-bookmark">북마크</a>--%>
+        <%--            <a class="nav-link userInfo_link_text" href="/user-reservation">예약 내역</a>--%>
+        <%--            <a class="nav-link userInfo_link_text" href="/user-payment">결제 내역</a>--%>
+        <%--            <a class="nav-link userInfo_link_text" href="/user-review">후기 관리</a>--%>
+        <%--            <a class="nav-link userInfo_link_text" href="/user-update/${sessionUser.id}">개인정보--%>
+        <%--                수정</a>--%>
+        <%--            <a class="nav-link userInfo_link_text" href="/league-matching-page">리그/매칭 현황</a>--%>
+        <%--        </div>--%>
     </div>
 </div>
 

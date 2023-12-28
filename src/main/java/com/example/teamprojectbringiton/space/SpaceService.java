@@ -88,6 +88,9 @@ public class SpaceService {
     }
 
     public List<SpaceUserIdPicJoinDTO> findAllJoinUserIdAndSpacePicId(Integer id) {
+        System.out.println("서비스 진입해서 조회함 : " + spaceRepository.findAllJoinUserIdAndSpacePicId(id).get(0).getSpaceName());
+        System.out.println("서비스 진입해서 조회함 : " + spaceRepository.findAllJoinUserIdAndSpacePicId(id).get(0).getSpacePic());
+        System.out.println("서비스 진입해서 조회함 : " + spaceRepository.findAllJoinUserIdAndSpacePicId(id).get(0).getSpaceLocation());
         return spaceRepository.findAllJoinUserIdAndSpacePicId(id);
 
     }
@@ -95,5 +98,9 @@ public class SpaceService {
     public void deleteById(Integer id) {
         System.out.println("서비스 왔따 : " + id);
         spaceRepository.deleteById(id);
+    }
+
+    public List<MySpaceReservationListDTO> findAllUserIdJoinReservationId(Integer userId) {
+        return spaceRepository.findAllUserIdJoinReservationId(userId);
     }
 }

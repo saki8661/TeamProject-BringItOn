@@ -47,6 +47,17 @@
         where user_id = #{user_id}
     </select>
 
+    <select id="findAllUserIdJoinReservationId"
+            resultType="com.example.teamprojectbringiton.space.dto.response.MySpaceReservationListDTO">
+        SELECT *
+        FROM space_tb AS s
+                 JOIN reservation_tb AS r ON s.id = r.space_id
+                 JOIN user_tb AS u ON r.user_id = u.id
+                 JOIN reservation_time_tb AS rt ON r.reservation_time_id = rt.id
+        WHERE s.user_id = #{id}
+        ORDER BY r.reservation_date ASC;
+    </select>
+
     <select id="findAllJoinUserIdAndSpacePicId"
             resultType="com.example.teamprojectbringiton.space.dto.response.SpaceUserIdPicJoinDTO">
         SELECT *

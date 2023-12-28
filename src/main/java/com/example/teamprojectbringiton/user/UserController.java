@@ -85,9 +85,14 @@ public class UserController {
         UserPointDTO userPointDTO = userService.findByIdJoinPoint(user.getId());
         session.setAttribute("userPoint", userPointDTO);
 
+        if (user.getUserDivision().equals("host")) {
+            return "redirect:/host/management-main/" + user.getId();
+        }
+
         if (user.getUserDivision().equals("admin")) {
             return "redirect:/admin/admin-main";
         }
+
         return "redirect:/home";
     }
 
