@@ -39,7 +39,7 @@ public class ReservationController {
     @PostMapping("/reservation")
     public String reservationProc(ReservationReqDTO dto) {
         reservationService.reservationSave(dto);
-        return "redirect:/space-detail/" + dto.getSpaceId();
+        return "redirect:/user/reservation/" + dto.getUserId();
     }
 
 
