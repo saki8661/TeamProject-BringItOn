@@ -1,4 +1,5 @@
-![logo](https://github.com/saki8661/bankapp_v1/assets/135561587/06e4488a-3b25-4887-a44e-7a6e2931ef15)
+
+![logo](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/298e8ad3-904f-4173-b1df-e2134add2b9a)
 
 # 📝 Bring It On 프로젝트 소개
 - 다양한 사람들이 어울려 즐길 수 있는 스포츠 전문 공간 대여 프로젝트
