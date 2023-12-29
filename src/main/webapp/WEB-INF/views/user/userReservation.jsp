@@ -24,12 +24,16 @@
                         </div> --%>
                     <form class="d-flex">
                         <div class="userReservation_search">
+                            <h2>결제 이후에 예약상태가 예약완료 상태가 됩니다.</h2>
+                            <div style="height: 4px"></div>
+                            <h2 style="text-align: center">시설 정보를 클릭해 결제해주세요.</h2>
+
                             <input type="hidden" id="point" value="${sessionScope.userPoint.myPoint}">
                             <input type="hidden" id="userId" value="${sessionUser.id}">
-                            <input class="form-control" type="text" placeholder="예약번호를 입력해주세요.">
-                            <button type="submit" class="search_button">
-                                <img src="/images/search.png">
-                            </button>
+                            <%--                            <input class="form-control" type="text" placeholder="예약번호를 입력해주세요.">--%>
+                            <%--                            <button type="submit" class="search_button">--%>
+                            <%--                                <img src="/images/search.png">--%>
+                            <%--                            </button>--%>
                         </div>
                     </form>
                     <c:choose>
@@ -54,103 +58,106 @@
                         <tbody>
 
                         <c:forEach var="reservation" items="${reservationList}">
-                        <tr class="userReservation_table_tr">
-                            <td>${reservation.reservationNumber}</td>
-                            <td>
-                                <div class="userReservation_pic">
-                                    <img src="/images/${reservation.spacePic}">
-                                </div>
-                            </td>
-                            <td>
-                                <div class="userReservation_detail">
-                                    <button type="button" data-bs-toggle="modal"
-                                            data-bs-target="#reservation-${reservation.id}">
-                                            ${reservation.spaceName}
-                                    </button>
-                                </div>
-                            </td>
-                            <td>${reservation.reservationDate} <br>
-                                    ${reservation.startTime} ~ ${reservation.endTime}
-                            </td>
-                            <td>${reservation.price}원</td>
-                            <td>${reservation.status}</td>
-                        </tr>
+                            <tr class="userReservation_table_tr">
+                                <td>${reservation.reservationNumber}</td>
+                                <td>
+                                    <div class="userReservation_pic">
+                                        <img src="/images/${reservation.spacePic}">
+                                    </div>
+                                </td>
+                                <td>
+                                    <div class="userReservation_detail">
+                                        <button type="button" data-bs-toggle="modal"
+                                                data-bs-target="#reservation-${reservation.id}">
+                                                ${reservation.spaceName}
+                                        </button>
+                                    </div>
+                                </td>
+                                <td>${reservation.reservationDate} <br>
+                                        ${reservation.startTime} ~ ${reservation.endTime}
+                                </td>
+                                <td>${reservation.price}원</td>
+                                <td>${reservation.status}</td>
+                            </tr>
+                        </c:forEach>
                         </tbody>
                     </table>
 
 
                     <!-- The Modal -->
+                    <c:forEach var="reservation" items="${reservationList}">
+                        <div class="modal" id="reservation-${reservation.id}">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
 
-                    <div class="modal" id="reservation-${reservation.id}">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h2>예약 상세</h2>
+                                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                    </div>
 
-                                <!-- Modal Header -->
-                                <div class="modal-header">
-                                    <h2>예약 상세</h2>
-                                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                                </div>
-
-                                <!-- Modal body -->
-                                <div class="modal-body">
-                                    <div class="userReservation_modal_body">
-                                        <div class="userReservation_modal_body_detail">
-                                            <img src="/images/stadium.png">
-                                            <div class="userReservation_modal_body_detail_text">
-                                                <div>
-                                                        ${reservation.spaceName}
+                                    <!-- Modal body -->
+                                    <div class="modal-body">
+                                        <div class="userReservation_modal_body">
+                                            <div class="userReservation_modal_body_detail">
+                                                <img src="/images/stadium.png">
+                                                <div class="userReservation_modal_body_detail_text">
+                                                    <div>
+                                                            ${reservation.spaceName}
+                                                    </div>
+                                                    <div>
+                                                            ${reservation.spaceLocation}
+                                                    </div>
+                                                    <div>
+                                                        시작: ${reservation.reservationDate} ${reservation.startTime}</div>
+                                                    <div>종료: ${reservation.reservationDate} ${reservation.endTime}</div>
                                                 </div>
-                                                <div>
-                                                        ${reservation.spaceLocation}
-                                                </div>
-                                                <div>시작: ${reservation.reservationDate} ${reservation.startTime}</div>
-                                                <div>종료: ${reservation.reservationDate} ${reservation.endTime}</div>
+                                            </div>
+                                            <div class="userPayment_table">
+                                                <Table>
+                                                    <div class="userPayment_detail_style">
+                                                        <tr class="userPayment_table_header">
+                                                            <th>진행상태</th>
+                                                            <td>${reservation.status}</td>
+                                                            <th>예약일</th>
+                                                            <td>${reservation.reservationDate}</td>
+                                                        </tr>
+                                                        <tr class="userPayment_table_header">
+                                                            <th>예약인원</th>
+                                                            <td>${reservation.personnel}명</td>
+                                                            <th>결제금액</th>
+                                                            <td>${reservation.price}원</td>
+                                                        </tr>
+                                                    </div>
+                                                </Table>
                                             </div>
                                         </div>
-                                        <div class="userPayment_table">
-                                            <Table>
-                                                <div class="userPayment_detail_style">
-                                                    <tr class="userPayment_table_header">
-                                                        <th>진행상태</th>
-                                                        <td>${reservation.status}</td>
-                                                        <th>예약일</th>
-                                                        <td>${reservation.reservationDate}</td>
-                                                    </tr>
-                                                    <tr class="userPayment_table_header">
-                                                        <th>예약인원</th>
-                                                        <td>${reservation.personnel}명</td>
-                                                        <th>결제금액</th>
-                                                        <td>${reservation.price}원</td>
-                                                    </tr>
-                                                </div>
-                                            </Table>
-                                        </div>
                                     </div>
-                                </div>
 
-                                <!-- Modal footer -->
-                                <div class="userReservation_modal_footer">
-                                    <div>
-                                        <c:choose>
-                                            <c:when test="${reservation.status == '예약완료'}">
+                                    <!-- Modal footer -->
+                                    <div class="userReservation_modal_footer">
+                                        <div>
+                                            <c:choose>
+                                                <c:when test="${reservation.status == '예약완료'}">
 
-                                            </c:when>
-                                            <c:otherwise>
-                                                <button type="button" id="pointUse" class="print_use"
-                                                        onclick="pointUse(${reservation.price},${reservation.id})">결제하기
-                                                </button>
-                                                <button type="button" id="reservationCancellation"
-                                                        class="reservation_cancellation"
-                                                        onclick="reservationCancellation(${reservation.id})">예약취소
-                                                </button>
-                                            </c:otherwise>
-                                        </c:choose>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <button type="button" id="pointUse" class="print_use"
+                                                            onclick="pointUse(${reservation.price},${reservation.id})">
+                                                        결제하기
+                                                    </button>
+                                                    <button type="button" id="reservationCancellation"
+                                                            class="reservation_cancellation"
+                                                            onclick="reservationCancellation(${reservation.id})">예약취소
+                                                    </button>
+                                                </c:otherwise>
+                                            </c:choose>
 
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
                     </c:forEach>
                 </div>
                 <div class="mt-5 d-flex justify-content-center">
