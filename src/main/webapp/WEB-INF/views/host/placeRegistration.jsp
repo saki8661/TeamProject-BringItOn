@@ -17,6 +17,7 @@
                     <div class="re_acception_letter">
                         <h3>시설 등록</h3>
                     </div>
+                    <div class="div_box"></div>
                     <div class="re_choice_place">
                         <div class="re_choice_letter"><h3> 시설명 </h3></div>
                         <hr class="reservation_line">
@@ -33,6 +34,7 @@
                         </div>
                     </div>
                 </div>
+                <div class="div_box"></div>
                 <div class="re_time_choice_two">
                     <div class="re_choice_letter">
                         <h3>간단한 소개</h3>
@@ -46,6 +48,7 @@
                                placeholder="공간을 소개하는 글을 작성해주세요!">
                     </div>
                 </div>
+                <div class="div_box"></div>
                 <div class="div_box"></div>
                 <div class="re_person_choice">
                     <div class="re_choice_letter">
@@ -89,6 +92,8 @@
                     </div>
 
                 </div>
+                <div class="div_box"></div>
+
                 <div class="place_resistration_tel_container">
                     <div class="re_choice_letter">
                         전화번호
@@ -115,6 +120,8 @@
                                placeholder="10000">
                     </div>
                 </div>
+                <div class="div_box"></div>
+
                 <div class="place_resistration_tel_container">
                     <div class="re_choice_letter">
                         시설 별칭
@@ -128,6 +135,7 @@
                                placeholder="사하 풋살장 -> 사풋">
                     </div>
                 </div>
+                <div class="div_box"></div>
 
                 <div class="place_resistration_address_container">
                     <div class="re_choice_letter">
@@ -153,13 +161,15 @@
                     <div class="place_resistration_rent_time_menu">
                         <div style="margin-right: 5px">
                             <label for="minTime">OPEN:</label>
-                            <input name="bizStartTime" type="text" id="minTime" placeholder="최소 시간 입력">
+                            <input name="bizStartTime" type="text" id="minTime" placeholder="최소 시간 입력"
+                                   class="place_resistration_tel_number">
                         </div>
                         <div style="margin-right: 5px">
                             <label for="maxTime">CLOSE:</label>
-                            <input name="bizEndTime" type="text" id="maxTime" placeholder="최대 시간 입력">
+                            <input name="bizEndTime" type="text" id="maxTime" placeholder="최대 시간 입력"
+                                   class="place_resistration_tel_number">
                         </div>
-                        <select id="place_resistration_rent_time_dropdown3" name="sportId">
+                        <select id="place_resistration_rent_time_dropdown3" name="sportId" class="registration_option">
                             <!-- 옵션 요소로 드롭다운 항목을 추가 -->
                             <option value="1">축구</option>
                             <option value="2">농구</option>

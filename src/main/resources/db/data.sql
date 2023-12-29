@@ -3,7 +3,7 @@ INSERT INTO user_tb (username, nickname, password, user_email, user_address, use
                      user_division, account_number, account_name, created_at, bank_id, team_id, gender_id, age_id,
                      kakao_login, is_captain)
 
-VALUES ('ssar', '대욱', 'password1', 'bbarkse1129@naver.com', '서울시 강남구', '010-1111-1111', 'default_profile.jpg', 'host',
+VALUES ('ssar', '대욱', 'password', 'bbarkse1129@naver.com', '서울시 강남구', '010-1111-1111', 'default_profile.jpg', 'host',
         '123456789', '나의 계좌1', NOW(), 1, 1, 1, 2, false, true),
        ('cos', '세환', 'password', 'cos@nate.com', '서울시 마포구', '010-2222-2222', 'default_profile.jpg', 'general',
         '234567891', '나의 계좌2', NOW(), 2, 2, 1, 3, false, true),

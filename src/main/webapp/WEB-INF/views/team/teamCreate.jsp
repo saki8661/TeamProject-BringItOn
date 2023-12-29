@@ -33,28 +33,30 @@
                     <div>팀 소개</div>
                     <textarea name="teamDescription" id="" rows="10"></textarea>
                 </div>
-                <select name="sportId">
-                    <option value="1">축구</option>
-                    <option value="2">풋살</option>
-                    <option value="3">농구</option>
-                </select>
-                <select name="positionId">
-                    <option value="1">공격</option>
-                    <option value="2">수비</option>
-                    <option value="3">올라운드</option>
-                </select>
-                <select name="genderId">
-                    <option value="1">남자</option>
-                    <option value="2">여자</option>
-                    <option value="3">남녀모두</option>
-                </select>
-                <select name="ageId">
-                    <option value="1">10대</option>
-                    <option value="2">20대</option>
-                    <option value="3">30대</option>
-                    <option value="4">40대</option>
-                    <option value="5">50대</option>
-                </select>
+                <div class="team_create_category">
+                    <select name="sportId">
+                        <option value="1">축구</option>
+                        <option value="2">풋살</option>
+                        <option value="3">농구</option>
+                    </select>
+                    <select name="positionId">
+                        <option value="1">공격</option>
+                        <option value="2">수비</option>
+                        <option value="3">올라운드</option>
+                    </select>
+                    <select name="genderId">
+                        <option value="1">남자</option>
+                        <option value="2">여자</option>
+                        <option value="3">남녀모두</option>
+                    </select>
+                    <select name="ageId">
+                        <option value="1">10대</option>
+                        <option value="2">20대</option>
+                        <option value="3">30대</option>
+                        <option value="4">40대</option>
+                        <option value="5">50대</option>
+                    </select>
+                </div>
                 <input type="hidden" name="teamCapacity" value="1">
                 <button type="submit" class="team_create_button">팀 등록 하기</button>
             </form>

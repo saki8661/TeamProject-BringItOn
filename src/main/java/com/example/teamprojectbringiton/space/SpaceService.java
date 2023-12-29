@@ -48,8 +48,6 @@ public class SpaceService {
     }
 
     public List<SpaceDTO> findAllPaged(int pageSize, int currentPage) {
-        System.out.println("페이징 서비스 진입 : " + pageSize);
-        System.out.println("페이징 서비스 진입 : " + currentPage);
         int offset = currentPage * pageSize - pageSize;
         return spaceRepository.findAllJoinSportAndRegion(pageSize, offset);
 
@@ -66,7 +64,6 @@ public class SpaceService {
         spaceRepository.insert(space);
 
         // 이미지 등록
-        System.out.println("id 가져오나? " + space.getId());
 
         SpacePic spacePic = SpacePic.builder()
                 .spaceId(space.getId())
@@ -88,9 +85,6 @@ public class SpaceService {
     }
 
     public List<SpaceUserIdPicJoinDTO> findAllJoinUserIdAndSpacePicId(Integer id) {
-        System.out.println("서비스 진입해서 조회함 : " + spaceRepository.findAllJoinUserIdAndSpacePicId(id).get(0).getSpaceName());
-        System.out.println("서비스 진입해서 조회함 : " + spaceRepository.findAllJoinUserIdAndSpacePicId(id).get(0).getSpacePic());
-        System.out.println("서비스 진입해서 조회함 : " + spaceRepository.findAllJoinUserIdAndSpacePicId(id).get(0).getSpaceLocation());
         return spaceRepository.findAllJoinUserIdAndSpacePicId(id);
 
     }
@@ -106,7 +100,7 @@ public class SpaceService {
 
     public List<SpaceListDTO> insideSpace(int pageSize, int currentPage) {
         int offset = currentPage * pageSize - pageSize;
-        System.out.println("offset:"+offset);
+        System.out.println("offset:" + offset);
         List<SpaceListDTO> spaceList = spaceRepository.findByInsideSpace(pageSize, offset);
 
 
@@ -115,7 +109,7 @@ public class SpaceService {
 
     public List<SpaceListDTO> outsideSpace(int pageSize, int currentPage) {
         int offset = currentPage * pageSize - pageSize;
-        System.out.println("offset:"+offset);
+        System.out.println("offset:" + offset);
         List<SpaceListDTO> spaceList = spaceRepository.findByOutsideSpace(pageSize, offset);
 
 
