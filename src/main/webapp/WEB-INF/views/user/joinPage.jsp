@@ -17,7 +17,7 @@
 <body>
 
 <div class="user_container">
-    <div><a href="/home"><img src="./images/logo.png" class="user_logo"></a></div>
+    <div><img src="./images/logo.png" class="user_logo"></div>
     <div class="div_box"></div>
 
 
@@ -96,14 +96,14 @@
 
             <div class="join_check">
                 <div class="join_form_company">
-                    <input class="form-check-input" type="radio" name="userDivision" value="호스트" id="companyCheck"
+                    <input class="form-check-input" type="radio" name="userDivision" value="host" id="companyCheck"
                            required>
                     <label class="form-check-label" for="companyCheck">호스트로 가입</label>
                     <div class="valid-feedback">호스트로 로그인 합니다.</div>
                     <div class="invalid-feedback"></div>
                 </div>
                 <div class="join_form_personal">
-                    <input class="form-check-input" type="radio" name="userDivision" value="게스트" id="personalCheck"
+                    <input class="form-check-input" type="radio" name="userDivision" value="general" id="personalCheck"
                            required>
                     <label class="form-check-label" for="personalCheck">유저로 가입</label>
                     <div class="valid-feedback">유저로 로그인 합니다.</div>

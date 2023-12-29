@@ -9,8 +9,6 @@
                 <div class="slider-container">
                     <div class="slider">
                         <img src="/img/${spaceDetail.spacePic}" alt="Image 1">
-                        <img src="/img/${spaceDetail.spacePic}" alt="Image 2">
-                        <img src="/img/${spaceDetail.spacePic}" alt="Image 3">
                         <!-- Add more images as needed -->
                     </div>
                     <div class="place_detail_slider_button">
@@ -231,7 +229,7 @@
                         <a href="" style="text-decoration: underline;color: #8A8A8A">지도 보기</a>
                     </div>
                     <div class="place_detail_stick_area_menu_location_cost">
-                        ${spaceDetail.pricePerHour}
+                        ${spaceDetail.price}
                     </div>
                 </div>
 

@@ -10,18 +10,18 @@
 <div class="frame">
     <ul class="nav">
         <li class="host_main_link">
-            <a href="">내시설보기</a>
+            <a href="/host/management-main/${sessionUser.id}">내시설관리</a>
         </li>
         <li class="host_main_link">
-            <a href="">내예약현황</a>
-        </li>
-
-        <li class="host_main_link">
-            <a href="">시설이용내역</a>
+            <a href="/host/reservation-status/${sessionUser.id}">예약현황</a>
         </li>
 
         <li class="host_main_link">
-            <a href="">고객센터</a>
+            <a href="">후기관리</a>
+        </li>
+
+        <li class="host_main_link">
+            <a href="/notice-main">고객센터</a>
         </li>
     </ul>
 </div>
@@ -29,7 +29,7 @@
 
 <div class="frame">
     <div class="row host_managementPage">
-        <div class="col-md-9  box">
+        <div class="col-md-9 box hostPage_box">
             <div class="d-flex pe-3 my-3">
                 <div class="userInfo_title">내 시설</div>
             </div>
@@ -39,38 +39,44 @@
                         시설목록
                     </div>
                     <div class="league_matchin  g_table_sub_title">
-                        <div class="league_matching_title">시설명</div>
-                        <div class="league_matching_title">전화번호</div>
-                        <div class="league_matching_title">주소</div>
-                        <div class="league_matching_title">제한인원</div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
-                        <div></div>
+                        <div class="hostPage_title">시설명</div>
+                        <div class="hostPage_title">전화번호</div>
+                        <div class="hostPage_title">주소</div>
+                        <div class="hostPage_title">제한인원</div>
+                        <div class="hostPage_title"></div>
+
                     </div>
 
                     <!--내 매칭 등록 해놓은 현황(매칭상태가 대기중인거)을 리스트로 뿌릴꺼임.-->
-                    <c:forEach var="spaces" items="${spacesList}">
-
-                        <div class="league_matching_table_content">
-                            <div class="league_matching_content_team_name"><img src="/img/${spaces.spacePic}">
-                                <div>${spaces.spaceName}</div>
+                    <c:choose>
+                        <c:when test="${empty spacesList}">
+                            <div class="hostPage_table_content">
+                                <p style="color: black"><a href="/host/place-registration">시설등록을 해주세요</a></p>
                             </div>
-                            <div class="league_matching_content-date">${spaces.spacePhoneNumber}</div>
-                            <div class="league_matching_content-date">${spaces.spaceLocation}</div>
-                            <div class="league_matching_content"> ${spaces.capacity}</div>
-
-                            <div class="spoace_detail_button">
-                                <button class="matching_button host_btn_style"
-                                        type="button"><a href="/space/space-update/${spaces.id}"
-                                                         style="color: white">수정하기</a>
-                                </button>
-                                <button class="matching_button host_btn_style_red deleteButton" type="button" data-space-id="${spaces.id}">
-                                    삭제하기
-                                </button>
-                            </div>
-                        </div>
-                    </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <c:forEach var="spaces" items="${spacesList}">
+                                <div class="hostPage_table_content">
+                                    <div class="league_matching_content_team_name">
+                                        <img src="/img/${spaces.spacePic}">
+                                        <div>${spaces.spaceName}</div>
+                                    </div>
+                                    <div class="league_matching_content-date">${spaces.spacePhoneNumber}</div>
+                                    <div class="league_matching_content-date">${spaces.spaceLocation}</div>
+                                    <div class="league_matching_content">${spaces.capacity}</div>
+                                    <div class="spoace_detail_button">
+                                        <button class="matching_button host_btn_style" type="button">
+                                            <a href="/space/space-update/${spaces.id}" style="color: white">수정하기</a>
+                                        </button>
+                                        <button class="matching_button host_btn_style_red deleteButton" type="button"
+                                                data-space-id="${spaces.id}">
+                                            삭제하기
+                                        </button>
+                                    </div>
+                                </div>
+                            </c:forEach>
+                        </c:otherwise>
+                    </c:choose>
                 </div>
             </div>
         </div>

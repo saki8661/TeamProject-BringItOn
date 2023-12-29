@@ -4,8 +4,9 @@
 
 <mapper namespace="com.example.teamprojectbringiton.reservation.ReservationRepository">
 
-    <select id="findApplyMatchingResv" resultType="com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO" >
-        select *,m.id  matchingId
+    <select id="findApplyMatchingResv"
+            resultType="com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO">
+        select *, m.id matchingId
         from reservation_tb r
                  left join team_tb t
                            on r.user_id = t.id
@@ -15,34 +16,97 @@
                            on s.id = sp.space_id
                  left join matching_tb m
                            on r.id = m.reservation_id
-        where r.matching = true
+                 left join reservation_time_tb rt
+                           on r.reservation_time_id = rt.id
+        WHERE r.matching = true
+          AND r.reservation_date >= CURRENT_DATE
+        ORDER BY r.reservation_date ASC;
     </select>
 
-    <select id="findByUserId"  resultSets="" resultType="com.example.teamprojectbringiton.reservation.dto.response.UserReservationListDTO">
+    <select id="findByUserId" resultSets=""
+            resultType="com.example.teamprojectbringiton.reservation.dto.response.UserReservationListDTO">
         select *
         from reservation_tb r
                  join user_tb u
                       on r.user_id = u.id
                  join space_tb s
                       on r.space_id = s.id
-        join space_pic_tb sp
-        on sp.space_id = s.id
+                 join space_pic_tb sp
+                      on sp.space_id = s.id
+                 join reservation_time_tb rt
+                      on r.reservation_time_id = rt.id
         where u.id = #{id}
     </select>
 
+    <select id="findById"
+            resultType="com.example.teamprojectbringiton.reservation.Reservation">
+        select *
+        from reservation_tb
+        where id = #{id}
+    </select>
+
+    <update id="updateStatus">
+        update reservation_tb
+        set status = #{status}
+        where id = #{id}
+    </update>
+
     <select id="findByIdReservSpaceAndSpacePic"
             resultType="com.example.teamprojectbringiton.reservation.dto.response.ReservationRespDTO">
-        select space_id, space_name, space_location, space_pic, price_per_hour
+        select space_id,
+               space_name,
+               space_location,
+               space_pic,
+               price,
+               biz_start_time,
+               biz_end_time,
+               capacity
         from space_tb as space
              join space_pic_tb as pic
         on space.id= pic.space_id
         where space.id = #{id}
     </select>
 
+    <select id="findByspaceIdAndreservationDate"
+            resultType="com.example.teamprojectbringiton.reservation.Reservation">
+        select *
+        from reservation_tb
+        where space_id = #{spaceId}
+          AND reservation_date = #{reservationDate}
+    </select>
+
 
     <insert id="reservInsert" useGeneratedKeys="true" keyProperty="id">
-        insert into reservation_tb(personnel, to_host, matching,user_id,space_id, created_at)
-        values (#{personnel}, #{toHost}, #{matching}, #{userId}, #{spaceId}, now());
+        insert into reservation_tb(reservation_number, reservation_date, personnel, to_host, status, matching, user_id,
+                                   space_id, reservation_time_id, created_at)
+        values (#{reservationNumber}, #{reservationDate}, #{personnel}, #{toHost}, #{status}, #{matching}, #{userId},
+                #{spaceId}, #{reservationTimeId}, now());
     </insert>
+
+    <select id="findAllMatchingByDate"
+            resultType="com.example.teamprojectbringiton.reservation.dto.response.MatchingReservationDTO">
+        select *, m.id matchingId
+        from reservation_tb r
+                 left join team_tb t
+                           on r.user_id = t.id
+                 left join space_tb s
+                           on r.space_id = s.id
+                 left join space_pic_tb sp
+                           on s.id = sp.space_id
+                 left join matching_tb m
+                           on r.id = m.reservation_id
+                 left join reservation_time_tb rt
+                           on r.reservation_time_id = rt.id
+        WHERE r.matching = true
+            AND day (
+            r.reservation_date) = #{date}
+          AND r.reservation_date >= CURRENT_DATE
+        ORDER BY r.reservation_date ASC;
+    </select>
+    <delete id="deleteById">
+        delete
+        from reservation_tb
+        where id = #{id}
+    </delete>
 
 </mapper>

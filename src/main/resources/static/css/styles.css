@@ -18,7 +18,6 @@
 
 .wrap {
     border-bottom: 1px solid var(--primary_01);
-
 }
 
 html {
@@ -344,6 +343,10 @@ input::placeholder {
     width: 100%;
 }
 
+.common_frame {
+    width: 100%;
+}
+
 /* Main */
 
 .main_link {
@@ -407,6 +410,19 @@ input::placeholder {
     margin-bottom: 50px;
 }
 
+.carousel-item {
+    position: relative;
+    overflow: hidden;
+    width: 1200px;
+    height: 300px;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .matchingPage_banner {
     width: 100%;
     max-width: 1200px;
@@ -420,6 +436,10 @@ input::placeholder {
 .main_banner_area {
     width: 1920px;
     height: 500px;
+}
+
+#demo {
+    margin: 50px 0;
 }
 
 .carousel_item {
@@ -437,6 +457,7 @@ input::placeholder {
 .main_layout {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    margin-top: 30px;
 }
 
 .main_filter {
@@ -468,9 +489,10 @@ input::placeholder {
 }
 
 .user_container {
-    padding-left: 500px;
-    padding-right: 500px;
+    width: 100%;
+    max-width: 1200px;
     text-align: center;
+    margin: 0 auto;
 }
 
 
@@ -538,7 +560,6 @@ input::placeholder {
 .join_form_company {
     padding-right: 20px;
 }
-
 
 .login_search_sign_in {
     padding-top: 40px;
@@ -1002,7 +1023,7 @@ input::placeholder {
     height: 30px;
 }
 
-.userReview_container{
+.userReview_container {
     height: 750px;
     width: 100%;
 }
@@ -1021,7 +1042,8 @@ input::placeholder {
     border-right: black 2px solid;
     padding-right: 5px;
 }
-.userReview_item_tile{
+
+.userReview_item_tile {
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -1032,13 +1054,14 @@ input::placeholder {
     font-weight: bold;
     padding-left: 5px;
 }
-.userReview_rating{
+
+.userReview_rating {
     font-size: 18px;
     font-weight: bold;
     padding-left: 5px;
 }
 
-.userReview_item_separation{
+.userReview_item_separation {
     display: flex;
 }
 
@@ -1255,7 +1278,7 @@ input::placeholder {
 }
 
 .manual > li {
-    display: none;
+    /*display: none;*/
 }
 
 .manual > li.manual_active {
@@ -1357,11 +1380,16 @@ input::placeholder {
     text-align: center;
 }
 
+.manual_tab .manual_category a:active {
+    background-color: var(--primary_01);
+}
+
 .manual_tab .manual_category div.manual_active {
     width: 100px;
     display: inline-block;
     text-align: center;
     border-radius: 35px;
+
 }
 
 .manual_tab .manual_category div.manual_active {
@@ -1389,6 +1417,13 @@ input::placeholder {
 /*}*/
 
 .matching_team {
+}
+
+.matching_empty_box {
+    height: 300px;
+    text-align: center;
+    line-height: 5;
+    font-size: 30px;
 }
 
 .matching_detail {
@@ -1511,17 +1546,19 @@ input::placeholder {
     vertical-align: center;
 }
 
-.userReservation_modal_header {
-
+.modal-header {
     display: flex;
     flex-shrink: 0;
     align-items: center;
+    font-size: 20px;
+    font-weight: bold;
     justify-content: space-between;
     padding: 10px 10px;
     border-bottom: #dee2e6 1px solid;
+    background-color: #19B357;
+    color: white;
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
-
 }
 
 /* leagueRanking */
@@ -1566,13 +1603,22 @@ input::placeholder {
 }
 
 .userBookmark_content {
+    position: relative;
     padding: 0;
 }
 
 .userBookmark_content img {
+    display: block;
     border-radius: 15px;
     width: 232px;
     height: auto;
+}
+
+.userBookmark_content > div {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 24px;
 }
 
 /* reservation*/
@@ -1591,8 +1637,8 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    padding-left: 9%;
-    padding-right: 9%;
+    padding-left: 5%;
+    padding-right: 5%;
     padding-bottom: 180px;
 }
 
@@ -1623,7 +1669,10 @@ input::placeholder {
     margin-top: 50px;
     font-weight: bolder;
     flex-direction: column;
+}
 
+.form_container {
+    width: 80%;
 }
 
 .re_acception_letter {
@@ -1917,6 +1966,7 @@ input::placeholder {
     justify-items: center;
 }
 
+
 .userReservation_table th {
     background: #F3F5F7;
     border-top: black 2px solid;
@@ -1979,22 +2029,18 @@ input::placeholder {
 
 }
 
+/*.userReservation_pic img {*/
+/*    border-radius: 5px;*/
+/*    width: 50px;*/
+/*    height: 50px;*/
+/*}*/
+
 .userReservation_payment {
     background: #378AD7;
     color: white;
     border-radius: 5px;
     padding: 10px;
     justify-self: end;
-}
-
-.userReservation_modal_header {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 10px;
-    border-bottom: #dee2e6 1px solid;
-
 }
 
 .modal {
@@ -2039,23 +2085,13 @@ input::placeholder {
     vertical-align: middle;
 }
 
-.userReservation_modal_header {
-    display: flex;
-    flex-shrink: 0;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px 10px;
-    border-bottom: #dee2e6 1px solid;
-    background-color: #19B357;
-    color: white;
-}
 
 .modal-body {
     padding-bottom: 0;
     width: 100%;
 }
 
-.userReservation_modal_header h2 {
+.modal-header h2 {
     width: 100%;
     text-align: center;
 }
@@ -2073,11 +2109,14 @@ input::placeholder {
     display: flex;
     flex-direction: column;
     align-self: center;
+    font-size: 20px;
+    margin-left: 40px;
 }
 
 .userReservation_modal_body_detail img {
-    margin: 20px;
     border-radius: 10px;
+    width: 20%;
+    height: 20%;
 }
 
 .userReservation_modal_footer {
@@ -2089,6 +2128,20 @@ input::placeholder {
     margin: 10px;
     padding-top: 10px;
     height: 50px;
+}
+
+.print_use {
+    background: #19B357;
+    padding: 10px 30px;
+    border-radius: 12.5px;
+    color: white;
+}
+
+.reservation_cancellation {
+    background: #f44336;
+    padding: 10px 30px;
+    border-radius: 12.5px;
+    color: white;
 }
 
 .userReservation_modal_footer a:nth-child(1) {
@@ -2201,8 +2254,8 @@ input::placeholder {
 }
 
 .league_matching_modal {
-    width: 900px;
-    height: 500px;
+    width: 750px;
+    height: 450px;
 }
 
 .modal_test {
@@ -2960,6 +3013,7 @@ input::placeholder {
     justify-content: space-around;
     align-items: center;
     height: 30px;
+    border: 1px solid #F3F5F7;
 }
 
 .league_matching_table_sub_title {
@@ -2984,6 +3038,18 @@ input::placeholder {
     border: 1px solid #F3F5F7;
 }
 
+.hostPage_table_content {
+    display: flex;
+    justify-content: space-around;
+    height: 40px;
+    width: 100%;
+    background-color: white;
+    color: white;
+    align-items: center; /* 세로 중앙 정렬 */
+    border: 1px solid #F3F5F7;
+}
+
+
 .league_matching_checkbox {
     vertical-align: middle;
     border: 0;
@@ -3005,17 +3071,43 @@ input::placeholder {
     text-align: center;
 }
 
+.hostPage_title {
+    width: 20%;
+    text-align: center;
+}
+
+.hostPage_status_title {
+    width: 15%;
+    text-align: center;
+}
+
 .league_matching_content {
-    width: 125px;
+    width: 20%;
     text-align: center;
     color: black;
 }
+
+.host_content_data {
+    width: 15%;
+    text-align: center;
+    color: black;
+}
+
 
 .league_matching_content_team_name {
     display: flex;
     justify-content: center;
     align-items: center; /* 세로 중앙 정렬을 위한 스타일 추가 */
-    width: 135px;
+    width: 20%;
+    text-align: center;
+    color: black;
+}
+
+.host_content_team_name {
+    display: flex;
+    justify-content: center;
+    align-items: center; /* 세로 중앙 정렬을 위한 스타일 추가 */
+    width: 15%;
     text-align: center;
     color: black;
 }
@@ -3029,10 +3121,15 @@ input::placeholder {
 
 
 .league_matching_content-date {
-    width: 120px;
+    width: 20%;
     text-align: center;
     color: black;
+}
 
+.host_content-date {
+    width: 15%;
+    text-align: center;
+    color: black;
 }
 
 .matching_box {
@@ -3048,10 +3145,20 @@ input::placeholder {
 }
 
 .spoace_detail_button {
-
+    width: 20%;
     align-items: center;
     gap: 10px;
 }
+
+.host_button_two {
+    display: flex;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+    justify-items: center;
+    gap: 10px;
+}
+
 
 .matching_my_score_box {
     height: 30px;
@@ -3918,7 +4025,7 @@ EDIT ON
 }
 
 .board_date {
-    align-self: flex-end;
+    align-self: center;
     padding-right: 25px;
     font-size: 12px;
     color: #929392;
@@ -4024,6 +4131,15 @@ EDIT ON
     margin-right: 20px;
 }
 
+.host_btn_style_two {
+    border-radius: 5px;
+    height: 30px;
+    width: 70%;
+    font-size: 16px;
+    text-align: center;
+    margin-right: 20px;
+}
+
 .host_btn_style_red {
     border-radius: 5px;
     height: 30px;
@@ -4103,9 +4219,10 @@ EDIT ON
 }
 
 .team_filter_area {
-    text-align: center;
-    padding: 10px;
+    text-align: end;
+    padding: 0 40px;
     margin: 10px;
+
 }
 
 .team_filter_area > select {
@@ -4115,8 +4232,8 @@ EDIT ON
     appearance: none;
     border: 1px solid #19B357;
     width: 100px;
-    height: 50px;
-    border-radius: 25px;
+    height: 30px;
+    border-radius: 20px;
     text-align: center;
 }
 
@@ -4125,7 +4242,8 @@ EDIT ON
 }
 
 .team_main_content {
-    padding: 50px;
+    padding: 0 50px;
+    text-align: end;
 }
 
 .team_list {
@@ -4244,6 +4362,54 @@ EDIT ON
 
 .host_managementPage {
     justify-content: center;
+    width: 100%;
+}
+
+.hostPage_box {
+    width: 90%;
+}
+
+
+.team_detail_modal_content {
+    display: flex;
+}
+
+.team_detail_modal_content > div {
+
+}
+
+.team_detail_modal_logo {
+    text-align: center;
+}
+
+.team_detail_modal_introduce {
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.team_detail_modal_location {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 35px;
+
+}
+
+.team_detail_modal_sportname {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 35px;
+}
+
+.team_detail_modal_capacity {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 35px;
+}
+
+.team_detail_modal_age {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 35px;
 }
 
 /* team create */
@@ -4404,8 +4570,8 @@ EDIT ON
 }
 
 .team_detail_container {
-    width: 1000px;
-    height: 500px;
+    width: 600px;
+    height: 475px;
 }
 
 .team_detail_content {
@@ -4445,6 +4611,23 @@ EDIT ON
     text-align: center
 }
 
+.admin_frame {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    height: 300px;
+    background: #BFC4D2;
+    color: white;
+}
+
+
+.admin_frame div:nth-child(1) {
+    font-size: 30px;
+    font-weight: 600;
+    padding-bottom: 10px;
+}
+
 .userTeamAPPly_empty_box {
 
 }
@@ -4464,7 +4647,7 @@ EDIT ON
     height: 30px;
 }
 
-.userTeamApply_item_empty {
+.userInfo_item_empty {
     display: flex;
     height: 600px;
     justify-content: center;

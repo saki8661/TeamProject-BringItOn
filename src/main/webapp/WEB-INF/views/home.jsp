@@ -11,8 +11,8 @@
                     공간 대여
                 </a>
                 <ul class="dropdown-menu sub_navbar_style">
-                    <li><a class="dropdown-item" href="#">실내 스포츠</a></li>
-                    <li><a class="dropdown-item" href="#">야외 스포츠</a></li>
+                    <li><a class="dropdown-item" href="/insideSpace">실내 스포츠</a></li>
+                    <li><a class="dropdown-item" href="/outsideSpace">야외 스포츠</a></li>
                 </ul>
             </li>
 
@@ -23,10 +23,6 @@
             <li class="main_link">
                 <a href="/matching-main">매칭</a>
             </li>
-
-<%--            <li class="main_link">--%>
-<%--                <a href="/league-main">리그</a>--%>
-<%--            </li>--%>
 
             <li class="main_link">
                 <a href="/board-main">게시판</a>
@@ -47,19 +43,24 @@
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
                 <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
             </div>
 
             <!-- The slideshow/carousel -->
             <div class="carousel-inner">
-                <div class="carousel-item active">
+                <div class="carousel-item active ">
                     <img src="/images/BasketballMainBanner2.png" alt="Los Angeles" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
                     <img src="/images/SoccerMainBanner2.png" alt="Chicago" class="d-block w-100">
                 </div>
                 <div class="carousel-item">
-                    <img src="/images/FutsalMainBanner2.png" alt="New York" class="d-block w-100">
+                    <img src="/images/futsal_main_banner.png" alt="New York" class="d-block w-100">
                 </div>
+                <div class="carousel-item">
+                    <img src="/images/basketball_main_banner.png" alt="New York" class="d-block w-100">
+                </div>
+
             </div>
 
             <!-- Left and right controls/icons -->
@@ -73,20 +74,7 @@
 
         <div>
             <div class="main_search_filter">
-                <div class="dropdown">
-                    <button class="drop_btn">
-                        인기순
-                    </button>
-                    <div class="dropdown-content">
-                        <a href="#">인기순</a>
-                        <a href="#">최신순</a>
-                    </div>
-                </div>
-                <div class="main_filter">
-                    <button class="filter_button">
-                        <img src="/images/filter.png" width="20px" height="20px">
-                    </button>
-                </div>
+
             </div>
 
             <div class="container-fluid" style="height: 657px">
@@ -96,7 +84,6 @@
                             <div class="inside_content">
                                 <a href="/space-detail/${item.id}"><img src="/img/${item.spacePic}"></a>
                             </div>
-
                             <div class="main_content_title m-2">
                                     ${item.spaceName}
                             </div>
@@ -116,18 +103,6 @@
             </div>
 
             <ul class="pagination main_paging">
-<%--                <li class="first_page_item page-item">--%>
-<%--                    <a class="page-link"--%>
-<%--                       href="/home?currentPage=${pageVO.firstPage}">--%>
-<%--                        <<--%>
-<%--                    </a>--%>
-<%--                </li>--%>
-<%--                <li class="page-item">--%>
-<%--                    <a class="prev_page_item page-link"--%>
-<%--                       href="/home?currentPage=${pageVO.currentPage - 1}">--%>
-<%--                        <--%>
-<%--                    </a>--%>
-<%--                </li>--%>
                 <c:choose>
 
                     <c:when test="${pageVO.lastPage <= 5}">
@@ -163,17 +138,6 @@
                         </c:forEach>
                     </c:otherwise>
                 </c:choose>
-<%--                <li class="next_page_item page-item">--%>
-<%--                    <a class="next_page_item page-link"--%>
-<%--                       href="/home?currentPage=${pageVO.currentPage + 1}">--%>
-<%--                        >--%>
-<%--                    </a>--%>
-<%--                </li>--%>
-<%--                <li class="last_page_item page-item">--%>
-<%--                    <a class="page-link" href="/home?currentPage=${pageVO.lastPage}">--%>
-<%--                        >>--%>
-<%--                    </a>--%>
-<%--                </li>--%>
             </ul>
         </div>
     </div>

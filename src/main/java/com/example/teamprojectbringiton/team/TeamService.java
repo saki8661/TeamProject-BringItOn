@@ -1,13 +1,13 @@
 package com.example.teamprojectbringiton.team;
 
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
+import com.example.teamprojectbringiton.region.Region;
+import com.example.teamprojectbringiton.region.RegionRepository;
 import com.example.teamprojectbringiton.team.apply.Apply;
 import com.example.teamprojectbringiton.team.apply.ApplyRepository;
 import com.example.teamprojectbringiton.team.captain.CaptainRepository;
-import com.example.teamprojectbringiton.team.dto.request.TeamApplyDTO;
 import com.example.teamprojectbringiton.team.dto.response.TeamDetailDTO;
 import com.example.teamprojectbringiton.team.dto.response.TeamListDTO;
-import com.example.teamprojectbringiton.user.User;
 import com.example.teamprojectbringiton.user.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -31,6 +31,27 @@ public class TeamService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private RegionRepository regionRepository;
+
+    public List<TeamListDTO> findAllByKeyword(String keyword) {
+        List<TeamListDTO> teamList = teamRepository.findAllByKeyword(keyword);
+
+        return teamList;
+    }
+
+    public List<TeamListDTO> findAllByCapacity() {
+        List<TeamListDTO> teamList = teamRepository.findAllByCapacity();
+        return teamList;
+    }
+
+    public List<TeamListDTO> findAllByLatest() {
+        List<TeamListDTO> teamList = teamRepository.findAllByLatest();
+        return teamList;
+    }
+
+    public record TeamAndRegion(List<TeamListDTO> teamList, List<Region> regionList) {}
+
     public List<Team> findAll() {
         List<Team> teamList = teamRepository.findAll();
         return teamList;
@@ -41,9 +62,10 @@ public class TeamService {
         return team;
     }
 
-    public List<TeamListDTO> findAllJoinSport() {
+    public TeamAndRegion findAllJoinSport() {
         List<TeamListDTO> teamList = teamRepository.findAllJoinSport();
-        return teamList;
+        List<Region> regionList = regionRepository.findAll();
+        return new TeamAndRegion(teamList, regionList);
     }
 
     @Transactional

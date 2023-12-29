@@ -1,16 +1,21 @@
 package com.example.teamprojectbringiton.reservation;
 
+import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
 import com.example.teamprojectbringiton.reservation.dto.response.UserReservationListDTO;
 
 import com.example.teamprojectbringiton.reservation.dto.request.ReservationReqDTO;
 import com.example.teamprojectbringiton.reservation.dto.response.ReservationRespDTO;
+import com.example.teamprojectbringiton.space.Space;
+import com.example.teamprojectbringiton.user.User;
+import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.Collections;
 import java.util.List;
 
 @Controller
@@ -19,37 +24,46 @@ public class ReservationController {
     @Autowired
     ReservationService reservationService;
 
+    @Autowired
+    HttpSession session;
+
 
     @GetMapping("/reservation/{id}")
     public String reservationPage(@PathVariable Integer id, Model model) {
         System.out.println("예약하기 컨트롤러 진입" + id);
         ReservationRespDTO reservationName = reservationService.reservationFindBySpaceId(id);
         model.addAttribute("reservationName", reservationName);
-        System.out.println("모델에 담긴 데이터 SpaceName :" + reservationName.getSpaceName());
-        System.out.println("모델에 담긴 데이터 SpaceId :" + reservationName.getSpaceId());
-        System.out.println("모델에 담긴 데이터 SpaceLocation :" + reservationName.getSpaceLocation());
-        System.out.println("예약 공간이 모델에 담겼다");
         return "/spaceRental/reservation";
     }
 
-    @PostMapping("/reservation/{id}")
-    public String reservationProc(@PathVariable Integer id, ReservationReqDTO dto) {
-        System.out.println("+++리뷰컨트롤러 진입 reservation" + dto.getSpaceId());
-        System.out.println("+++dto 담김 reservation:" + dto.getPersonnel());
+    @PostMapping("/reservation")
+    public String reservationProc(ReservationReqDTO dto) {
         reservationService.reservationSave(dto);
-        System.out.println("+++dto 담김 reservation:" + dto.getPersonnel());
-        System.out.println("+++dto 담김 reservation:" + dto.getToHost());
-        System.out.println("+++dto 담김 reservation: " + dto.isMatching());
-
-        return "redirect:/space-detail/" + id;
+        return "redirect:/space-detail/" + dto.getSpaceId();
     }
 
 
     @GetMapping("/user/reservation/{id}")
     public String userReservationPage(@PathVariable Integer id, Model model) {
+        System.out.println("내 예약현황 접속");
         List<UserReservationListDTO> reservationList = reservationService.findByUserId(id);
-        model.addAttribute("reservationList", reservationList);
+        model.addAttribute("reservationList", reservationList != null ? reservationList : Collections.emptyList());
         return "user/userReservation";
+    }
+
+    @DeleteMapping("/user/reservation-delete/{id}")
+    @ResponseBody
+    public ResponseEntity<?> reservationDelete(@PathVariable Integer id) {
+        System.out.println("삭제하러 왔니?");
+        Reservation reservation = reservationService.findById(id);
+        System.out.println("id로 잘 조회하나?");
+        User user = (User) session.getAttribute("sessionUser");
+        if (user.getId() != reservation.getUserId()) {
+            throw new CustomRestfullException("권한이 없습니다.", HttpStatus.BAD_REQUEST);
+        }
+        reservationService.deleteById(id);
+
+        return ResponseEntity.ok().body("성공");
     }
 
 

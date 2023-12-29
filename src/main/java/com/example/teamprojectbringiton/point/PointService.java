@@ -13,8 +13,8 @@ public class PointService {
 
     @Transactional
     public int pointUpdate(UpdatePointDTO updatePointDTO) {
-       int pointUpdate = pointRepository.updateByUserId(updatePointDTO);
-    return pointUpdate;
+        int pointUpdate = pointRepository.updateByUserId(updatePointDTO);
+        return pointUpdate;
     }
 
 

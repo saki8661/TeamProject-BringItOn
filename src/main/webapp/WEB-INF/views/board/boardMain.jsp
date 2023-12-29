@@ -9,22 +9,19 @@
                 공간 대여
             </a>
             <ul class="dropdown-menu sub_navbar_style">
-                <li><a class="dropdown-item" href="#">실내 스포츠</a></li>
-                <li><a class="dropdown-item" href="#">야외 스포츠</a></li>
+                <li><a class="dropdown-item" href="/insideSpace">실내 스포츠</a></li>
+                <li><a class="dropdown-item" href="/outsideSpace">야외 스포츠</a></li>
             </ul>
+        </li>
+        <li class="main_link">
+            <a href="/team-main">팀</a>
         </li>
         <li class="main_link">
             <a href="/matching-main">매칭</a>
         </li>
-
-        <li class="main_link">
-            <a href="/league-main">리그</a>
-        </li>
-
         <li class="main_link">
             <a href="/board-main">게시판</a>
         </li>
-
         <li class="main_link">
             <a href="/notice-main">고객센터</a>
         </li>
@@ -44,30 +41,27 @@
         </div>
     </div>
     <c:forEach var="board" items="${boards}">
-        <div class="board_list">
-            <button type="button" class="more_button">
-                <div class="board_layout">
-                    <div class="board_item">
-                        <div>
-                                ${board.nickName}
+        <a href="/board-detail/${board.id}">
+            <div class="board_list">
+                <button type="button" class="more_button">
+                    <div class="board_layout">
+                        <div class="board_item">
+                            <div>
+                                    ${board.nickName}
+                            </div>
+                            <div>
+                                    ${board.boardTitle}
+                            </div>
                         </div>
-                        <div>
-                                ${board.boardTitle}
-                        </div>
-                    </div>
-                    <div class="d-flex">
-                        <div class="board_date">
-                                ${board.createdAt}
-                        </div>
-                        <div>
-                            <a href="/board-detail/${board.id}" class="more_button">
-                                <img src="/images/more.png" class="inquire_toggle_image">
-                            </a>
+                        <div class="d-flex">
+                            <div class="board_date">
+                                    ${board.createdAt}
+                            </div>
                         </div>
                     </div>
-                </div>
-            </button>
-        </div>
+                </button>
+            </div>
+        </a>
     </c:forEach>
 </div>
 

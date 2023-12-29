@@ -48,7 +48,7 @@
         <div class="modal-dialog">
             <div class="modal-content">
                 <!-- Modal Header -->
-                <div class="userReservation_modal_header">
+                <div class="modal-header">
                     <h2 style="width: 100%; text-align: center; font-weight: bold; font-size: x-large;">문의등록</h2>
                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                 </div>
@@ -118,9 +118,7 @@
                     </div>
                 </div>
             </button>
-
-
-            <div class="inquire_write_list">
+            <div>
                 <div class="inquireMain_update_delete_btn">
                     <c:choose>
                         <c:when test="${inquire.userId == sessionUser.id}">
@@ -152,7 +150,7 @@
                                             <input type="hidden" name="inquireId" value="${inquire.id}">
                                             <div class="dropdown">
                                                 <select class="inquireMain_dropdown_btn" name="inquireCategoryId"
-                                                        id="dropdown">
+                                                        id="inquireCategoryDropdown">
                                                     <div class="inquireMain_dropdown_menu">
                                                         <c:forEach var="category" items="${inquireCategories}">
                                                             <option value="${category.id}">
@@ -169,7 +167,7 @@
                                             <input type="text" class="form-control" placeholder="제목을 입력하세요"
                                                    name="inquireTitle" value="${inquire.inquireTitle}">
                                             <div>내용</div>
-                                            <textarea class="form-control" style="height: 300px" id="content"
+                                            <textarea class="form-control" style="height: 300px" id="inquireContent"
                                                       placeholder="문의 내용을 입력하세요"
                                                       name="inquireContent">${inquire.inquireContent}</textarea>
                                             <div class="inquire_write_modal_footer">
@@ -193,12 +191,8 @@
                             <!-- 다른 사용자의 경우에는 다른 HTML을 넣을 수 있음 -->
                         </c:otherwise>
                     </c:choose>
-
                 </div>
-
             </div>
-
-
         </div>
     </c:forEach>
 
@@ -241,6 +235,7 @@
             selectedValueInput.value = dropdown.value;
         });
     });
+
 
 </script>
 

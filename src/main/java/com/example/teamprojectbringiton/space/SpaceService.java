@@ -88,6 +88,9 @@ public class SpaceService {
     }
 
     public List<SpaceUserIdPicJoinDTO> findAllJoinUserIdAndSpacePicId(Integer id) {
+        System.out.println("서비스 진입해서 조회함 : " + spaceRepository.findAllJoinUserIdAndSpacePicId(id).get(0).getSpaceName());
+        System.out.println("서비스 진입해서 조회함 : " + spaceRepository.findAllJoinUserIdAndSpacePicId(id).get(0).getSpacePic());
+        System.out.println("서비스 진입해서 조회함 : " + spaceRepository.findAllJoinUserIdAndSpacePicId(id).get(0).getSpaceLocation());
         return spaceRepository.findAllJoinUserIdAndSpacePicId(id);
 
     }
@@ -95,5 +98,27 @@ public class SpaceService {
     public void deleteById(Integer id) {
         System.out.println("서비스 왔따 : " + id);
         spaceRepository.deleteById(id);
+    }
+
+    public List<MySpaceReservationListDTO> findAllUserIdJoinReservationId(Integer userId) {
+        return spaceRepository.findAllUserIdJoinReservationId(userId);
+    }
+
+    public List<SpaceListDTO> insideSpace(int pageSize, int currentPage) {
+        int offset = currentPage * pageSize - pageSize;
+        System.out.println("offset:"+offset);
+        List<SpaceListDTO> spaceList = spaceRepository.findByInsideSpace(pageSize, offset);
+
+
+        return spaceList;
+    }
+
+    public List<SpaceListDTO> outsideSpace(int pageSize, int currentPage) {
+        int offset = currentPage * pageSize - pageSize;
+        System.out.println("offset:"+offset);
+        List<SpaceListDTO> spaceList = spaceRepository.findByOutsideSpace(pageSize, offset);
+
+
+        return spaceList;
     }
 }

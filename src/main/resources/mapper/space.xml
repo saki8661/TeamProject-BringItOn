@@ -47,6 +47,17 @@
         where user_id = #{user_id}
     </select>
 
+    <select id="findAllUserIdJoinReservationId"
+            resultType="com.example.teamprojectbringiton.space.dto.response.MySpaceReservationListDTO">
+        SELECT *
+        FROM space_tb AS s
+                 JOIN reservation_tb AS r ON s.id = r.space_id
+                 JOIN user_tb AS u ON r.user_id = u.id
+                 JOIN reservation_time_tb AS rt ON r.reservation_time_id = rt.id
+        WHERE s.user_id = #{id}
+        ORDER BY r.reservation_date ASC;
+    </select>
+
     <select id="findAllJoinUserIdAndSpacePicId"
             resultType="com.example.teamprojectbringiton.space.dto.response.SpaceUserIdPicJoinDTO">
         SELECT *
@@ -93,6 +104,32 @@
     <select id="findAllCount" resultType="int">
         select count(*)
         from space_tb;
+    </select>
+
+    <select id="findByInsideSpace" resultType="com.example.teamprojectbringiton.space.dto.response.SpaceListDTO">
+        select *
+        from space_tb space
+            left join sport_tb sport
+        on space.sport_id = sport.id
+            left join space_pic_tb pic
+            on space.id = pic.space_id
+        where space.is_inside = true
+        order by space.id desc
+            limit #{pageSize}
+        offset #{offset}
+    </select>
+
+    <select id="findByOutsideSpace" resultType="com.example.teamprojectbringiton.space.dto.response.SpaceListDTO">
+        select *
+        from space_tb space
+            left join sport_tb sport
+        on space.sport_id = sport.id
+            left join space_pic_tb pic
+            on space.id = pic.space_id
+        where space.is_inside = false
+        order by space.id desc
+            limit #{pageSize}
+        offset #{offset}
     </select>
 
 </mapper>
