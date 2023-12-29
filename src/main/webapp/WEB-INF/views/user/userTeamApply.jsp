@@ -16,8 +16,8 @@
                     <div class="userTeamApply_item">
                         <c:choose>
                             <c:when test="${empty applyUser}">
-                                <div class="userTeamApply_item_empty">
-                                    <div class="userTeamAPPly_empty_box">
+                                <div class="userInfo_item_empty">
+                                    <div>
                                         <div>신청 내역이 없습니다.</div>
                                     </div>
                                 </div>

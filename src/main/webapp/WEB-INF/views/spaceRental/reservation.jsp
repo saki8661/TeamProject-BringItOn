@@ -15,7 +15,7 @@
 
 
 <div class="reservation_background">
-    <form method="post" action="/reservation/${reservationName.spaceId}">
+    <form method="post" action="/reservation">
         <div class="reservation_container">
 
             <div class="re_acception">
@@ -36,11 +36,11 @@
                             <div class="re_choice_place_letter_field">
                                 <h3>${reservationName.spaceLocation}</h3>
                             </div>
-                            <div class="re_choice_place_letter_time">
-                                <h2>낮대관(12~17시)</h2>
-                            </div>
+
                             <div class="re_choice_place_letter_cost">
-                                <h2>${reservationName.price}</h2>
+
+                                <h2>시간당 : ${reservationName.price}원</h2>
+
                             </div>
                         </div>
                     </div>
@@ -84,24 +84,25 @@
                 <hr class="reservation_line">
                 <div class="re_time_choice_caution">
                     <h2>대관 운영 시간 </h2>
+                    <div style="width: 5px"></div>
                     <img width="18" height="18" src="https://img.icons8.com/color/48/spam.png" alt="spam"/>
                     <div class="re_time_choice_caution_red">
-                        <h2>00:00~23:59</h2>
+                        <h2>${reservationName.bizStartTime}~${reservationName.bizEndTime}</h2>
                     </div>
                 </div>
-                <form>
-                    <p><input type="time"></p>
-                    <p><input type="submit" value="Submit"></p>
-                </form>
+                <select name="reservationTimeId" id="timeList">
+                </select>
+
+
             </div>
+            <div class="div_box"></div>
             <div class="re_person_choice">
                 <div class="re_choice_letter">
                     인원 선택
                 </div>
                 <hr class="reservation_line">
                 <div class="re_person_caution">
-                    <h2>2명 초과부터 1명당 20,000원이 추가됩니다.</h2>
-                    <h2>공간의 최대 인원은 6명입니다.</h2>
+                    <h2>공간의 최대 인원은 ${reservationName.capacity}명입니다.</h2>
                 </div>
                 <input type="hidden" name="personnel" id="personnel">
                 <div class="re_person_count" id="personnelId">
@@ -125,7 +126,6 @@
                 </div>
                 <hr class="reservation_line">
                 <div class="re_host_send_container">
-                    <input type="hidden">
                     <textarea class="re_host_send_container_txt" name="toHost" id="to_host"
                               placeholder="호스트에게 전달하고 싶은 내용을 적어주세요." style="color: black"></textarea>
                 </div>
@@ -138,8 +138,9 @@
             </div>
             <input type="hidden" name="spaceId" value="${reservationName.spaceId}">
             <input type="hidden" name="userId" value="${sessionUser.id}">
+            <input type="hidden" id="selectedDate" name="reservationDate">
             <div class="reservation_button">
-                <button class="reservation_button_detail" type="submit">
+                <button class="reservation_button_detail" onclick="submitReservation()" type="submit">
                     예약하기
                 </button>
             </div>
@@ -148,7 +149,11 @@
     </form>
 
     <script>
+
+
+        // 여기에 스크립트 코드 작성
         window.onload = function () {
+            console.log("자바스크립트 실행")
             buildCalendar();
         }    // 웹 페이지가 로드되면 buildCalendar 실행
 
@@ -156,13 +161,20 @@
         let today = new Date();     // 페이지를 로드한 날짜를 저장
         today.setHours(0, 0, 0, 0);    // 비교 편의를 위해 today의 시간을 초기화
 
+        console.log("nowMonth" + nowMonth);
+        console.log("today" + today);
+
+
         // 달력 생성 : 해당 달에 맞춰 테이블을 만들고, 날짜를 채워 넣는다.
         function buildCalendar() {
 
             let firstDate = new Date(nowMonth.getFullYear(), nowMonth.getMonth(), 1);     // 이번달 1일
             let lastDate = new Date(nowMonth.getFullYear(), nowMonth.getMonth() + 1, 0);  // 이번달 마지막날
+            console.log("firstDate" + firstDate);
+            console.log("lastDate" + lastDate);
 
             let tbody_Calendar = document.querySelector(".re_calendar_real > tbody");
+            console.log("tbody_Calendar" + tbody_Calendar);
             document.getElementById("calYear").innerText = nowMonth.getFullYear();             // 연도 숫자 갱신
             document.getElementById("calMonth").innerText = leftPad(nowMonth.getMonth() + 1);  // 월 숫자 갱신
 
@@ -171,6 +183,8 @@
             }
 
             let nowRow = tbody_Calendar.insertRow();        // 첫번째 행 추가
+            console.log("nowRow" + nowRow);
+
 
             for (let j = 0; j < firstDate.getDay(); j++) {  // 이번달 1일의 요일만큼
                 let nowColumn = nowRow.insertCell();        // 열 추가
@@ -213,6 +227,12 @@
                 document.getElementsByClassName("choiceDay")[0].classList.remove("choiceDay");  // 해당 날짜의 "choiceDay" class 제거
             }
             nowColumn.classList.add("choiceDay");           // 선택된 날짜에 "choiceDay" class 추가
+
+            // 선택한 날짜를 변수에 저장
+            var selectedDate = nowColumn.innerText;
+
+            // form의 hidden input에 선택한 날짜 값을 할당
+            document.getElementById("selectedDate").value = selectedDate;
         }
 
         // 이전달 버튼 클릭
@@ -235,21 +255,94 @@
             }
             return value;
         }
+
         function choiceDate(nowColumn) {
             if (document.getElementsByClassName("choiceDay")[0]) {                              // 기존에 선택한 날짜가 있으면
                 document.getElementsByClassName("choiceDay")[0].classList.remove("choiceDay");  // 해당 날짜의 "choiceDay" class 제거
             }
             nowColumn.classList.add("choiceDay");           // 선택된 날짜에 "choiceDay" class 추가
 
+            var spaceId = `${reservationName.spaceId}`; // 템플릿 리터럴로 감싸기
+            var reservationDate = getSelectedDate();
+            console.log(spaceId);
+            console.log("showTimeChoice 호출")
             // 날짜를 선택하면 시간 선택 부분을 표시
-            showTimeChoice();
+            showTimeChoice(spaceId, reservationDate);
         }
 
-        function showTimeChoice(){
+        function showTimeChoice(spaceId, date) {
+
+            $.ajax({
+                url: '/time-list-find/' + spaceId + "/" + date,
+                type: 'GET',
+                success: function (response) {
+                    console.log(response);
+                    $(document).ready(function () {
+                        updateTimeList(response, date);
+
+                    });
+                },
+                error: function (error) {
+                    console.error(error);
+                }
+            });
+
+        }
+
+        function updateTimeList(response, date) {
             var timeChoiceSection = document.querySelector('.re_time_choice');
             timeChoiceSection.style.display = 'block';
+
+            // 현재 시간을 얻습니다.
+            var formattedTime = getCurrentTimeFormatted();
+
+            let tbody = document.querySelector('.re_time_choice #timeList');
+            tbody.innerHTML = "";
+
+            response.forEach(function (item) {
+
+                console.log("날짜 : " + date);
+
+                // 선택된 날짜가 오늘인 경우에만 현재 시간과 비교
+                if (dateIsToday(date)) {
+                    if (item.startTime > formattedTime) {
+                        tbody.innerHTML += '<option value=' + item.id + '>' +
+                            item.startTime + "~" + item.endTime + '</option>';
+                    }
+                } else {
+                    // 선택된 날짜가 오늘이 아닌 경우에는 그냥 출력
+                    tbody.innerHTML += '<option value=' + item.id + '>' +
+                        item.startTime + "~" + item.endTime + '</option>';
+                }
+            });
         }
 
+        // 선택된 날짜가 오늘인지 확인하는 함수
+        function dateIsToday(selectedDate) {
+            var today = new Date();
+            var selected = new Date(selectedDate);
+            return (
+                today.getDate() === selected.getDate() &&
+                today.getMonth() === selected.getMonth() &&
+                today.getFullYear() === selected.getFullYear()
+            );
+        }
+
+        // 현재시간 -> 00:00:00 형식으로 변환
+        function getCurrentTimeFormatted() {
+            var currentTime = new Date();
+
+            var options = {
+                hour: 'numeric',
+                minute: 'numeric',
+                second: 'numeric',
+                hour12: false
+            };
+
+            var timeFormat = new Intl.DateTimeFormat('en-US', options);
+
+            return timeFormat.format(currentTime);
+        }
 
         function count(type) {
             // 결과를 표시할 element
@@ -257,9 +350,10 @@
 
             // 현재 화면에 표시된 값
             let number = parseInt(resultElement.innerText);
+            let capacity = `${reservationName.capacity}`
 
             // 더하기/빼기
-            if (type === 'plus' && number < 6) {
+            if (type === 'plus' && number < capacity) {
                 number = number + 1;
 
             } else if (type === 'minus' && number > 0) {
@@ -273,6 +367,30 @@
             document.getElementById("personnel").value = number;
         }
 
+        // 선택된 날짜를 가져오는 함수 (날짜 포맷: 'YYYY-MM-DD')
+        function getSelectedDate() {
+            const selectedDateElement = document.querySelector('.choiceDay');
+            console.log("서브밋 이후 함수 : " + selectedDateElement);
+
+            if (selectedDateElement) {
+                const year = nowMonth.getFullYear();
+                const month = leftPad(nowMonth.getMonth() + 1);
+                const day = leftPad(selectedDateElement.innerText);
+
+                return year + "-" + month + "-" + day;
+            } else {
+                return null; // 선택된 날짜가 없을 경우에 대한 처리를 추가할 수 있습니다.
+            }
+        }
+
+        // submit
+        function submitReservation() {
+            console.log("서브밋 버튼 누름" + getSelectedDate())
+            document.getElementById("selectedDate").value = getSelectedDate();// getSelectedDate는 실제로 선택된 날짜를 가져오는 함수로 변경 필요
+
+            // form submit
+            document.getElementById("reservationForm").submit();
+        }
 
         // 라디오 버튼 언체크 함수
         function uncheckRadio() {
@@ -302,93 +420,93 @@
             }
         }
 
-        $(document).ready(function(){
-
-            var storeAddress = $("#store_address").data("address");
-
-            var storeName = $("#store_name").data("store_name");
-
-            var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-
-                mapOption = {
-                    center: new kakao.maps.LatLng(33.25110701, 126.570667), // 지도의 중심좌표
-                    level: 3 // 지도의 확대 레벨
-                };
-
-            // 지도를 생성합니다
-            var map = new kakao.maps.Map(mapContainer, mapOption);
-
-            // 주소-좌표 변환 객체를 생성합니다
-            var geocoder = new kakao.maps.services.Geocoder();
-
-            // 주소로 좌표를 검색합니다
-            geocoder.addressSearch(storeAddress, function(result, status) {
-
-                // 정상적으로 검색이 완료됐으면
-                if (status === kakao.maps.services.Status.OK) {
-
-                    var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-                    // 결과값으로 받은 위치를 마커로 표시합니다
-                    var marker = new kakao.maps.Marker({
-                        map: map,
-                        position: coords
-                    });
-
-                    // 인포윈도우로 장소에 대한 설명을 표시합니다
-                    var infowindow = new kakao.maps.InfoWindow({
-                        content: '<div style="width:150px;text-align:center;padding:3px 0;">' + storeName + '</div>'
-                    });
-                    infowindow.open(map, marker);
-
-                    // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-                    map.setCenter(coords);
-
-
-                    $(".storePosition").click(function(){
-                        map.panTo(coords);
-                    })
-
-
-                }
-
-            });
-
-
-            var userAddress = $("#delevery_address").val();
-
-            if(userAddress != "" ) {
-                $(".userPosition").css("display" , "inline");
-
-                // 주소로 좌표를 검색합니다
-                geocoder.addressSearch(userAddress, function(result, status) {
-
-                    // 정상적으로 검색이 완료됐으면
-                    if (status === kakao.maps.services.Status.OK) {
-
-                        coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-
-                        // 결과값으로 받은 위치를 마커로 표시합니다
-                        var marker = new kakao.maps.Marker({
-                            map: map,
-                            position: coords
-                        });
-
-                        // 인포윈도우로 장소에 대한 설명을 표시합니다
-                        var infowindow = new kakao.maps.InfoWindow({
-                            content: '<div style="width:150px;text-align:center;padding:3px 0;">' + "배달받을위치" + '</div>'
-                        });
-                        infowindow.open(map, marker);
-
-                        $(".userPosition").click(function(){
-                            map.panTo(coords);
-                        })
-                    }
-                });
-
-            }
-
-        })
+        // $(document).ready(function () {
+        //
+        //     var storeAddress = $("#store_address").data("address");
+        //
+        //     var storeName = $("#store_name").data("store_name");
+        //
+        //     var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+        //
+        //         mapOption = {
+        //             center: new kakao.maps.LatLng(33.25110701, 126.570667), // 지도의 중심좌표
+        //             level: 3 // 지도의 확대 레벨
+        //         };
+        //
+        //     // 지도를 생성합니다
+        //     var map = new kakao.maps.Map(mapContainer, mapOption);
+        //
+        //     // 주소-좌표 변환 객체를 생성합니다
+        //     var geocoder = new kakao.maps.services.Geocoder();
+        //
+        //     // 주소로 좌표를 검색합니다
+        //     geocoder.addressSearch(storeAddress, function (result, status) {
+        //
+        //         // 정상적으로 검색이 완료됐으면
+        //         if (status === kakao.maps.services.Status.OK) {
+        //
+        //             var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+        //
+        //             // 결과값으로 받은 위치를 마커로 표시합니다
+        //             var marker = new kakao.maps.Marker({
+        //                 map: map,
+        //                 position: coords
+        //             });
+        //
+        //             // 인포윈도우로 장소에 대한 설명을 표시합니다
+        //             var infowindow = new kakao.maps.InfoWindow({
+        //                 content: '<div style="width:150px;text-align:center;padding:3px 0;">' + storeName + '</div>'
+        //             });
+        //             infowindow.open(map, marker);
+        //
+        //             // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+        //             map.setCenter(coords);
+        //
+        //
+        //             $(".storePosition").click(function () {
+        //                 map.panTo(coords);
+        //             })
+        //
+        //
+        //         }
+        //
+        //     });
+        //
+        //
+        //     var userAddress = $("#delevery_address").val();
+        //
+        //     if (userAddress != "") {
+        //         $(".userPosition").css("display", "inline");
+        //
+        //         // 주소로 좌표를 검색합니다
+        //         geocoder.addressSearch(userAddress, function (result, status) {
+        //
+        //             // 정상적으로 검색이 완료됐으면
+        //             if (status === kakao.maps.services.Status.OK) {
+        //
+        //                 coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+        //
+        //                 // 결과값으로 받은 위치를 마커로 표시합니다
+        //                 var marker = new kakao.maps.Marker({
+        //                     map: map,
+        //                     position: coords
+        //                 });
+        //
+        //                 // 인포윈도우로 장소에 대한 설명을 표시합니다
+        //                 var infowindow = new kakao.maps.InfoWindow({
+        //                     content: '<div style="width:150px;text-align:center;padding:3px 0;">' + "배달받을위치" + '</div>'
+        //                 });
+        //                 infowindow.open(map, marker);
+        //
+        //                 $(".userPosition").click(function () {
+        //                     map.panTo(coords);
+        //                 })
+        //             }
+        //         });
+        //
+        //     }
+        //
+        // })
 
 
     </script>

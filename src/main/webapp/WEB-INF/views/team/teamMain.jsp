@@ -10,23 +10,17 @@
                 공간 대여
             </a>
             <ul class="dropdown-menu sub_navbar_style">
-                <li><a class="dropdown-item" href="#">실내 스포츠</a></li>
-                <li><a class="dropdown-item" href="#">야외 스포츠</a></li>
+                <li><a class="dropdown-item" href="/insideSpace">실내 스포츠</a></li>
+                <li><a class="dropdown-item" href="/outsideSpace">야외 스포츠</a></li>
             </ul>
         </li>
 
         <li class="main_link">
             <a href="/team-main">팀</a>
         </li>
-
         <li class="main_link">
             <a href="/matching-main">매칭</a>
         </li>
-
-        <li class="main_link">
-            <a href="/league-main">리그</a>
-        </li>
-
         <li class="main_link">
             <a href="/board-main">게시판</a>
         </li>
@@ -107,5 +101,77 @@
         });
     });
 
+    team_filter_order
+    $('#team_filter_location').on('change', function () {
+        let selectedValue = $(this).val();
+
+        $.ajax({
+            url: '/api/team-location?keyword=' + selectedValue,
+            type: 'GET',
+            contentType: "application/json",
+            success: function (response) {
+                updateTeamList(response)
+                console.log('Server response:', response);
+            },
+            error: function (error) {
+
+            }
+        });
+    });
+
+    $('#team_filter_order').on('change', function () {
+        let selectedValue = $(this).val();
+        console.log(selectedValue)
+        $.ajax({
+            url: '/api/team-filter?orderBy=' + selectedValue,
+            type: 'GET',
+            contentType: "application/json",
+            success: function (response) {
+                updateTeamList(response)
+                console.log('Server response:', response);
+            },
+            error: function (error) {
+
+            }
+        });
+    });
+
+    function updateTeamList(data) {
+        $(".team_list").empty();
+        var htmlString = "";
+        data.forEach(function (teamItem) {
+            htmlString += '<button type="button" class="" data-bs-toggle="modal" data-bs-target="#teamDetail-' + teamItem.id + '">' +
+                '<div class="team_list_item">' +
+                '<div class="team_list_item_logo">' +
+                '<img width="100" height="100" src="./images/' + teamItem.teamPicUrl + '" alt="duolingo-logo"/>' +
+                '</div>' +
+                '<div class="team_list_item_content">' +
+                '<div class="team_list_item_firstLine">' +
+                '<div class="team_list_item_name">' + teamItem.teamName + '</div>' +
+                '<div class="team_list_item_capacity">' +
+                '<img width="15" height="15" src="https://img.icons8.com/material-two-tone/15/user.png" alt="user"/>' +
+                teamItem.teamCapacity +
+                '</div>' +
+                '</div>' +
+                '<div class="team_list_item_location">' + teamItem.teamLocation + '</div>' +
+                '<div class="team_list_item_tag">' +
+                '<div>' + teamItem.gender + '</div>' +
+                '<div>' + teamItem.sportName + '</div>' +
+                '<div>' + teamItem.age + '</div>' +
+                '<div>' + teamItem.position + '</div>' +
+                '</div>' +
+                '<div class="team_list_item_spacer"></div>' +
+                '<div class="team_list_item_etc">조회 1</div>' +
+                '</div>' +
+                '</div>' +
+                '</button>';
+        });
+        $(".team_list").append(htmlString);
+    }
+
 </script>
 <%@ include file="../layout/footer.jsp" %>
+<div>${teamItem.gender}</div>
+<div>${teamItem.sportName}</div>
+<div>${teamItem.age}</div>
+<div>${teamItem.position}</div>

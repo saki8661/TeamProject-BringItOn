@@ -55,4 +55,13 @@ public class ReviewService {
         return reviewCount;
     }
 
+
+
+    @Transactional
+    public void deleteReview(Integer id) {
+        reviewRepository.deleteByReviewId(id);
+
+    }
+
+
 }

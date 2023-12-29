@@ -16,7 +16,7 @@
             <input type="hidden" name="userId" value="${space.userId}">
             <div class="re_acception">
                 <div class="re_acception_letter">
-                    <h3>시설 등록</h3>
+                    <h3>시설 수정</h3>
                 </div>
                 <div class="re_choice_place">
                     <div class="re_choice_letter"><h3> 시설명 </h3></div>

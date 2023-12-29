@@ -4,40 +4,14 @@
     <div class="team_filter_area">
         <select name="location" id="team_filter_location">
             <option value="myLocation">내 지역</option>
-            <option value="Seoul">서울</option>
-            <option value="Kyougki">경기</option>
-            <option value="Pusan">부산</option>
+            <c:forEach var="regionList" items="${regionList}">
+                <option value="${regionList.regionName}">${regionList.regionName}</option>
+            </c:forEach>
         </select>
         <label for="team_filter_order"></label>
         <select name="order" id="team_filter_order">
-            <option value="views">조회순</option>
-            <option value="popularity">인기순</option>
             <option value="latest">최신순</option>
-        </select>
-        <label for="team_filter_category"></label>
-        <select name="category" id="team_filter_category">
-            <option value="soccer">축구</option>
-            <option value="futsal">풋살</option>
-            <option value="basketball">농구</option>
-        </select>
-        <label for="team_filter_position"></label>
-        <select name="position" id="team_filter_position">
-            <option value="fw">공격</option>
-            <option value="df">수비</option>
-        </select>
-        <label for="team_filter_gender"></label>
-        <select name="gender" id="team_filter_gender">
-            <option value="all">남녀모두</option>
-            <option value="man">남자</option>
-            <option value="women">여자</option>
-        </select>
-        <label for="team_filter_age"></label>
-        <select name="age" id="team_filter_age">
-            <option value="teen">10대 ~ 20대</option>
-            <option value="twenties">20대 ~ 30대</option>
-            <option value="thirties">30대 ~ 40대</option>
-            <option value="forties">40대 ~ 50대</option>
-            <option value="others">50대 이상</option>
+            <option value="capacity">인원순</option>
         </select>
     </div>
 
@@ -62,10 +36,10 @@
                             </div>
                             <div class="team_list_item_location">${teamItem.teamLocation}</div>
                             <div class="team_list_item_tag">
-                                <div>남녀 모두</div>
+                                <div>${teamItem.gender}</div>
                                 <div>${teamItem.sportName}</div>
-                                <div>20대~30대</div>
-                                <div>올라운드</div>
+                                <div>${teamItem.age}</div>
+                                <div>${teamItem.position}</div>
                             </div>
                             <div class="team_list_item_spacer"></div>
                             <div class="team_list_item_etc">조회 1</div>
@@ -89,14 +63,31 @@
                             <div class="modal-body">
                                 <div class="container-fluid">
                                     <div class="row">
-                                        <!-- 왼쪽 컬럼 -->
                                         <div class="col-md-3">
-                                                ${teamDetailItem.teamLocation}
+                                            <div class="team_detail_modal_logo">
+                                                <img src="/images/${teamDetailItem.teamPicUrl}">
+                                            </div>
                                         </div>
-                                        <!-- 오른쪽 컬럼 -->
                                         <div class="col-md-9">
-                                                ${teamDetailItem.teamIntroduce}
+                                            <div class="team_detail_modal_introduce">
+                                                    ${teamDetailItem.teamIntroduce}
+                                            </div>
                                         </div>
+                                    </div>
+                                </div>
+                                <div class="team_detail_modal_content">
+                                    <div class="col-md-6">
+                                        <div class="team_detail_modal_location">
+                                            활동 지역 : ${teamDetailItem.teamLocation}
+                                        </div>
+                                        <div class="team_detail_modal_sportname">
+                                            활동 스포츠 : ${teamDetailItem.sportName}
+                                        </div>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <div class="team_detail_modal_capacity">인원
+                                            : ${teamDetailItem.teamCapacity}</div>
+                                        <div class="team_detail_modal_age">연령대 : ${teamDetailItem.age}</div>
                                     </div>
                                 </div>
                             </div>

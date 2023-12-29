@@ -15,6 +15,7 @@ public class MatchingReservationDTO {
     private Integer personnel;
     private String status;
     private Date reservationDate;
+    private Integer reservationTimeId;
     private Time startTime;
     private Time endTime;
     private Integer teamId;
@@ -24,7 +25,7 @@ public class MatchingReservationDTO {
     private String spaceName;
     private String spaceLocation;
     private String spacePic;
-    private String pricePerHour;
+    private String price;
     private Integer matchingId;
     private String matchingStatus;
 }

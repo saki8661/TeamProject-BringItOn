@@ -12,6 +12,7 @@ public class NoticeListDTO {
     private String noticeTitle;
     private String noticeContent;
     private Timestamp createdAt;
+    private Integer userId;
     private Integer noticeCategoryId;
     private String noticeCategory;
 }

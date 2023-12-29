@@ -11,12 +11,19 @@ import java.util.List;
 public interface ReviewRepository {
     public void insert(Review review);
 
-   public int getCommentCount(@Param("spaceId") Integer spaceId);
+
+
+    public int getCommentCount(@Param("spaceId") Integer spaceId);
+
 
    public  double ratingAvg(@Param("spaceId") Integer spaceId);
 
     public List<ReviewListDTO> findByUserId(Integer id, @Param("pageSize") int pageSize, @Param("offset") int offset);
 
     int findByUserIdCount(Integer id);
+
+
+    void deleteByReviewId(@Param("id") Integer id);
+
 
 }

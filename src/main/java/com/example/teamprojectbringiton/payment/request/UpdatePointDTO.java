@@ -6,5 +6,4 @@ import lombok.Data;
 public class UpdatePointDTO {
     private Integer id;
     private Integer nowPoint;
-
 }

@@ -85,9 +85,14 @@ public class UserController {
         UserPointDTO userPointDTO = userService.findByIdJoinPoint(user.getId());
         session.setAttribute("userPoint", userPointDTO);
 
+        if (user.getUserDivision().equals("host")) {
+            return "redirect:/host/management-main/" + user.getId();
+        }
+
         if (user.getUserDivision().equals("admin")) {
             return "redirect:/admin/admin-main";
         }
+
         return "redirect:/home";
     }
 
@@ -140,7 +145,7 @@ public class UserController {
     public String logout() {
 
         session.invalidate();
-        return "redirect:/login";
+        return "redirect:/kakao-login";
     }
 
     @GetMapping("/user/mypage/{id}")
@@ -188,12 +193,6 @@ public class UserController {
         return "user/userTeam";
     }
 
-    @GetMapping("/user/bookmark/{id}")
-
-    public String userBookmarkManagementPage(@PathVariable Integer id) {
-        return "user/userBookmark";
-    }
-
     @GetMapping("/user/payment/{id}")
     public String userPaymentPage(@PathVariable Integer id) {
         return "user/userPayment";
@@ -211,12 +210,12 @@ public class UserController {
     }
 
     @GetMapping("/user/setting/{id}")
-    public String userSettingPage(){
+    public String userSettingPage() {
         return "user/userSetting";
     }
 
     @GetMapping("/user/team-apply/{id}")
-    public String userTeamApplyPage(@PathVariable Integer id, Model model){
+    public String userTeamApplyPage(@PathVariable Integer id, Model model) {
         List<User> applyUser = userService.searchTeamApplyList(id);
         model.addAttribute("applyUser", applyUser);
         return "user/userTeamApply";

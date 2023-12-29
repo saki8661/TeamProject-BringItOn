@@ -16,7 +16,7 @@ public class TeamDetailDTO {
     private String age;
     private String gender;
     private String position;
-    private String sport;
+    private String sportName;
     private String userId;
     private Timestamp createdAt;
 }

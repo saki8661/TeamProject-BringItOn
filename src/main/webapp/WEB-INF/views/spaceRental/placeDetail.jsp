@@ -9,8 +9,6 @@
                 <div class="slider-container">
                     <div class="slider" style="border-radius: 10px">
                         <img src="/img/${spaceDetail.spacePic}" alt="Image 1">
-                        <img src="/img/${spaceDetail.spacePic}" alt="Image 2">
-                        <img src="/img/${spaceDetail.spacePic}" alt="Image 3">
                         <!-- Add more images as needed -->
                     </div>
                     <div class="place_detail_slider_button">
@@ -39,6 +37,7 @@
                         </div>
                         <div class="separated_line"></div>
                         <div class="place_detail_review">
+
                             후기 ${commentCount}
                         </div>
 
@@ -330,7 +329,9 @@
             //4 : 데이터를 전부 받은 상태
             if (xhr.readyState == 4 && xhr.status == 404) {
                 // HttpStatus가 BAD_REQUEST인 경우
+
                 alert('일반 유저만 이용 가능합니다.');
+
             }
             if (xhr.readyState == 4 && xhr.status == 200) {
                 // 서버에서의 응답 처리
@@ -442,6 +443,7 @@
     }
 
     // 주소로 좌표를 검색합니다
+
     geocoder.addressSearch('${spaceDetail.spaceLocation}', function (result, status) {
         console.log(result, status);
 

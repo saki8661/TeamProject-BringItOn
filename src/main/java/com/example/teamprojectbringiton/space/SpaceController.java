@@ -9,6 +9,7 @@ import com.example.teamprojectbringiton.space.dto.request.SaveDTO;
 import com.example.teamprojectbringiton.space.dto.request.UpdateDTO;
 import com.example.teamprojectbringiton.space.dto.response.SpaceDTO;
 import com.example.teamprojectbringiton.space.dto.response.SpaceDetailDTO;
+import com.example.teamprojectbringiton.space.dto.response.SpaceListDTO;
 import com.example.teamprojectbringiton.space.dto.response.SpaceReviewDTO;
 import com.example.teamprojectbringiton.space.spacePic.SpacePic;
 import com.example.teamprojectbringiton.space.spacePic.SpacePicService;
@@ -41,6 +42,7 @@ public class SpaceController {
 
     @Autowired
     private ReviewService reviewService;
+
 
   
     @Autowired
@@ -107,6 +109,7 @@ public class SpaceController {
         return "redirect:/management-main/" + user.getId();
     }
 
+
     @GetMapping("/space-detail/{id}")
     public String placeDetailPage(@PathVariable Integer id, Model model) {
       User user =(User) session.getAttribute("sessionUser");
@@ -125,13 +128,16 @@ public class SpaceController {
         model.addAttribute("currentTime", currentTime);
         int commentCount = reviewService.addReviewAndCommentCount(id);
         model.addAttribute("commentCount", commentCount);
+
         double starAvg = reviewService.ratingStarAvg(id);
         model.addAttribute("starAvg", starAvg);
+
         int spaceInquireCount = spaceInquireService.inquireTotalCount(id);
         model.addAttribute("spaceInquireCount", spaceInquireCount);
 
         int spaceAnswerCount = spaceInquireService.inqAnswerCount(id,user.getId());//userId를 받으려면??
         model.addAttribute("spaceAnswerCount", spaceAnswerCount);
+
 
         return "/spaceRental/placeDetail";
     }
@@ -160,6 +166,44 @@ public class SpaceController {
         // 페이징 정보를 모델에 추가
 
         return "/home";
+    }
+
+    @GetMapping("/insideSpace")
+    public String insideSpace(@RequestParam(name = "currentPage", defaultValue = "1") int currentPage,
+                              @RequestParam(name = "pageSize", defaultValue = "8") int pageSize, Model model){
+        List<SpaceListDTO> spaceList = spaceService.insideSpace(pageSize, currentPage);
+
+        PageVO pageVO = new PageVO();
+
+        pageVO.setCurrentPage(currentPage);
+        pageVO.setCountPerPage(pageSize);
+        pageVO.setLastPage((int) Math.ceil((double) 54 / pageSize));
+        pageVO.setFirstPage(1);
+        pageVO.setPageSize(8); // 기본값 설정
+        pageVO.setCountSize(5);
+
+        model.addAttribute("spaceList", spaceList);
+        model.addAttribute("pageVO", pageVO);
+        return "/spaceRental/insideSpace";
+    }
+
+    @GetMapping("/outsideSpace")
+    public String outsideSpace(@RequestParam(name = "currentPage", defaultValue = "1") int currentPage,
+                              @RequestParam(name = "pageSize", defaultValue = "8") int pageSize, Model model){
+        List<SpaceListDTO> spaceList = spaceService.outsideSpace(pageSize, currentPage);
+
+        PageVO pageVO = new PageVO();
+
+        pageVO.setCurrentPage(currentPage);
+        pageVO.setCountPerPage(pageSize);
+        pageVO.setLastPage((int) Math.ceil((double) 54 / pageSize));
+        pageVO.setFirstPage(1);
+        pageVO.setPageSize(8); // 기본값 설정
+        pageVO.setCountSize(5);
+
+        model.addAttribute("spaceList", spaceList);
+        model.addAttribute("pageVO", pageVO);
+        return "/spaceRental/outsideSpace";
     }
 
 }

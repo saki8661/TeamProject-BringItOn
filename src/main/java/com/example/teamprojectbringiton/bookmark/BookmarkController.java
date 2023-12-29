@@ -2,15 +2,13 @@ package com.example.teamprojectbringiton.bookmark;
 
 import com.example.teamprojectbringiton._core.handler.exception.CustomPageException;
 import com.example.teamprojectbringiton._core.utils.ApiUtils;
-import com.example.teamprojectbringiton.bookmark.request.BookmarkDTO;
-import com.example.teamprojectbringiton.reservation.ReservationService;
-import com.example.teamprojectbringiton.reservation.dto.response.UserReservationListDTO;
-import com.example.teamprojectbringiton.spaceInquire.request.SpaceInquireDTO;
+import com.example.teamprojectbringiton.bookmark.dto.request.BookmarkDTO;
+import com.example.teamprojectbringiton.bookmark.dto.response.BookmarkListDTO;
 import com.example.teamprojectbringiton.user.User;
 import jakarta.servlet.http.HttpSession;
-import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -37,6 +35,21 @@ public class BookmarkController {
         System.out.println("+++북마크 dto잘담김+++" + dto.getUserId());
         // 성공하면 ApiUtils에 프론트에서 필요한 데이터 담아서 줌
         return new ApiUtils<String>(true, "성공");
+    }
+
+
+    @GetMapping("/user/bookmark/{id}")
+    public String userBookmarkManagementPage(@PathVariable Integer id, Model model) {
+        List<BookmarkListDTO> bookmarkList = bookmarkService.bookmarkList(id);
+        model.addAttribute("bookmarkList", bookmarkList);
+        return "user/userBookmark";
+    }
+
+    @GetMapping("/api/bookmark-delete/{id}")
+    @ResponseBody
+    public ResponseEntity<String> deleteBookmark(@PathVariable Integer id) {
+        bookmarkService.deleteBookmark(id);
+        return ResponseEntity.ok("Bookmark deleted successfully.");
     }
 
 }

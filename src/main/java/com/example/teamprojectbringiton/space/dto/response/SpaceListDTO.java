@@ -12,6 +12,7 @@ public class SpaceListDTO {
     private String spaceLocation;
     private Integer sportId;
     private String sportName;
-
+    private Integer spacePicId;
+    private String spacePic;
 
 }

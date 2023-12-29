@@ -1,6 +1,8 @@
 package com.example.teamprojectbringiton.spaceInquire;
 
+
 import com.example.teamprojectbringiton.spaceInquire.request.SpaceInqUpdateDTO;
+
 import com.example.teamprojectbringiton.spaceInquire.response.SpaceInquireDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

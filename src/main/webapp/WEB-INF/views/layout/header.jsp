@@ -63,9 +63,19 @@
     <div class="frame">
         <nav class="navbar navbar-expand-sm nav_bar">
             <div class="container-fluid">
-                <a class="nav_logo" href="/">
-                    <img src="/images/logo.png">
-                </a>
+                <c:choose>
+                    <c:when test="${sessionUser.userDivision eq 'host'}">
+                        <a class="nav_logo" href="/host/management-main/${sessionUser.id}">
+                            <img src="/images/logo.png">
+                        </a>
+                    </c:when>
+                    <c:otherwise>
+                        <a class="nav_logo" href="/">
+                            <img src="/images/logo.png">
+                        </a>
+                    </c:otherwise>
+                </c:choose>
+
                 <form class="d-flex">
                     <div class="search_form">
                         <input class="form-control" type="text" placeholder="무엇이든 검색해보세요.">
@@ -76,7 +86,7 @@
                 </form>
                 <c:choose>
                     <c:when test="${sessionUser.userDivision eq 'host'}">
-                    <a class="nav_add" href="/host/place-registration">시설등록</a>
+                        <a class="nav_add" href="/host/place-registration">시설등록</a>
                     </c:when>
                 </c:choose>
                 <div class="header_auth">

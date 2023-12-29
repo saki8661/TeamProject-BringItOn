@@ -22,7 +22,9 @@ public class ReservationInterceptor implements HandlerInterceptor {
             System.out.println("어드민인터셉터 : 웹 권한없음");
             response.setHeader("Content-Type", "text/html; charset=utf-8");
             PrintWriter out = response.getWriter();
+
             out.println(Script.back("일반 유저만 이용 가능합니다."));
+
             return false;
         }
         return true;

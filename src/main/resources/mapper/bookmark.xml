@@ -22,4 +22,18 @@
         FROM bookmark_tb
         WHERE space_id = #{spaceId} AND user_id = #{userId}
     </select>
+    
+    <select id="findByUserId" resultType="com.example.teamprojectbringiton.bookmark.dto.response.BookmarkListDTO">
+        SELECT *
+        FROM bookmark_tb b
+                 JOIN user_tb u
+                      ON b.user_id = u.id
+                 JOIN space_tb s
+                      on b.space_id = s.id
+                 JOIN space_pic_tb sp
+                      on s.id = sp.space_id
+                 JOIN sport_tb sport
+                      on sport.id = s.sport_id
+        WHERE u.id = #{id}
+    </select>
 </mapper>

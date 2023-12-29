@@ -52,6 +52,7 @@
         from inquire_tb i
                  join inquire_category_tb ic
                       on i.inquire_category_id = ic.id
+        order by i.id desc;
     </select>
 
     <select id="findByInquireCategoryId" resultType="com.example.teamprojectbringiton.inquire.Inquire">

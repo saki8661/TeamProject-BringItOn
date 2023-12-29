@@ -1,10 +1,16 @@
 package com.example.teamprojectbringiton.bookmark;
 
-import com.example.teamprojectbringiton.bookmark.request.BookmarkDTO;
+
+import com.example.teamprojectbringiton.bookmark.dto.request.BookmarkDTO;
+import com.example.teamprojectbringiton.bookmark.dto.response.BookmarkListDTO;
+
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
+
 
 @Service
 public class BookmarkService {
@@ -39,6 +45,17 @@ public class BookmarkService {
             bookmarkRepository.insert(newBookmark);
             System.out.println("북마크가 추가되었습니다.");
         }
+    }
+
+    public List<BookmarkListDTO> bookmarkList(Integer id) {
+        List<BookmarkListDTO> bookmarkList = bookmarkRepository.findByUserId(id);
+        return bookmarkList;
+    }
+
+
+    @Transactional
+    public void deleteBookmark(Integer id) {
+        bookmarkRepository.deleteBookmark(id);
     }
 
 }
