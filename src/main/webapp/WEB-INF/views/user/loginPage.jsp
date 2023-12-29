@@ -27,11 +27,11 @@
                 <div>
                     <div class="mb-3" style="width: 500px">
                         <input type="text" class="form-control" id="uname" placeholder="아이디" name="username" required
-                               value="ssar">
+                               value="cos">
                     </div>
                     <div class="mb-3" style="width: 500px">
                         <input type="password" class="form-control" id="pwd" placeholder="비밀번호" name="password" required
-                               value="password1">
+                               value="password">
                     </div>
                 </div>
 

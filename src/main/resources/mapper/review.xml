@@ -60,10 +60,12 @@
     WHERE space_id = #{spaceId};
     </select>
 
+
     <delete id="deleteByReviewId">
         delete
         from review_tb
         where id =#{id};
     </delete>
+
 
 </mapper>

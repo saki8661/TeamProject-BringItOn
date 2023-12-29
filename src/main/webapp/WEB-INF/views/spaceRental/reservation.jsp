@@ -38,7 +38,9 @@
                             </div>
 
                             <div class="re_choice_place_letter_cost">
+
                                 <h2>시간당 : ${reservationName.price}원</h2>
+
                             </div>
                         </div>
                     </div>

@@ -37,7 +37,11 @@
                                                 ${review.comment}
                                         </div>
                                         <div class="userReview_button">
+<<<<<<< HEAD
+                                            <button type="button">
+=======
                                             <button type="button" class="userInfo_review_delete" data-review-id="${review.id}">
+>>>>>>> dev
                                                 삭제하기
                                             </button>
                                         </div>
@@ -75,6 +79,46 @@
                     </div>
                 </div>
 
+<<<<<<< HEAD
+            <div class="mt-3 d-flex justify-content-center">
+                <ul class="pagination">
+                    <c:choose>
+                        <c:when test="${pageVO.lastPage <= 5}">
+                            <!-- 페이지가 5개 이하일 경우 -->
+                            <c:forEach begin="1" end="${pageVO.lastPage}" var="pageNumber">
+                                <li class="page-item ${pageVO.currentPage eq pageNumber ? 'active' : ''}">
+                                    <a class="page-link"
+                                       href="/user/review/${sessionUser.id}?currentPage=${pageNumber}">
+                                            ${pageNumber}
+                                    </a>
+                                </li>
+                            </c:forEach>
+                        </c:when>
+                        <c:otherwise>
+                            <!-- 페이지가 5개 초과일 경우 -->
+                            <c:set var="startPage" value="${pageVO.currentPage - 2}"/>
+                            <c:choose>
+                                <c:when test="${startPage lt 1}">
+                                    <c:set var="startPage" value="1"/>
+                                </c:when>
+                                <c:when test="${startPage gt pageVO.lastPage - 4}">
+                                    <c:set var="startPage" value="${pageVO.lastPage - 4}"/>
+                                </c:when>
+                            </c:choose>
+
+                            <c:forEach begin="${startPage}" end="${startPage + 4}" var="pageNumber">
+                                <li class="page-item ${pageVO.currentPage eq pageNumber ? 'active' : ''}">
+                                    <a class="page-link"
+                                       href="/user/review/${sessionUser.id}?currentPage=${pageNumber}">
+                                            ${pageNumber}
+                                    </a>
+                                </li>
+                            </c:forEach>
+                        </c:otherwise>
+                    </c:choose>
+                </ul>
+            </div>
+=======
                 <div class="mt-3 d-flex justify-content-center">
                     <ul class="pagination">
                         <c:choose>
@@ -113,6 +157,7 @@
                         </c:choose>
                     </ul>
                 </div>
+>>>>>>> dev
             </div>
         </div>
     </div>

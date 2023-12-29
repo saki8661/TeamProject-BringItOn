@@ -1,13 +1,16 @@
 package com.example.teamprojectbringiton.bookmark;
 
+
 import com.example.teamprojectbringiton.bookmark.dto.request.BookmarkDTO;
 import com.example.teamprojectbringiton.bookmark.dto.response.BookmarkListDTO;
+
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+
 
 @Service
 public class BookmarkService {
@@ -17,7 +20,6 @@ public class BookmarkService {
 
     @Autowired
     private HttpSession session;
-
 
     @Transactional
     public void toggleBookmark(BookmarkDTO dto) {
@@ -57,4 +59,3 @@ public class BookmarkService {
     }
 
 }
-
