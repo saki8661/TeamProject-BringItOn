@@ -15,7 +15,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController
+@Controller
 public class BookmarkController {
     @Autowired
     BookmarkService bookmarkService;
@@ -24,6 +24,7 @@ public class BookmarkController {
     HttpSession session;
 
     @PostMapping("/space-bookmark")
+    @ResponseBody
     public ApiUtils<?> spaceInquireProc(@RequestBody BookmarkDTO dto) {
         User user = (User) session.getAttribute("sessionUser");
         if (!user.getUserDivision().equals("general")) {
