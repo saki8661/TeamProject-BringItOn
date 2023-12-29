@@ -15,11 +15,6 @@
         <li class="host_main_link">
             <a href="/host/reservation-status/${sessionUser.id}">예약현황</a>
         </li>
-
-        <li class="host_main_link">
-            <a href="">후기관리</a>
-        </li>
-
         <li class="host_main_link">
             <a href="/notice-main">고객센터</a>
         </li>

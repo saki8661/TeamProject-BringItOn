@@ -138,8 +138,8 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <!-- Modal Header -->
-                                <div class="userReservation_modal_header">
-                                    <h2 style="width: 100%; text-align: center; font-weight: bold; font-size: x-large;">
+                                <div class="modal-header">
+                                <h2 style="width: 100%; text-align: center; font-weight: bold; font-size: x-large;">
                                         수정하기</h2>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                 </div>
