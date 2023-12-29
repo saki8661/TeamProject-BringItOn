@@ -29,9 +29,12 @@ public class ReviewService {
 
 
     public int addReviewAndCommentCount(Integer spaceId) {
+
+
         int countComment = reviewRepository.getCommentCount(spaceId);
         return countComment;
     }
+
 
     public double ratingStarAvg(Integer spaceId){
         double ratingAvg = reviewRepository.ratingAvg(spaceId);
@@ -52,9 +55,13 @@ public class ReviewService {
         return reviewCount;
     }
 
+
+
     @Transactional
     public void deleteReview(Integer id) {
         reviewRepository.deleteByReviewId(id);
 
     }
+
+
 }
