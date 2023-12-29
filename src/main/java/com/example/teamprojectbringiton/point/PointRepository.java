@@ -8,4 +8,5 @@ public interface PointRepository {
 
     public int updateByUserId(UpdatePointDTO updatePointDTO);
 
+    void insert(Point point);
 }

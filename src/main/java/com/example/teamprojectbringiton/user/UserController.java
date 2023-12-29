@@ -6,6 +6,7 @@ import com.example.teamprojectbringiton.age.Age;
 
 import com.example.teamprojectbringiton.age.AgeService;
 import com.example.teamprojectbringiton.gender.GenderService;
+import com.example.teamprojectbringiton.point.PointService;
 import com.example.teamprojectbringiton.user.dto.request.*;
 import com.example.teamprojectbringiton.user.dto.response.*;
 import jakarta.servlet.http.HttpSession;
@@ -26,7 +27,7 @@ public class UserController {
     private UserService userService;
 
     @Autowired
-    private GenderService genderService;
+    private PointService pointService;
 
     @Autowired
     private AgeService ageService;
@@ -57,7 +58,8 @@ public class UserController {
 
     @PostMapping("/join")
     public String joinProc(JoinDTO dto) {
-        userService.userSave(dto);
+        Integer userId = userService.userSave(dto.toEntity());
+        pointService.insert(userId);
         return "redirect:/login";
     }
 
@@ -105,9 +107,9 @@ public class UserController {
         KakaoProfile kakaoProfile = userService.tokenRequest(code);
         // 토큰 확인 후 회원가입 로직 호출
         userService.kakaoUserSave(kakaoProfile);
+
         // 로그인 로직 처리를 위해 유저정보 조회
         User user = userService.findByUsername(kakaoProfile.getId());
-        System.out.println("이메일 정보 어떻게 조회됨? : " + user.getUserEmail());
         if (user.getUserEmail().equals("") || user.getUserEmail() == null) {
             return "redirect:/kakao-login-input/" + user.getId();
         }

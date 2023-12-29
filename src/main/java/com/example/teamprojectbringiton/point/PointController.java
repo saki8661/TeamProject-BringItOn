@@ -4,6 +4,9 @@ import com.example.teamprojectbringiton.payment.request.UpdatePointDTO;
 import com.example.teamprojectbringiton.point.dto.request.PointUseDTO;
 import com.example.teamprojectbringiton.pointHistory.PointHistoryService;
 import com.example.teamprojectbringiton.reservation.ReservationService;
+import com.example.teamprojectbringiton.user.User;
+import com.example.teamprojectbringiton.user.UserService;
+import com.example.teamprojectbringiton.user.dto.response.UserPointDTO;
 import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -19,6 +22,10 @@ public class PointController {
     private PointService pointService;
 
     @Autowired
+    private UserService userService;
+
+
+    @Autowired
     private PointHistoryService pointHistoryService;
 
     @Autowired
@@ -30,6 +37,7 @@ public class PointController {
     @PostMapping("/point-use")
     @ResponseBody
     public ResponseEntity<?> pointUse(PointUseDTO dto) {
+        User user = (User) session.getAttribute("sessionUser");
         // 포인트 업데이트
         UpdatePointDTO updatePointDTO = new UpdatePointDTO();
         updatePointDTO.setId(dto.getId());
@@ -41,6 +49,9 @@ public class PointController {
 
         // 예약 테이블 상태 업데이트
         reservationService.updateStatus(dto.getReservationId());
+
+        UserPointDTO userPointDTO = userService.findByIdJoinPoint(user.getId());
+        session.setAttribute("userPoint", userPointDTO);
 
         return ResponseEntity.ok().body("성공");
     }

@@ -132,12 +132,13 @@ public class ReservationService {
         return matchings;
     }
 
-    public void updateStatus(Integer reservationId) {
+    public Reservation updateStatus(Integer reservationId) {
         System.out.println("업데이트 하러 옴");
         Reservation reservation = reservationRepository.findById(reservationId);
         reservation.updateStatus("예약완료");
         System.out.println("업데이트됨? status : " + reservation.getStatus());
         reservationRepository.updateStatus(reservation);
+        return reservation;
     }
 
     public Reservation findById(Integer id) {

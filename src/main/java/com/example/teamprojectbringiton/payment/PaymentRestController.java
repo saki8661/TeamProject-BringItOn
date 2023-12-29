@@ -114,6 +114,7 @@ public class PaymentRestController {
             paymentService.paymentWrite(payment);
             UserPointDTO userPoint = (UserPointDTO) session.getAttribute("userPoint");
 
+
             List<PaymentDTO> dto = paymentService.findByUserIdJoinPoint(userPoint.getId());
 
             int nowPoint = dto.stream()

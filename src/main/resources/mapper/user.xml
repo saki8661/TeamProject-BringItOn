@@ -5,7 +5,8 @@
 <mapper
         namespace="com.example.teamprojectbringiton.user.UserRepository">
 
-    <insert id="insert">
+    <insert id="insert" parameterType="com.example.teamprojectbringiton.user.User" useGeneratedKeys="true"
+            keyProperty="id">
         insert into user_tb(username, password, user_email, user_phone_number, user_address, user_pic_url, nickName,
                             user_division, created_at, gender_id, age_id, kakao_login, is_captain)
         values (#{username}, #{password}, #{userEmail}, #{userPhoneNumber}, #{userAddress}, #{userPicUrl}, #{nickName},
@@ -143,20 +144,22 @@
                t.level,
                t.team_location,
                sp.sport_name,
-               rt.reservation_date,
+               r.reservation_date,
                rt.start_time,
                rt.end_time,
-               rt.status,
+               r.status,
                s.space_name
         FROM user_tb u
                  LEFT JOIN team_tb t
                            ON u.team_id = t.id
                  LEFT JOIN sport_tb sp
                            ON sp.id = t.sport_id
-                 LEFT JOIN reservation_tb rt
-                           ON rt.user_id = u.id
+                 LEFT JOIN reservation_tb r
+                           ON r.user_id = u.id
+                 LEFT JOIN reservation_time_tb rt
+                           ON r.reservation_time_id = rt.id
                  LEFT JOIN space_tb s
-                           ON s.id = rt.space_id
+                           ON s.id = r.space_id
         WHERE u.id = #{id}
     </select>
 

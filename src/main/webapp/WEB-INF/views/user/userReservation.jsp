@@ -36,13 +36,6 @@
                             <%--                            </button>--%>
                         </div>
                     </form>
-                    <c:choose>
-                        <c:when test="${empty reservationList}">
-                            <div>
-                                예약한 목록이 없습니다.
-                            </div>
-                        </c:when>
-                    </c:choose>
 
 
                     <table class="table userReservation_table">
@@ -82,6 +75,13 @@
                         </c:forEach>
                         </tbody>
                     </table>
+                    <c:choose>
+                        <c:when test="${empty reservationList}">
+                            <div>
+                                예약한 목록이 없습니다.
+                            </div>
+                        </c:when>
+                    </c:choose>
 
 
                     <!-- The Modal -->

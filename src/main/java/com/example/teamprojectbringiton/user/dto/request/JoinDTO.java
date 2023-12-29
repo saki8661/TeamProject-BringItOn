@@ -1,5 +1,6 @@
 package com.example.teamprojectbringiton.user.dto.request;
 
+import com.example.teamprojectbringiton.point.Point;
 import com.example.teamprojectbringiton.user.PhoneNumberFormatter;
 import com.example.teamprojectbringiton.user.User;
 import lombok.Data;
@@ -31,4 +32,5 @@ public class JoinDTO {
                 .kakaoLogin(false)
                 .build();
     }
+
 }

@@ -2,9 +2,19 @@
 
 <div class="col-md-4">
     <div class="userInfo_aside">
-        <div class="userInfo_image">
-            <img src="/img/${sessionUser.userPicUrl}">
-        </div>
+        <c:choose>
+            <c:when test="${sessionUser.kakaoLogin == true}">
+                <div class="userInfo_image">
+                    <img src="${sessionUser.userPicUrl}">
+                </div>
+            </c:when>
+            <c:otherwise>
+                <div class="userInfo_image">
+                    <img src="/img/${sessionUser.userPicUrl}">
+                </div>
+            </c:otherwise>
+        </c:choose>
+
         <div class="userInformation">
             <div>
                 <div class="userInfo_point_nickname">${sessionUser.nickName}</div>

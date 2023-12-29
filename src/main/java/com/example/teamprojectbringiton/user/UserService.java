@@ -5,6 +5,8 @@ import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedExce
 import com.example.teamprojectbringiton._core.utils.Function;
 import com.example.teamprojectbringiton.admin.dto.response.UserCountRespDTO;
 import com.example.teamprojectbringiton.admin.dto.response.UserSearchRespDTO;
+import com.example.teamprojectbringiton.point.Point;
+import com.example.teamprojectbringiton.point.PointRepository;
 import com.example.teamprojectbringiton.team.dto.request.UpdateTeamIdDTO;
 import com.example.teamprojectbringiton.user.dto.request.JoinDTO;
 import com.example.teamprojectbringiton.user.dto.request.LoginDTO;
@@ -33,6 +35,9 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private PointRepository pointRepository;
+
     @Value("${TENCO_KEY}")
     private String tencoKey;
 
@@ -50,10 +55,11 @@ public class UserService {
     }
 
     @Transactional
-    public void userSave(JoinDTO dto) {
+    public Integer userSave(User user) {
         //회원가입 db에 insert
-        userRepository.insert(dto.toEntity());
-
+        userRepository.insert(user);
+        System.out.println("user 인서트 리턴함 : " + user.getId());
+        return user.getId();
     }
 
     // 카카오 회원가입
@@ -80,6 +86,13 @@ public class UserService {
                     .isCaptain(false)
                     .build();
             userRepository.insert(user);
+
+            // 포인트 등록하기
+            Point point = Point.builder()
+                    .myPoint(0)
+                    .userId(user.getId())
+                    .build();
+            pointRepository.insert(point);
         }
 
 

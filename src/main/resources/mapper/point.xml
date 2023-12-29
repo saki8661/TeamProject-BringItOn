@@ -10,5 +10,8 @@
         where id = #{id}
     </update>
 
-
+    <insert id="insert">
+        insert into point_tb(my_point, created_at, user_id)
+        values (#{myPoint}, now(), #{userId});
+    </insert>
 </mapper>

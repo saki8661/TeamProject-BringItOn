@@ -17,7 +17,6 @@
                             <div>
                                 <c:choose>
                                     <c:when test="${user.kakaoLogin == true}">
-                                        <!-- 카카오 로그인이고 패스워드가 없는 경우 -->
                                         <img id="kakao_preview" class="circle_avatar" src="${user.userPicUrl}">
                                     </c:when>
                                     <c:otherwise>
