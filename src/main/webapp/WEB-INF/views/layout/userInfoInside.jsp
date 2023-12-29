@@ -214,7 +214,7 @@
                         }),
                         success: function (response) {
                             console.log(response);
-                            window.location.href = "/user/mypage/${userPoint.id}";
+                            window.location.href = "/user/mybring/${userPoint.id}";
                             // 성공적으로 데이터를 서버로 전송한 후 추가적으로 수행할 작업이 있다면 여기에 추가
                         },
                         error: function (error) {
