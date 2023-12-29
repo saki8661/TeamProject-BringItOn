@@ -3432,13 +3432,13 @@ EDIT ON
 }
 
 .scroll3_place_detail_review_textarea_container {
-    display: flex;
+
     flex-direction: row;
     justify-content: space-between;
 }
 
 .scroll3_place_detail_review_textarea {
-    width: 80%;
+    width: 100%;
     height: 100%;
     resize: none;
     border: 1px solid #c8c8c8;
@@ -3494,7 +3494,6 @@ EDIT ON
 }
 
 .scroll4_place_detail_qna_container {
-    display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
@@ -3553,10 +3552,9 @@ EDIT ON
 }
 
 .scroll4_place_detail_qna_textarea {
-    width: 80%;
+    width: 100%;
     height: 100%;
     resize: none;
-    padding-right: 20px;
 
 
 }
@@ -3623,7 +3621,15 @@ EDIT ON
     padding: 20px;
 
 }
-
+#inquireAnswer{
+    border: 1px solid #c8c8c8;
+    border-radius: 5px;
+    padding: 10px;
+}
+.button_align{
+    display: flex;
+    justify-content: flex-end;
+}
 .scroll5_return_rule {
     display: flex;
     flex-direction: column;

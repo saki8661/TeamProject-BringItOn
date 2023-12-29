@@ -104,17 +104,19 @@
                                     </div>
                                 </div>
                                 <div class="scroll3_place_detail_review_textarea_container">
-                                    <div class="scroll3_place_detail_review_textarea">
+                                    <div class="scroll3_place_detail_review_textarea1">
                                                     <textarea class="scroll3_place_detail_review_textarea" id="comment"
                                                               name="comment" placeholder="후기를 작성해주세요"></textarea>
                                     </div>
                                     <input type="hidden" name="spaceId" value="${spaceDetail.id}">
                                     <input type="hidden" name="userId" value="${sessionUser.id}"
                                            id="userId">
+                                    <div class="button_align">
                                     <button class="scroll3_place_detail_review_write_button" type="button"
                                             onclick="checkUserDivisionAndSubmit()">
                                         후기쓰기
                                     </button>
+                                    </div>
                                 </div>
                             </form>
 
@@ -160,10 +162,12 @@
                                 </div>
                                 <input type="hidden" name="spaceId" value="${spaceDetail.id}">
                                 <input type="hidden" name="userId" value="${sessionUser.id}">
+                                <div class="button_align">
                                 <button class="scroll4_place_detail_qna_container_button" type="button"
                                         onclick="checkUserDivisionAndQnaSubmit()">
                                     문의하기
                                 </button>
+                                </div>
                             </div>
                         </form>
                     </form>
@@ -221,7 +225,9 @@
                   placeholder="문의 답변을 작성해주세요"></textarea>
                                 <input type="hidden" name="spaceId" value="${spaceDetail.id}">
                                 <input type="hidden" name="userId" value="${sessionUser.id}">
+                                <div class="button_align">
                                 <button class="scroll4_place_detail_qna_container_button" type="submit">답변 작성</button>
+                                </div>
                             </form>
                             </div>
                         </c:if>
