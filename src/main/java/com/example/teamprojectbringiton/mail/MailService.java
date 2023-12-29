@@ -1,14 +1,11 @@
 package com.example.teamprojectbringiton.mail;
 
 import com.example.teamprojectbringiton._core.handler.exception.CustomRestfullException;
-import com.example.teamprojectbringiton._core.handler.exception.UnAuthorizedException;
 import com.example.teamprojectbringiton.user.User;
 import com.example.teamprojectbringiton.user.UserRepository;
-import com.example.teamprojectbringiton.user.UserService;
 import jakarta.mail.internet.MimeMessage;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Service;
@@ -21,10 +18,10 @@ public class MailService {
 
     @Autowired
     private JavaMailSender mailSender;
-    private int authNumber;
 
     @Autowired
     private UserRepository userRepository;
+    private int authNumber;
 
 
     //임의의 6자리 양수를 반환합니다.
