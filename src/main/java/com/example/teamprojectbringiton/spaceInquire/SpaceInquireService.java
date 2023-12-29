@@ -1,5 +1,8 @@
 package com.example.teamprojectbringiton.spaceInquire;
 
+
+import com.example.teamprojectbringiton.spaceInquire.request.SpaceInqUpdateDTO;
+
 import com.example.teamprojectbringiton.spaceInquire.response.SpaceInquireDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -36,5 +39,25 @@ public class SpaceInquireService {
 
     }
 
+    public int inquireTotalCount(Integer spaceId) {
+
+        int inquireCount = spaceInquireRepository.getInquireCount(spaceId);
+        return inquireCount;
+    }
+
+
+    public int inqAnswerCount(Integer userId, Integer spaceId) {
+        System.out.println("=========서비스 시작==========");
+
+        int hostAnswerCount  = spaceInquireRepository.getHostAnswerCount(userId,spaceId);
+
+        System.out.println("답변받아와라 진자로 농담아니고 :"+hostAnswerCount );
+        System.out.println("userId 왜 없는데 죽고싶나: "+ userId) ;
+        return hostAnswerCount ;
+    }
+
+    public void updateSpaceInquireAnswer(SpaceInqUpdateDTO spaceInqUpdateDTO) {
+        spaceInquireRepository.updateSpaceInquireAnswer(spaceInqUpdateDTO);
+    }
 
 }

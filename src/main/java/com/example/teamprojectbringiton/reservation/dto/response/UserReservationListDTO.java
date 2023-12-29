@@ -20,4 +20,5 @@ public class UserReservationListDTO {
     private String spaceLocation; // 공간 위치
     private String spacePic; // 공간 사진
     private String sector; // 부제목
+
 }
