@@ -105,7 +105,7 @@ public class ReservationService {
                 .reservationNumber(reservationNumber)
                 .reservationDate(reservationDate)
                 .personnel(dto.getPersonnel())
-                .status("예약진행중")
+                .status("예약중")
                 .toHost(dto.getToHost())
                 .userId(dto.getUserId())
                 .spaceId(dto.getSpaceId())

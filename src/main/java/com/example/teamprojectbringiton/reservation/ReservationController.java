@@ -38,13 +38,6 @@ public class ReservationController {
 
     @PostMapping("/reservation")
     public String reservationProc(ReservationReqDTO dto) {
-        System.out.println("+++리뷰컨트롤러 진입 reservation" + dto.getReservationDate());
-        System.out.println("+++dto 담김 reservation:" + dto.getPersonnel());
-        System.out.println("+++dto 담김 reservation:" + dto.getToHost());
-        System.out.println("+++dto 담김 reservation:" + dto.getSpaceId());
-        System.out.println("+++dto 담김 reservation: " + dto.getUserId());
-        System.out.println("+++dto 담김 reservation: " + dto.getMatching());
-        System.out.println("+++dto 담김 reservation: " + dto.getReservationTimeId());
         reservationService.reservationSave(dto);
         return "redirect:/space-detail/" + dto.getSpaceId();
     }
