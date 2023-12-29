@@ -70,8 +70,8 @@
     <ul class="admin_tab_category">
         <li><a href="#">회원 관리</a></li>
         <li><a href="#">시설 관리</a></li>
-        <li><a href="#">상품 관리</a></li>
-        <li><a href="#">주문 관리</a></li>
+<%--        <li><a href="#">상품 관리</a></li>--%>
+<%--        <li><a href="#">주문 관리</a></li>--%>
         <li><a href="#">공지 관리</a></li>
     </ul>
 </div>
