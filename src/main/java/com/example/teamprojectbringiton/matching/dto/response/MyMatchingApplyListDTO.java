@@ -16,6 +16,7 @@ public class MyMatchingApplyListDTO {
     private String nickName;
     private Integer reservationId;
     private Date reservationDate;
+    private Integer reservationTimeId;
     private Time startTime;
     private Time endTime;
 }
