@@ -37,10 +37,15 @@ public class PointController {
     @PostMapping("/point-use")
     @ResponseBody
     public ResponseEntity<?> pointUse(PointUseDTO dto) {
+        System.out.println("DTO에는 데이터 잘오나? 기존 : " + dto.getPoint());
+        System.out.println("DTO에는 데이터 잘오나? 사용 : " + dto.getChargePoint());
+        System.out.println("DTO에는 데이터 잘오나? 잔액 : " + dto.getNowPoint());
         User user = (User) session.getAttribute("sessionUser");
+        Point point = pointService.findByUserId(user.getId());
+
         // 포인트 업데이트
         UpdatePointDTO updatePointDTO = new UpdatePointDTO();
-        updatePointDTO.setId(dto.getId());
+        updatePointDTO.setId(point.getId());
         updatePointDTO.setNowPoint(dto.getNowPoint());
         pointService.pointUpdate(updatePointDTO);
 

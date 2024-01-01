@@ -2,6 +2,7 @@ package com.example.teamprojectbringiton.payment;
 
 import com.example.teamprojectbringiton.payment.request.UpdatePointDTO;
 import com.example.teamprojectbringiton.payment.response.PaymentDTO;
+import com.example.teamprojectbringiton.point.Point;
 import com.example.teamprojectbringiton.point.PointService;
 import com.example.teamprojectbringiton.user.User;
 import com.example.teamprojectbringiton.user.UserService;
@@ -110,22 +111,31 @@ public class PaymentRestController {
 
     @PostMapping("/payment-write")
     public ResponseEntity<String> writePayment(@RequestBody Payment payment) {
+        System.out.println("결제 RestController 진입");
+
+        User user = (User) session.getAttribute("sessionUser");
         try {
             paymentService.paymentWrite(payment);
             UserPointDTO userPoint = (UserPointDTO) session.getAttribute("userPoint");
 
 
-            List<PaymentDTO> dto = paymentService.findByUserIdJoinPoint(userPoint.getId());
+            Point point = pointService.findByUserId(user.getId());
+            int nowPoint = point.getMyPoint() + payment.getAmount();
+            System.out.println("point 얼마 있노 ? : " + point.getMyPoint());
+            System.out.println("point 얼마 추가하노 ? : " + payment.getAmount());
+            System.out.println("point 잘 합쳤나? ? : " + nowPoint);
 
-            int nowPoint = dto.stream()
-                    .reduce((first, second) -> second)
-                    .map(lastDTO -> lastDTO.getAmount() + lastDTO.getMyPoint())
-                    .orElse(0);
+            // List<PaymentDTO> dto = paymentService.findByUserIdJoinPoint(userPoint.getId());
+
+//            int nowPoint = dto.stream()
+//                    .reduce((first, second) -> second)
+//                    .map(lastDTO -> lastDTO.getAmount() + lastDTO.getMyPoint())
+//                    .orElse(0);
 
             UpdatePointDTO updatePointDTO = new UpdatePointDTO();
 
             updatePointDTO.setNowPoint(nowPoint);
-            updatePointDTO.setId(userPoint.getId());
+            updatePointDTO.setId(point.getId());
 
             pointService.pointUpdate(updatePointDTO);
             UserPointDTO userPointDTO = userService.findByIdJoinPoint(userPoint.getId());

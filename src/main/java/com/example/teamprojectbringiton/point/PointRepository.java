@@ -9,4 +9,6 @@ public interface PointRepository {
     public int updateByUserId(UpdatePointDTO updatePointDTO);
 
     void insert(Point point);
+
+    public Point findByUserId(Integer userId);
 }

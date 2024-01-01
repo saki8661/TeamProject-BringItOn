@@ -14,4 +14,11 @@
         insert into point_tb(my_point, created_at, user_id)
         values (#{myPoint}, now(), #{userId});
     </insert>
+
+    <select id="findByUserId" resultType="com.example.teamprojectbringiton.point.Point">
+        select *
+        from point_tb
+        where user_id = #{userId}
+    </select>
+
 </mapper>
