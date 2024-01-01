@@ -249,9 +249,9 @@
 
         // input값이 한자리 숫자인 경우 앞에 '0' 붙혀주는 함수
         function leftPad(value) {
-            if (value < 10) {
+            value = value.toString(); // 숫자를 문자열로 변환
+            if (value.length < 2) {
                 value = "0" + value;
-                return value;
             }
             return value;
         }

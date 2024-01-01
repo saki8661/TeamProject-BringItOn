@@ -221,6 +221,7 @@
             alert("충전이 필요합니다.");
             $('.modal').modal('hide');
             $('#paymentModal').modal('show');
+            return;
         }
         let nowPoint = point - price;
         console.log("----------------------- point   " + nowPoint)

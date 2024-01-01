@@ -13,9 +13,12 @@ public class PointService {
     private PointRepository pointRepository;
 
     @Transactional
-    public int pointUpdate(UpdatePointDTO updatePointDTO) {
-        int pointUpdate = pointRepository.updateByUserId(updatePointDTO);
-        return pointUpdate;
+    public void pointUpdate(UpdatePointDTO updatePointDTO) {
+         pointRepository.updateByUserId(updatePointDTO);
+    }
+
+    public Point findByUserId(Integer userId){
+        return pointRepository.findByUserId(userId);
     }
 
 
