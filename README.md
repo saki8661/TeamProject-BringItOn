@@ -7,10 +7,10 @@
 
 
 ## 🤝🏻프로젝트 3조 소개
-- 김대욱(팀장)
-- 박세환
-- 김언약
-- 윤혜림
+- 김대욱(@saki8661)[팀장]
+- 박세환(@bbarkse93)[팀원]
+- 김언약(@yakyakyak12)[팀원]
+- 윤혜림(@YHYELIM)[팀원]
 
 ## 🎥 시연영상 [유튜브 링크]
 유튜브 영상 링크자리
@@ -55,10 +55,17 @@
 ```
 
 ## 🗃 ERD테이블 명세서
-사진첨부!
+![erd](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/d29001c8-8fcf-4a6d-bb1e-cb0e3acb4948)
 
 ## 💡 사이트맵
-사진첨부 :
+User
+![user](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/fe926a65-b535-4eae-aff6-a509c3574689)
+
+Host
+![host](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/bfb6da91-79eb-4e17-a643-fa0640d9e061)
+
+Admin
+![admin](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/b1901980-372e-4a42-85a1-56ecca5669d8)
 
 ## 📝 노션
 https://economic-asparagus-2ef.notion.site/3-Bring-It-On-2584b2760c204dc786ca366fbd253ec1?pvs=4
