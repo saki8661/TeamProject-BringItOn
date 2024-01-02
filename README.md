@@ -7,10 +7,10 @@
 
 
 ## 🤝🏻프로젝트 3조 소개
-- 김대욱(@saki8661)[팀장]
-- 박세환(@bbarkse93)[팀원]
-- 김언약(@yakyakyak12)[팀원]
-- 윤혜림(@YHYELIM)[팀원]
+- 김대욱([@saki8661](https://github.com/saki8661))[팀장]
+- 박세환[(@bbarkse93](https://github.com/bbarkse93))[팀원]
+- 김언약([@yakyakyak12](https://github.com/yakyakyak12))[팀원]
+- 윤혜림([@YHYELIM](https://github.com/YHYELIM))[팀원]
 
 ## 🎥 시연영상 [유튜브 링크]
 유튜브 영상 링크자리
@@ -56,6 +56,293 @@
 
 ## 🗃 ERD테이블 명세서
 ![erd](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/d29001c8-8fcf-4a6d-bb1e-cb0e3acb4948)
+
+### Directory Tree
+```📦teamprojectbringiton
+ ┣ 📂admin
+ ┃ ┣ 📂dto
+ ┃ ┃ ┣ 📂request
+ ┃ ┃ ┃ ┗ 📜UserSearchReqDTO.java
+ ┃ ┃ ┗ 📂response
+ ┃ ┃ ┃ ┣ 📜UserCountRespDTO.java
+ ┃ ┃ ┃ ┗ 📜UserSearchRespDTO.java
+ ┃ ┗ 📜AdminController.java
+ ┣ 📂age
+ ┃ ┣ 📜Age.java
+ ┃ ┣ 📜AgeController.java
+ ┃ ┣ 📜AgeRepository.java
+ ┃ ┗ 📜AgeService.java
+ ┣ 📂answer
+ ┃ ┗ 📜Answer.java
+ ┣ 📂bank
+ ┃ ┗ 📜Bank.java
+ ┣ 📂board
+ ┃ ┣ 📂dto
+ ┃ ┃ ┣ 📂request
+ ┃ ┃ ┃ ┣ 📜BoardUpdateDTO.java
+ ┃ ┃ ┃ ┗ 📜BoardWriteDTO.java
+ ┃ ┃ ┗ 📂response
+ ┃ ┃ ┃ ┣ 📜BoardDetailDTO.java
+ ┃ ┃ ┃ ┣ 📜BoardDTO.java
+ ┃ ┃ ┃ ┗ 📜BoardListDTO.java
+ ┃ ┣ 📜Board.java
+ ┃ ┣ 📜BoardController.java
+ ┃ ┣ 📜BoardRepository.java
+ ┃ ┗ 📜BoardService.java
+ ┣ 📂bookmark
+ ┃ ┣ 📂dto
+ ┃ ┃ ┣ 📂request
+ ┃ ┃ ┃ ┗ 📜BookmarkDTO.java
+ ┃ ┃ ┗ 📂response
+ ┃ ┃ ┃ ┗ 📜BookmarkListDTO.java
+ ┃ ┣ 📜Bookmark.java
+ ┃ ┣ 📜BookmarkController.java
+ ┃ ┣ 📜BookmarkRepository.java
+ ┃ ┗ 📜BookmarkService.java
+ ┣ 📂cart
+ ┃ ┗ 📜Cart.java
+ ┣ 📂FCM
+ ┃ ┣ 📜FCMController.java
+ ┃ ┗ 📜FCMService.java
+ ┣ 📂gender
+ ┃ ┣ 📜Gender.java
+ ┃ ┣ 📜GenderRepository.java
+ ┃ ┗ 📜GenderService.java
+ ┣ 📂host
+ ┃ ┗ 📜HostController.java
+ ┣ 📂inquire
+ ┃ ┣ 📂dto
+ ┃ ┃ ┣ 📂request
+ ┃ ┃ ┃ ┣ 📜InquireUpdateDTO.java
+ ┃ ┃ ┃ ┗ 📜InquireWriteDTO.java
+ ┃ ┃ ┗ 📂response
+ ┃ ┃ ┃ ┗ 📜InquireListDTO.java
+ ┃ ┣ 📂inquireCategory
+ ┃ ┃ ┣ 📜InquireCategory.java
+ ┃ ┃ ┗ 📜InquireCategoryRepository.java
+ ┃ ┣ 📜Inquire.java
+ ┃ ┣ 📜InquireController.java
+ ┃ ┣ 📜InquireRepository.java
+ ┃ ┗ 📜InquireService.java
+ ┣ 📂matching
+ ┃ ┣ 📂dto
+ ┃ ┃ ┣ 📂request
+ ┃ ┃ ┃ ┗ 📜MatchingDTO.java
+ ┃ ┃ ┗ 📂response
+ ┃ ┃ ┃ ┣ 📜MyMatchingApplyListDTO.java
+ ┃ ┃ ┃ ┗ 📜MyMatchingListDTO.java
+ ┃ ┣ 📜Matching.java
+ ┃ ┣ 📜MatchingController.java
+ ┃ ┣ 📜MatchingRepository.java
+ ┃ ┗ 📜MatchingService.java
+ ┣ 📂notice
+ ┃ ┣ 📂dto
+ ┃ ┃ ┣ 📂request
+ ┃ ┃ ┃ ┣ 📜NoticeUpdateDTO.java
+ ┃ ┃ ┃ ┗ 📜NoticeWriteDTO.java
+ ┃ ┃ ┗ 📂response
+ ┃ ┃ ┃ ┗ 📜NoticeListDTO.java
+ ┃ ┣ 📂noticeCategory
+ ┃ ┃ ┣ 📜NoticeCategory.java
+ ┃ ┃ ┗ 📜NoticeCategoryRepository.java
+ ┃ ┣ 📜Notice.java
+ ┃ ┣ 📜NoticeController.java
+ ┃ ┣ 📜NoticeRepository.java
+ ┃ ┗ 📜NoticeService.java
+ ┣ 📂option
+ ┃ ┣ 📂spaceOption
+ ┃ ┃ ┗ 📜SpaceOption.java
+ ┃ ┗ 📜Option.java
+ ┣ 📂order
+ ┃ ┗ 📜Order.java
+ ┣ 📂payment
+ ┃ ┣ 📂request
+ ┃ ┃ ┗ 📜UpdatePointDTO.java
+ ┃ ┣ 📂response
+ ┃ ┃ ┣ 📜PaymentDTO.java
+ ┃ ┃ ┗ 📜UpdatePointRespDTO.java
+ ┃ ┣ 📜Payment.java
+ ┃ ┣ 📜PaymentController.java
+ ┃ ┣ 📜PaymentRepository.java
+ ┃ ┣ 📜PaymentRestController.java
+ ┃ ┗ 📜PaymentService.java
+ ┣ 📂point
+ ┃ ┣ 📂dto
+ ┃ ┃ ┗ 📂request
+ ┃ ┃ ┃ ┗ 📜PointUseDTO.java
+ ┃ ┣ 📜Point.java
+ ┃ ┣ 📜PointController.java
+ ┃ ┣ 📜PointRepository.java
+ ┃ ┗ 📜PointService.java
+ ┣ 📂pointCharge
+ ┃ ┗ 📜PointCharge.java
+ ┣ 📂pointHistory
+ ┃ ┣ 📜PointHistory.java
+ ┃ ┣ 📜PointHistoryRepository.java
+ ┃ ┗ 📜PointHistoryService.java
+ ┣ 📂region
+ ┃ ┣ 📜Region.java
+ ┃ ┗ 📜RegionRepository.java
+ ┣ 📂reply
+ ┃ ┣ 📂dto
+ ┃ ┃ ┣ 📂request
+ ┃ ┃ ┃ ┗ 📜ReplyWriteDTO.java
+ ┃ ┃ ┗ 📂response
+ ┃ ┃ ┃ ┗ 📜ReplyDTO.java
+ ┃ ┣ 📜Reply.java
+ ┃ ┣ 📜ReplyController.java
+ ┃ ┣ 📜ReplyRepository.java
+ ┃ ┗ 📜ReplyService.java
+ ┣ 📂reservation
+ ┃ ┣ 📂dto
+ ┃ ┃ ┣ 📂request
+ ┃ ┃ ┃ ┗ 📜ReservationReqDTO.java
+ ┃ ┃ ┗ 📂response
+ ┃ ┃ ┃ ┣ 📜MatchingReservationDTO.java
+ ┃ ┃ ┃ ┣ 📜ReservationRespDTO.java
+ ┃ ┃ ┃ ┗ 📜UserReservationListDTO.java
+ ┃ ┣ 📜Reservation.java
+ ┃ ┣ 📜ReservationController.java
+ ┃ ┣ 📜ReservationRepository.java
+ ┃ ┗ 📜ReservationService.java
+ ┣ 📂reservationTime
+ ┃ ┣ 📂dto
+ ┃ ┃ ┗ 📂response
+ ┃ ┃ ┃ ┗ 📜ReservationTimeDTO.java
+ ┃ ┣ 📜ReservationTime.java
+ ┃ ┣ 📜ReservationTimeController.java
+ ┃ ┣ 📜ReservationTimeRepository.java
+ ┃ ┗ 📜ReservationTimeService.java
+ ┣ 📂review
+ ┃ ┣ 📂dto
+ ┃ ┃ ┣ 📂request
+ ┃ ┃ ┃ ┗ 📜SpaceReviewDTO.java
+ ┃ ┃ ┗ 📂response
+ ┃ ┃ ┃ ┣ 📜ReviewListDTO.java
+ ┃ ┃ ┃ ┣ 📜SpaceRatingAvg.java
+ ┃ ┃ ┃ ┣ 📜SpaceReviewCountDTO.java
+ ┃ ┃ ┃ ┗ 📜SpaceReviewDTO.java
+ ┃ ┣ 📜Review.java
+ ┃ ┣ 📜ReviewController.java
+ ┃ ┣ 📜ReviewRepository.java
+ ┃ ┗ 📜ReviewService.java
+ ┣ 📂space
+ ┃ ┣ 📂dto
+ ┃ ┃ ┣ 📂request
+ ┃ ┃ ┃ ┣ 📜SaveDTO.java
+ ┃ ┃ ┃ ┣ 📜SpaceRatingReviewDTO.java
+ ┃ ┃ ┃ ┗ 📜UpdateDTO.java
+ ┃ ┃ ┗ 📂response
+ ┃ ┃ ┃ ┣ 📜MySpaceReservationListDTO.java
+ ┃ ┃ ┃ ┣ 📜SpaceDetailDTO.java
+ ┃ ┃ ┃ ┣ 📜SpaceDTO.java
+ ┃ ┃ ┃ ┣ 📜SpaceListDTO.java
+ ┃ ┃ ┃ ┣ 📜SpaceReviewDTO.java
+ ┃ ┃ ┃ ┗ 📜SpaceUserIdPicJoinDTO.java
+ ┃ ┣ 📂spacePic
+ ┃ ┃ ┣ 📜SpacePic.java
+ ┃ ┃ ┣ 📜SpacePicController.java
+ ┃ ┃ ┣ 📜SpacePicRepository.java
+ ┃ ┃ ┗ 📜SpacePicService.java
+ ┃ ┣ 📜Space.java
+ ┃ ┣ 📜SpaceController.java
+ ┃ ┣ 📜SpaceRepository.java
+ ┃ ┣ 📜SpaceRestController.java
+ ┃ ┗ 📜SpaceService.java
+ ┣ 📂spaceInquire
+ ┃ ┣ 📂request
+ ┃ ┃ ┣ 📜SpaceInquireDTO.java
+ ┃ ┃ ┗ 📜SpaceInqUpdateDTO.java
+ ┃ ┣ 📂response
+ ┃ ┃ ┣ 📜SpaceInqAnswerCountDTO.java
+ ┃ ┃ ┣ 📜SpaceInquireCountDTO.java
+ ┃ ┃ ┗ 📜SpaceInquireDTO.java
+ ┃ ┣ 📜SpaceInquire.java
+ ┃ ┣ 📜SpaceInquireController.java
+ ┃ ┣ 📜SpaceInquireRepository.java
+ ┃ ┗ 📜SpaceInquireService.java
+ ┣ 📂sponsor
+ ┃ ┗ 📜Sponsor.java
+ ┣ 📂sport
+ ┃ ┗ 📜Sport.java
+ ┣ 📂team
+ ┃ ┣ 📂apply
+ ┃ ┃ ┣ 📜Apply.java
+ ┃ ┃ ┗ 📜ApplyRepository.java
+ ┃ ┣ 📂captain
+ ┃ ┃ ┣ 📜Captain.java
+ ┃ ┃ ┗ 📜CaptainRepository.java
+ ┃ ┣ 📂dto
+ ┃ ┃ ┣ 📂request
+ ┃ ┃ ┃ ┣ 📜TeamApplyDTO.java
+ ┃ ┃ ┃ ┣ 📜TeamCreateDTO.java
+ ┃ ┃ ┃ ┗ 📜UpdateTeamIdDTO.java
+ ┃ ┃ ┗ 📂response
+ ┃ ┃ ┃ ┣ 📜TeamDetailDTO.java
+ ┃ ┃ ┃ ┣ 📜TeamIdDTO.java
+ ┃ ┃ ┃ ┗ 📜TeamListDTO.java
+ ┃ ┣ 📂position
+ ┃ ┃ ┣ 📜Position.java
+ ┃ ┃ ┗ 📜PositionRepository.java
+ ┃ ┣ 📜Team.java
+ ┃ ┣ 📜TeamController.java
+ ┃ ┣ 📜TeamRepository.java
+ ┃ ┗ 📜TeamService.java
+ ┣ 📂user
+ ┃ ┣ 📂dto
+ ┃ ┃ ┣ 📂request
+ ┃ ┃ ┃ ┣ 📜IdFindDTO.java
+ ┃ ┃ ┃ ┣ 📜JoinDTO.java
+ ┃ ┃ ┃ ┣ 📜KakaoLoginDTO.java
+ ┃ ┃ ┃ ┣ 📜LoginDTO.java
+ ┃ ┃ ┃ ┣ 📜PasswordFindDTO.java
+ ┃ ┃ ┃ ┣ 📜UserUpdateImageDTO.java
+ ┃ ┃ ┃ ┗ 📜UserUpdatePasswordDTO.java
+ ┃ ┃ ┗ 📂response
+ ┃ ┃ ┃ ┣ 📜CheckPasswordDTO.java
+ ┃ ┃ ┃ ┣ 📜KakaoProfile.java
+ ┃ ┃ ┃ ┣ 📜OAuthToken.java
+ ┃ ┃ ┃ ┣ 📜UserApplyListDTO.java
+ ┃ ┃ ┃ ┣ 📜UserInfoDTO.java
+ ┃ ┃ ┃ ┣ 📜UserPointDTO.java
+ ┃ ┃ ┃ ┣ 📜UserTeamInfoDTO.java
+ ┃ ┃ ┃ ┗ 📜UserUpdateDTO.java
+ ┃ ┣ 📜AddressParer.java
+ ┃ ┣ 📜PhoneNumberFormatter.java
+ ┃ ┣ 📜User.java
+ ┃ ┣ 📜UserController.java
+ ┃ ┣ 📜UserRepository.java
+ ┃ ┗ 📜UserService.java
+ ┣ 📂_core
+ ┃ ┣ 📂config
+ ┃ ┃ ┣ 📜EbailConfig.java
+ ┃ ┃ ┣ 📜FilterConfig.java
+ ┃ ┃ ┗ 📜WebMvcConfig.java
+ ┃ ┣ 📂filter
+ ┃ ┃ ┗ 📜MyFilter1.java
+ ┃ ┣ 📂handler
+ ┃ ┃ ┣ 📂exception
+ ┃ ┃ ┃ ┣ 📜CustomPageException.java
+ ┃ ┃ ┃ ┣ 📜CustomRestfullException.java
+ ┃ ┃ ┃ ┗ 📜UnAuthorizedException.java
+ ┃ ┃ ┣ 📜AuthInterceptor.java
+ ┃ ┃ ┣ 📜MyPageExceptionHandler.java
+ ┃ ┃ ┗ 📜MyRestfullExceptionHandler.java
+ ┃ ┣ 📂interceptor
+ ┃ ┃ ┣ 📜BookmarkInterceptor.java
+ ┃ ┃ ┣ 📜LoginInterceptor.java
+ ┃ ┃ ┗ 📜ReservationInterceptor.java
+ ┃ ┣ 📂utils
+ ┃ ┃ ┣ 📜ApiUtils.java
+ ┃ ┃ ┣ 📜Define.java
+ ┃ ┃ ┣ 📜Function.java
+ ┃ ┃ ┣ 📜PageVO.java
+ ┃ ┃ ┣ 📜Script.java
+ ┃ ┃ ┗ 📜TimeStampUtil.java
+ ┃ ┗ 📂vo
+ ┃ ┃ ┗ 📜MyPath.java
+ ┗ 📜TeamProjectBringItOnApplication.java
+```
 
 ## 💡 사이트맵
 User
