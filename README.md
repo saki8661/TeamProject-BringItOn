@@ -1,4 +1,4 @@
-
+![고객센터, 공지, 문의, FAQ-min](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/13b1c1e3-ff12-40d5-8417-d131d1bfe206)
 ![logo](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/298e8ad3-904f-4173-b1df-e2134add2b9a)
 
 # 📝 Bring It On 프로젝트 소개
@@ -57,7 +57,102 @@
 ## 🗃 ERD테이블 명세서
 ![erd](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/d29001c8-8fcf-4a6d-bb1e-cb0e3acb4948)
 
-### Directory Tree
+
+
+## 💡 사이트맵
+User
+![user](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/fe926a65-b535-4eae-aff6-a509c3574689)
+
+Host
+![host](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/bfb6da91-79eb-4e17-a643-fa0640d9e061)
+
+Admin
+![admin](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/b1901980-372e-4a42-85a1-56ecca5669d8)
+
+## 📝 노션
+https://economic-asparagus-2ef.notion.site/3-Bring-It-On-2584b2760c204dc786ca366fbd253ec1?pvs=4
+
+일정관리, 역할분담, 계획수립, 소통 등 노션을 통해 진행하였습니다.
+
+
+### 유저 공통 기능
+- 회원가입
+- 카카오 회원가입
+- 로그인/로그아웃
+- 아이디 및 비밀번호 찾기
+- 이메일 인증
+
+### 일반 유저 관련 기능
+- 시설 대여(예약)
+- 시설 별점 및 후기 작성
+- 시설 북마크 추가/삭제
+- 예약 확인/결제
+
+### 호스트 유저 관련 기능
+- 시설 등록
+- 예약 리스트 조회
+- 후기 관리
+
+### 시설 관련 기능
+- 지도API
+
+### 팀 관련 기능
+- 팀 등록
+- 팀 전체 조회
+- 지역별 팀 조회
+- 인원순, 최신순 필터
+- 팀 신청
+- 팀 신청 내역 조회
+- 팀 신청 수락 / 거절
+
+### 결제 관련 기능
+- kakaoPay 결제
+- nicePay 결제
+- tossPay 결제
+- 결제 후 포인트 등록
+- 결제 환불
+
+### 매칭 관련 기능
+- 매칭 리스트 조회
+- 유저별 매칭 리스트 조회
+- 매칭 신청
+
+### 게시판 관련 기능
+- 게시글 작성
+- 게시글 목록 조회
+- 게시글 수정/삭제
+- 댓글 작성/삭제
+
+### 공지 관련 기능
+- 공지 작성
+- 공지 리스트 조회
+- 공지 수정/삭제
+
+### 문의 관련 기능
+- 문의 작성
+- 문의 리스트 조회
+- 문의 수정/삭제
+
+
+## 🎬사용자 시나리오
+|회원가입, OAuth, 이메일 인증|개인정보수정|
+|----|---|
+|![회원가입, OAuth, 이메일인증-min](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/6999cb9a-6b59-408a-8604-e1535fccb145)|![개인정보수정-min](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/09b6fff8-1a54-45e5-9023-c5a19c4ce553)|
+|공간 리스트, 공간상세보기|후기, 별점, 북마크|
+||![후기, 별점, 북마크-min](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/24472962-2bcf-4494-ae03-0ba3e1e6155d)|
+|공간예약|캐시충전, 예약결제|
+|![공간예약-min](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/748ee9ba-1e6f-4cb6-a74d-3d0a3c055d24)|![캐시충전, 예약 결제-min](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/3598383f-11b4-43a1-9a69-71955f66caf7)|
+|팀 리스트, 팀 지원, 팀 확인|매칭리스트, 신청, 목록 조회|
+|---|![매칭리스트, 매칭 신청, 나의 매칭 조회-min](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/a7549160-d83a-4471-91bf-c2161dfc0a37)|
+|게시글CRUD|댓글리스트, 작성, 삭제|
+|![게시글 CRUD-min](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/906961ba-09fb-4332-b1ab-b777dc6288e1)|![댓글 리스트, 댓글작성, 댓글삭제-min](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/0a21c7cd-ee24-4af6-a5ec-42aaecf60f51)|
+|시설등록, 수정|예약목록, 후기관리|
+|![시설등록, 수정-min](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/e25804f2-4e0e-4e8b-a72f-35897cfab6c0)|![예약목록, 후기관리-min](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/07e68a14-bcd1-4078-9bbd-4044a8c07b8b)|
+|고객센터 공지,문의 FAQ|---|
+|![고객센터, 공지, 문의, FAQ-min](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/db2ff4d5-1fdc-41c8-8ed6-379909830f26)|---|
+
+
+## Directory Tree
 ```📦teamprojectbringiton
  ┣ 📂admin
  ┃ ┣ 📂dto
@@ -343,85 +438,6 @@
  ┃ ┃ ┗ 📜MyPath.java
  ┗ 📜TeamProjectBringItOnApplication.java
 ```
-
-## 💡 사이트맵
-User
-![user](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/fe926a65-b535-4eae-aff6-a509c3574689)
-
-Host
-![host](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/bfb6da91-79eb-4e17-a643-fa0640d9e061)
-
-Admin
-![admin](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/b1901980-372e-4a42-85a1-56ecca5669d8)
-
-## 📝 노션
-https://economic-asparagus-2ef.notion.site/3-Bring-It-On-2584b2760c204dc786ca366fbd253ec1?pvs=4
-
-일정관리, 역할분담, 계획수립, 소통 등 노션을 통해 진행하였습니다.
-
-
-### 유저 공통 기능
-- 회원가입
-- 카카오 회원가입
-- 로그인/로그아웃
-- 아이디 및 비밀번호 찾기
-- 이메일 인증
-
-### 일반 유저 관련 기능
-- 시설 대여(예약)
-- 시설 별점 및 후기 작성
-- 시설 북마크 추가/삭제
-- 예약 확인/결제
-
-### 호스트 유저 관련 기능
-- 시설 등록
-- 예약 리스트 조회
-- 후기 관리
-
-### 시설 관련 기능
-- 지도API
-
-### 팀 관련 기능
-- 팀 등록
-- 팀 전체 조회
-- 지역별 팀 조회
-- 인원순, 최신순 필터
-- 팀 신청
-- 팀 신청 내역 조회
-- 팀 신청 수락 / 거절
-
-### 결제 관련 기능
-- kakaoPay 결제
-- nicePay 결제
-- tossPay 결제
-- 결제 후 포인트 등록
-- 결제 환불
-
-### 매칭 관련 기능
-- 매칭 리스트 조회
-- 유저별 매칭 리스트 조회
-- 매칭 신청
-
-### 게시판 관련 기능
-- 게시글 작성
-- 게시글 목록 조회
-- 게시글 수정/삭제
-- 댓글 작성/삭제
-
-### 공지 관련 기능
-- 공지 작성
-- 공지 리스트 조회
-- 공지 수정/삭제
-
-### 문의 관련 기능
-- 문의 작성
-- 문의 리스트 조회
-- 문의 수정/삭제
-
-
-## 🎬사용자 시나리오
-- 회원가입  
-
 
 ## 🔩 보완할 점
 - 매칭페이지 일자별 지역별 필터링
