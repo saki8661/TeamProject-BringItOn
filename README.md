@@ -6,11 +6,15 @@
 - Bring It On 한번 붙어보자는 의미로 스포츠 경쟁의 의미를 두고있습니다
 
 
+
+
 ## 🤝🏻프로젝트 3조 소개
 - 김대욱([@saki8661](https://github.com/saki8661))[팀장]
 - 박세환[(@bbarkse93](https://github.com/bbarkse93))[팀원]
 - 김언약([@yakyakyak12](https://github.com/yakyakyak12))[팀원]
 - 윤혜림([@YHYELIM](https://github.com/YHYELIM))[팀원]
+
+
 
 
 ## 목차
@@ -26,12 +30,12 @@
 
 
 
-## 시연영상 
+## 🎥 시연영상 
 ### [유튜브 링크]
 (https://www.youtube.com/watch?v=F5ZpQlHCKd8)
 
 
-## 기술스택
+## 🧰 기술스택
 
 ### Backend
 <img src="https://img.shields.io/badge/Springboot-6DB33F?style=for-the-badge&logo=Spring-Boot&logoColor=white"> <img src="https://img.shields.io/badge/MyBatis-5056E5?style=for-the-badge&logo=&logoColor=white"> <img src="https://img.shields.io/badge/JSP-F5C300?style=for-the-badge&logo=&logoColor=white">
@@ -70,12 +74,12 @@
     implementation group: 'com.google.firebase', name: 'firebase-admin', version: '9.2.0'
 ```
 
-## 📝ERD 테이블 명세서
+## 📝 ERD 테이블 명세서
 ![erd](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/d29001c8-8fcf-4a6d-bb1e-cb0e3acb4948)
 
 
 
-## 사이트맵
+## 📍 사이트맵
 ### User
 ![user](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/fe926a65-b535-4eae-aff6-a509c3574689)
 
@@ -85,12 +89,12 @@
 ### Admin
 ![admin](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/b1901980-372e-4a42-85a1-56ecca5669d8)
 
-## 노션
+## 📓 노션
 https://economic-asparagus-2ef.notion.site/3-Bring-It-On-2584b2760c204dc786ca366fbd253ec1?pvs=4
 
 일정관리, 역할분담, 계획수립, 소통 등 노션을 통해 진행하였습니다.
 
-## 기능정리
+## 🏷️ 기능정리
 
 ### 유저 공통 기능
 - 회원가입
@@ -151,7 +155,7 @@ https://economic-asparagus-2ef.notion.site/3-Bring-It-On-2584b2760c204dc786ca366
 - 문의 수정/삭제
 
 
-## 사용자 시나리오
+## 🎞️ 사용자 시나리오
 |회원가입, OAuth, 이메일 인증|개인정보수정|
 |----|---|
 |![회원가입, OAuth, 이메일인증-min](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/6999cb9a-6b59-408a-8604-e1535fccb145)|![개인정보수정-min](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/09b6fff8-1a54-45e5-9023-c5a19c4ce553)|
@@ -169,7 +173,7 @@ https://economic-asparagus-2ef.notion.site/3-Bring-It-On-2584b2760c204dc786ca366
 |![고객센터, 공지, 문의, FAQ-min](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/db2ff4d5-1fdc-41c8-8ed6-379909830f26)|---|
 
 
-## Directory Tree
+## 🌳 Directory Tree
 ```📦teamprojectbringiton
  ┣ 📂admin
  ┃ ┣ 📂dto
