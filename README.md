@@ -18,8 +18,8 @@
 
 
 ## 목차
-- [시연영상](#시연영상)
-- [기술스택](#기술스택)
+- [시연영상](#-시연영상)
+- [기술스택](#-기술스택)
 - [ERD 테이블 명세서](#ERD-테이블-명세서)
 - [사이트맵](#사이트맵)
 - [노션](#노션)
@@ -173,7 +173,7 @@ https://economic-asparagus-2ef.notion.site/3-Bring-It-On-2584b2760c204dc786ca366
 |![고객센터, 공지, 문의, FAQ-min](https://github.com/saki8661/TeamProject-BringItOn/assets/135561587/db2ff4d5-1fdc-41c8-8ed6-379909830f26)|---|
 
 
-## 🌳 Directory Tree
+## 🌳Directory Tree
 ```📦teamprojectbringiton
  ┣ 📂admin
  ┃ ┣ 📂dto
